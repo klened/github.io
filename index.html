@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조건에 맞는 부동산 대출 찾기 | 전세·매매·월세 비교 추천</title>
+<meta name="description" content="사용자의 나이·소득·지역·가구 상황에 맞는 부동산 대출(전세자금·주택담보·월세)을 자동으로 비교 추천하는 무료 도구. 버팀목, 디딤돌, 보금자리론, 신생아 특례까지 한 번에 비교하세요.">
+<meta name="keywords" content="부동산 대출, 전세자금대출, 주택담보대출, 버팀목, 디딤돌, 보금자리론, 신생아 특례, 청년월세, 대출 비교">
+<meta name="author" content="부동산 대출 비교 가이드">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="조건에 맞는 부동산 대출 찾기">
+<meta property="og:description" content="전세·매매·월세 정책자금부터 시중은행 상품까지 30초 만에 비교하세요.">
+<meta property="og:locale" content="ko_KR">
+
+<!-- 구글 애드센스 스크립트 위치 -->
+<!-- 구글 애드센스에서 발급받은 ca-pub-XXXXXXXXXXXXXXXX 값을 아래 client에 교체하세요 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+ crossorigin="anonymous"></script>
+
+<!-- Pretendard Font -->
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<!-- JSON-LD 구조화 데이터 (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "부동산 대출 비교 추천기",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "description": "사용자의 나이·소득·지역·가구 상황에 맞는 부동산 대출(전세자금·주택담보·월세)을 자동으로 비교 추천하는 무료 도구.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "inLanguage": "ko-KR"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "버팀목 전세자금대출 자격조건은?",
+          "acceptedAnswer": { "@type": "Answer", "text": "부부합산 연소득 5천만원 이하, 무주택 세대주, 임차전용 85㎡ 이하 주택이 기본 조건입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "디딤돌 대출과 보금자리론 중 어느 것이 유리한가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "연소득 6천만원 이하이고 무주택자라면 디딤돌 대출이 일반적으로 더 유리합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "신생아 특례 대출은 누가 받을 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "2023년 1월 1일 이후 출생한 자녀가 있고 신청일 기준 2년 이내 출산한 가구가 대상입니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- FOUC 방지: 페이지 렌더 전 다크 테마 즉시 적용 -->
+<script>
+(function(){var t=localStorage.getItem('loan-theme');if(t)document.documentElement.setAttribute('data-loan-theme',t);})();
+</script>
+
+<style>
+/* ============================================================
+   글 본문 인라인 스타일 (Toss Design System)
+   ============================================================ */
+:root {
+  --primary: #3182F6;
+  --primary-dark: #1B64DA;
+  --primary-light: #E8F2FE;
+  --primary-soft: #F4F6F8;
+  --bg: #FFFFFF;
+  --bg-soft: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --text-strong: #191F28;
+  --text: #333D4B;
+  --text-soft: #4E5968;
+  --text-mute: #8B95A1;
+  --text-disabled: #B0B8C1;
+  --border: #E5E8EB;
+  --border-soft: #F2F4F6;
+  --success: #00C73C;
+  --warning: #FF9D00;
+  --danger: #F04452;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+  --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg-soft);
+  color: var(--text);
+  line-height: 1.5;
+  font-weight: 400;
+  word-break: keep-all;
+}
+button, input, select { font-family: inherit; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+/* ========== Header ========== */
+header.hero { background: var(--bg); padding: 32px 0 24px; border-bottom: 1px solid var(--border-soft); }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--primary-light); color: var(--primary);
+  padding: 6px 12px; border-radius: 100px;
+  font-size: 13px; font-weight: 600; margin-bottom: 14px;
+}
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+header.hero h1 { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.3; letter-spacing: -0.6px; margin-bottom: 10px; }
+header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55; }
+.hero-stats { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-soft); }
+.hero-stat .num { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+.hero-stat .label { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+/* Steps Progress */
+.step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
+.step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
+/* Form */
+.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+.form-card h2.section-title { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; letter-spacing: -0.3px; }
+.form-card .section-sub { font-size: 13px; color: var(--text-mute); margin-bottom: 20px; }
+.form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
+.form-group:last-child { margin-bottom: 0; }
+.form-group label.field-label { font-size: 14px; font-weight: 600; color: var(--text-strong); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.required-dot { width: 5px; height: 5px; background: var(--danger); border-radius: 50%; display: inline-block; }
+.field-hint { font-size: 12px; color: var(--text-mute); font-weight: 400; margin-left: auto; }
+.input-wrap { position: relative; }
+.form-group select, .form-group input[type="number"], .form-group input[type="text"] {
+  width: 100%; padding: 16px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  font-size: 16px; font-weight: 500; color: var(--text-strong); background: var(--bg);
+  transition: all 0.18s; -webkit-appearance: none; appearance: none;
+}
+.form-group select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B95A1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; padding-right: 44px;
+}
+.form-group input::placeholder { color: var(--text-disabled); font-weight: 400; }
+.form-group select:hover, .form-group input:hover { border-color: var(--text-mute); }
+.form-group select:focus, .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(49,130,246,0.15); }
+.input-unit { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--text-mute); font-size: 14px; font-weight: 500; pointer-events: none; }
+.input-with-unit input { padding-right: 52px; }
+.input-preview { display: none; margin-top: 8px; padding: 10px 14px; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; animation: slideDown 0.18s ease-out; }
+.input-preview.visible { display: block; }
+.input-preview .arrow { margin: 0 4px; color: var(--primary); }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-row .form-group { margin-bottom: 18px; }
+/* Chips */
+.chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; padding: 10px 16px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--text-soft); cursor: pointer; user-select: none; background: var(--bg); transition: all 0.15s; }
+.chip input { display: none; }
+.chip:hover { border-color: var(--text-mute); }
+.chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+.chip.active::before { content: '✓'; margin-right: 4px; font-weight: 700; }
+.quick-amount { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.quick-btn { padding: 7px 12px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+.quick-btn:hover { background: var(--primary-light); color: var(--primary); }
+.quick-btn:active { transform: scale(0.96); }
+/* Buttons */
+.action-bar { display: flex; gap: 10px; margin-top: 8px; }
+.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; }
+.submit-btn:hover:not(:disabled) { background: var(--primary-dark); }
+.submit-btn:active:not(:disabled) { transform: scale(0.99); }
+.submit-btn:disabled { background: var(--border); color: var(--text-disabled); cursor: not-allowed; }
+.reset-btn { padding: 18px 22px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.reset-btn:hover { background: var(--border); }
+/* Loading */
+.loading-state { display: none; text-align: center; padding: 60px 20px; }
+.loading-state.show { display: block; }
+.spinner { width: 40px; height: 40px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-state p { color: var(--text-soft); font-size: 14px; font-weight: 500; }
+/* Results */
+.results-wrap { display: none; margin-top: 24px; }
+.results-wrap.show { display: block; }
+.results-header { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 14px; }
+.results-header h2 { font-size: 20px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; }
+.results-header .count { font-size: 13px; color: var(--text-mute); font-weight: 500; }
+.result-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 12px; box-shadow: var(--shadow-sm); border: 1px solid transparent; transition: all 0.2s; position: relative; }
+.result-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.result-card.rank-1 { border-color: var(--primary); background: linear-gradient(180deg, #F5F9FF 0%, #FFFFFF 30%); }
+.card-rank-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 100px; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+.card-rank-badge.gold { background: var(--primary); color: white; }
+.card-rank-badge.silver { background: var(--primary-light); color: var(--primary); }
+.product-name { font-size: 17px; font-weight: 700; color: var(--text-strong); margin-bottom: 6px; letter-spacing: -0.3px; }
+.product-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.meta-tag { font-size: 12px; color: var(--text-soft); background: var(--bg-soft); padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+.meta-tag.category { background: var(--primary-light); color: var(--primary); }
+.score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding: 12px 14px; background: var(--bg-soft); border-radius: var(--radius-md); }
+.score-label { font-size: 13px; color: var(--text-soft); font-weight: 500; }
+.score-bar { flex: 1; height: 8px; background: var(--border-soft); border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 4px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.score-num { font-size: 16px; font-weight: 800; color: var(--primary); min-width: 36px; text-align: right; }
+.info-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-bottom: 14px; border: 1px solid var(--border-soft); border-radius: var(--radius-md); overflow: hidden; }
+.info-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 14px; border-bottom: 1px solid var(--border-soft); gap: 12px; }
+.info-item:last-child { border-bottom: none; }
+.info-label { font-size: 13px; color: var(--text-mute); font-weight: 500; flex-shrink: 0; }
+.info-value { font-size: 13px; color: var(--text-strong); font-weight: 600; text-align: right; white-space: pre-line; }
+.reasons-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.reason-tag { display: inline-flex; align-items: center; gap: 4px; background: #E6F9EC; color: #00A82D; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.warn-tag { background: #FFF4E0; color: #B86E00; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.card-note { font-size: 12px; color: var(--text-mute); line-height: 1.6; padding-top: 12px; border-top: 1px dashed var(--border); margin-bottom: 14px; }
+.more-btn { display: flex; align-items: center; justify-content: center; gap: 4px; width: 100%; padding: 13px; background: var(--primary-soft); color: var(--primary); text-decoration: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 600; transition: all 0.15s; }
+.more-btn:hover { background: var(--primary-light); }
+.more-btn .arrow { transition: transform 0.18s; }
+.more-btn:hover .arrow { transform: translateX(3px); }
+/* Empty state */
+.empty-state { text-align: center; padding: 60px 24px; background: var(--bg-card); border-radius: var(--radius-lg); }
+.empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+.empty-state h3 { font-size: 17px; font-weight: 700; color: var(--text-strong); margin-bottom: 8px; }
+.empty-state p { color: var(--text-soft); font-size: 14px; line-height: 1.6; }
+/* Disclaimer */
+.disclaimer { background: var(--primary-soft); border-radius: var(--radius-md); padding: 16px 18px; margin-top: 18px; font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.disclaimer strong { color: var(--text-strong); font-weight: 700; background: linear-gradient(180deg, transparent 60%, rgba(255,209,102,0.55) 60%); padding: 0 2px; }
+/* FAQ */
+.faq-section { margin: 32px 0; }
+.faq-section h2 { font-size: 18px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; padding: 0 4px; letter-spacing: -0.3px; }
+details.faq-item { background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+details.faq-item summary { list-style: none; padding: 16px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--text-strong); display: flex; justify-content: space-between; align-items: center; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after { content: '+'; font-size: 22px; color: var(--text-mute); font-weight: 300; transition: transform 0.2s; }
+details.faq-item[open] summary::after { content: '−'; color: var(--primary); }
+details.faq-item .faq-answer { padding: 0 18px 18px; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+/* Footer */
+footer.site-footer { background: var(--bg); padding: 28px 0 40px; text-align: center; margin-top: 24px; border-top: 1px solid var(--border-soft); }
+footer.site-footer p { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
+footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
+/* Desktop */
+@media (min-width: 768px) {
+  header.hero { padding: 56px 0 40px; }
+  header.hero h1 { font-size: 36px; line-height: 1.25; }
+  header.hero p.lead { font-size: 17px; }
+  .hero-stat .num { font-size: 28px; }
+  .hero-stat .label { font-size: 13px; }
+  .hero-stats { gap: 40px; padding-top: 28px; margin-top: 28px; }
+  .form-card { padding: 32px 28px; }
+  .form-card h2.section-title { font-size: 20px; }
+  .form-card .section-sub { font-size: 14px; margin-bottom: 24px; }
+  #resultsList { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-items: start; }
+  .result-card { margin-bottom: 0; }
+  .result-card.rank-1 { grid-column: 1 / -1; }
+  details.faq-item summary { padding: 18px 22px; font-size: 15px; }
+  details.faq-item .faq-answer { padding: 0 22px 20px; font-size: 14px; }
+}
+/* Score grades */
+.score-row.grade-high { background: rgba(0,200,60,0.08); }
+.score-row.grade-mid { background: var(--primary-light); }
+.score-row.grade-low { background: rgba(139,149,161,0.08); }
+.score-bar-fill.grade-high { background: linear-gradient(90deg, #00C73C, #00A82D) !important; }
+.score-bar-fill.grade-mid { background: linear-gradient(90deg, var(--primary), var(--primary-dark)) !important; }
+.score-bar-fill.grade-low { background: linear-gradient(90deg, #B0B8C1, #8B95A1) !important; }
+.score-num.grade-high { color: #00A82D !important; }
+.score-num.grade-mid { color: var(--primary) !important; }
+.score-num.grade-low { color: #6E7782 !important; }
+.score-grade-label { font-size: 13px; font-weight: 700; letter-spacing: -0.2px; white-space: nowrap; }
+.score-row.grade-high .score-grade-label { color: #00A82D; }
+.score-row.grade-mid .score-grade-label { color: var(--primary); }
+.score-row.grade-low .score-grade-label { color: #6E7782; }
+/* Feature tag */
+.feature-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--primary-light); color: var(--primary); padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+html[data-loan-theme="dark"] .feature-tag { background: rgba(49,130,246,0.18); color: #6FA8FF; }
+/* Simulation box */
+.simulation-box { background: linear-gradient(135deg, #F0F7FF 0%, #F5F4FF 100%); border: 1px solid rgba(49,130,246,0.15); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+html[data-loan-theme="dark"] .simulation-box { background: linear-gradient(135deg, rgba(49,130,246,0.12), rgba(110,91,255,0.08)); border-color: rgba(49,130,246,0.25); }
+.simulation-box .sim-header { font-size: 12px; font-weight: 700; color: var(--primary); margin-bottom: 12px; letter-spacing: -0.2px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.simulation-box .sim-header .sim-source { font-size: 11px; color: var(--text-mute); font-weight: 500; }
+.simulation-box .sim-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.simulation-box .sim-cell { text-align: center; padding: 10px 6px; background: rgba(255,255,255,0.6); border-radius: 10px; }
+html[data-loan-theme="dark"] .simulation-box .sim-cell { background: rgba(255,255,255,0.04); }
+.simulation-box .sim-label { font-size: 11px; color: var(--text-mute); font-weight: 500; margin-bottom: 4px; }
+.simulation-box .sim-value { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; line-height: 1.2; }
+.simulation-box .sim-value.primary { color: var(--primary); font-size: 19px; }
+.simulation-box .sim-value .sim-unit { font-size: 12px; font-weight: 600; color: var(--text-mute); margin-left: 2px; }
+.simulation-box .sim-note { font-size: 11px; color: var(--text-mute); margin-top: 10px; text-align: center; font-weight: 500; line-height: 1.5; }
+.simulation-box.simulation-empty { text-align: center; padding: 18px 16px; }
+.simulation-box .sim-empty-message { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+.simulation-box .sim-empty-message strong { color: var(--primary); font-weight: 700; }
+.simulation-box .sim-empty-cta { display: inline-block; margin-top: 10px; background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--font); }
+.simulation-box .sim-empty-cta:hover { background: var(--primary-dark); }
+@media (min-width: 768px) {
+  #resultsList.layout-compare .simulation-box { padding: 12px; }
+  #resultsList.layout-compare .simulation-box .sim-grid { grid-template-columns: 1fr; gap: 4px; }
+  #resultsList.layout-compare .simulation-box .sim-cell { display: flex; justify-content: space-between; align-items: center; text-align: left; padding: 7px 10px; }
+  #resultsList.layout-compare .simulation-box .sim-label { margin-bottom: 0; font-size: 11px; }
+  #resultsList.layout-compare .simulation-box .sim-value { font-size: 14px; }
+  #resultsList.layout-compare .simulation-box .sim-value.primary { font-size: 15px; }
+}
+/* Rank-1 reason */
+.rank-1-reason { background: linear-gradient(135deg, rgba(49,130,246,0.08), rgba(110,91,255,0.06)); border: 1px solid rgba(49,130,246,0.2); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+.rank-1-reason strong { display: block; font-size: 12px; font-weight: 700; color: var(--primary); margin-bottom: 6px; letter-spacing: -0.2px; }
+.rank-1-reason p { font-size: 13px; color: var(--text-strong); line-height: 1.55; font-weight: 500; margin: 0; }
+html[data-loan-theme="dark"] .rank-1-reason { background: linear-gradient(135deg, rgba(49,130,246,0.15), rgba(110,91,255,0.1)); border-color: rgba(49,130,246,0.3); }
+/* Compare layout */
+@media (min-width: 768px) {
+  #resultsList.layout-compare { display: grid; grid-template-columns: repeat(var(--compare-cols, 2), 1fr); gap: 12px; align-items: stretch; }
+  #resultsList.layout-compare .result-card { grid-column: auto !important; margin: 0; padding: 20px 16px; display: flex; flex-direction: column; }
+  #resultsList.layout-compare .result-card .info-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+  #resultsList.layout-compare .result-card .info-value { text-align: left; }
+  #resultsList.layout-compare .result-card .more-btn { margin-top: auto; }
+  #resultsList.layout-compare .product-name { font-size: 16px; }
+  #resultsList.layout-compare .info-label { font-size: 12px; }
+  #resultsList.layout-compare .info-value { font-size: 13px; }
+}
+@media (max-width: 767px) {
+  #resultsList.layout-compare { display: flex; flex-direction: column; gap: 12px; }
+}
+/* Empty state details */
+.empty-state .empty-recap, .empty-state .empty-hints, .empty-state .empty-suggestions { text-align: left; margin: 20px auto 0; max-width: 600px; padding: 16px 18px; background: var(--bg-soft); border-radius: 12px; }
+.empty-state .empty-recap strong, .empty-state .empty-hints strong, .empty-state .empty-suggestions strong { display: block; font-size: 13px; color: var(--text-strong); margin-bottom: 10px; font-weight: 700; }
+.empty-state .recap-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.empty-state .recap-chip { background: var(--bg-card); border: 1px solid var(--border-soft); padding: 5px 10px; border-radius: 6px; font-size: 12px; color: var(--text-soft); font-weight: 500; }
+.empty-state .empty-hints ul { list-style: none; padding: 0; margin: 0; }
+.empty-state .empty-hints li { font-size: 13px; color: var(--text-soft); line-height: 1.6; padding: 4px 0 4px 18px; position: relative; }
+.empty-state .empty-hints li::before { content: '•'; position: absolute; left: 6px; color: var(--primary); font-weight: 700; }
+.empty-state .fallback-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.empty-state .fallback-card { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-decoration: none; color: var(--text); transition: all 0.18s; }
+.empty-state .fallback-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(49,130,246,0.1); }
+.empty-state .fallback-name { font-size: 14px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; }
+.empty-state .fallback-agency { font-size: 11px; color: var(--text-mute); margin-bottom: 8px; }
+.empty-state .fallback-rate { font-size: 12px; color: var(--text-soft); margin-bottom: 10px; line-height: 1.4; }
+.empty-state .fallback-cta { font-size: 12px; color: var(--primary); font-weight: 600; }
+.empty-state .empty-actions { display: flex; gap: 8px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+.empty-state .empty-btn { padding: 12px 20px; background: var(--primary-soft); color: var(--text-strong); border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); transition: all 0.15s; }
+.empty-state .empty-btn:hover { background: var(--border-soft); }
+.empty-state .empty-btn-primary { background: var(--primary); color: white; }
+.empty-state .empty-btn-primary:hover { background: var(--primary-dark); }
+/* Mobile small */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  header.hero { padding: 24px 0 20px; }
+  header.hero h1 { font-size: 22px; }
+  .form-card { padding: 20px 16px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .info-item { flex-direction: column; gap: 4px; }
+  .info-value { text-align: left; }
+  .hero-stats { gap: 16px; }
+  .hero-stat .num { font-size: 18px; }
+}
+/* Dark Mode */
+html[data-loan-theme="dark"] {
+  --bg: #1F2229; --bg-soft: #16181D; --bg-card: #1F2229;
+  --text-strong: #F2F4F6; --text: #D1D6DB; --text-soft: #B0B8C1; --text-mute: #8B95A1; --text-disabled: #4E5968;
+  --border: #2A2E37; --border-soft: #25282E;
+  --primary-light: #1A2940; --primary-soft: #22252B;
+}
+html[data-loan-theme="dark"] body { background: var(--bg-soft); }
+html[data-loan-theme="dark"] header.hero { border-bottom: 1px solid var(--border); }
+html[data-loan-theme="dark"] footer.site-footer { background: var(--bg); }
+html[data-loan-theme="dark"] .reason-tag { background: rgba(0,200,60,0.18); color: #4CD964; }
+html[data-loan-theme="dark"] .warn-tag { background: rgba(255,157,0,0.18); color: #FFB340; }
+html[data-loan-theme="dark"] .result-card.rank-1 { background: linear-gradient(180deg, #1F2940 0%, #1F2229 40%); }
+html[data-loan-theme="dark"] select option { background: #1F2229; color: #F2F4F6; }
+html[data-loan-theme="dark"] .form-group select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B95A1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>"); }
+html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(180deg, transparent 60%, rgba(255,209,102,0.25) 60%); }
+/* Floating elements */
+#readingProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--primary), #6E5BFF); z-index: 9999; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(49,130,246,0.4); }
+#topBtn { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: white; border: none; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(49,130,246,0.35); opacity: 0; transform: translateY(20px); transition: all 0.25s cubic-bezier(.4,0,.2,1); pointer-events: none; z-index: 100; font-family: var(--font); }
+#topBtn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+#topBtn:hover { background: var(--primary-dark); transform: translateY(-4px); }
+.dark-toggle { position: fixed; top: 20px; right: 20px; width: 44px; height: 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; font-size: 20px; cursor: pointer; transition: all 0.18s cubic-bezier(.4,0,.2,1); display: flex; align-items: center; justify-content: center; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.dark-toggle:hover { background: var(--primary-light); transform: rotate(20deg) scale(1.1); }
+@media (max-width: 480px) {
+  .dark-toggle { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 16px; }
+}
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.in { opacity: 1; transform: none; transition: none; }
+}
+.gradient-title { background: linear-gradient(135deg, var(--primary) 0%, #6E5BFF 55%, #FF5BB3 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+
+/* Site nav */
+.site-nav { background: var(--bg); border-bottom: 1px solid var(--border-soft); padding: 12px 0; }
+.site-nav .container { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 6px 12px; border-radius: 8px; transition: all 0.15s; }
+.site-nav a:hover { background: var(--primary-soft); color: var(--primary); }
+.site-nav a.active { background: var(--primary-light); color: var(--primary-dark); }
+.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<!-- 사이트 네비게이션 -->
+<nav class="site-nav">
+<div class="container">
+<span class="brand">💗 우리집 혜택 찾기</span>
+<a href="./index.html" class="active">🏠 부동산 대출 찾기</a>
+<a href="./baby.html">👶 출산·육아 지원금</a>
+</div>
+</nav>
+
+<!-- 글 읽기 진행률 -->
+<div id="readingProgress" aria-hidden="true"></div>
+
+<header class="hero">
+<div class="container">
+<span class="hero-badge">2026년 5월 최신 업데이트</span>
+<h1 class="gradient-title">내 조건에 맞는<br>부동산 대출 1초 찾기</h1>
+<p class="lead">전세·매매·월세 정책자금부터 시중은행 상품까지,<br>나에게 가장 유리한 대출을 자동으로 비교해드려요.</p>
+<div class="hero-stats">
+<div class="hero-stat">
+<div class="num">21개</div>
+<div class="label">비교 상품</div>
+</div>
+<div class="hero-stat">
+<div class="num">30초</div>
+<div class="label">소요 시간</div>
+</div>
+<div class="hero-stat">
+<div class="num">100%</div>
+<div class="label">무료 · 익명</div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="container">
+<div class="step-bar">
+<div class="step-bar-icon">1</div>
+<div class="step-bar-text">내 조건을 입력하면 적합도 순으로 추천해드려요</div>
+</div>
+
+<form id="filterForm" novalidate>
+<!-- Section 1 -->
+<section class="form-card" aria-labelledby="sec1">
+<h2 id="sec1" class="section-title">기본 정보</h2>
+<p class="section-sub">대출 목적은 꼭 선택해주세요</p>
+<div class="form-group">
+<label class="field-label" for="purpose">대출 목적 <span class="required-dot" aria-label="필수"></span></label>
+<div class="input-wrap">
+<select id="purpose" name="purpose" required>
+<option value="">목적을 선택해주세요</option>
+<option value="jeonse">🏠 전세 자금이 필요해요</option>
+<option value="purchase">🔑 집을 살 자금이 필요해요</option>
+<option value="monthly">📅 월세 지원이 필요해요</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label class="field-label" for="age">나이</label>
+<div class="input-wrap input-with-unit">
+<input id="age" max="80" min="19" name="age" type="number" placeholder="32">
+<span class="input-unit">세</span>
+</div>
+</div>
+<div class="form-group">
+<label class="field-label" for="region">거주 지역</label>
+<div class="input-wrap">
+<select id="region" name="region">
+<option value="seoul">서울</option>
+<option value="metro">수도권 (서울 제외)</option>
+<option value="nonMetro">비수도권</option>
+</select>
+</div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label class="field-label" for="marital">혼인 상태</label>
+<div class="input-wrap">
+<select id="marital" name="marital">
+<option value="single">미혼</option>
+<option value="newlywed">신혼부부 (7년 이내)</option>
+<option value="preNewlywed">예비 신혼부부</option>
+<option value="married">일반 부부</option>
+<option value="singleParent">한부모 가구</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label class="field-label" for="children">자녀 · 출산</label>
+<div class="input-wrap">
+<select id="children" name="children">
+<option value="0">자녀 없음</option>
+<option value="newborn">2년 내 출산 (23.1 이후)</option>
+<option value="1">자녀 1명</option>
+<option value="2">자녀 2명</option>
+<option value="3">자녀 3명 이상</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Section 2 -->
+<section class="form-card" aria-labelledby="sec2">
+<h2 id="sec2" class="section-title">재무 정보</h2>
+<p class="section-sub">입력하면 한도·금리 우대 가능성을 더 정확히 비교해요</p>
+<div class="form-group">
+<label class="field-label" for="income">부부합산 연소득 <span class="field-hint">선택 입력</span></label>
+<div class="input-wrap input-with-unit">
+<input id="income" autocomplete="off" name="income" type="text" placeholder="6,000">
+<span class="input-unit">만원</span>
+</div>
+<div id="incomePreview" class="input-preview"></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="income" data-amount="3000">3천만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="5000">5천만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="7000">7천만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="10000">1억</button>
+</div>
+</div>
+<div class="form-group">
+<label class="field-label" for="housing">주택 보유 현황</label>
+<div class="input-wrap">
+<select id="housing" name="housing">
+<option value="0">무주택</option>
+<option value="1">1주택</option>
+<option value="2plus">2주택 이상</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label class="field-label" for="amount">보증금 · 주택 가격 <span class="field-hint">선택 입력</span></label>
+<div class="input-wrap input-with-unit">
+<input id="amount" autocomplete="off" name="amount" type="text" placeholder="25,000">
+<span class="input-unit">만원</span>
+</div>
+<div id="amountPreview" class="input-preview"></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="amount" data-amount="10000">1억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="20000">2억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="30000">3억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="50000">5억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="70000">7억</button>
+</div>
+</div>
+</section>
+
+<!-- Section 3 -->
+<section class="form-card" aria-labelledby="sec3">
+<h2 id="sec3" class="section-title">우대조건 선택</h2>
+<p class="section-sub">해당되는 조건을 모두 선택하면 금리 우대 상품을 더 정확히 찾아드려요</p>
+<div class="chip-grid">
+<label class="chip"><input name="sme" type="checkbox"> 중소·중견기업 재직</label>
+<label class="chip"><input name="firstHome" type="checkbox"> 생애최초 주택구입</label>
+<label class="chip"><input name="dreamAccount" type="checkbox"> 청년주택드림 청약통장</label>
+<label class="chip"><input name="jobSeeker" type="checkbox"> 취준생·사회초년생</label>
+<label class="chip"><input name="multicultural" type="checkbox"> 다문화·장애인 가구</label>
+<label class="chip"><input name="disabled" type="checkbox"> 한부모·근로장려금 수급</label>
+</div>
+</section>
+
+<div class="action-bar">
+<button id="resetBtn" class="reset-btn" type="button">초기화</button>
+<button id="submitBtn" class="submit-btn" type="submit">상품 비교하기</button>
+</div>
+</form>
+
+<div id="loading" class="loading-state">
+<div class="spinner"></div>
+<p>내 조건에 맞는 부동산 대출을 비교 중…</p>
+</div>
+
+<section id="results" class="results-wrap" aria-live="polite">
+<div class="results-header">
+<h2>추천 결과</h2>
+<div id="resultCount" class="count"></div>
+</div>
+<div id="resultsList"></div>
+<div class="disclaimer"><b>⚠ 안내</b> · 본 결과는 입력 조건 기반의 <b>추정 추천</b>이며 실제 대출 승인 여부와 다를 수 있습니다. 금리·한도는 매월 변동되므로 자세한 조건은 각 기관 공식 페이지에서 반드시 재확인 후 신청해주세요. (기준: 2026년 5월)</div>
+</section>
+
+<section class="faq-section">
+<h2>자주 묻는 질문</h2>
+<details class="faq-item">
+<summary>버팀목 전세자금대출 자격조건은 어떻게 되나요?</summary>
+<div class="faq-answer">부부합산 연소득 5천만원 이하, 무주택 세대주, 임차전용 85㎡ 이하 주택이 기본 조건입니다. 신혼부부·청년·신생아 가구는 별도 우대 상품이 있어 한도와 금리가 더 유리하니, 위 추천기에서 본인의 조건에 맞는 상품을 함께 비교해보세요.</div>
+</details>
+<details class="faq-item">
+<summary>디딤돌 대출과 보금자리론 중 어느 것이 유리한가요?</summary>
+<div class="faq-answer">연소득 6천만원 이하이고 무주택자라면 일반적으로 디딤돌 대출(연 2.95~3.55%)이 더 유리합니다. 소득 또는 주택가격이 디딤돌 한도를 초과하면 보금자리론(연 3.95~4.25%, 최대 3.6억원)을 검토하세요.</div>
+</details>
+<details class="faq-item">
+<summary>신생아 특례 대출은 누가 받을 수 있나요?</summary>
+<div class="faq-answer">2023년 1월 1일 이후 출생한 자녀가 있고 신청일 기준 2년 이내 출산한 가구가 대상입니다. 부부합산 연소득 2.5억원 이하면 신청 가능하며, 특례금리 1.6~3.3%가 5년간 적용되고 추가 출산시 5년씩 연장됩니다.</div>
+</details>
+<details class="faq-item">
+<summary>청년 월세 지원금은 어떻게 신청하나요?</summary>
+<div class="faq-answer">만 19~34세, 청년 본인 중위소득 60% 이하 + 원가구 중위소득 100% 이하 조건을 충족하면 복지로(bokjiro.go.kr)에서 신청 가능합니다. 월 최대 20만원씩 24개월간 총 480만원까지 지원되며, 2026년부터 상시 신청으로 전환됐어요.</div>
+</details>
+<details class="faq-item">
+<summary>HF·HUG·SGI 전세보증의 차이는 뭔가요?</summary>
+<div class="faq-answer">HF(주택금융공사)는 보증료가 가장 저렴(연 0.02~0.40%)하지만 소득·주택가격 제한이 있습니다. HUG(주택도시보증공사)는 전세금 안심대출 보증과 결합 가능하고 보증료가 0.12%대입니다. SGI(서울보증)는 한도가 가장 크고 다주택자도 가능하지만 보증료(0.229~0.260%)가 높습니다.</div>
+</details>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="container">
+<p>상품 정보 출처: <b>주택도시기금 · 한국주택금융공사 · 주택도시보증공사 · 서울보증보험 · 시중은행</b></p>
+<p>&copy; 2026 부동산 대출 비교 가이드 · 본 페이지는 정보 제공 목적이며 실제 대출 승인을 보장하지 않습니다</p>
+</div>
+</footer>
+
+<button id="topBtn" type="button" aria-label="맨 위로 가기">↑</button>
+<button id="darkToggle" class="dark-toggle" type="button" aria-label="다크모드 전환">🌙</button>
+
+<script>
+// ========== 대출 상품 데이터베이스 ==========
+const PRODUCTS = [
+  { id: 'beotimok', category: 'jeonse', name: '버팀목 전세자금대출', agency: '주택도시기금', rateMin: 2.0, rateMax: 3.1, rateLabel: '연 2.0%~3.1% (우대시 최저 1.2%)', limitLabel: '수도권 2.0억 / 비수도권 1.6억', depositLabel: '수도권 4.5억 / 비수도권 2.5억', targetLabel: '부부합산 연소득 5천만 ↓, 무주택', note: '임차전용 85㎡ 이하 · 최초 2년(최장 10년)', url: 'https://www.myhome.go.kr/hws/portal/cont/selectSupLeaseLoanView.do', rules: { purpose: ['jeonse'], maxIncome: 5000, maxHousing: 0, maxDeposit: {seoul: 45000, metro: 45000, nonMetro: 25000}, perks: {sme: 0.3, multicultural: 0.2} } },
+  { id: 'beotimok-newlywed', category: 'jeonse', name: '신혼부부 버팀목 전세자금대출', agency: '주택도시기금', rateMin: 1.0, rateMax: 4.3, rateLabel: '연 1.9%~3.3% (우대 포함 최저 1.0%)', limitLabel: '수도권 3억 / 비수도권 2억', depositLabel: '수도권 4억 / 비수도권 3억', targetLabel: '부부합산 연소득 7,500만 ↓, 신혼부부, 무주택', note: '혼인 7년 이내 · 잔금일+3개월 이내 신청', url: 'https://www.myhome.go.kr/hws/portal/cont/selectYouthPolicyHoneyMoonLoanView.do', rules: { purpose: ['jeonse'], maxIncome: 7500, maxHousing: 0, marital: ['newlywed', 'preNewlywed'], maxDeposit: {seoul: 40000, metro: 40000, nonMetro: 30000}, perks: {children: 0.4} } },
+  { id: 'beotimok-youth', category: 'jeonse', name: '청년전용 버팀목 전세자금대출', agency: '주택도시기금', rateMin: 1.5, rateMax: 3.1, rateLabel: '연 2.0%~3.1% (우대시 최저 1.5%)', limitLabel: '최대 2억 (25세 미만 단독 1.5억)', depositLabel: '수도권 3억 / 비수도권 2억', targetLabel: '만 19~34세, 부부합산 연소득 5천만 ↓, 무주택', note: '중기청 전세대출은 청년 버팀목에 통합 운영', url: 'https://www.myhome.go.kr/hws/portal/cont/selectYouthPolicyYouthOnlyCrutchLoanView.do', rules: { purpose: ['jeonse'], maxAge: 34, minAge: 19, maxIncome: 5000, maxHousing: 0, maxDeposit: {seoul: 30000, metro: 30000, nonMetro: 20000}, perks: {sme: 0.5} } },
+  { id: 'beotimok-newborn', category: 'jeonse', name: '신생아 특례 버팀목 전세자금대출', agency: '주택도시기금', rateMin: 1.3, rateMax: 3.0, rateLabel: '연 1.3%~3.0% (특례 5년, 자녀당 +5년)', limitLabel: '수도권 3억 / 비수도권 2억', depositLabel: '수도권 5억 / 비수도권 4억', targetLabel: '2년 내 출산 가구, 부부합산 연소득 2억 ↓, 무주택', note: '2023.1.1 이후 출생아 · 자녀 추가 출산시 금리↓', url: 'https://www.myhome.go.kr/hws/portal/cont/selectBabySpecialCaseCrutchLoneView.do', rules: { purpose: ['jeonse'], maxIncome: 20000, maxHousing: 0, children: ['newborn'], maxDeposit: {seoul: 50000, metro: 50000, nonMetro: 40000} } },
+  { id: 'hf-jeonse', category: 'jeonse', name: 'HF 전세대출 보증', agency: '한국주택금융공사', rateMin: 3.8, rateMax: 4.5, rateLabel: '은행 적용금리 (보증료 연 0.02~0.40%)', limitLabel: '보증한도 4억 이내', depositLabel: '수도권 7억 / 비수도권 5억', targetLabel: '부부합산 연소득 1억 ↓, 1주택 이내', note: '공시가 126% 초과 주택 보증 제한(’25.8.28~)', url: 'https://www.hf.go.kr/ko/sub02/sub02_01_02.do', rules: { purpose: ['jeonse'], maxIncome: 10000, maxHousing: 1, maxDeposit: {seoul: 70000, metro: 70000, nonMetro: 50000} } },
+  { id: 'hug-jeonse', category: 'jeonse', name: 'HUG 전세대출 보증', agency: '주택도시보증공사', rateMin: 3.9, rateMax: 4.7, rateLabel: '은행 적용금리 (보증료 0.12%대)', limitLabel: '최대 4억 이내', depositLabel: '수도권 7억 / 비수도권 5억', targetLabel: '부부합산 연소득 1억 ↓, 1주택 이내', note: '전세금안심대출보증 · 반환보증 결합시 보증료↓', url: 'https://www.khug.or.kr/hug/web/ig/dl/igdl000001.jsp', rules: { purpose: ['jeonse'], maxIncome: 10000, maxHousing: 1, maxDeposit: {seoul: 70000, metro: 70000, nonMetro: 50000} } },
+  { id: 'sgi-jeonse', category: 'jeonse', name: 'SGI 전세대출 보증', agency: '서울보증보험', rateMin: 4.5, rateMax: 5.5, rateLabel: '은행 적용금리 (보증료 0.229~0.260%)', limitLabel: '아파트 한도 없음 / 기타 10억 이내', depositLabel: '제한 없음', targetLabel: '1주택 이내, 공인중개사 통한 계약', note: '고액·다주택자도 가능 · LTV별 최대 30% 할인', url: 'https://www.sgic.co.kr/biz/ccp/index.html?p=CCPPRD030101F01', rules: { purpose: ['jeonse'], maxHousing: 1 } },
+  { id: 'kakao-jeonse', category: 'jeonse', name: '카카오뱅크 전월세보증금 대출', agency: '카카오뱅크', rateMin: 3.8, rateMax: 5.0, rateLabel: '변동 COFIX 연동 (신혼·갈아타기 -0.1%p)', limitLabel: '최소 500만 ~ 보증서 한도 내', depositLabel: '수도권 7억 / 비수도권 5억', targetLabel: '근로 1년 ↑, 1주택 이내', note: '비대면 100% · 잔금일 30~15일 전 신청', url: 'https://www.kakaobank.com/products/leaseLoan', rules: { purpose: ['jeonse'], maxHousing: 1, maxDeposit: {seoul: 70000, metro: 70000, nonMetro: 50000} } },
+  { id: 'seoul-newlywed-jeonse', category: 'jeonse', name: '서울시 신혼부부 임차보증금 이자지원', agency: '서울시', rateMin: 1.5, rateMax: 4.0, rateLabel: '은행 기본금리 + 서울시 이자지원 최대 1.5%', limitLabel: '최대 3억 (보증금의 90% 이내)', depositLabel: '최대 7억', targetLabel: '부부합산 연소득 1.3억 ↓, 신혼부부, 무주택', note: '서울 거주(또는 전입 예정) · 자녀 출산시 최장 10년', url: 'https://housing.seoul.go.kr/site/main/content/sh01_0400800', rules: { purpose: ['jeonse'], maxIncome: 13000, maxHousing: 0, marital: ['newlywed', 'preNewlywed'], region: ['seoul'], maxDeposit: {seoul: 70000, metro: 70000, nonMetro: 70000}, perks: {children: 0.5} } },
+  { id: 'didimdol', category: 'purchase', name: '내집마련 디딤돌 대출', agency: '주택도시기금', rateMin: 2.95, rateMax: 3.55, rateLabel: '연 2.95%~3.55% (우대 추가 인하)', limitLabel: '최대 2.5억 (신혼·2자녀 4억)', depositLabel: '5억 이하 (신혼·2자녀 6억)', targetLabel: '부부합산 연소득 6천만 ↓ (생애최초·자녀 우대), 무주택', note: '주거전용 85㎡ 이하 · 지방 -0.2%p · 자녀·신혼 우대', url: 'https://www.myhome.go.kr/hws/portal/cont/selectSteppingStoneLoanView.do', rules: { purpose: ['purchase'], maxIncome: 6000, maxHousing: 0, maxDeposit: {seoul: 50000, metro: 50000, nonMetro: 50000}, perks: {children: 0.3, multicultural: 0.2, firstHome: 0.2} } },
+  { id: 'didimdol-newborn', category: 'purchase', name: '신생아 특례 디딤돌 대출', agency: '주택도시기금', rateMin: 1.6, rateMax: 3.3, rateLabel: '특례 연 1.6%~3.3% (특례 5년, 자녀당 +5년)', limitLabel: '최대 5억 (LTV 70%, 생애최초 80%)', depositLabel: '9억 이하', targetLabel: '2년 내 출산, 부부합산 연소득 2.5억 ↓', note: '주거전용 85㎡ 이하 · 추가 출산시 -0.2%p', url: 'https://www.myhome.go.kr/hws/portal/cont/selectBabySpecialCaseStepStoneLoneView.do', rules: { purpose: ['purchase'], maxIncome: 25000, maxHousing: 1, children: ['newborn'], maxDeposit: {seoul: 90000, metro: 90000, nonMetro: 90000} } },
+  { id: 'dream-didimdol', category: 'purchase', name: '청년주택드림 디딤돌 대출', agency: '주택도시기금', rateMin: 2.2, rateMax: 3.5, rateLabel: '최저 연 2.2%대 (청약통장 가입자 우대)', limitLabel: '최대 4억 (LTV 80%)', depositLabel: '6억 이하', targetLabel: '만 20~39세 미혼, 연소득 7천만 ↓', note: '청년주택드림 청약통장 1년 가입 필수', url: 'https://www.myhome.go.kr/hws/portal/cont/selectSteppingStoneLoanView.do', rules: { purpose: ['purchase'], maxAge: 39, minAge: 20, maxIncome: 7000, maxHousing: 0, marital: ['single'], requires: ['dreamAccount'], maxDeposit: {seoul: 60000, metro: 60000, nonMetro: 60000} } },
+  { id: 'bogeumjari', category: 'purchase', name: '보금자리론 (일반)', agency: '한국주택금융공사', rateMin: 2.95, rateMax: 4.25, rateLabel: '연 3.95%~4.25% (우대 포함 최저 2.95%)', limitLabel: '최대 3.6억 (다자녀 4억, 생애최초 4.2억)', depositLabel: '6억 이하', targetLabel: '부부합산 연소득 7천만 ↓ (신혼·자녀시 완화)', note: '2026.1월 +0.25%p 인상 · 사회배려층 최대 -1.0%p', url: 'https://www.hf.go.kr/ko/sub01/sub01_01_01.do', rules: { purpose: ['purchase'], maxIncome: 7000, maxHousing: 1, maxDeposit: {seoul: 60000, metro: 60000, nonMetro: 60000}, perks: {firstHome: 0.3, children: 0.3} } },
+  { id: 'firsthome-special', category: 'purchase', name: '생애최초 주택구입 특례 보금자리', agency: '한국주택금융공사', rateMin: 2.45, rateMax: 3.75, rateLabel: '연 2.45%~3.75% (생애최초 -0.5%p 우대)', limitLabel: '최대 4.2억 (LTV 80% 적용)', depositLabel: '6억 이하', targetLabel: '생애최초 주택구입자, 부부합산 연소득 7천만 ↓, 무주택', note: '생애최초 전용 · LTV·DTI 완화 · 시중은행 매개 신청', url: 'https://www.hf.go.kr/ko/sub01/sub01_01_01.do', rules: { purpose: ['purchase'], maxIncome: 7000, maxHousing: 0, requires: ['firstHome'], maxDeposit: {seoul: 60000, metro: 60000, nonMetro: 60000}, perks: {children: 0.3, multicultural: 0.2} } },
+  { id: 'hf-conforming', category: 'purchase', name: 'HF 적격대출', agency: '한국주택금융공사', rateMin: 4.1, rateMax: 5.5, rateLabel: '연 4.1%~5.5% (시중은행 적용)', limitLabel: '최대 5억 (DTI 60% 완화)', depositLabel: '9억 이하', targetLabel: '소득 제한 없음, 1주택 이내', note: '시중은행 매개 신청 · 만기 최장 40년 · 중도상환수수료 없음', url: 'https://www.hf.go.kr/ko/sub01/sub01_03_01.do', rules: { purpose: ['purchase'], maxHousing: 1, maxDeposit: {seoul: 90000, metro: 90000, nonMetro: 90000} } },
+  { id: 'kakao-mortgage', category: 'purchase', name: '카카오뱅크 주택담보대출', agency: '카카오뱅크', rateMin: 3.7, rateMax: 5.5, rateLabel: '변동 3.7~5.5% (비대면 우대 -0.1%p)', limitLabel: '최대 10억 (LTV·DSR 한도)', depositLabel: '제한 없음 (규제지역 별도)', targetLabel: '근로 1년 ↑, 신용 평가 통과', note: '비대면 100% · 모바일 앱 신청 · 중도상환수수료 없음', url: 'https://www.kakaobank.com/products/mortgageLoan', rules: { purpose: ['purchase'], minAge: 19, maxHousing: 1 } },
+  { id: 'bank-mortgage', category: 'purchase', name: '시중은행 주택담보대출', agency: 'KB·신한·하나·우리·NH 등', rateMin: 3.8, rateMax: 7.0, rateLabel: '변동 3.8~5.9% · 혼합형 4.2~7.0%대', limitLabel: '은행별 상이 (LTV·DSR 한도)', depositLabel: '제한 없음 (규제지역 별도)', targetLabel: '신용 평가 통과한 만 19세 ↑', note: '급여이체·카드 실적 우대 최대 1.0%p', url: 'https://portal.kfb.or.kr/compare/loan_household_new.php', rules: { purpose: ['purchase'], minAge: 19 } },
+  { id: 'youth-monthly', category: 'monthly', name: '청년월세 한시 특별지원', agency: '국토부 · 복지부', rateMin: 0, rateMax: 0, rateLabel: '월 최대 20만 원 (보조금, 무이자)', limitLabel: '최대 480만 원 (월 20만 × 24개월)', depositLabel: '보증금 5천만 ↓ / 월세 70만 ↓', targetLabel: '만 19~34세, 청년 중위소득 60% ↓ + 원가구 100% ↓', note: '2026년부터 상시 신청 전환 · 복지로 온라인', url: 'https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00004661', rules: { purpose: ['monthly'], maxAge: 34, minAge: 19, maxHousing: 0, maxIncome: 4000 } },
+  { id: 'jugeo-monthly', category: 'monthly', name: '주거안정 월세대출', agency: '주택도시기금', rateMin: 1.3, rateMax: 1.8, rateLabel: '우대형 연 1.3% / 일반형 연 1.8%', limitLabel: '최대 1,440만 원 (월 60만 × 24개월)', depositLabel: '보증금 1억 ↓ / 월세 70만 ↓', targetLabel: '부부합산 연소득 5천만 ↓, 무주택 세대주', note: '임대인 계좌 직접 송금 · 중도상환수수료 없음', url: 'https://www.myhome.go.kr/hws/portal/cont/selectResidentialMonthlyRentLoanView.do', rules: { purpose: ['monthly'], maxIncome: 5000, maxHousing: 0, perks: {jobSeeker: 0.5, disabled: 0.5} } },
+  { id: 'youth-monthly-loan', category: 'monthly', name: '청년전용 보증부 월세대출', agency: '주택도시기금', rateMin: 0, rateMax: 1.3, rateLabel: '보증금 연 1.3% / 월세 연 0%~1.0%', limitLabel: '보증금 4,500만 + 월세 1,440만', depositLabel: '보증금 6,500만 ↓ / 월세 70만 ↓', targetLabel: '만 19~34세, 부부합산 연소득 5천만 ↓, 무주택', note: '주거전용 60㎡ 이하 · 중기청 청년 우대', url: 'https://m.myhome.go.kr/hws/mbl/cont/selectYouthPolicyWarrantyMonthlyLoanView.do', rules: { purpose: ['monthly'], maxAge: 34, minAge: 19, maxIncome: 5000, maxHousing: 0, perks: {sme: 0.3} } },
+  { id: 'seoul-youth-monthly', category: 'monthly', name: '서울시 청년월세지원', agency: '서울시', rateMin: 0, rateMax: 0, rateLabel: '월 20만 원 (보조금, 무이자)', limitLabel: '최대 240만 원 (월 20만 × 12개월)', depositLabel: '보증금 8천만 ↓ / 월세 60만 ↓', targetLabel: '만 19~39세 서울 거주, 중위소득 150% ↓, 무주택', note: '국토부 한시지원과 중복 불가 · 매년 모집', url: 'https://youth.seoul.go.kr', rules: { purpose: ['monthly'], maxAge: 39, minAge: 19, maxHousing: 0, region: ['seoul'], maxIncome: 9000 } }
+];
+
+// ========== 매칭 로직 ==========
+function evaluate(product, user) {
+  const r = product.rules;
+  const reasons = [];
+  const warnings = [];
+  let score = 50;
+  if (r.purpose && !r.purpose.includes(user.purpose)) return { eligible: false };
+  if (user.age) {
+    if (r.maxAge && user.age > r.maxAge) return { eligible: false };
+    if (r.minAge && user.age < r.minAge) return { eligible: false };
+    if (r.maxAge && user.age <= r.maxAge) { reasons.push(`만 ${r.maxAge}세 이하 청년 우대`); score += 8; }
+  } else if (r.maxAge) { warnings.push('연령 조건 미확인'); }
+  if (user.income !== null && user.income !== undefined && user.income !== '') {
+    if (r.maxIncome && user.income > r.maxIncome) return { eligible: false };
+    if (r.maxIncome && user.income <= r.maxIncome * 0.7) { reasons.push('소득 조건 충분'); score += 5; }
+  } else if (r.maxIncome) { warnings.push('소득 조건 미확인'); }
+  if (r.maxHousing !== undefined) {
+    if (user.housing === '2plus' && r.maxHousing < 2) return { eligible: false };
+    if (user.housing === '1' && r.maxHousing < 1) return { eligible: false };
+    if (r.maxHousing === 0 && user.housing === '0') { reasons.push('무주택자 대상'); score += 5; }
+  }
+  if (r.marital && !r.marital.includes(user.marital)) return { eligible: false };
+  if (r.marital && r.marital.includes(user.marital)) {
+    if (user.marital === 'newlywed' || user.marital === 'preNewlywed') { reasons.push('신혼부부 전용 상품'); score += 10; }
+  }
+  if (r.children && !r.children.includes(user.children)) return { eligible: false };
+  if (r.children && r.children.includes(user.children)) { reasons.push('신생아 특례 대상'); score += 15; }
+  if (r.region && !r.region.includes(user.region)) return { eligible: false };
+  if (r.region && r.region.includes(user.region)) { reasons.push('지역 우대 상품'); score += 5; }
+  if (r.requires) { for (const req of r.requires) { if (!user[req]) return { eligible: false }; } reasons.push('청약통장 우대'); score += 5; }
+  if (user.amount && r.maxDeposit) {
+    const max = r.maxDeposit[user.region] || 0;
+    if (user.amount > max) return { eligible: false };
+    score += 3;
+  }
+  if (r.perks) {
+    for (const key in r.perks) {
+      let qualifies = false;
+      if (key === 'children') qualifies = ['1','2','3','newborn'].includes(user.children);
+      else qualifies = user[key] === true;
+      if (qualifies) {
+        score += r.perks[key] * 10;
+        const labels = { sme: '중소·중견기업 우대', firstHome: '생애최초 우대', multicultural: '다문화·장애 우대', jobSeeker: '취준생·사회초년생 우대', disabled: '한부모·근로장려금 우대', children: '자녀 우대' };
+        if (labels[key]) reasons.push(labels[key]);
+      }
+    }
+  }
+  score += Math.max(0, (5 - product.rateMin) * 5);
+  return { eligible: true, score: Math.min(99, Math.round(score)), reasons, warnings };
+}
+
+// ========== 입력 처리 ==========
+function formatKoreanMoney(manwon) {
+  if (!manwon || manwon <= 0) return '';
+  const eok = Math.floor(manwon / 10000);
+  const remain = manwon % 10000;
+  const parts = [];
+  if (eok > 0) parts.push(eok.toLocaleString() + '억');
+  if (remain > 0) {
+    if (remain % 1000 === 0 && remain >= 1000) parts.push((remain/1000) + '천만');
+    else parts.push(remain.toLocaleString() + '만');
+  }
+  return parts.join(' ') + '원';
+}
+function unformat(val) { return parseInt(String(val).replace(/[^\d]/g, '')) || 0; }
+function setupAmountInput(inputId, previewId) {
+  const input = document.getElementById(inputId);
+  const preview = document.getElementById(previewId);
+  input.addEventListener('input', e => {
+    const raw = unformat(e.target.value);
+    e.target.value = raw ? raw.toLocaleString() : '';
+    const korean = formatKoreanMoney(raw);
+    if (korean) {
+      preview.innerHTML = `입력 금액 <span class="arrow">→</span> <strong>${korean}</strong>`;
+      preview.classList.add('visible');
+    } else preview.classList.remove('visible');
+  });
+}
+setupAmountInput('income', 'incomePreview');
+setupAmountInput('amount', 'amountPreview');
+document.querySelectorAll('.quick-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.target;
+    const amount = parseInt(btn.dataset.amount);
+    const input = document.getElementById(targetId);
+    input.value = amount.toLocaleString();
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.focus();
+  });
+});
+document.querySelectorAll('.chip input').forEach(cb => {
+  cb.addEventListener('change', e => e.target.parentElement.classList.toggle('active', e.target.checked));
+});
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('filterForm').reset();
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.input-preview').forEach(p => p.classList.remove('visible'));
+  document.getElementById('results').classList.remove('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('filterForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  const purpose = form.purpose.value;
+  if (!purpose) { alert('대출 목적을 선택해주세요.'); form.purpose.focus(); return; }
+  const user = {
+    purpose,
+    age: form.age.value ? parseInt(form.age.value) : null,
+    region: form.region.value || 'seoul',
+    marital: form.marital.value || 'single',
+    children: form.children.value || '0',
+    income: form.income.value ? unformat(form.income.value) : null,
+    housing: form.housing.value || '0',
+    amount: form.amount.value ? unformat(form.amount.value) : null,
+    sme: form.sme.checked, firstHome: form.firstHome.checked,
+    dreamAccount: form.dreamAccount.checked, jobSeeker: form.jobSeeker.checked,
+    multicultural: form.multicultural.checked, disabled: form.disabled.checked
+  };
+  const loading = document.getElementById('loading');
+  const results = document.getElementById('results');
+  results.classList.remove('show');
+  loading.classList.add('show');
+  loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => {
+    const evaluated = PRODUCTS.map(p => ({ product: p, result: evaluate(p, user) })).filter(item => item.result.eligible).sort((a, b) => b.result.score - a.result.score);
+    loading.classList.remove('show');
+    renderResults(evaluated, user);
+  }, 700);
+});
+
+// ========== 시뮬레이션 ==========
+const JEONSE_LIMITS = {
+  'beotimok': { seoul: 20000, metro: 20000, nonMetro: 16000 },
+  'beotimok-newlywed': { seoul: 30000, metro: 30000, nonMetro: 20000 },
+  'beotimok-youth': { seoul: 20000, metro: 20000, nonMetro: 20000 },
+  'beotimok-newborn': { seoul: 30000, metro: 30000, nonMetro: 20000 },
+  'hf-jeonse': { seoul: 40000, metro: 40000, nonMetro: 40000 },
+  'hug-jeonse': { seoul: 40000, metro: 40000, nonMetro: 40000 },
+  'sgi-jeonse': { seoul: 100000, metro: 100000, nonMetro: 100000 },
+  'kakao-jeonse': { seoul: 40000, metro: 40000, nonMetro: 40000 },
+  'seoul-newlywed-jeonse': { seoul: 30000, metro: 30000, nonMetro: 30000 }
+};
+const PURCHASE_DATA = {
+  'didimdol': { ltv: 0.70, max: 25000 }, 'didimdol-newborn': { ltv: 0.70, max: 50000 },
+  'dream-didimdol': { ltv: 0.80, max: 40000 }, 'bogeumjari': { ltv: 0.70, max: 36000 },
+  'firsthome-special': { ltv: 0.80, max: 42000 }, 'hf-conforming': { ltv: 0.70, max: 50000 },
+  'kakao-mortgage': { ltv: 0.70, max: 100000 }, 'bank-mortgage': { ltv: 0.70, max: 999999 }
+};
+const MONTHLY_DATA = {
+  'youth-monthly': { monthly: 20, period: 24, type: 'subsidy' },
+  'jugeo-monthly': { monthly: 60, period: 24, type: 'loan', rate: 1.55 },
+  'youth-monthly-loan': { monthly: 60, period: 24, type: 'loan', rate: 0.65 },
+  'seoul-youth-monthly': { monthly: 20, period: 12, type: 'subsidy' }
+};
+function formatMoneyShort(manwon) {
+  if (!manwon || manwon <= 0) return '0';
+  if (manwon >= 10000) {
+    const eok = manwon / 10000;
+    if (manwon % 10000 === 0) return Math.floor(eok) + '억';
+    return eok.toFixed(1).replace(/\.0$/, '') + '억';
+  }
+  return manwon.toLocaleString() + '만';
+}
+function avgRate(product) { return (product.rateMin + product.rateMax) / 2; }
+function calcSimulation(product, user) {
+  if (product.category === 'jeonse') {
+    if (!user.amount) return { needsAmount: true };
+    const productMax = (JEONSE_LIMITS[product.id] || {})[user.region] || 40000;
+    const byRatio = Math.floor(user.amount * 0.8);
+    const maxLoan = Math.min(productMax, byRatio);
+    const ownCapital = Math.max(0, user.amount - maxLoan);
+    const rate = avgRate(product);
+    const monthlyInterest = Math.round(maxLoan * rate / 100 / 12);
+    return { type: 'jeonse', maxLoan, ownCapital, monthly: monthlyInterest, rate: rate.toFixed(1) };
+  }
+  if (product.category === 'purchase') {
+    if (!user.amount) return { needsAmount: true };
+    const data = PURCHASE_DATA[product.id];
+    if (!data) return null;
+    const byLtv = Math.floor(user.amount * data.ltv);
+    const maxLoan = Math.min(byLtv, data.max);
+    const ownCapital = Math.max(0, user.amount - maxLoan);
+    const rate = avgRate(product);
+    const months = 30 * 12;
+    const r = rate / 100 / 12;
+    let monthly = 0;
+    if (r > 0 && maxLoan > 0) monthly = Math.round(maxLoan * r * Math.pow(1 + r, months) / (Math.pow(1 + r, months) - 1));
+    return { type: 'purchase', maxLoan, ownCapital, monthly, rate: rate.toFixed(1), ltv: Math.round(data.ltv * 100) };
+  }
+  if (product.category === 'monthly') {
+    const data = MONTHLY_DATA[product.id];
+    if (!data) return null;
+    return { type: 'monthly', subtype: data.type, monthlyAmount: data.monthly, period: data.period, total: data.monthly * data.period, rate: data.rate };
+  }
+  return null;
+}
+function renderSimulationBox(product, user) {
+  const sim = calcSimulation(product, user);
+  if (!sim) return '';
+  if (sim.needsAmount) {
+    return `<div class="simulation-box simulation-empty"><div class="sim-empty-message">💡 <strong>${product.category === 'jeonse' ? '보증금' : '주택 가격'}</strong>을 입력하면<br>예상 대출액·자기자본·월 ${product.category === 'jeonse' ? '이자' : '상환금'}이 계산돼요</div><button type="button" class="sim-empty-cta" data-action="focus-amount">금액 입력하러 가기 →</button></div>`;
+  }
+  if (sim.type === 'jeonse') {
+    return `<div class="simulation-box"><div class="sim-header">💰 예상 시뮬레이션 <span class="sim-source">평균 금리 ${sim.rate}% 기준</span></div><div class="sim-grid"><div class="sim-cell"><div class="sim-label">대출 가능</div><div class="sim-value primary">${formatMoneyShort(sim.maxLoan)}<span class="sim-unit">원</span></div></div><div class="sim-cell"><div class="sim-label">필요 자기자본</div><div class="sim-value">${formatMoneyShort(sim.ownCapital)}<span class="sim-unit">원</span></div></div><div class="sim-cell"><div class="sim-label">월 이자</div><div class="sim-value">${sim.monthly.toLocaleString()}<span class="sim-unit">만원</span></div></div></div><div class="sim-note">※ 보증금의 80% 또는 상품 한도 중 작은 값. 실제 한도는 신용·소득에 따라 달라져요.</div></div>`;
+  }
+  if (sim.type === 'purchase') {
+    return `<div class="simulation-box"><div class="sim-header">💰 예상 시뮬레이션 <span class="sim-source">LTV ${sim.ltv}% · 금리 ${sim.rate}% · 30년</span></div><div class="sim-grid"><div class="sim-cell"><div class="sim-label">대출 가능</div><div class="sim-value primary">${formatMoneyShort(sim.maxLoan)}<span class="sim-unit">원</span></div></div><div class="sim-cell"><div class="sim-label">필요 자기자본</div><div class="sim-value">${formatMoneyShort(sim.ownCapital)}<span class="sim-unit">원</span></div></div><div class="sim-cell"><div class="sim-label">월 상환금</div><div class="sim-value">${sim.monthly.toLocaleString()}<span class="sim-unit">만원</span></div></div></div><div class="sim-note">※ 원리금균등상환 30년 기준 추정. 실제 한도는 DSR·신용에 따라 달라져요.</div></div>`;
+  }
+  if (sim.type === 'monthly') {
+    const isSubsidy = sim.subtype === 'subsidy';
+    return `<div class="simulation-box"><div class="sim-header">💵 예상 ${isSubsidy ? '지원금' : '대출'} ${!isSubsidy && sim.rate ? `<span class="sim-source">금리 연 ${sim.rate}%</span>` : ''}</div><div class="sim-grid"><div class="sim-cell"><div class="sim-label">월 ${isSubsidy ? '지원금' : '대출'}</div><div class="sim-value primary">${sim.monthlyAmount}<span class="sim-unit">만원</span></div></div><div class="sim-cell"><div class="sim-label">지원 기간</div><div class="sim-value">${sim.period}<span class="sim-unit">개월</span></div></div><div class="sim-cell"><div class="sim-label">총액</div><div class="sim-value">${sim.total.toLocaleString()}<span class="sim-unit">만원</span></div></div></div><div class="sim-note">※ ${isSubsidy ? '무이자 보조금' : '대출 원금'}</div></div>`;
+  }
+  return '';
+}
+
+// ========== 도우미 ==========
+const PRODUCT_FEATURES = {
+  'beotimok': ['🏛 정부지원', '✅ 청년·신혼 우대'], 'beotimok-newlywed': ['💑 신혼부부 전용', '🍼 자녀 우대'],
+  'beotimok-youth': ['🎓 청년 전용', '💼 중기청 통합'], 'beotimok-newborn': ['🍼 신생아 특례', '⏳ 자녀당 +5년'],
+  'hf-jeonse': ['💰 보증료 최저', '🛡 정부 보증'], 'hug-jeonse': ['🛡 안심대출 결합', '🏛 공공 보증'],
+  'sgi-jeonse': ['🏠 한도 제한 없음', '👥 다주택자 가능'], 'kakao-jeonse': ['📱 비대면 100%', '⚡ 빠른 신청'],
+  'seoul-newlywed-jeonse': ['🏙 서울시 지원', '💑 신혼 전용'],
+  'didimdol': ['🏛 정부지원', '💰 최저 2.95%'], 'didimdol-newborn': ['🍼 신생아 특례', '⭐ 최저 1.6%'],
+  'dream-didimdol': ['🎓 청년 전용', '🏦 청약통장 우대'], 'bogeumjari': ['🛡 공공 보증', '💖 사회배려층 -1.0%p'],
+  'firsthome-special': ['🏡 생애최초 전용', '💰 LTV 80% 특례'], 'hf-conforming': ['🏛 정부 인증', '⏳ 만기 40년'],
+  'kakao-mortgage': ['📱 비대면 100%', '⚡ 모바일 신청'], 'bank-mortgage': ['🏦 시중은행', '⚡ 즉시 신청'],
+  'youth-monthly': ['💵 무이자 보조금', '🎓 청년 한시'], 'jugeo-monthly': ['💰 우대형 1.3%', '✅ 중도상환 무료'],
+  'youth-monthly-loan': ['🎓 청년 전용', '💵 월세 0%'], 'seoul-youth-monthly': ['🏙 서울시', '💵 월 20만 보조']
+};
+function getScoreGrade(score) {
+  if (score >= 80) return { label: '🌟 강력 추천', class: 'grade-high' };
+  if (score >= 60) return { label: '✨ 추천', class: 'grade-mid' };
+  return { label: '💡 검토 권장', class: 'grade-low' };
+}
+function generateRank1Reason(items, user) {
+  if (!items || items.length === 0) return '';
+  if (items.length === 1) return '입력하신 조건에서 매칭된 유일한 상품이에요. 다른 옵션도 보고 싶다면 조건을 완화해보세요.';
+  const top = items[0]; const second = items[1]; const reasons = [];
+  if (top.product.rateMin < second.product.rateMin) reasons.push(`최저 금리(연 ${top.product.rateMin}%)가 다른 상품보다 낮아요`);
+  const diff = top.result.score - second.result.score;
+  if (diff >= 8) reasons.push(`입력 조건과의 적합도가 가장 높아요(+${diff}점)`);
+  const topReasons = top.result.reasons || [];
+  if (topReasons.length > 0 && reasons.length < 2) reasons.push(`"${topReasons[0]}" 조건을 충족해요`);
+  if (reasons.length === 0) reasons.push('금리·한도·자격조건을 종합한 적합도가 가장 높아요');
+  return reasons.slice(0, 2).join('. ') + '.';
+}
+function getTagsHTML(product, result) {
+  const features = (PRODUCT_FEATURES[product.id] || []).slice(0, 2);
+  const reasons = result.reasons || [];
+  const html = [];
+  features.forEach(f => html.push(`<span class="feature-tag">${f}</span>`));
+  reasons.forEach(r => html.push(`<span class="reason-tag">✓ ${r}</span>`));
+  if (html.length === 0) html.push(`<span class="feature-tag">✓ 기본 자격 충족</span>`);
+  return html.join('');
+}
+const FALLBACK_BY_PURPOSE = { jeonse: ['sgi-jeonse', 'kakao-jeonse', 'hf-jeonse'], purchase: ['hf-conforming', 'kakao-mortgage', 'bank-mortgage'], monthly: ['youth-monthly'] };
+function diagnoseNoResults(user) {
+  const hints = [];
+  if (user.income && user.income > 7000) hints.push('연소득이 7천만원을 넘어 일부 정책 상품 대상에서 제외됐을 수 있어요');
+  if (user.housing === '2plus') hints.push('2주택 이상 보유자는 정책 대출 대부분 제외돼요. 시중은행 상품을 검토해보세요');
+  if (user.age && user.age > 39) hints.push('만 40세 이상은 청년 전용 상품 대상이 아니에요');
+  if (user.age && user.age < 19) hints.push('만 19세 미만은 대출 신청 대상이 아니에요');
+  if (user.amount && user.amount > 70000) hints.push('보증금/주택가격이 7억원을 넘으면 대부분 정책 상품 한도를 초과해요');
+  if (user.purpose === 'monthly' && user.region !== 'seoul') hints.push('서울시 청년월세지원은 서울 거주자만 가능해요. 국토부 청년월세 한시지원은 거주지 무관이에요');
+  if (hints.length === 0) { hints.push('입력하신 값 중 일부가 정책 상품 한도를 초과한 것 같아요'); hints.push('수치를 비워두면 한도 검사 없이 매칭이 가능해요'); }
+  return hints;
+}
+function renderEmptyState(user) {
+  const hints = diagnoseNoResults(user);
+  const fallbackIds = FALLBACK_BY_PURPOSE[user.purpose] || [];
+  const fallbacks = fallbackIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+  const purposeLabel = { jeonse: '전세', purchase: '매매', monthly: '월세' }[user.purpose] || '';
+  const regionLabel = { seoul: '서울', metro: '수도권', nonMetro: '비수도권' }[user.region];
+  const housingLabel = { '0': '무주택', '1': '1주택', '2plus': '2주택 이상' }[user.housing];
+  const maritalLabel = { single: '미혼', newlywed: '신혼부부', preNewlywed: '예비 신혼', married: '일반 부부', singleParent: '한부모' }[user.marital];
+  const inputs = [];
+  if (purposeLabel) inputs.push(`목적: ${purposeLabel}`);
+  if (user.age) inputs.push(`나이: ${user.age}세`);
+  if (regionLabel) inputs.push(`지역: ${regionLabel}`);
+  if (maritalLabel) inputs.push(`혼인: ${maritalLabel}`);
+  if (user.income) inputs.push(`연소득: ${user.income.toLocaleString()}만원`);
+  if (user.amount) inputs.push(`금액: ${user.amount.toLocaleString()}만원`);
+  if (housingLabel) inputs.push(`주택: ${housingLabel}`);
+  return `<div class="empty-state"><div class="icon">🔍</div><h3>입력 조건에 딱 맞는 상품이 없어요</h3><p>괜찮아요, 조건을 조금만 조정하면 추천받을 수 있어요.</p><div class="empty-recap"><strong>📋 현재 입력 조건</strong><div class="recap-chips">${inputs.map(i => `<span class="recap-chip">${i}</span>`).join('')}</div></div><div class="empty-hints"><strong>💡 이유는 다음 중 하나일 수 있어요</strong><ul>${hints.map(h => `<li>${h}</li>`).join('')}</ul></div>${fallbacks.length ? `<div class="empty-suggestions"><strong>👉 그래도 검토해볼 만한 상품</strong><div class="fallback-grid">${fallbacks.map(p => `<a href="${p.url}" target="_blank" rel="noopener" class="fallback-card"><div class="fallback-name">${p.name}</div><div class="fallback-agency">${p.agency}</div><div class="fallback-rate">${p.rateLabel}</div><div class="fallback-cta">자세히 보기 →</div></a>`).join('')}</div></div>` : ''}<div class="empty-actions"><button type="button" class="empty-btn empty-btn-primary" data-action="reset-form">처음부터 다시 입력</button>${user.income ? `<button type="button" class="empty-btn" data-action="clear-income">연소득 비우고 재시도</button>` : ''}${user.amount ? `<button type="button" class="empty-btn" data-action="clear-amount">금액 비우고 재시도</button>` : ''}</div></div>`;
+}
+function bindSimulationActions() {
+  document.querySelectorAll('.sim-empty-cta[data-action="focus-amount"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const amountInput = document.getElementById('amount');
+      amountInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => amountInput.focus(), 400);
+    });
+  });
+}
+function bindEmptyStateActions() {
+  document.querySelectorAll('.empty-state .empty-btn[data-action]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.action;
+      if (action === 'reset-form') document.getElementById('resetBtn').click();
+      else if (action === 'clear-income') { document.getElementById('income').value = ''; document.getElementById('incomePreview').classList.remove('visible'); document.getElementById('submitBtn').click(); }
+      else if (action === 'clear-amount') { document.getElementById('amount').value = ''; document.getElementById('amountPreview').classList.remove('visible'); document.getElementById('submitBtn').click(); }
+    });
+  });
+}
+
+// ========== 렌더링 ==========
+function renderResults(items, user) {
+  const section = document.getElementById('results');
+  const list = document.getElementById('resultsList');
+  const count = document.getElementById('resultCount');
+  section.classList.add('show');
+  list.className = '';
+  list.style.removeProperty('--compare-cols');
+  if (items.length === 0) {
+    count.textContent = '';
+    list.innerHTML = renderEmptyState(user);
+    bindEmptyStateActions();
+    setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+    return;
+  }
+  const isCompare = items.length >= 2 && items.length <= 4;
+  if (isCompare) { list.classList.add('layout-compare'); list.style.setProperty('--compare-cols', items.length); }
+  count.textContent = `총 ${items.length}개 · 적합도 순${isCompare ? ' · 가로 비교 모드' : ''}`;
+  list.innerHTML = items.map((item, idx) => {
+    const p = item.product; const r = item.result; const grade = getScoreGrade(r.score);
+    const categoryMap = { jeonse: '전세', purchase: '매매', monthly: '월세' };
+    const rankClass = idx === 0 ? 'rank-1' : '';
+    const rankBadge = idx === 0 ? `<div class="card-rank-badge gold">⭐ 1순위 추천</div>` : `<div class="card-rank-badge silver">${idx+1}순위</div>`;
+    return `<article class="result-card ${rankClass}">${rankBadge}<h3 class="product-name">${p.name}</h3><div class="product-meta"><span class="meta-tag category">${categoryMap[p.category]}</span><span class="meta-tag">${p.agency}</span></div><div class="score-row ${grade.class}"><span class="score-grade-label">${grade.label}</span><div class="score-bar"><div class="score-bar-fill ${grade.class}" style="width:${r.score}%"></div></div><span class="score-num ${grade.class}">${r.score}</span></div>${renderSimulationBox(p, user)}${idx === 0 ? `<div class="rank-1-reason"><strong>💡 이 상품이 1순위인 이유</strong><p>${generateRank1Reason(items, user)}</p></div>` : ''}<div class="info-grid"><div class="info-item"><span class="info-label">금리</span><span class="info-value">${p.rateLabel}</span></div><div class="info-item"><span class="info-label">대출 한도</span><span class="info-value">${p.limitLabel}</span></div><div class="info-item"><span class="info-label">대상 보증금/주택</span><span class="info-value">${p.depositLabel}</span></div><div class="info-item"><span class="info-label">대상 조건</span><span class="info-value">${p.targetLabel}</span></div></div><div class="reasons-row">${getTagsHTML(p, r)}</div>${r.warnings.length ? `<div class="reasons-row">${r.warnings.map(x => `<span class="warn-tag">! ${x}</span>`).join('')}</div>` : ''}<div class="card-note">${p.note}</div><a href="${p.url}" target="_blank" rel="noopener" class="more-btn">공식 페이지에서 자세히 보기 <span class="arrow">→</span></a></article>`;
+  }).join('');
+  bindSimulationActions();
+  setTimeout(() => {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    section.querySelectorAll('.result-card').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+  }, 100);
+}
+
+// ========== 모던 UX ==========
+const progressBar = document.getElementById('readingProgress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (h > 0 ? window.scrollY / h * 100 : 0) + '%';
+}, { passive: true });
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll', () => topBtn.classList.toggle('show', window.scrollY > 400), { passive: true });
+topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+const themeRoot = document.documentElement;
+const darkToggle = document.getElementById('darkToggle');
+const initialTheme = themeRoot.getAttribute('data-loan-theme') || 'light';
+darkToggle.textContent = initialTheme === 'dark' ? '☀️' : '🌙';
+darkToggle.addEventListener('click', () => {
+  const cur = themeRoot.getAttribute('data-loan-theme') || 'light';
+  const next = cur === 'dark' ? 'light' : 'dark';
+  themeRoot.setAttribute('data-loan-theme', next);
+  localStorage.setItem('loan-theme', next);
+  darkToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+});
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.form-card, .faq-item, .step-bar, .disclaimer').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+function animateNumber(el, target, suffix, duration) {
+  const startTime = performance.now();
+  function step(now) {
+    const elapsed = now - startTime;
+    const p = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(target * eased) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = target + suffix;
+  }
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('.hero-stat .num').forEach((el, i) => {
+  const m = el.textContent.match(/^(\d+)(.*)$/);
+  if (m) { const target = parseInt(m[1]); const suffix = m[2]; el.textContent = '0' + suffix; setTimeout(() => animateNumber(el, target, suffix, 1200), 200 + i * 100); }
+});
+</script>
+</body>
+</html>
