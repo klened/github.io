@@ -55,18 +55,19 @@
   --font:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{font-family:var(--font);background:var(--bg-soft);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;word-break:keep-all;}
 a{color:inherit;text-decoration:none;}
 .container{max-width:1040px;margin:0 auto;padding:0 24px;}
 
 /* NAV */
 .site-nav{background:var(--bg);border-bottom:1px solid var(--border-soft);padding:12px 0;position:sticky;top:0;z-index:50;}
-.site-nav .container{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
-.site-nav a{color:var(--text-soft);font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;transition:.15s;}
+.site-nav .container{display:flex;gap:12px;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.site-nav .container::-webkit-scrollbar{display:none;}
+.site-nav a{color:var(--text-soft);font-size:14px;font-weight:600;padding:7px 12px;border-radius:8px;transition:.15s;flex-shrink:0;white-space:nowrap;}
 .site-nav a:hover{background:var(--biz-soft);color:var(--biz-dark);}
 .site-nav a.active{background:var(--biz-light);color:var(--biz-dark);}
-.site-nav .brand{font-weight:800;color:var(--text-strong);margin-right:auto;font-size:15px;}
+.site-nav .brand{font-weight:800;color:var(--text-strong);margin-right:auto;font-size:15px;flex-shrink:0;white-space:nowrap;}
 
 /* HERO */
 header.hero{background:linear-gradient(180deg,#fff 0%,var(--biz-soft) 100%);padding:60px 0 50px;text-align:left;}
@@ -97,7 +98,7 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .chip{display:inline-flex;align-items:center;padding:10px 16px;border:1.5px solid var(--border);border-radius:100px;font-size:14px;font-weight:500;color:var(--text-soft);cursor:pointer;user-select:none;background:var(--bg);transition:.15s;}
 .chip:hover{border-color:var(--biz);}
 .chip.active{background:var(--biz);color:#fff;border-color:var(--biz);}
-.region-select{font-family:var(--font);font-size:14px;font-weight:500;color:var(--text);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:11px 14px;max-width:260px;cursor:pointer;}
+.region-select{font-family:var(--font);font-size:16px;font-weight:500;color:var(--text);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:11px 14px;max-width:260px;cursor:pointer;}
 .region-select:focus{outline:none;border-color:var(--biz);}
 
 /* ACTION BAR */
@@ -217,6 +218,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     <a href="/loan/">🏠 부동산 대출</a>
     <a href="/baby/">👶 출산·육아 지원금</a>
     <a href="/business/" class="active">🏪 소상공인 지원금</a>
+    <a href="/check/">📊 내 가게 진단</a>
     <a href="/about/">소개</a>
   </div>
 </nav>
