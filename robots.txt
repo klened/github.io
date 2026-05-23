@@ -1,0 +1,7 @@
+# robots.txt for https://klened.github.io/
+# 모든 검색엔진 크롤러(구글봇, 네이버 Yeti, 빙봇 등) 전체 허용
+
+User-agent: *
+Allow: /
+
+Sitemap: https://klened.github.io/sitemap.xml
