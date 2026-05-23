@@ -162,6 +162,32 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .apply-btn.closed:hover{background:var(--border-soft);}
 .card-source{font-size:12px;color:var(--text-mute);font-weight:600;}
 
+/* 직원 수 숫자 입력 */
+.num-wrap{display:flex;align-items:center;gap:8px;max-width:200px;}
+.num-input{font-family:var(--font);font-size:16px;font-weight:600;color:var(--text-strong);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:11px 14px;width:100%;text-align:right;}
+.num-input:focus{outline:none;border-color:var(--biz);}
+.num-wrap .unit{font-size:14px;color:var(--text-soft);font-weight:600;flex-shrink:0;}
+/* 예상 혜택 금액 */
+.benefit-amt{background:var(--biz-soft);border:1px solid var(--biz-light);border-radius:var(--radius-md);padding:13px 15px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+.benefit-amt .ba-label{font-size:12px;font-weight:700;color:var(--biz-dark);}
+.benefit-amt .ba-value{font-size:20px;font-weight:800;color:var(--biz-dark);letter-spacing:-.4px;}
+.benefit-amt .ba-sub{font-size:12px;color:var(--text-mute);width:100%;line-height:1.5;margin-top:2px;}
+/* 안내 노트 */
+.empty-note{font-size:13px;color:var(--text-soft);background:var(--biz-soft);border-radius:var(--radius-md);padding:14px 16px;margin-bottom:12px;line-height:1.65;}
+/* 접기형 미니 카드 */
+.mini-card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:var(--radius-md);margin-bottom:8px;overflow:hidden;}
+.mini-card summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px;}
+.mini-card summary::-webkit-details-marker{display:none;}
+.mini-card .mc-name{font-size:14px;font-weight:700;color:var(--text-strong);flex:1;}
+.mini-card .mc-amt{font-size:13px;font-weight:800;color:var(--biz-dark);flex-shrink:0;}
+.mini-card .mc-tier{font-size:11px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0;}
+.mini-card .mc-tier.rec{background:var(--biz-light);color:var(--biz-dark);}
+.mini-card .mc-tier.ref{background:var(--border-soft);color:var(--text-mute);}
+.mini-card summary::after{content:"\25BE";font-size:11px;color:var(--text-mute);flex-shrink:0;}
+.mini-card[open] summary::after{content:"\25B4";}
+.mini-card[open] summary{border-bottom:1px solid var(--border-soft);}
+.mini-card .mc-body{padding:16px;display:flex;flex-direction:column;gap:12px;}
+
 /* FAQ */
 .faq-section{margin:40px 0 16px;}
 .faq-section h2{font-size:18px;font-weight:800;color:var(--text-strong);margin-bottom:14px;padding:0 4px;letter-spacing:-.3px;}
@@ -229,7 +255,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     <h1>우리 가게가 받을 수 있는<br><span class="gradient">소상공인 지원금</span>을 추천해드려요</h1>
     <p class="lead">지역·업종·매출·운영 상황만 선택하면 영세·중소 사업자 누구나 자기 조건에 맞는 정부 지원금과 지자체 사업을 금액·신청 링크까지 받아볼 수 있어요.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num">12종</div><div class="label">지원사업 진단</div></div>
+      <div class="hero-stat"><div class="num">14종</div><div class="label">지원사업 진단</div></div>
       <div class="hero-stat"><div class="num">30초</div><div class="label">소요 시간</div></div>
       <div class="hero-stat"><div class="num">무료</div><div class="label">100% 익명</div></div>
     </div>
@@ -260,8 +286,9 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
           <label class="chip active" data-value="food">🍽 음식·카페</label>
           <label class="chip" data-value="retail">🛍 도소매</label>
           <label class="chip" data-value="service">💇 서비스업</label>
+          <label class="chip" data-value="care">🏥 의료·돌봄</label>
           <label class="chip" data-value="manu">🏭 제조·공방</label>
-          <label class="chip" data-value="online">💻 온라인·기타</label>
+          <label class="chip" data-value="online">💻 IT·온라인·기타</label>
         </div>
       </div>
 
@@ -276,12 +303,10 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
       </div>
 
       <div class="form-group">
-        <label class="field-label">직원 수</label>
-        <div class="chip-grid" data-group="staff">
-          <label class="chip active" data-value="none">나 혼자</label>
-          <label class="chip" data-value="small">1 ~ 4명</label>
-          <label class="chip" data-value="mid">5 ~ 9명</label>
-          <label class="chip" data-value="large">10명 이상</label>
+        <label class="field-label" for="staffInp">직원 수 <span class="field-hint">사장님 제외 · 없으면 0</span></label>
+        <div class="num-wrap">
+          <input class="num-input" id="staffInp" type="number" inputmode="numeric" placeholder="0" min="0" value="0">
+          <span class="unit">명</span>
         </div>
       </div>
     </section>
@@ -358,7 +383,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     <h2>자주 묻는 질문</h2>
     <details class="faq-item">
       <summary>추천 결과는 어떻게 정해지나요?</summary>
-      <div class="faq-body">입력하신 지역·업종·매출·운영 상황·관심사를 12개 지원사업의 대상 조건과 대조해, 조건이 맞을수록 '딱 맞아요', '추천', '참고' 순으로 분류해 보여드립니다. 대부분의 사업은 영세·중소 사업자라면 신청 자체는 가능하므로, 우선순위만 다르게 안내해 드려요.</div>
+      <div class="faq-body">입력하신 지역·업종·매출·운영 상황·관심사를 14개 지원사업의 대상 조건과 대조해, 조건이 맞을수록 '딱 맞아요', '추천', '참고' 순으로 분류해 보여드립니다. 대부분의 사업은 영세·중소 사업자라면 신청 자체는 가능하므로, 우선순위만 다르게 안내해 드려요.</div>
     </details>
     <details class="faq-item">
       <summary>지역을 선택하면 뭐가 달라지나요?</summary>
@@ -447,7 +472,7 @@ function countUp(el,target,suffix,dur){
       {v:'jeju',     label:'제주',     metro:false}
     ],
 
-    /* 지원사업 12종.
+    /* 지원사업 14종.
        ev(state) 는 추천 점수와 근거를 계산하는 규칙입니다.
        점수가 4 이상이면 '딱 맞아요', 2~3이면 '추천', 1 이하면 '참고'.
        조건이 전혀 맞지 않으면 null 을 반환해 결과에서 제외됩니다. */
@@ -532,8 +557,8 @@ function countUp(el,target,suffix,dur){
       {id:'duru', name:'두루누리 사회보험료 지원', status:'상시 신청', statusCls:'open',
        desc:'직원 10인 미만 소규모 사업장의 4대보험료 일부를 국가가 지원해줍니다. 직원을 둔 사장님이라면 인건비 부담을 덜 수 있어요.',
        meta:[['지원율','고용보험·국민연금 보험료의 80% 지원'],['대상','근로자 10인 미만 · 월평균보수 270만 원 미만 신규 가입자'],['예시','월보수 230만 원이면 매월 약 10.8만 원 지원'],['신청','두루누리 누리집 · 4대보험 취득신고 시 함께 신청']],
-       pills:['인건비 절감','보험료 80%','4대보험'], source:'근로복지공단 두루누리', url:'https://www.insurancesupport.or.kr/', applyText:'두루누리 신청 안내',
-       ev:function(s){ if(s.staff!=='small'&&s.staff!=='mid') return null;
+       pills:['인건비 절감','보험료 80%','4대보험'], source:'근로복지공단 두루누리', url:'http://insurancesupport.or.kr/home/start.php', applyText:'두루누리 신청 안내',
+       ev:function(s){ if(s.staff<1||s.staff>=10) return null;
          var sc=3, r=['직원 10인 미만 소규모 사업장이라 4대보험료 지원 대상이에요','고용보험·국민연금 보험료의 80%를 국가가 지원해줘요'];
          if(has(s,'hire')||has(s,'fund')){ sc+=1; r.push('인건비 부담을 줄이는 데 직접적인 도움이 돼요'); }
          return {sc:sc,r:r}; }},
@@ -549,10 +574,31 @@ function countUp(el,target,suffix,dur){
          if(s.biz==='good'){ sc+=1; r.push('사업이 안정적일 때 채용 부담을 덜기 좋아요'); }
          return {sc:sc,r:r}; }},
 
+      {id:'parentcare', name:'출산육아기 고용안정장려금', status:'상시 신청', statusCls:'open',
+       desc:'직원에게 육아휴직이나 육아기 근로시간 단축을 허용한 사업주에게 지원금을 줍니다. 대체인력을 채용하면 별도 지원금이 추가돼요.',
+       meta:[['육아휴직 지원','육아휴직 30일 이상 허용 시 1인당 월 30만 원'],['특례','만 12개월 이내 자녀 육아휴직 3개월 이상 연속 허용 시 첫 3개월 월 200만 원'],['대체인력','대체인력 채용 시 1인당 월 120만 원'],['신청','고용24(work24) · 우선지원대상기업 대상']],
+       pills:['육아휴직 지원','대체인력 지원','사업주 지원'], source:'고용노동부 출산육아기 고용안정장려금', url:'https://www.work24.go.kr/', applyText:'고용24에서 신청',
+       ev:function(s){ if(s.staff<1) return null;
+         var sc=2, r=['직원을 둔 사업장이라 육아휴직·육아기 근로시간 단축을 허용하면 사업주가 지원받을 수 있어요','소상공인은 대부분 우선지원대상기업이라 지원 대상에 해당돼요'];
+         if(has(s,'hire')){ sc+=2; r.push('직원 채용·인건비에 관심 있다고 선택하셨어요 — 대체인력 지원금도 함께 챙기세요'); }
+         if(s.industry==='service'||s.industry==='care'||s.industry==='retail'){ sc+=1; r.push('여성 근로자 비중이 높은 업종이라 육아휴직 지원 활용 가능성이 커요'); }
+         return {sc:sc,r:r}; }},
+
+      {id:'senior', name:'고령자 고용지원금', status:'상시 신청', statusCls:'open',
+       desc:'60세 이상 근로자를 새로 늘리거나, 정년이 지난 직원을 계속 고용하는 사업주에게 인건비를 지원합니다.',
+       meta:[['고용지원금','60세 이상 근로자 증가 시 1인당 분기 30만 원 (연 120만 원·최대 2년)'],['계속고용장려금','정년 후 계속 고용 시 1인당 월 30만 원 (최대 2~3년)'],['한도','전체 피보험자의 30% 이내'],['신청','고용24(work24) 누리집']],
+       pills:['고령 인력','인건비 지원','계속고용'], source:'고용노동부 고령자 고용지원금', url:'https://www.work24.go.kr/', applyText:'고용24에서 신청',
+       ev:function(s){ if(s.staff<1&&!has(s,'hire')) return null;
+         var sc=2, r=['60세 이상 직원을 늘리거나 정년 후 직원을 계속 고용하면 사업주가 인건비를 지원받아요'];
+         if(has(s,'hire')){ sc+=2; r.push('직원 채용·인건비에 관심 있다고 선택하셨어요'); }
+         if(s.industry==='service'||s.industry==='care'||s.industry==='manu'){ sc+=1; r.push('숙련 고령 인력 활용도가 높은 업종이에요'); }
+         if(s.period==='over15'){ sc+=1; r.push('오래 운영한 가게라면 정년을 맞는 직원의 계속고용 지원을 함께 챙기세요'); }
+         return {sc:sc,r:r}; }},
+
       {id:'baeknyeon', name:'백년소상공인 (백년가게·백년소공인)', status:'연 1회 모집', statusCls:'wait',
        desc:'오랜 업력을 인정받은 가게를 백년가게·백년소공인으로 지정해 인증현판, 판로·홍보, 컨설팅, 정부사업 가점 등을 지원합니다.',
        meta:[['대상','백년가게(음식·서비스업 업력 30년 이상) / 백년소공인(제조업 15년 이상)'],['혜택','인증현판, 온·오프라인 판로지원, 컨설팅, 정부 지원사업 가점, 온누리상품권 가맹 특례'],['신청','매년 2~3월 모집 (소상공인시장진흥공단)']],
-       pills:['인증·현판','판로지원','정부사업 가점'], source:'백년소상공인 육성사업', url:'https://www.sbiz.or.kr/hdst/main/ohndBusinessIntro.do', applyText:'백년소상공인 안내 보기',
+       pills:['인증·현판','판로지원','정부사업 가점'], source:'백년소상공인 육성사업', url:'https://www.sbiz.or.kr/hdst/main/mainPage.do', applyText:'백년소상공인 안내 보기',
        ev:function(s){ if(s.period!=='over15') return null;
          var sc=2, r=['업력 15년 이상이라 백년소상공인 지정에 도전할 수 있어요'];
          if(s.industry==='manu'){ sc+=1; r.push('제조·공방은 업력 15년 이상이면 백년소공인 대상이에요'); }
@@ -575,7 +621,7 @@ function countUp(el,target,suffix,dur){
   var DATA=window.BIZ_DATA;
   if(!DATA){document.getElementById('resultList').textContent='데이터를 불러오지 못했습니다.';return;}
   var programs=DATA.programs;
-  var state={region:'seoul',industry:'food',revenue:'under1',staff:'none',period:'mid',biz:'good',needs:[]};
+  var state={region:'seoul',industry:'food',revenue:'under1',staff:0,period:'mid',biz:'good',needs:[]};
 
   /* 지역 선택 채우기 */
   var regionSel=document.getElementById('regionSel');
@@ -586,6 +632,11 @@ function countUp(el,target,suffix,dur){
   });
   regionSel.value=state.region;
   regionSel.addEventListener('change',function(){ state.region=regionSel.value; });
+
+  /* 직원 수 숫자 입력 */
+  var staffInp=document.getElementById('staffInp');
+  function readStaff(){ var v=parseInt(staffInp.value,10); state.staff=(isNaN(v)||v<0)?0:v; }
+  staffInp.addEventListener('input',readStaff);
 
   /* 칩 선택 */
   document.querySelectorAll('.chip-grid').forEach(function(grid){
@@ -618,26 +669,64 @@ function countUp(el,target,suffix,dur){
   }
 
   function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function won(n){return Math.round(n).toLocaleString('ko-KR');}
 
-  function cardHtml(x){
+  /* 입력값 기준 예상 혜택 금액 (추정) */
+  var BENEFITS={
+    voucher:function(s){return{label:'예상 수령액',amount:'25만원',sub:'카드 포인트형 바우처 · 영세 기준 충족 시 정액 지급'};},
+    fund:function(s){return{label:'대출 한도',amount:'최대 7,000만원',sub:'연 약 3% 저금리 융자'+(s.metro?'':' · 비수도권 금리 0.2%p 우대')};},
+    shinbo:function(s){return{label:'보증 지원',amount:'담보 없이 대출 가능',sub:s.regionLabel+' 신용보증재단 보증 · 한도는 지역별 상이'};},
+    yellow:function(s){return{label:'예상 절세 효과',amount:'연 최대 600만원',sub:'소득공제 · 사업소득 규모별 200~600만원 공제'};},
+    cardfee:function(s){return{label:'수수료 우대',amount:'신용 0.4% · 체크 0.15%',sub:'연매출 3억 이하 영세 가맹점 기준 최저 요율'};},
+    smartshop:function(s){return{label:'예상 지원금',amount:'최대 700만원',sub:'키오스크·테이블오더 구입형 기준 (렌탈형 연 350만원)'};},
+    edu:function(s){return{label:'이용 비용',amount:'전액 무료',sub:'온라인 교육 + 분야별 전문가 경영 컨설팅'};},
+    duru:function(s){var n=s.staff>0?s.staff:1;var mo=n*10.8;return{label:'예상 지원액',amount:'연 약 '+won(mo*12)+'만원',sub:'직원 '+n+'명 기준 · 보험료 80% 지원 (월보수 230만원 가정 시 1인당 월 약 10.8만원)'};},
+    youth:function(s){return{label:'예상 지원액',amount:(s.metro?'청년 1명당 최대 720만원':'청년 1명당 480~720만원'),sub:'청년 정규직 채용 후 6개월 이상 고용 유지 시 (연 기준)'};},
+    parentcare:function(s){return{label:'예상 지원액',amount:'육아휴직 1인당 월 30만원',sub:'대체인력 채용 시 1인당 월 120만원 별도 · 12개월 내 자녀 특례 시 첫 3개월 월 200만원'};},
+    senior:function(s){return{label:'예상 지원액',amount:'고령자 1인당 최대 240만원',sub:'60세 이상 신규 고용 기준 (연 120만원·최대 2년) · 정년 후 계속고용은 1인당 월 30만원 별도'};},
+    baeknyeon:function(s){return{label:'지정 혜택',amount:'인증현판 + 판로·컨설팅',sub:'정부 지원사업 가점 · 온누리상품권 가맹 특례'};},
+    delivery:function(s){return{label:'지원금',amount:'최대 30만원',sub:'2026년분 접수 종료 — 다음 회차 공고 대기'};},
+    localgov:function(s){return{label:'지원 규모',amount:'지역별 상이',sub:s.regionLabel+' 지자체 공고에서 금액 확인 필요'};}
+  };
+  function benefitOf(x){ return BENEFITS[x.p.id]?BENEFITS[x.p.id](state):null; }
+
+  function innerHtml(x){
     var p=x.p;
-    var nm=(typeof p.name==='function')?p.name(state):p.name;
     var metaRows=p.meta.map(function(m){
       return '<div class="row"><span class="k">'+esc(m[0])+'</span><span class="v">'+esc(m[1])+'</span></div>';
     }).join('');
     var pills=p.pills.map(function(pl){return '<span class="feature-pill">'+esc(pl)+'</span>';}).join('');
     var reasons=x.r.map(function(rr){return '<li>'+esc(rr)+'</li>';}).join('');
     var btn=p.url?'<a class="apply-btn'+(p.closed?' closed':'')+'" href="'+p.url+'" target="_blank" rel="noopener">'+esc(p.applyText||'공식 페이지 보기')+' ↗</a>':'';
+    return '<p class="desc">'+esc(p.desc)+'</p>'
+      +'<div class="why-box"><div class="why-label">이래서 추천해요</div><ul>'+reasons+'</ul></div>'
+      +'<div class="detail-box">'+metaRows+'</div>'
+      +'<div class="feature-pills">'+pills+'</div>'
+      +'<div class="card-cta">'+btn+'<span class="card-source">출처 · '+esc(p.source)+'</span></div>';
+  }
+
+  function fullCard(x){
+    var p=x.p;
+    var nm=(typeof p.name==='function')?p.name(state):p.name;
+    var b=benefitOf(x);
+    var bHtml=b?'<div class="benefit-amt"><span class="ba-label">'+esc(b.label)+'</span><span class="ba-value">'+esc(b.amount)+'</span><span class="ba-sub">'+esc(b.sub)+'</span></div>':'';
     return '<div class="result-card'+(x.t.cls==='fit'?' tier-fit':'')+'">'
       +'<div class="card-top"><span class="status-badge '+p.statusCls+'">'+esc(p.status)+'</span>'
       +'<span class="fit-badge '+x.t.cls+'">'+x.t.label+'</span></div>'
       +'<h3>'+esc(nm)+'</h3>'
-      +'<p class="desc">'+esc(p.desc)+'</p>'
-      +'<div class="why-box"><div class="why-label">이래서 추천해요</div><ul>'+reasons+'</ul></div>'
-      +'<div class="detail-box">'+metaRows+'</div>'
-      +'<div class="feature-pills">'+pills+'</div>'
-      +'<div class="card-cta">'+btn+'<span class="card-source">출처 · '+esc(p.source)+'</span></div>'
+      +bHtml
+      +innerHtml(x)
       +'</div>';
+  }
+  function miniCard(x){
+    var p=x.p;
+    var nm=(typeof p.name==='function')?p.name(state):p.name;
+    var b=benefitOf(x);
+    var amt=b?'<span class="mc-amt">'+esc(b.amount)+'</span>':'';
+    return '<details class="mini-card">'
+      +'<summary><span class="mc-name">'+esc(nm)+'</span>'+amt
+      +'<span class="mc-tier '+x.t.cls+'">'+x.t.label+'</span></summary>'
+      +'<div class="mc-body">'+innerHtml(x)+'</div></details>';
   }
 
   function render(){
@@ -651,29 +740,37 @@ function countUp(el,target,suffix,dur){
       if((a.p.closed?1:0)!==(b.p.closed?1:0)) return (a.p.closed?1:0)-(b.p.closed?1:0);
       return b.sc-a.sc;
     });
+    var fit=list.filter(function(x){return x.t.cls==='fit';});
+    var rec=list.filter(function(x){return x.t.cls==='rec';});
+    var ref=list.filter(function(x){return x.t.cls==='ref';});
 
-    var cFit=0,cRec=0,cRef=0;
-    list.forEach(function(x){
-      if(x.t.cls==='fit')cFit++;else if(x.t.cls==='rec')cRec++;else cRef++;
-    });
     countUp(document.getElementById('megaTotal'),list.length,'',900);
-    countUp(document.getElementById('cFit'),cFit,'',700);
-    countUp(document.getElementById('cRec'),cRec,'',700);
-    countUp(document.getElementById('cRef'),cRef,'',700);
+    countUp(document.getElementById('cFit'),fit.length,'',700);
+    countUp(document.getElementById('cRec'),rec.length,'',700);
+    countUp(document.getElementById('cRef'),ref.length,'',700);
     document.getElementById('resultCount').textContent='총 '+list.length+'개';
 
-    var groups=[['fit','🎯 우리 가게에 딱 맞아요'],['rec','👍 함께 챙기면 좋은 지원'],['ref','📌 참고로 알아두세요']];
     var html='';
-    groups.forEach(function(g){
-      var items=list.filter(function(x){return x.t.cls===g[0];});
-      if(!items.length) return;
-      html+='<div class="group-label">'+g[1]+' ('+items.length+')</div>';
-      items.forEach(function(x){ html+=cardHtml(x); });
-    });
+    if(fit.length){
+      html+='<div class="group-label">🎯 우리 가게에 딱 맞아요 ('+fit.length+')</div>';
+      fit.forEach(function(x){ html+=fullCard(x); });
+    }else{
+      html+='<div class="group-label">🎯 딱 맞는 지원금</div>'
+        +'<div class="empty-note">입력하신 조건에 ‘딱 맞아요’로 분류된 지원금은 없지만, 아래 목록을 펼쳐 받을 수 있는 다른 지원금을 확인해 보세요.</div>';
+    }
+    if(rec.length){
+      html+='<div class="group-label">👍 함께 챙기면 좋은 지원 ('+rec.length+') · 펼쳐서 확인하세요</div>';
+      rec.forEach(function(x){ html+=miniCard(x); });
+    }
+    if(ref.length){
+      html+='<div class="group-label">📌 참고로 알아두세요 ('+ref.length+')</div>';
+      ref.forEach(function(x){ html+=miniCard(x); });
+    }
     document.getElementById('resultList').innerHTML=html;
   }
 
   document.getElementById('submitBtn').addEventListener('click',function(){
+    readStaff();
     var results=document.getElementById('results');
     var loading=document.getElementById('loading');
     results.style.display='none';
@@ -688,7 +785,7 @@ function countUp(el,target,suffix,dur){
   });
 
   document.getElementById('resetBtn').addEventListener('click',function(){
-    var def={industry:'food',revenue:'under1',staff:'none',period:'mid',biz:'good'};
+    var def={industry:'food',revenue:'under1',period:'mid',biz:'good'};
     document.querySelectorAll('.chip-grid').forEach(function(grid){
       var group=grid.dataset.group, multi=grid.dataset.multi==='true';
       grid.querySelectorAll('.chip').forEach(function(c){
@@ -697,7 +794,8 @@ function countUp(el,target,suffix,dur){
       });
     });
     regionSel.value='seoul';
-    state={region:'seoul',industry:'food',revenue:'under1',staff:'none',period:'mid',biz:'good',needs:[]};
+    staffInp.value='0';
+    state={region:'seoul',industry:'food',revenue:'under1',staff:0,period:'mid',biz:'good',needs:[]};
     document.getElementById('results').style.display='none';
   });
 })();
