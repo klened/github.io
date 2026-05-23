@@ -51,28 +51,32 @@
 (function(){var t=localStorage.getItem('loan-theme');if(t)document.documentElement.setAttribute('data-loan-theme',t);})();
 </script>
 <style>
+/* =====================================================================
+   우리집 혜택 찾기 — 부동산 대출 (액센트: 블루 #3182F6)
+   레이아웃·타이포·컴포넌트는 전 페이지 공통 시스템
+   ===================================================================== */
 :root {
-  --primary: #3182F6; --primary-dark: #1B64DA; --primary-light: #E8F2FE; --primary-soft: #F4F6F8;
-  --bg: #FFFFFF; --bg-soft: #F9FAFB; --bg-card: #FFFFFF;
+  --primary: #3182F6; --primary-dark: #1B64DA; --primary-light: #E8F2FE; --primary-soft: #EEF2F8;
+  --bg: #FFFFFF; --bg-soft: #EDF0F4; --bg-card: #FFFFFF;
   --text-strong: #191F28; --text: #333D4B; --text-soft: #4E5968; --text-mute: #8B95A1; --text-disabled: #B0B8C1;
-  --border: #E5E8EB; --border-soft: #F2F4F6;
+  --border: #E5E8EB; --border-soft: #EAEDF1;
   --success: #00C73C; --warning: #FF9D00; --danger: #F04452;
   --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.06); --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 10px 32px rgba(0,0,0,0.10);
   --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { font-family: var(--font); background: var(--bg-soft); color: var(--text); line-height: 1.5; font-weight: 400; word-break: keep-all; }
 button, input, select { font-family: inherit; }
-.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 .site-nav { background: var(--bg); border-bottom: 1px solid var(--border-soft); padding: 12px 0; position: sticky; top: 0; z-index: 50; }
-.site-nav .container { display: flex; gap: 12px; align-items: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.site-nav .container { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .site-nav .container::-webkit-scrollbar { display: none; }
-.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 7px 12px; border-radius: 8px; transition: all 0.15s; flex-shrink: 0; white-space: nowrap; }
+.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 7px 11px; border-radius: 8px; transition: all 0.15s; flex-shrink: 0; white-space: nowrap; }
 .site-nav a:hover { background: var(--primary-soft); color: var(--primary); }
 .site-nav a.active { background: var(--primary-light); color: var(--primary-dark); }
-.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 15px; text-decoration: none; flex-shrink: 0; white-space: nowrap; }
+.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 16px; text-decoration: none; flex-shrink: 0; white-space: nowrap; letter-spacing: -0.3px; }
 header.hero { background: var(--bg); padding: 32px 0 24px; border-bottom: 1px solid var(--border-soft); }
 .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary); padding: 6px 12px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
 .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
@@ -85,7 +89,7 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
 .step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
 .step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
-.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-md); margin-bottom: 16px; }
 .form-card h2.section-title { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; letter-spacing: -0.3px; }
 .form-card .section-sub { font-size: 13px; color: var(--text-mute); margin-bottom: 20px; }
 .form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
@@ -108,29 +112,33 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .form-group select:focus, .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(49,130,246,0.15); }
 .input-unit { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--text-mute); font-size: 14px; font-weight: 500; pointer-events: none; }
 .input-with-unit input { padding-right: 52px; }
-.input-preview { display: none; margin-top: 8px; padding: 10px 14px; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; animation: slideDown 0.18s ease-out; }
-.input-preview.visible { display: block; }
-.input-preview .arrow { margin: 0 4px; color: var(--primary); }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-row .form-group { margin-bottom: 18px; }
+/* 금액 슬라이더 입력 */
+.amount-field { background: var(--primary-soft); border-radius: var(--radius-md); padding: 18px 16px 14px; }
+.amount-now { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; margin-bottom: 14px; }
+.amount-now.empty { font-size: 15px; font-weight: 600; color: var(--text-disabled); }
+.amount-range { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 100px; background: var(--border); outline: none; margin: 0; }
+.amount-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.amount-range::-moz-range-thumb { width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.range-ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-mute); margin-top: 8px; font-weight: 500; }
+.quick-amount { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.quick-btn { padding: 9px 14px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.quick-btn:hover { border-color: var(--primary); color: var(--primary); }
+.quick-btn:active { transform: scale(0.96); }
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-flex; align-items: center; padding: 10px 16px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--text-soft); cursor: pointer; user-select: none; background: var(--bg); transition: all 0.15s; }
 .chip input { display: none; }
 .chip:hover { border-color: var(--text-mute); }
 .chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 .chip.active::before { content: '✓'; margin-right: 4px; font-weight: 700; }
-.quick-amount { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-.quick-btn { padding: 7px 12px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
-.quick-btn:hover { background: var(--primary-light); color: var(--primary); }
-.quick-btn:active { transform: scale(0.96); }
 .action-bar { display: flex; gap: 10px; margin-top: 8px; }
-.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; }
+.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; box-shadow: 0 4px 14px rgba(49,130,246,0.32); }
 .submit-btn:hover:not(:disabled) { background: var(--primary-dark); }
 .submit-btn:active:not(:disabled) { transform: scale(0.99); }
-.submit-btn:disabled { background: var(--border); color: var(--text-disabled); cursor: not-allowed; }
-.reset-btn { padding: 18px 22px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
-.reset-btn:hover { background: var(--border); }
+.submit-btn:disabled { background: var(--border); color: var(--text-disabled); cursor: not-allowed; box-shadow: none; }
+.reset-btn { padding: 18px 22px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.reset-btn:hover { background: var(--bg-soft); }
 .loading-state { display: none; text-align: center; padding: 60px 20px; }
 .loading-state.show { display: block; }
 .spinner { width: 40px; height: 40px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite; }
@@ -141,8 +149,8 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .results-header { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 14px; }
 .results-header h2 { font-size: 20px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; }
 .results-header .count { font-size: 13px; color: var(--text-mute); font-weight: 500; }
-.result-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 12px; box-shadow: var(--shadow-sm); border: 1px solid transparent; transition: all 0.2s; position: relative; }
-.result-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.result-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 12px; box-shadow: var(--shadow-md); border: 1px solid transparent; transition: all 0.2s; position: relative; }
+.result-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
 .result-card.rank-1 { border-color: var(--primary); background: linear-gradient(180deg, #F5F9FF 0%, #FFFFFF 30%); }
 .card-rank-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 100px; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
 .card-rank-badge.gold { background: var(--primary); color: white; }
@@ -168,7 +176,7 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .more-btn:hover { background: var(--primary-light); }
 .more-btn .arrow { transition: transform 0.18s; }
 .more-btn:hover .arrow { transform: translateX(3px); }
-.empty-state { text-align: center; padding: 60px 24px; background: var(--bg-card); border-radius: var(--radius-lg); }
+.empty-state { text-align: center; padding: 60px 24px; background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
 .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
 .empty-state h3 { font-size: 17px; font-weight: 700; color: var(--text-strong); margin-bottom: 8px; }
 .empty-state p { color: var(--text-soft); font-size: 14px; line-height: 1.6; }
@@ -186,6 +194,7 @@ footer.site-footer { background: var(--bg); padding: 28px 0 40px; text-align: ce
 footer.site-footer p { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
 footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
 @media (min-width: 768px) {
+  .container { padding: 0 24px; }
   header.hero { padding: 56px 0 40px; }
   header.hero h1 { font-size: 36px; line-height: 1.25; }
   header.hero p.lead { font-size: 17px; }
@@ -248,7 +257,7 @@ footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
 .empty-state .fallback-rate { font-size: 12px; color: var(--text-soft); margin-bottom: 10px; line-height: 1.4; }
 .empty-state .fallback-cta { font-size: 12px; color: var(--primary); font-weight: 600; }
 .empty-state .empty-actions { display: flex; gap: 8px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
-.empty-state .empty-btn { padding: 12px 20px; background: var(--primary-soft); color: var(--text-strong); border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); transition: all 0.15s; }
+.empty-state .empty-btn { padding: 12px 20px; background: var(--bg-soft); color: var(--text-strong); border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); transition: all 0.15s; }
 .empty-state .empty-btn:hover { background: var(--border-soft); }
 .empty-state .empty-btn-primary { background: var(--primary); color: white; }
 .empty-state .empty-btn-primary:hover { background: var(--primary-dark); }
@@ -277,7 +286,7 @@ html[data-loan-theme="dark"] .warn-tag { background: rgba(255,157,0,0.18); color
 html[data-loan-theme="dark"] .result-card.rank-1 { background: linear-gradient(180deg, #1F2940 0%, #1F2229 40%); }
 html[data-loan-theme="dark"] select option { background: #1F2229; color: #F2F4F6; }
 html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(180deg, transparent 60%, rgba(255,209,102,0.25) 60%); }
-#readingProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--primary), #6E5BFF); z-index: 9999; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(49,130,246,0.4); }
+#readingProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--primary); z-index: 9999; transition: width 0.1s linear; }
 #topBtn { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: white; border: none; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(49,130,246,0.35); opacity: 0; transform: translateY(20px); transition: all 0.25s cubic-bezier(.4,0,.2,1); pointer-events: none; z-index: 100; font-family: var(--font); }
 #topBtn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
 #topBtn:hover { background: var(--primary-dark); transform: translateY(-4px); }
@@ -289,27 +298,26 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) { .reveal, .reveal.in { opacity: 1; transform: none; transition: none; } }
-.gradient-title { background: linear-gradient(135deg, var(--primary) 0%, #6E5BFF 55%, #FF5BB3 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
 </style>
 </head>
 <body>
 <nav class="site-nav">
 <div class="container">
-<a href="/" class="brand">💗 우리집 혜택 찾기</a>
-<a href="/">🏠 홈</a>
-<a href="/loan/" class="active">🏠 부동산 대출</a>
-<a href="/baby/">👶 출산·육아 지원금</a>
-<a href="/business/">🏪 소상공인 지원금</a>
-<a href="/check/">📊 내 가게 진단</a>
+<a href="/" class="brand">우리집 혜택 찾기</a>
+<a href="/">홈</a>
+<a href="/loan/" class="active">부동산 대출</a>
+<a href="/baby/">출산·육아 지원금</a>
+<a href="/business/">소상공인 지원금</a>
+<a href="/check/">내 가게 진단</a>
 <a href="/about/">소개</a>
 </div>
 </nav>
 <div id="readingProgress" aria-hidden="true"></div>
 <header class="hero">
 <div class="container">
-<span class="hero-badge">2026년 5월 최신 업데이트</span>
-<h1 class="gradient-title">내 조건에 맞는<br>부동산 대출 1초 찾기</h1>
-<p class="lead">전세·매매·월세 정책자금부터 시중은행 상품까지,<br>나에게 가장 유리한 대출을 자동으로 비교해드려요.</p>
+<span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
+<h1>내가 받을 수 있는 대출 한도와<br>최저금리, 1초에 확인하세요</h1>
+<p class="lead">전세·매매·월세 대출 21종을 한 번에 비교해,<br>내 조건에서 가장 유리한 상품을 골라드려요.</p>
 <div class="hero-stats">
 <div class="hero-stat"><div class="num">21개</div><div class="label">비교 상품</div></div>
 <div class="hero-stat"><div class="num">30초</div><div class="label">소요 시간</div></div>
@@ -337,7 +345,7 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </div>
 <div class="form-row">
 <div class="form-group"><label class="field-label" for="age">나이</label>
-<div class="input-wrap input-with-unit"><input id="age" max="80" min="19" name="age" type="number" placeholder="32"><span class="input-unit">세</span></div>
+<div class="input-wrap input-with-unit"><input id="age" max="80" min="19" name="age" type="number" inputmode="numeric" placeholder="32"><span class="input-unit">세</span></div>
 </div>
 <div class="form-group"><label class="field-label" for="region">거주 지역</label>
 <div class="input-wrap"><select id="region" name="region">
@@ -360,12 +368,21 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </section>
 <section class="form-card" aria-labelledby="sec2">
 <h2 id="sec2" class="section-title">재무 정보</h2>
-<p class="section-sub">입력하면 한도·금리 우대 가능성을 더 정확히 비교해요</p>
+<p class="section-sub">슬라이더를 드래그하거나 버튼을 눌러 입력하세요 · 입력하면 한도·금리를 더 정확히 비교해요</p>
 <div class="form-group">
-<label class="field-label" for="income">부부합산 연소득 <span class="field-hint">선택 입력</span></label>
-<div class="input-wrap input-with-unit"><input id="income" autocomplete="off" name="income" type="text" placeholder="6,000"><span class="input-unit">만원</span></div>
-<div id="incomePreview" class="input-preview"></div>
-<div class="quick-amount"><button class="quick-btn" type="button" data-target="income" data-amount="3000">3천만</button><button class="quick-btn" type="button" data-target="income" data-amount="5000">5천만</button><button class="quick-btn" type="button" data-target="income" data-amount="7000">7천만</button><button class="quick-btn" type="button" data-target="income" data-amount="10000">1억</button></div>
+<label class="field-label" for="incomeRange">부부합산 연소득 <span class="field-hint">선택 입력</span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="incomeNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="incomeRange" min="0" max="20000" step="500" value="0" aria-label="부부합산 연소득">
+<div class="range-ends"><span>0원</span><span>2억원 이상</span></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="income" data-amount="3000">3,000만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="5000">5,000만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="7000">7,000만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="10000">1억</button>
+</div>
+<input type="hidden" id="income" name="income">
+</div>
 </div>
 <div class="form-group"><label class="field-label" for="housing">주택 보유 현황</label>
 <div class="input-wrap"><select id="housing" name="housing">
@@ -373,10 +390,20 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </select></div>
 </div>
 <div class="form-group">
-<label class="field-label" for="amount">보증금 · 주택 가격 <span class="field-hint">선택 입력</span></label>
-<div class="input-wrap input-with-unit"><input id="amount" autocomplete="off" name="amount" type="text" placeholder="25,000"><span class="input-unit">만원</span></div>
-<div id="amountPreview" class="input-preview"></div>
-<div class="quick-amount"><button class="quick-btn" type="button" data-target="amount" data-amount="10000">1억</button><button class="quick-btn" type="button" data-target="amount" data-amount="20000">2억</button><button class="quick-btn" type="button" data-target="amount" data-amount="30000">3억</button><button class="quick-btn" type="button" data-target="amount" data-amount="50000">5억</button><button class="quick-btn" type="button" data-target="amount" data-amount="70000">7억</button></div>
+<label class="field-label" for="amountRange">보증금 · 주택 가격 <span class="field-hint">선택 입력</span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="amountNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="amountRange" min="0" max="100000" step="1000" value="0" aria-label="보증금 또는 주택 가격">
+<div class="range-ends"><span>0원</span><span>10억원 이상</span></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="amount" data-amount="10000">1억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="20000">2억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="30000">3억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="50000">5억</button>
+<button class="quick-btn" type="button" data-target="amount" data-amount="70000">7억</button>
+</div>
+<input type="hidden" id="amount" name="amount">
+</div>
 </div>
 </section>
 <section class="form-card" aria-labelledby="sec3">
@@ -393,7 +420,7 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </section>
 <div class="action-bar">
 <button id="resetBtn" class="reset-btn" type="button">초기화</button>
-<button id="submitBtn" class="submit-btn" type="submit">상품 비교하기</button>
+<button id="submitBtn" class="submit-btn" type="submit">내 대출 한도 보기</button>
 </div>
 </form>
 <div id="loading" class="loading-state">
@@ -430,7 +457,7 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 <footer class="site-footer">
 <div class="container">
 <p>상품 정보 출처: <b>주택도시기금 · 한국주택금융공사 · 주택도시보증공사 · 서울보증보험 · 시중은행</b></p>
-<p>&copy; 2026 부동산 대출 비교 가이드 · 본 페이지는 정보 제공 목적이며 실제 대출 승인을 보장하지 않습니다</p>
+<p>&copy; 2026 우리집 혜택 찾기 · 본 페이지는 정보 제공 목적이며 실제 대출 승인을 보장하지 않습니다</p>
 <p style="margin-top:12px;">
 <a href="/" style="color:#8B95A1;font-size:12px;margin:0 8px;">홈</a>
 <a href="/loan/" style="color:#8B95A1;font-size:12px;margin:0 8px;">부동산 대출</a>
@@ -526,22 +553,36 @@ function formatKoreanMoney(manwon) {
   return parts.join(' ') + '원';
 }
 function unformat(val) { return parseInt(String(val).replace(/[^\d]/g, '')) || 0; }
-function setupAmountInput(inputId, previewId) {
-  const input = document.getElementById(inputId); const preview = document.getElementById(previewId);
-  input.addEventListener('input', e => {
-    const raw = unformat(e.target.value);
-    e.target.value = raw ? raw.toLocaleString() : '';
-    const korean = formatKoreanMoney(raw);
-    if (korean) { preview.innerHTML = `입력 금액 <span class="arrow">→</span> <strong>${korean}</strong>`; preview.classList.add('visible'); }
-    else preview.classList.remove('visible');
-  });
+/* 금액 슬라이더 입력 — 키보드 없이 드래그 + 빠른 버튼으로 입력 */
+function setupAmountSlider(rangeId, hiddenId, nowId) {
+  const range = document.getElementById(rangeId);
+  const hidden = document.getElementById(hiddenId);
+  const now = document.getElementById(nowId);
+  function paint() {
+    const min = parseInt(range.min), max = parseInt(range.max), v = parseInt(range.value) || 0;
+    const pct = max > min ? (v - min) / (max - min) * 100 : 0;
+    range.style.background = 'linear-gradient(90deg, var(--primary) ' + pct + '%, var(--border) ' + pct + '%)';
+  }
+  function update() {
+    const v = parseInt(range.value) || 0;
+    if (v <= 0) { hidden.value = ''; now.textContent = '아직 선택 안 함'; now.classList.add('empty'); }
+    else { hidden.value = v; now.textContent = formatKoreanMoney(v); now.classList.remove('empty'); }
+    paint();
+  }
+  range.addEventListener('input', update);
+  update();
+  return {
+    set: function(v) { range.value = v; update(); },
+    reset: function() { range.value = 0; update(); }
+  };
 }
-setupAmountInput('income', 'incomePreview'); setupAmountInput('amount', 'amountPreview');
+const incomeSlider = setupAmountSlider('incomeRange', 'income', 'incomeNow');
+const amountSlider = setupAmountSlider('amountRange', 'amount', 'amountNow');
 document.querySelectorAll('.quick-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const input = document.getElementById(btn.dataset.target);
-    input.value = parseInt(btn.dataset.amount).toLocaleString();
-    input.dispatchEvent(new Event('input', { bubbles: true })); input.focus();
+    const t = btn.dataset.target; const amt = parseInt(btn.dataset.amount);
+    if (t === 'income') incomeSlider.set(Math.min(amt, parseInt(document.getElementById('incomeRange').max)));
+    else if (t === 'amount') amountSlider.set(Math.min(amt, parseInt(document.getElementById('amountRange').max)));
   });
 });
 document.querySelectorAll('.chip input').forEach(cb => {
@@ -550,7 +591,7 @@ document.querySelectorAll('.chip input').forEach(cb => {
 document.getElementById('resetBtn').addEventListener('click', () => {
   document.getElementById('filterForm').reset();
   document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  document.querySelectorAll('.input-preview').forEach(p => p.classList.remove('visible'));
+  incomeSlider.reset(); amountSlider.reset();
   document.getElementById('results').classList.remove('show');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
@@ -624,12 +665,12 @@ function renderEmpty(user) {
   return `<div class="empty-state"><div class="icon">🔍</div><h3>입력 조건에 딱 맞는 상품이 없어요</h3><p>조건을 조금만 조정하면 추천받을 수 있어요.</p><div class="empty-recap"><strong>📋 현재 입력 조건</strong><div class="recap-chips">${inputs.map(i => `<span class="recap-chip">${i}</span>`).join('')}</div></div><div class="empty-hints"><strong>💡 이유는 다음 중 하나일 수 있어요</strong><ul>${hints.map(h => `<li>${h}</li>`).join('')}</ul></div>${fbs.length ? `<div class="empty-suggestions"><strong>👉 그래도 검토해볼 만한 상품</strong><div class="fallback-grid">${fbs.map(p => `<a href="${p.url}" target="_blank" rel="noopener" class="fallback-card"><div class="fallback-name">${p.name}</div><div class="fallback-agency">${p.agency}</div><div class="fallback-rate">${p.rateLabel}</div><div class="fallback-cta">자세히 보기 →</div></a>`).join('')}</div></div>` : ''}<div class="empty-actions"><button type="button" class="empty-btn empty-btn-primary" data-action="reset-form">처음부터 다시 입력</button>${user.income ? `<button type="button" class="empty-btn" data-action="clear-income">연소득 비우고 재시도</button>` : ''}${user.amount ? `<button type="button" class="empty-btn" data-action="clear-amount">금액 비우고 재시도</button>` : ''}</div></div>`;
 }
 function bindEmpty() {
-  document.querySelectorAll('.sim-empty-cta[data-action="focus-amount"]').forEach(btn => btn.addEventListener('click', () => { const i = document.getElementById('amount'); i.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => i.focus(), 400); }));
+  document.querySelectorAll('.sim-empty-cta[data-action="focus-amount"]').forEach(btn => btn.addEventListener('click', () => { const i = document.getElementById('amountRange'); i.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => i.focus(), 400); }));
   document.querySelectorAll('.empty-state .empty-btn[data-action]').forEach(btn => btn.addEventListener('click', () => {
     const a = btn.dataset.action;
     if (a === 'reset-form') document.getElementById('resetBtn').click();
-    else if (a === 'clear-income') { document.getElementById('income').value = ''; document.getElementById('incomePreview').classList.remove('visible'); document.getElementById('submitBtn').click(); }
-    else if (a === 'clear-amount') { document.getElementById('amount').value = ''; document.getElementById('amountPreview').classList.remove('visible'); document.getElementById('submitBtn').click(); }
+    else if (a === 'clear-income') { incomeSlider.reset(); document.getElementById('submitBtn').click(); }
+    else if (a === 'clear-amount') { amountSlider.reset(); document.getElementById('submitBtn').click(); }
   }));
 }
 function renderResults(items, user) {
