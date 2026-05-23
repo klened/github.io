@@ -12,6 +12,27 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="소상공인 지원금 찾기">
 <meta property="og:description" content="내 조건을 선택하면 우리 가게에 맞는 정부 지원금을 금액·신청 링크까지 추천해드려요.">
+
+<!-- 구글 애드센스 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348" crossorigin="anonymous"></script>
+
+<!-- Pretendard Font -->
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<!-- JSON-LD 구조화 데이터 (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "소상공인 지원금 찾기",
+  "url": "https://klened.github.io/business/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "inLanguage": "ko-KR",
+  "description": "지역·업종·매출·운영 상황을 선택하면 우리 가게가 받을 수 있는 정부 지원금과 지자체 지원사업을 금액·신청 링크까지 추천하는 무료 도구.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+}
+</script>
 <style>
 :root{
   --primary:#3182F6;--primary-dark:#1B64DA;--primary-light:#E8F2FE;--primary-soft:#F4F6F8;
@@ -27,7 +48,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font);background:var(--bg-soft);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;word-break:keep-all;}
+body{font-family:var(--font);background:var(--bg-soft);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;word-break:keep-all;}
 a{color:inherit;text-decoration:none;}
 .container{max-width:1040px;margin:0 auto;padding:0 24px;}
 
@@ -48,7 +69,7 @@ header.hero h1{font-size:32px;font-weight:800;color:var(--text-strong);line-heig
 header.hero h1 .gradient{background:linear-gradient(135deg,#2BC48A 0%,var(--biz) 55%,var(--biz-dark) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-width:600px;margin:0;}
 .hero-stats{display:flex;gap:32px;justify-content:flex-start;margin:30px 0 0;padding-top:26px;border-top:1px solid var(--border-soft);}
-.hero-stat .num{font-size:24px;font-weight:800;color:var(--biz);letter-spacing:-.5px;}
+.hero-stat .num{font-size:24px;font-weight:800;color:var(--biz);letter-spacing:-.5px;font-variant-numeric:tabular-nums;}
 .hero-stat .label{font-size:12px;color:var(--text-mute);margin-top:2px;}
 
 /* STEP BAR */
@@ -91,11 +112,11 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .results-header .count{font-size:13px;color:var(--text-mute);font-weight:600;}
 .mega-card{background:linear-gradient(135deg,#2BC48A 0%,var(--biz) 50%,var(--biz-dark) 100%);color:#fff;border-radius:var(--radius-lg);padding:26px 22px;text-align:center;margin-bottom:16px;box-shadow:0 8px 28px rgba(15,169,104,.28);}
 .mega-card .mega-lbl{font-size:13px;opacity:.9;margin-bottom:6px;}
-.mega-card .mega-total{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px;}
+.mega-card .mega-total{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px;font-variant-numeric:tabular-nums;}
 .mega-card .mega-breakdown{display:flex;gap:8px;}
 .mega-card .mega-breakdown>div{flex:1;background:rgba(255,255,255,.15);border-radius:var(--radius-md);padding:12px 8px;}
 .mega-card .mega-breakdown .lbl{font-size:11px;opacity:.9;margin-bottom:3px;}
-.mega-card .mega-breakdown b{font-size:18px;font-weight:800;}
+.mega-card .mega-breakdown b{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;}
 
 .group-label{font-size:13px;font-weight:800;color:var(--biz-dark);margin:18px 4px 8px;}
 .result-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:22px 20px;box-shadow:var(--shadow-sm);border:1.5px solid transparent;margin-bottom:12px;display:flex;flex-direction:column;gap:12px;transition:.2s;}
@@ -153,6 +174,13 @@ footer.site-footer .footer-links{margin-top:14px;display:flex;gap:14px;justify-c
 footer.site-footer .footer-links a{font-size:12px;color:var(--text-mute);font-weight:500;}
 footer.site-footer .footer-links a:hover{color:var(--biz);}
 
+/* REVEAL (스크롤 등장 애니메이션) */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{opacity:1;transform:none;transition:none;}
+}
+
 @media (min-width:768px){
   header.hero{padding:88px 0 64px;}
   header.hero h1{font-size:44px;line-height:1.2;}
@@ -200,14 +228,14 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
 
 <main class="container">
 
-  <div class="step-bar">
+  <div class="step-bar reveal">
     <div class="step-bar-icon">1</div>
     <div class="step-bar-text">내 조건을 선택하면 우리 가게에 맞는 지원금을 추천해드려요</div>
   </div>
 
   <form id="bizForm" onsubmit="return false;">
 
-    <section class="form-card">
+    <section class="form-card reveal">
       <h2 class="section-title">기본 정보</h2>
       <p class="section-sub">지역·업종·매출·직원 규모를 알려주시면 받을 수 있는 지원금이 정확해져요</p>
 
@@ -248,7 +276,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
       </div>
     </section>
 
-    <section class="form-card">
+    <section class="form-card reveal">
       <h2 class="section-title">사업 운영 상황</h2>
       <p class="section-sub">운영 기간과 사업 상태에 따라 추천 지원금이 달라져요</p>
 
@@ -271,7 +299,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
       </div>
     </section>
 
-    <section class="form-card">
+    <section class="form-card reveal">
       <h2 class="section-title">어떤 도움이 필요하세요?</h2>
       <p class="section-sub">관심 있는 항목을 모두 선택해 주세요 (복수 선택 가능)</p>
       <div class="form-group">
@@ -316,7 +344,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     </div>
   </section>
 
-  <div class="faq-section">
+  <div class="faq-section reveal">
     <h2>자주 묻는 질문</h2>
     <details class="faq-item">
       <summary>추천 결과는 어떻게 정해지나요?</summary>
@@ -354,6 +382,25 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
   </div>
 </footer>
 
+<script>
+/* 공통 숫자 카운트업 애니메이션 */
+function countUp(el,target,suffix,dur){
+  if(!el||isNaN(target)){return;}
+  suffix=suffix||'';dur=dur||1000;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){el.textContent=target+suffix;return;}
+  var t0=performance.now();
+  el.textContent='0'+suffix;
+  function step(t){
+    var p=Math.min((t-t0)/dur,1);
+    var e=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(target*e)+suffix;
+    if(p<1){requestAnimationFrame(step);}
+    else{el.textContent=target+suffix;}
+  }
+  requestAnimationFrame(step);
+}
+</script>
 <script src="business-data.js"></script>
 <script>
 (function(){
@@ -441,10 +488,10 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     list.forEach(function(x){
       if(x.t.cls==='fit')cFit++;else if(x.t.cls==='rec')cRec++;else cRef++;
     });
-    document.getElementById('megaTotal').textContent=list.length;
-    document.getElementById('cFit').textContent=cFit;
-    document.getElementById('cRec').textContent=cRec;
-    document.getElementById('cRef').textContent=cRef;
+    countUp(document.getElementById('megaTotal'),list.length,'',900);
+    countUp(document.getElementById('cFit'),cFit,'',700);
+    countUp(document.getElementById('cRec'),cRec,'',700);
+    countUp(document.getElementById('cRef'),cRef,'',700);
     document.getElementById('resultCount').textContent='총 '+list.length+'개';
 
     var groups=[['fit','🎯 우리 가게에 딱 맞아요'],['rec','👍 함께 챙기면 좋은 지원'],['ref','📌 참고로 알아두세요']];
@@ -484,6 +531,27 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     regionSel.value='seoul';
     state={region:'seoul',industry:'food',revenue:'under1',staff:'none',period:'mid',biz:'good',needs:[]};
     document.getElementById('results').style.display='none';
+  });
+})();
+</script>
+
+<script>
+/* 스크롤 등장 애니메이션 + 히어로 숫자 카운트업 */
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  document.querySelectorAll('.hero-stat .num').forEach(function(el,i){
+    var m=el.textContent.match(/^(\d+)(.*)$/);
+    if(m){
+      var target=parseInt(m[1],10),suffix=m[2];
+      el.textContent='0'+suffix;
+      setTimeout(function(){countUp(el,target,suffix,1200);},200+i*100);
+    }
   });
 })();
 </script>
