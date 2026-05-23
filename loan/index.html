@@ -23,6 +23,9 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348"
  crossorigin="anonymous"></script>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<!-- Tossface — 토스 이모지 폰트 -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" type="text/css" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,6 +89,21 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .hero-stats { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-soft); }
 .hero-stat .num { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
 .hero-stat .label { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+/* 예시 카드 — 클릭하면 폼이 자동 입력되고 결과로 이동 */
+.examples { margin: 20px 0 4px; }
+.examples-head h2 { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.3px; }
+.examples-head p { font-size: 13px; color: var(--text-mute); margin-top: 3px; }
+.example-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+.example-card { text-align: left; background: var(--bg-card); border: 1.5px solid var(--border-soft); border-radius: var(--radius-md); padding: 16px; cursor: pointer; transition: all 0.18s; font-family: var(--font); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 7px; }
+.example-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.example-card:active { transform: scale(0.99); }
+.ex-cond { font-size: 13px; color: var(--text-soft); font-weight: 600; line-height: 1.5; }
+.ex-result-num { font-size: 19px; font-weight: 800; color: var(--primary); letter-spacing: -0.4px; }
+.ex-result-sub { font-size: 12px; color: var(--text-mute); font-weight: 500; }
+.ex-go { font-size: 13px; font-weight: 700; color: var(--primary); margin-top: 1px; }
+.tossface { font-family: 'Tossface', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif; }
+.ex-icon { width: 42px; height: 42px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 24px; line-height: 1; margin-bottom: 2px; }
+@media (min-width: 768px) { .example-grid { grid-template-columns: repeat(3, 1fr); } }
 .step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
 .step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
 .step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
@@ -318,14 +336,38 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 <span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
 <h1>내가 받을 수 있는 대출 한도와<br>최저금리, 1초에 확인하세요</h1>
 <p class="lead">전세·매매·월세 대출 21종을 한 번에 비교해,<br>내 조건에서 가장 유리한 상품을 골라드려요.</p>
-<div class="hero-stats">
-<div class="hero-stat"><div class="num">21개</div><div class="label">비교 상품</div></div>
-<div class="hero-stat"><div class="num">30초</div><div class="label">소요 시간</div></div>
-<div class="hero-stat"><div class="num">100%</div><div class="label">무료 · 익명</div></div>
-</div>
 </div>
 </header>
 <main class="container">
+<section class="examples">
+<div class="examples-head">
+<h2>예시로 먼저 확인해보세요</h2>
+<p>비슷한 조건을 누르면 바로 내 결과가 나와요</p>
+</div>
+<div class="example-grid">
+<button type="button" class="example-card" data-ex="0">
+<div class="ex-icon tossface">🏠</div>
+<div class="ex-cond">서울 · 40대 · 미혼 · 무주택<br>전세보증금 3억 · 연소득 5,000만</div>
+<div class="ex-result-num" id="exNum0">계산 중…</div>
+<div class="ex-result-sub" id="exSub0"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="1">
+<div class="ex-icon tossface">🔑</div>
+<div class="ex-cond">수도권 · 30대 · 신혼부부 · 무주택<br>5억 주택 매매 · 연소득 7,000만</div>
+<div class="ex-result-num" id="exNum1">계산 중…</div>
+<div class="ex-result-sub" id="exSub1"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="2">
+<div class="ex-icon tossface">📅</div>
+<div class="ex-cond">서울 · 20대 · 청년 미혼 · 무주택<br>월세 거주 · 연소득 3,000만</div>
+<div class="ex-result-num" id="exNum2">계산 중…</div>
+<div class="ex-result-sub" id="exSub2"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+</div>
+</section>
 <div class="step-bar">
 <div class="step-bar-icon">1</div>
 <div class="step-bar-text">내 조건을 입력하면 적합도 순으로 추천해드려요</div>
@@ -709,6 +751,48 @@ function animateNumber(el, target, suffix, dur) {
 document.querySelectorAll('.hero-stat .num').forEach((el, i) => {
   const m = el.textContent.match(/^(\d+)(.*)$/);
   if (m) { const target = parseInt(m[1]); const suffix = m[2]; el.textContent = '0' + suffix; setTimeout(() => animateNumber(el, target, suffix, 1200), 200 + i * 100); }
+});
+/* 예시 카드 — 페이지의 추천 엔진으로 결과를 미리 계산해 보여주고, 클릭 시 폼에 자동 입력 */
+const EXAMPLES = [
+  { id: 0, form: { purpose: 'jeonse', age: '42', region: 'seoul', marital: 'single', children: '0', housing: '0', income: 5000, amount: 30000 } },
+  { id: 1, form: { purpose: 'purchase', age: '33', region: 'metro', marital: 'newlywed', children: '0', housing: '0', income: 7000, amount: 50000 } },
+  { id: 2, form: { purpose: 'monthly', age: '26', region: 'seoul', marital: 'single', children: '0', housing: '0', income: 3000, amount: 0 } }
+];
+function computeExample(ex) {
+  const u = {
+    purpose: ex.form.purpose, age: parseInt(ex.form.age), region: ex.form.region,
+    marital: ex.form.marital, children: ex.form.children, income: ex.form.income || null,
+    housing: ex.form.housing, amount: ex.form.amount || null,
+    sme: false, firstHome: false, dreamAccount: false, jobSeeker: false, multicultural: false, disabled: false
+  };
+  const items = PRODUCTS.map(p => ({ product: p, result: evaluate(p, u) })).filter(x => x.result.eligible).sort((a, b) => b.result.score - a.result.score);
+  if (!items.length) return { big: '조건 다시 확인', sub: '눌러서 결과 보기 →' };
+  const top = items[0].product; const sim = calcSim(top, u);
+  let big = items.length + '개 상품 추천';
+  if (sim && sim.type === 'jeonse') big = '최대 ' + formatMoneyShort(sim.maxLoan) + ' 전세대출 가능';
+  else if (sim && sim.type === 'purchase') big = '최대 ' + formatMoneyShort(sim.maxLoan) + ' 주택대출 가능';
+  else if (sim && sim.type === 'monthly') big = '월세 ' + sim.total.toLocaleString() + '만원 지원';
+  return { big: big, sub: '1순위: ' + top.name + ' · 총 ' + items.length + '개 추천' };
+}
+function applyExample(ex) {
+  const f = document.getElementById('filterForm');
+  f.purpose.value = ex.form.purpose; f.age.value = ex.form.age;
+  f.region.value = ex.form.region; f.marital.value = ex.form.marital;
+  f.children.value = ex.form.children; f.housing.value = ex.form.housing;
+  incomeSlider.set(ex.form.income || 0); amountSlider.set(ex.form.amount || 0);
+}
+EXAMPLES.forEach(ex => {
+  const r = computeExample(ex);
+  const numEl = document.getElementById('exNum' + ex.id);
+  const subEl = document.getElementById('exSub' + ex.id);
+  if (numEl) numEl.textContent = r.big;
+  if (subEl) subEl.textContent = r.sub;
+});
+document.querySelectorAll('.example-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const ex = EXAMPLES[parseInt(card.dataset.ex)];
+    if (ex) { applyExample(ex); document.getElementById('submitBtn').click(); }
+  });
 });
 </script>
 </body>
