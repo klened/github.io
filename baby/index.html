@@ -23,6 +23,9 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348"
  crossorigin="anonymous"></script>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<!-- Tossface — 토스 이모지 폰트 -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" type="text/css" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,41 +46,56 @@
 (function(){var t=localStorage.getItem('baby-theme');if(t)document.documentElement.setAttribute('data-baby-theme',t);})();
 </script>
 <style>
+/* =====================================================================
+   우리집 혜택 찾기 — 출산·육아 지원금 (액센트: 핑크 #EC4899)
+   레이아웃·타이포·컴포넌트는 전 페이지 공통 시스템
+   ===================================================================== */
 :root {
   --primary: #EC4899; --primary-dark: #DB2777; --primary-light: #FCE7F3; --primary-soft: #FDF2F8;
-  --bg: #FFFFFF; --bg-soft: #FFF7FB; --bg-card: #FFFFFF;
+  --bg: #FFFFFF; --bg-soft: #EDF0F4; --bg-card: #FFFFFF;
   --text-strong: #191F28; --text: #333D4B; --text-soft: #4E5968; --text-mute: #8B95A1; --text-disabled: #B0B8C1;
-  --border: #E5E8EB; --border-soft: #F2F4F6;
+  --border: #E5E8EB; --border-soft: #EAEDF1;
   --success: #00C73C; --warning: #FF9D00; --danger: #F04452;
   --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.06); --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 10px 32px rgba(0,0,0,0.10);
   --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { font-family: var(--font); background: var(--bg-soft); color: var(--text); line-height: 1.5; font-weight: 400; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-break: keep-all; }
 button, input, select { font-family: inherit; }
-.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 .site-nav { background: var(--bg); border-bottom: 1px solid var(--border-soft); padding: 12px 0; position: sticky; top: 0; z-index: 50; }
-.site-nav .container { display: flex; gap: 12px; align-items: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.site-nav .container { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .site-nav .container::-webkit-scrollbar { display: none; }
-.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 7px 12px; border-radius: 8px; transition: all 0.15s; flex-shrink: 0; white-space: nowrap; }
+.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 7px 11px; border-radius: 8px; transition: all 0.15s; flex-shrink: 0; white-space: nowrap; }
 .site-nav a:hover { background: var(--primary-soft); color: var(--primary); }
 .site-nav a.active { background: var(--primary-light); color: var(--primary-dark); }
-.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 15px; text-decoration: none; flex-shrink: 0; white-space: nowrap; }
+.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 16px; text-decoration: none; flex-shrink: 0; white-space: nowrap; letter-spacing: -0.3px; }
 header.hero { background: var(--bg); padding: 32px 0 24px; border-bottom: 1px solid var(--border-soft); }
 .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary); padding: 6px 12px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
 .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 header.hero h1 { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.3; letter-spacing: -0.6px; margin-bottom: 10px; }
 header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55; }
-.hero-stats { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-soft); }
-.hero-stat .num { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
-.hero-stat .label { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+/* 예시 카드 */
+.examples { margin: 20px 0 4px; }
+.examples-head h2 { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.3px; }
+.examples-head p { font-size: 13px; color: var(--text-mute); margin-top: 3px; }
+.example-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+.example-card { text-align: left; background: var(--bg-card); border: 1.5px solid var(--border-soft); border-radius: var(--radius-md); padding: 16px; cursor: pointer; transition: all 0.18s; font-family: var(--font); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 7px; }
+.example-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.example-card:active { transform: scale(0.99); }
+.example-card .ex-icon { width: 42px; height: 42px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 24px; line-height: 1; margin-bottom: 2px; }
+.example-card .ex-cond { font-size: 13px; color: var(--text-soft); font-weight: 600; line-height: 1.5; }
+.example-card .ex-result-num { font-size: 19px; font-weight: 800; color: var(--primary); letter-spacing: -0.4px; }
+.example-card .ex-result-sub { font-size: 12px; color: var(--text-mute); font-weight: 500; }
+.example-card .ex-go { font-size: 13px; font-weight: 700; color: var(--primary); margin-top: 1px; }
+.tossface { font-family: 'Tossface', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif; }
 .step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
 .step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
 .step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
-.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-md); margin-bottom: 16px; }
 .form-card h2.section-title { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; letter-spacing: -0.3px; }
 .form-card .section-sub { font-size: 13px; color: var(--text-mute); margin-bottom: 20px; }
 .form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
@@ -101,10 +119,6 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .form-group select:focus, .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(236,72,153,0.15); }
 .input-unit { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--text-mute); font-size: 14px; font-weight: 500; pointer-events: none; }
 .input-with-unit input { padding-right: 52px; }
-.input-preview { display: none; margin-top: 8px; padding: 10px 14px; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; animation: slideDown 0.18s ease-out; }
-.input-preview.visible { display: block; }
-.input-preview .arrow { margin: 0 4px; color: var(--primary); }
-@keyframes slideDown { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-row .form-group { margin-bottom: 18px; }
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -115,24 +129,32 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .chip.active::before { content: '✓'; margin-right: 4px; font-weight: 700; }
 .range-wrap { padding: 4px 0; }
 .range-wrap input[type="range"] { width: 100%; height: 6px; -webkit-appearance: none; appearance: none; background: var(--border-soft); border-radius: 3px; outline: none; }
-.range-wrap input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 8px rgba(236,72,153,0.3); border: 3px solid white; }
-.range-wrap input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 8px rgba(236,72,153,0.3); border: 3px solid white; }
+.range-wrap input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 8px rgba(236,72,153,0.3); border: 3px solid white; }
+.range-wrap input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 8px rgba(236,72,153,0.3); border: 3px solid white; }
 .range-marks { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-mute); margin-top: 6px; }
 .range-label { text-align: center; margin-top: 10px; padding: 8px 12px; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; }
-.quick-amount { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-.quick-btn { padding: 7px 12px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
-.quick-btn:hover { background: var(--primary-light); color: var(--primary); }
+/* 금액 슬라이더 입력 */
+.amount-field { background: var(--primary-soft); border-radius: var(--radius-md); padding: 18px 16px 14px; }
+.amount-now { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; margin-bottom: 14px; }
+.amount-now.empty { font-size: 15px; font-weight: 600; color: var(--text-disabled); }
+.amount-range { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 100px; background: var(--border); outline: none; margin: 0; }
+.amount-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.amount-range::-moz-range-thumb { width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.range-ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-mute); margin-top: 8px; font-weight: 500; }
+.quick-amount { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.quick-btn { padding: 9px 14px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.quick-btn:hover { border-color: var(--primary); color: var(--primary); }
 .quick-btn:active { transform: scale(0.96); }
 .region-preview { display: none; margin-top: 12px; padding: 12px 14px; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius-md); font-size: 13px; font-weight: 500; line-height: 1.55; }
-.region-preview.visible { display: block; animation: slideDown 0.2s ease-out; }
+.region-preview.visible { display: block; }
 .region-preview b { font-weight: 700; }
 .region-preview .sub { display: block; margin-top: 4px; color: var(--text-mute); font-weight: 500; font-size: 12px; }
 .action-bar { display: flex; gap: 10px; margin-top: 8px; }
-.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; }
+.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; box-shadow: 0 4px 14px rgba(236,72,153,0.32); }
 .submit-btn:hover:not(:disabled) { background: var(--primary-dark); }
 .submit-btn:active:not(:disabled) { transform: scale(0.99); }
-.reset-btn { padding: 18px 22px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
-.reset-btn:hover { background: var(--border); }
+.reset-btn { padding: 18px 22px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.reset-btn:hover { background: var(--bg-soft); }
 .loading-state { display: none; text-align: center; padding: 60px 20px; }
 .loading-state.show { display: block; }
 .spinner { width: 40px; height: 40px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite; }
@@ -157,7 +179,7 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
   .mega-card .mega-total { font-size: 40px; }
   .mega-card .mega-total .unit { font-size: 18px; }
 }
-.timeline-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 14px; box-shadow: var(--shadow-sm); }
+.timeline-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 14px; box-shadow: var(--shadow-md); }
 .timeline-card h3 { font-size: 16px; font-weight: 700; color: var(--text-strong); margin-bottom: 14px; letter-spacing: -0.3px; display: flex; align-items: center; gap: 6px; }
 .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .timeline-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
@@ -168,8 +190,8 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .timeline-table tbody td:first-child { text-align: left; padding-left: 12px; font-weight: 600; color: var(--text); }
 .timeline-table tbody tr.sum td { background: var(--primary-light); color: var(--primary-dark); font-weight: 800; border-bottom: none; padding: 12px 6px; }
 .timeline-table .dash { color: var(--text-disabled); }
-.benefit-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 10px; box-shadow: var(--shadow-sm); border: 1px solid transparent; transition: all 0.2s; display: flex; gap: 14px; align-items: flex-start; }
-.benefit-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.benefit-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 10px; box-shadow: var(--shadow-md); border: 1px solid transparent; transition: all 0.2s; display: flex; gap: 14px; align-items: flex-start; }
+.benefit-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
 .benefit-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
 .benefit-icon.gov { background: var(--primary-light); }
 .benefit-icon.metro { background: #FBCFE8; }
@@ -202,12 +224,10 @@ footer.site-footer { background: var(--bg); padding: 28px 0 40px; text-align: ce
 footer.site-footer p { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
 footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
 @media (min-width: 768px) {
+  .container { padding: 0 24px; }
   header.hero { padding: 56px 0 40px; }
   header.hero h1 { font-size: 36px; line-height: 1.25; }
   header.hero p.lead { font-size: 17px; }
-  .hero-stat .num { font-size: 28px; }
-  .hero-stat .label { font-size: 13px; }
-  .hero-stats { gap: 40px; padding-top: 28px; margin-top: 28px; }
   .form-card { padding: 32px 28px; }
   .form-card h2.section-title { font-size: 20px; }
   .form-card .section-sub { font-size: 14px; margin-bottom: 24px; }
@@ -216,6 +236,7 @@ footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
   .mega-card { padding: 36px 28px; }
   .mega-card .mega-total { font-size: 64px; }
   .mega-card .mega-total .unit { font-size: 26px; }
+  .example-grid { grid-template-columns: repeat(3, 1fr); }
 }
 html[data-baby-theme="dark"] {
   --bg: #1F2229; --bg-soft: #16181D; --bg-card: #1F2229;
@@ -234,7 +255,7 @@ html[data-baby-theme="dark"] .src-tag.local { background: rgba(245,158,11,0.18);
 html[data-baby-theme="dark"] .due-tag { background: rgba(245,158,11,0.18); color: #FCD34D; }
 html[data-baby-theme="dark"] .timeline-table thead th { background: #25282E; }
 html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(180deg, transparent 60%, rgba(255,209,102,0.25) 60%); }
-#readingProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--primary), #F472B6); z-index: 9999; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(236,72,153,0.4); }
+#readingProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--primary); z-index: 9999; transition: width 0.1s linear; }
 #topBtn { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: white; border: none; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(236,72,153,0.35); opacity: 0; transform: translateY(20px); transition: all 0.25s cubic-bezier(.4,0,.2,1); pointer-events: none; z-index: 100; font-family: var(--font); }
 #topBtn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
 #topBtn:hover { background: var(--primary-dark); transform: translateY(-4px); }
@@ -246,15 +267,12 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) { .reveal, .reveal.in { opacity: 1; transform: none; transition: none; } }
-.gradient-title { background: linear-gradient(135deg, #F472B6 0%, #EC4899 55%, #BE185D 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   header.hero { padding: 24px 0 20px; }
   header.hero h1 { font-size: 22px; }
   .form-card { padding: 20px 16px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
-  .hero-stats { gap: 16px; }
-  .hero-stat .num { font-size: 18px; }
   .benefit-card { padding: 14px; gap: 10px; }
   .benefit-icon { width: 40px; height: 40px; font-size: 20px; }
   .benefit-title { font-size: 14px; }
@@ -265,29 +283,53 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 <body>
 <nav class="site-nav">
 <div class="container">
-<a href="/" class="brand">💗 우리집 혜택 찾기</a>
-<a href="/">🏠 홈</a>
-<a href="/loan/">🏠 부동산 대출</a>
-<a href="/baby/" class="active">👶 출산·육아 지원금</a>
-<a href="/business/">🏪 소상공인 지원금</a>
-<a href="/check/">📊 내 가게 진단</a>
+<a href="/" class="brand">우리집 혜택 찾기</a>
+<a href="/">홈</a>
+<a href="/loan/">부동산 대출</a>
+<a href="/baby/" class="active">출산·육아 지원금</a>
+<a href="/business/">소상공인 지원금</a>
+<a href="/check/">내 가게 진단</a>
 <a href="/about/">소개</a>
 </div>
 </nav>
 <div id="readingProgress" aria-hidden="true"></div>
 <header class="hero">
 <div class="container">
-<span class="hero-badge">2026년 5월 최신 업데이트</span>
-<h1 class="gradient-title">우리 가족이 받을 수 있는<br>출산·육아 지원금 1초 계산</h1>
+<span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
+<h1>출산하면 우리 가족이 받을<br>지원금 총액, 1초에 계산하세요</h1>
 <p class="lead">정부 8종 + 광역(서울·경기 등) + 기초(시·군·구) 출산장려금까지,<br>지역별 합산 금액과 시기별 수령 일정을 한눈에 확인하세요.</p>
-<div class="hero-stats">
-<div class="hero-stat"><div class="num">30+</div><div class="label">합산 혜택</div></div>
-<div class="hero-stat"><div class="num">30초</div><div class="label">소요 시간</div></div>
-<div class="hero-stat"><div class="num">100%</div><div class="label">무료 · 익명</div></div>
-</div>
 </div>
 </header>
 <main class="container">
+<section class="examples">
+<div class="examples-head">
+<h2>예시로 먼저 확인해보세요</h2>
+<p>비슷한 조건을 누르면 바로 우리 가족 결과가 나와요</p>
+</div>
+<div class="example-grid">
+<button type="button" class="example-card" data-ex="0">
+<div class="ex-icon tossface">🍼</div>
+<div class="ex-cond">서울 강남구 · 첫째 출산<br>맞벌이 · 월급 300만</div>
+<div class="ex-result-num" id="exNum0">계산 중…</div>
+<div class="ex-result-sub" id="exSub0"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="1">
+<div class="ex-icon tossface">👶</div>
+<div class="ex-cond">경기 수원시 · 둘째 출산<br>외벌이 · 월급 300만</div>
+<div class="ex-result-num" id="exNum1">계산 중…</div>
+<div class="ex-result-sub" id="exSub1"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="2">
+<div class="ex-icon tossface">👨‍👩‍👧‍👦</div>
+<div class="ex-cond">전남 곡성군 · 셋째 출산<br>지자체 지원이 많은 지역</div>
+<div class="ex-result-num" id="exNum2">계산 중…</div>
+<div class="ex-result-sub" id="exSub2"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+</div>
+</section>
 <div class="step-bar">
 <div class="step-bar-icon">1</div>
 <div class="step-bar-text">내 조건을 입력하면 받을 수 있는 혜택을 합산해드려요</div>
@@ -346,7 +388,7 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </section>
 <section class="form-card" aria-labelledby="sec3">
 <h2 id="sec3" class="section-title">근로 · 소득 정보</h2>
-<p class="section-sub">육아휴직급여와 신생아 특례 대출 자격을 더 정확히 계산해요</p>
+<p class="section-sub">슬라이더를 드래그하거나 버튼을 눌러 입력하세요 · 육아휴직급여·신생아 특례 대출 자격을 더 정확히 계산해요</p>
 <div class="form-group">
 <label class="field-label">근로 형태</label>
 <div class="chip-grid" data-key="work">
@@ -356,9 +398,11 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </div>
 </div>
 <div class="form-group">
-<label class="field-label" for="wage">월 통상임금 <span class="field-hint">선택 입력</span></label>
-<div class="input-wrap input-with-unit"><input id="wage" autocomplete="off" name="wage" type="text" placeholder="300"><span class="input-unit">만원</span></div>
-<div id="wagePreview" class="input-preview"></div>
+<label class="field-label" for="wageRange">월 통상임금 <span class="field-hint">선택 입력</span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="wageNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="wageRange" min="0" max="1000" step="10" value="0" aria-label="월 통상임금">
+<div class="range-ends"><span>0원</span><span>1,000만원 이상</span></div>
 <div class="quick-amount">
 <button class="quick-btn" type="button" data-target="wage" data-amount="200">200만</button>
 <button class="quick-btn" type="button" data-target="wage" data-amount="300">300만</button>
@@ -366,15 +410,19 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 <button class="quick-btn" type="button" data-target="wage" data-amount="500">500만</button>
 </div>
 </div>
+</div>
 <div class="form-group">
-<label class="field-label" for="income">부부합산 연소득 <span class="field-hint">선택 입력</span></label>
-<div class="input-wrap input-with-unit"><input id="income" autocomplete="off" name="income" type="text" placeholder="6,000"><span class="input-unit">만원</span></div>
-<div id="incomePreview" class="input-preview"></div>
+<label class="field-label" for="incomeRange">부부합산 연소득 <span class="field-hint">선택 입력</span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="incomeNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="incomeRange" min="0" max="20000" step="500" value="0" aria-label="부부합산 연소득">
+<div class="range-ends"><span>0원</span><span>2억원 이상</span></div>
 <div class="quick-amount">
-<button class="quick-btn" type="button" data-target="income" data-amount="3000">3천만</button>
-<button class="quick-btn" type="button" data-target="income" data-amount="6000">6천만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="3000">3,000만</button>
+<button class="quick-btn" type="button" data-target="income" data-amount="6000">6,000만</button>
 <button class="quick-btn" type="button" data-target="income" data-amount="10000">1억</button>
 <button class="quick-btn" type="button" data-target="income" data-amount="20000">2억</button>
+</div>
 </div>
 </div>
 </section>
@@ -391,7 +439,7 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </section>
 <div class="action-bar">
 <button id="resetBtn" class="reset-btn" type="button">초기화</button>
-<button id="submitBtn" class="submit-btn" type="submit">받을 수 있는 혜택 계산하기</button>
+<button id="submitBtn" class="submit-btn" type="submit">우리 가족 수령액 계산하기</button>
 </div>
 </form>
 <div id="loading" class="loading-state">
@@ -450,7 +498,7 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 <footer class="site-footer">
 <div class="container">
 <p>정보 출처: <b>보건복지부 · 고용노동부 · 국민건강보험공단 · 주택도시기금 · 복지로 · 정부24 · 각 지자체 공시</b></p>
-<p>&copy; 2026 출산·육아 지원금 통합 계산기 · 본 페이지는 정보 제공 목적이며 실제 지급을 보장하지 않습니다</p>
+<p>&copy; 2026 우리집 혜택 찾기 · 본 페이지는 정보 제공 목적이며 실제 지급을 보장하지 않습니다</p>
 <p style="margin-top:12px;">
 <a href="/" style="color:#8B95A1;font-size:12px;margin:0 8px;">홈</a>
 <a href="/loan/" style="color:#8B95A1;font-size:12px;margin:0 8px;">부동산 대출</a>
@@ -538,21 +586,36 @@ function formatKoreanMoney(manwon) {
   return parts.join(' ') + '원';
 }
 function unformat(v) { return parseInt(String(v).replace(/[^\d]/g, '')) || 0; }
-function setupAmountInput(inputId, previewId, stateKey) {
-  const input = document.getElementById(inputId); const preview = document.getElementById(previewId);
-  input.addEventListener('input', e => {
-    const raw = unformat(e.target.value); e.target.value = raw ? raw.toLocaleString() : ''; state[stateKey] = raw;
-    const k = formatKoreanMoney(raw);
-    if (k) { preview.innerHTML = '입력 금액 <span class="arrow">→</span> <strong>' + k + '</strong>'; preview.classList.add('visible'); }
-    else preview.classList.remove('visible');
-  });
+/* 금액 슬라이더 입력 — 키보드 없이 드래그 + 빠른 버튼으로 입력 */
+function setupAmountSlider(rangeId, nowId, stateKey) {
+  const range = document.getElementById(rangeId);
+  const now = document.getElementById(nowId);
+  function paint() {
+    const min = parseInt(range.min), max = parseInt(range.max), v = parseInt(range.value) || 0;
+    const pct = max > min ? (v - min) / (max - min) * 100 : 0;
+    range.style.background = 'linear-gradient(90deg, var(--primary) ' + pct + '%, var(--border) ' + pct + '%)';
+  }
+  function update() {
+    const v = parseInt(range.value) || 0;
+    state[stateKey] = v;
+    if (v <= 0) { now.textContent = '아직 선택 안 함'; now.classList.add('empty'); }
+    else { now.textContent = formatKoreanMoney(v); now.classList.remove('empty'); }
+    paint();
+  }
+  range.addEventListener('input', update);
+  update();
+  return {
+    set: function(v) { range.value = v; update(); },
+    reset: function() { range.value = 0; update(); }
+  };
 }
-setupAmountInput('wage', 'wagePreview', 'wage'); setupAmountInput('income', 'incomePreview', 'income');
+const wageSlider = setupAmountSlider('wageRange', 'wageNow', 'wage');
+const incomeSlider = setupAmountSlider('incomeRange', 'incomeNow', 'income');
 document.querySelectorAll('.quick-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const t = btn.dataset.target; const a = parseInt(btn.dataset.amount);
-    const input = document.getElementById(t); input.value = a.toLocaleString();
-    input.dispatchEvent(new Event('input', { bubbles: true }));
+    if (t === 'wage') wageSlider.set(Math.min(a, parseInt(document.getElementById('wageRange').max)));
+    else if (t === 'income') incomeSlider.set(Math.min(a, parseInt(document.getElementById('incomeRange').max)));
   });
 });
 document.getElementById('resetBtn').addEventListener('click', () => {
@@ -564,14 +627,14 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   });
   Object.assign(state, { state: 'pregnant', order: 1, multi: 1, ageMonths: 4, region1: '', region2: '', work: 'both', wage: 0, income: 0, noHouse: false, single: false, multiCulture: false, disabled: false, remote: false });
   ageRange.value = 4; ageRange.dispatchEvent(new Event('input'));
+  wageSlider.reset(); incomeSlider.reset();
   sel2.innerHTML = '<option value="">먼저 광역시·도 선택</option>'; sel2.disabled = true;
-  document.querySelectorAll('.input-preview').forEach(p => p.classList.remove('visible'));
   document.getElementById('regionPreview').classList.remove('visible');
   document.getElementById('results').classList.remove('show');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-function calc() {
-  const s = state; const benefits = [];
+function calc(stateArg) {
+  const s = stateArg || state; const benefits = [];
   const firstMeet = s.order === 1 ? 200 : 300;
   benefits.push({ src: 'gov', icon: '🎁', title: '첫만남이용권', amount: firstMeet, due: '출생 후 1년 이내', desc: '국민행복카드 바우처', byAge: { age0: firstMeet, age1: 0, age2_6: 0, age7: 0 } });
   benefits.push({ src: 'gov', icon: '💰', title: '부모급여 (0세)', amount: 1200, due: '출생신고 시 자동', desc: '만 0세(0~11개월) 월 100만원 ×12개월', byAge: { age0: 1200, age1: 0, age2_6: 0, age7: 0 } });
@@ -643,6 +706,47 @@ document.getElementById('filterForm').addEventListener('submit', e => {
   loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
   setTimeout(() => { loading.classList.remove('show'); results.classList.add('show'); render(); setTimeout(() => results.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100); }, 700);
 });
+/* 예시 카드 — 페이지의 계산 엔진으로 결과를 미리 계산해 보여주고, 클릭 시 폼에 자동 입력 */
+const EXAMPLES = [
+  { id: 0, form: { state: 'born', order: 1, multi: 1, ageMonths: 4, region1: '서울특별시', region2: '강남구', work: 'both', wage: 300, income: 6000, noHouse: false, single: false, multiCulture: false, disabled: false, remote: false } },
+  { id: 1, form: { state: 'born', order: 2, multi: 1, ageMonths: 4, region1: '경기도', region2: '수원시', work: 'one', wage: 300, income: 5000, noHouse: false, single: false, multiCulture: false, disabled: false, remote: false } },
+  { id: 2, form: { state: 'born', order: 3, multi: 1, ageMonths: 4, region1: '전라남도', region2: '곡성군', work: 'both', wage: 300, income: 5000, noHouse: false, single: false, multiCulture: false, disabled: false, remote: false } }
+];
+function computeExample(ex) {
+  const benefits = calc(ex.form);
+  let sum = 0; benefits.forEach(b => sum += b.amount);
+  return { big: '총 ' + formatKoreanMoney(sum), sub: '정부+지자체 ' + benefits.length + '개 혜택 합산' };
+}
+function applyExample(ex) {
+  const f = ex.form;
+  ['state', 'order', 'multi', 'work'].forEach(key => {
+    const grid = document.querySelector('.chip-grid[data-key="' + key + '"]');
+    if (!grid) return;
+    grid.querySelectorAll('.chip').forEach(c => {
+      const inp = c.querySelector('input');
+      const match = String(inp.value) === String(f[key]);
+      c.classList.toggle('active', match); inp.checked = match;
+    });
+    state[key] = (key === 'order' || key === 'multi') ? parseInt(f[key]) : f[key];
+  });
+  ageRange.value = f.ageMonths; ageRange.dispatchEvent(new Event('input'));
+  sel1.value = f.region1; sel1.dispatchEvent(new Event('change'));
+  sel2.value = f.region2; sel2.dispatchEvent(new Event('change'));
+  wageSlider.set(f.wage || 0); incomeSlider.set(f.income || 0);
+}
+EXAMPLES.forEach(ex => {
+  const r = computeExample(ex);
+  const numEl = document.getElementById('exNum' + ex.id);
+  const subEl = document.getElementById('exSub' + ex.id);
+  if (numEl) numEl.textContent = r.big;
+  if (subEl) subEl.textContent = r.sub;
+});
+document.querySelectorAll('.example-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const ex = EXAMPLES[parseInt(card.dataset.ex)];
+    if (ex) { applyExample(ex); document.getElementById('submitBtn').click(); }
+  });
+});
 const progressBar = document.getElementById('readingProgress');
 window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (h > 0 ? window.scrollY / h * 100 : 0) + '%'; }, { passive: true });
 const topBtn = document.getElementById('topBtn');
@@ -655,15 +759,6 @@ darkToggle.addEventListener('click', () => {
   const cur = themeRoot.getAttribute('data-baby-theme') || 'light'; const next = cur === 'dark' ? 'light' : 'dark';
   themeRoot.setAttribute('data-baby-theme', next); localStorage.setItem('baby-theme', next);
   darkToggle.textContent = next === 'dark' ? '☀️' : '🌙';
-});
-function animateCounter(el, target, suffix, dur) {
-  const t0 = performance.now();
-  function step(t) { const p = Math.min((t - t0) / dur, 1); const e = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(target * e) + suffix; if (p < 1) requestAnimationFrame(step); else el.textContent = target + suffix; }
-  requestAnimationFrame(step);
-}
-document.querySelectorAll('.hero-stat .num').forEach((el, i) => {
-  const m = el.textContent.match(/^(\d+)(.*)$/);
-  if (m) { const target = parseInt(m[1]); const suffix = m[2]; el.textContent = '0' + suffix; setTimeout(() => animateCounter(el, target, suffix, 1200), 200 + i * 100); }
 });
 </script>
 </body>
