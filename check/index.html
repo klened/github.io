@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "내 가게 경영진단",
-  "url": "https://klened.github.io/checkup/",
+  "url": "https://klened.github.io/check/",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "All",
   "inLanguage": "ko-KR",
@@ -164,6 +164,42 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .summary-card li{font-size:13.5px;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
 .summary-card li::before{content:"\1F4A1";position:absolute;left:0;font-size:13px;}
 
+/* NOTICE */
+.notice{background:#FFF6E5;border:1px solid #F0CE8E;border-radius:var(--radius-md);padding:13px 16px;margin-bottom:12px;font-size:12.5px;color:#8A5A00;line-height:1.6;}
+.notice b{color:#7A4F00;font-weight:700;}
+/* SIMULATION */
+.sim-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:22px 20px;box-shadow:var(--shadow-sm);margin-bottom:12px;}
+.sim-card .sim-title{font-size:15px;font-weight:800;color:var(--text-strong);letter-spacing:-.3px;}
+.sim-card .sim-sub{font-size:12.5px;color:var(--text-mute);margin:4px 0 16px;}
+.sim-flow{display:flex;align-items:center;gap:10px;}
+.sim-box{flex:1;text-align:center;padding:16px 8px;border-radius:var(--radius-md);background:var(--biz-soft);}
+.sim-box.after{background:var(--biz);}
+.sim-box .sb-lbl{font-size:11px;font-weight:600;color:var(--text-soft);margin-bottom:5px;}
+.sim-box.after .sb-lbl{color:rgba(255,255,255,.85);}
+.sim-box .sb-val{font-size:20px;font-weight:800;color:var(--text-strong);font-variant-numeric:tabular-nums;}
+.sim-box.after .sb-val{color:#fff;}
+.sim-arrow{font-size:18px;color:var(--biz);font-weight:800;flex-shrink:0;}
+.sim-gain{text-align:center;font-size:13px;font-weight:700;color:var(--biz-dark);margin-top:12px;}
+.sim-breakdown{list-style:none;margin-top:14px;border-top:1px solid var(--border-soft);padding-top:12px;display:flex;flex-direction:column;gap:8px;}
+.sim-breakdown li{font-size:13px;color:var(--text-soft);display:flex;justify-content:space-between;gap:10px;}
+.sim-breakdown li b{color:var(--biz-dark);font-weight:700;font-variant-numeric:tabular-nums;flex-shrink:0;}
+/* TODO */
+.todo-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:12px;border-left:4px solid var(--biz);}
+.todo-card.urgent{border-left-color:#E0796B;}
+.todo-head{display:flex;align-items:center;gap:8px;margin-bottom:13px;flex-wrap:wrap;}
+.todo-head .th-tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;background:var(--biz-light);color:var(--biz-dark);}
+.todo-card.urgent .th-tag{background:#FBEAEA;color:#C0392B;}
+.todo-head h4{font-size:15px;font-weight:800;color:var(--text-strong);letter-spacing:-.3px;}
+.todo-list{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.todo-list li{font-size:13.5px;color:var(--text);line-height:1.6;padding-left:27px;position:relative;}
+.todo-list li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border:2px solid var(--biz);border-radius:5px;}
+.todo-card.urgent .todo-list li::before{border-color:#E0796B;}
+/* CTA */
+.cta-card{background:linear-gradient(135deg,#7B7BE6 0%,var(--biz) 100%);border-radius:var(--radius-lg);padding:22px 20px;margin-bottom:12px;color:#fff;}
+.cta-card h4{font-size:15px;font-weight:800;margin-bottom:6px;letter-spacing:-.3px;}
+.cta-card p{font-size:13px;opacity:.93;line-height:1.65;margin-bottom:14px;}
+.cta-card a{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--biz-dark);font-size:14px;font-weight:700;padding:12px 20px;border-radius:var(--radius-md);}
+
 /* FAQ */
 .faq-section{margin:40px 0 16px;}
 .faq-section h2{font-size:18px;font-weight:800;color:var(--text-strong);margin-bottom:14px;padding:0 4px;letter-spacing:-.3px;}
@@ -220,7 +256,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     <a href="/loan/">🏠 부동산 대출</a>
     <a href="/baby/">👶 출산·육아 지원금</a>
     <a href="/business/">🏪 소상공인 지원금</a>
-    <a href="/checkup/" class="active">📊 내 가게 진단</a>
+    <a href="/check/" class="active">📊 내 가게 진단</a>
   </div>
 </nav>
 
@@ -353,13 +389,13 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
       <div class="count" id="resultCount"></div>
     </div>
     <div class="mega-card">
-      <div class="mega-lbl" id="megaLbl">같은 업종(시·도 기준) 매출 위치</div>
-      <div class="mega-total">상위 약 <span id="megaPct">0</span>%</div>
-      <div class="mega-band" id="megaBand">—</div>
+      <div class="mega-lbl">추정 월 영업이익</div>
+      <div class="mega-total"><span id="megaProfit">0</span>만원</div>
+      <div class="mega-band" id="megaGain">—</div>
       <div class="mega-breakdown">
+        <div><div class="lbl">매출 위치</div><b id="mPos">—</b></div>
         <div><div class="lbl">업종</div><b id="mIndustry">—</b></div>
-        <div><div class="lbl">월 매출</div><b id="mRevenue">—</b></div>
-        <div><div class="lbl">추정 영업이익률</div><b id="mMargin">—</b></div>
+        <div><div class="lbl">영업이익률</div><b id="mMargin">—</b></div>
       </div>
     </div>
     <div id="resultList"></div>
@@ -398,7 +434,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
       <a href="/loan/">부동산 대출</a>
       <a href="/baby/">출산·육아 지원금</a>
       <a href="/business/">소상공인 지원금</a>
-      <a href="/checkup/">내 가게 진단</a>
+      <a href="/check/">내 가게 진단</a>
       <a href="/about/">사이트 소개</a>
       <a href="/privacy/">개인정보처리방침</a>
     </div>
@@ -540,6 +576,38 @@ function countUp(el,target,suffix,dur){
       +'<span class="m-badge '+bCls+'">'+bTxt+'</span></div>'+bar(fill,marker,warn)+'</div>';
   }
 
+  /* 실행 체크리스트 콘텐츠 */
+  var CHECK={
+    rent:{title:'임차료 줄이기',items:[
+      '임대차계약서에서 재계약 시점과 임대료 인상률 상한(연 5%)을 확인하세요.',
+      '상가임대차보호법상 최대 10년까지 보장되는 계약갱신요구권을 쓸 수 있는지 점검하세요.',
+      '소상공인 상권정보시스템(sg.sbiz.or.kr)에서 주변 동일 업종 임대 시세를 조사해 재협상 근거로 삼으세요.',
+      '임차료 부담이 계속 크다면 이전을 검토하되, 권리금·인테리어 회수까지 따져 손익분기를 계산하세요.']},
+    food:{title:'식재료비 줄이기',items:[
+      '메뉴별 원가율을 계산해, 원가는 높은데 잘 안 팔리는 메뉴는 단종하거나 가격을 조정하세요.',
+      '식자재 거래처 2~3곳의 단가를 비교하고, 인근 점포와의 공동구매를 검토하세요.',
+      '일주일간 폐기·손실량을 기록해 발주량을 조정하세요.',
+      '인기 메뉴 중심으로 식자재 품목을 단순화하면 재고 부담과 폐기가 함께 줄어듭니다.']},
+    labor:{title:'인건비·인력 효율 높이기',items:[
+      '시간대별 매출과 근무 인원을 맞춰, 한가한 시간대의 인력을 조정하세요.',
+      '피크타임에 인력을 집중 배치하고 유휴 시간을 줄이세요.',
+      '직원 10인 미만이면 두루누리 사회보험료 지원으로 4대보험 부담을 줄일 수 있는지 확인하세요.',
+      '키오스크·테이블오더로 주문·결제 업무를 대체하면 인건비를 낮출 수 있습니다(스마트상점 지원사업 참고).']},
+    sales:{title:'매출 끌어올리기',items:[
+      '객단가·회전율·재방문율 중 어디가 약한지 먼저 파악하세요.',
+      '세트·사이드 메뉴 구성으로 객단가를 올려 보세요.',
+      '적립·쿠폰 등으로 단골의 재방문을 유도하세요.',
+      '점심·저녁 중 약한 시간대를 겨냥한 메뉴나 프로모션을 시도하세요.']},
+    profit:{title:'수익성 회복, 이 순서로',items:[
+      '매출 늘리기보다 고정비(임차료·인건비)부터 점검하세요 — 비용은 즉시 효과가 납니다.',
+      '배달앱 수수료·광고비가 매출 대비 과하지 않은지 확인하세요.',
+      '비중이 가장 큰 비용 항목 하나부터 목표치를 정해 줄여 보세요.']},
+    keep:{title:'지금 잘하고 있어요 — 유지·성장',items:[
+      '원가구조가 균형적입니다. 무리한 절감보다 품질 유지에 신경 쓰세요.',
+      '남는 여력을 신메뉴·마케팅·재방문 유도 등 매출 확대에 투자해 보세요.',
+      '비용 비율을 분기마다 한 번씩 점검해 지금 수준을 유지하세요.']}
+  };
+
   function render(){
     var ind=DATA.industries[state.industry];
     var rg=regionInfo();
@@ -547,104 +615,122 @@ function countUp(el,target,suffix,dur){
     var staff=num('staffInp');
     var food=num('foodInp'), labor=num('laborInp'), rent=num('rentInp');
 
-    /* 매출 백분위 */
     var adjMedian=ind.medianRev*rg.f;
     var z=(Math.log(revenue)-Math.log(adjMedian))/SIGMA;
     var topPct=Math.round((1-normCdf(z))*100);
     if(topPct<1)topPct=1; if(topPct>99)topPct=99;
-    var band = topPct<=30?'상위권' : (topPct<=70?'중위권':'하위권');
-    var bandCls = topPct<=30?'ok' : (topPct<=70?'low':'high');
+    var band=topPct<=30?'상위권':(topPct<=70?'중위권':'하위권');
+    var bandCls=topPct<=30?'ok':(topPct<=70?'low':'high');
 
-    /* 원가 비율 */
-    var hasCost = (food!==null||labor!==null||rent!==null);
-    var foodR = food!==null ? food/revenue*100 : ind.food;
-    var laborR = labor!==null ? labor/revenue*100 : ind.labor;
-    var rentR = rent!==null ? rent/revenue*100 : ind.rent;
-    var opMargin = 100 - foodR - laborR - rentR - DATA.otherRatio;
-    var opProfit = revenue*opMargin/100;
-    var indMargin = 100 - ind.food - ind.labor - ind.rent - DATA.otherRatio;
+    var hasCost=(food!==null||labor!==null||rent!==null);
+    var foodR=food!==null?food/revenue*100:ind.food;
+    var laborR=labor!==null?labor/revenue*100:ind.labor;
+    var rentR=rent!==null?rent/revenue*100:ind.rent;
+    var opMargin=100-foodR-laborR-rentR-DATA.otherRatio;
+    var opProfit=revenue*opMargin/100;
+    var indMargin=100-ind.food-ind.labor-ind.rent-DATA.otherRatio;
+
+    /* 항목별 절감 가능액(월, 만원) — 평균보다 높은 만큼 */
+    var foodGap=food!==null?Math.max(0,(foodR-ind.food))/100*revenue:0;
+    var laborGap=labor!==null?Math.max(0,(laborR-ind.labor))/100*revenue:0;
+    var rentGap=rent!==null?Math.max(0,(rentR-ind.rent))/100*revenue:0;
+    var totalGap=foodGap+laborGap+rentGap;
+    var improvedProfit=opProfit+totalGap;
+    var perCap=(staff!==null&&staff>0)?revenue/staff:null;
 
     /* 메가 카드 */
-    document.getElementById('megaLbl').textContent = rg.label+' '+ind.label+' 매출 위치 (추정)';
-    document.getElementById('megaBand').textContent = band;
-    document.getElementById('mIndustry').textContent = ind.label;
-    document.getElementById('mRevenue').textContent = fmt(revenue)+'만원';
-    document.getElementById('mMargin').textContent = opMargin.toFixed(1)+'%';
+    document.getElementById('mPos').textContent='상위 '+topPct+'%';
+    document.getElementById('mIndustry').textContent=ind.label;
+    document.getElementById('mMargin').textContent=opMargin.toFixed(1)+'%';
+    var gainEl=document.getElementById('megaGain');
+    if(!hasCost){ gainEl.textContent='비용을 입력하면 개선 여지를 계산해 드려요'; }
+    else if(totalGap>=1){ gainEl.textContent='원가를 업종 평균까지 맞추면 월 +'+fmt(totalGap)+'만원'; }
+    else { gainEl.textContent='원가구조가 균형적입니다 👍'; }
 
-    /* 지표 행 (컴팩트) */
-    var rows='', n=2;
+    var html='';
+
+    /* 입력값 점검 경고 */
+    if(hasCost && opMargin>30){
+      html+='<div class="notice"><b>입력값 확인 권장</b> · 계산된 영업이익률('+opMargin.toFixed(0)+'%)이 외식업 평균(약 9%)보다 매우 높습니다. 인건비에 사장님 본인 인건비나 빠뜨린 비용이 없는지 확인해 주세요.</div>';
+    }else if(opMargin<-5){
+      html+='<div class="notice"><b>입력값 확인 권장</b> · 비용 합계가 매출을 초과합니다. 매출·비용 입력값을 다시 확인해 주세요.</div>';
+    }
+
+    /* 핵심 지표 */
+    var rows='';
     rows+=mrow('매출 위치','상위 '+topPct+'%',bandCls,band,100-topPct,50,false);
-
-    var perCap=null;
-    if(staff!==null && staff>0){
-      n++;
-      perCap=revenue/staff;
+    if(perCap!==null){
       var pcCls=perCap>=ind.perCapita*1.1?'ok':(perCap<=ind.perCapita*0.9?'high':'low');
       var pcTxt=perCap>=ind.perCapita*1.1?'효율 높음':(perCap<=ind.perCapita*0.9?'효율 낮음':'적정');
       rows+=mrow('직원 1인당 매출',fmt(perCap)+'만원',pcCls,pcTxt,perCap/(ind.perCapita*2)*100,50,pcCls==='high');
     }
-    if(food!==null){ n++; var fv=costVerdict(foodR,ind.food);
+    if(food!==null){ var fv=costVerdict(foodR,ind.food);
       rows+=mrow('식재료비',foodR.toFixed(1)+'%',fv.cls,fv.label,foodR/(ind.food*2)*100,50,fv.cls==='high'); }
-    if(labor!==null){ n++; var lv=costVerdict(laborR,ind.labor);
+    if(labor!==null){ var lv=costVerdict(laborR,ind.labor);
       rows+=mrow('인건비',laborR.toFixed(1)+'%',lv.cls,lv.label,laborR/(ind.labor*2)*100,50,lv.cls==='high'); }
-    if(rent!==null){ n++; var rv=costVerdict(rentR,ind.rent);
+    if(rent!==null){ var rv=costVerdict(rentR,ind.rent);
       rows+=mrow('임차료',rentR.toFixed(1)+'%',rv.cls,rv.label,rentR/(ind.rent*2)*100,50,rv.cls==='high'); }
-
     var omCls=opMargin<5?'high':(opMargin<indMargin?'low':'ok');
     var omTxt=opMargin<5?'낮음':(opMargin<indMargin?'평균 이하':'양호');
     rows+=mrow('추정 영업이익률',opMargin.toFixed(1)+'%',omCls,omTxt,indMargin>0?opMargin/(indMargin*2)*100:50,50,opMargin<5);
-
-    var metricCard='<div class="metric-card"><div class="mc-head"><h3>핵심 지표 한눈에 보기</h3>'
+    html+='<div class="metric-card"><div class="mc-head"><h3>핵심 지표 한눈에 보기</h3>'
       +'<div class="mc-legend"><span><i class="lg-fill"></i>우리 가게</span><span><i class="lg-mark"></i>업종 평균</span></div>'
       +'</div>'+rows+'</div>';
 
-    /* 종합 진단 (설명 묶음) */
-    var lead=ind.label+' 평균과 비교한 종합 결과 — '
-      +(opMargin<5?'수익성 개선이 가장 시급합니다.'
-        :(band==='상위권'?'전반적으로 양호한 편입니다.'
-        :'몇 군데만 손보면 수익을 키울 수 있습니다.'));
-
-    var tips=[];
-    tips.push('매출은 '+rg.label+' '+ind.label+' 중 추정 상위 '+topPct+'%('+band+')입니다. '
-      +(band==='상위권'?'지금의 강점(메뉴·입지·단골 등)을 유지하세요.'
-        :band==='중위권'?'원가구조를 다듬는 것이 매출 늘리기보다 빠른 수익 개선책입니다.'
-        :'객단가·회전율·재방문율 중 약한 곳을 점검해 보세요. 다만 상권 규모가 작은 곳일 수 있어 절대 매출만으로 판단하지 마세요.'));
-
-    if(hasCost){
-      var pieces=[], worst=null, worstDiff=-99;
-      if(food!==null){ pieces.push('식재료비 '+foodR.toFixed(1)+'%('+costVerdict(foodR,ind.food).label+')'); if(foodR-ind.food>worstDiff){worstDiff=foodR-ind.food;worst='식재료비';} }
-      if(labor!==null){ pieces.push('인건비 '+laborR.toFixed(1)+'%('+costVerdict(laborR,ind.labor).label+')'); if(laborR-ind.labor>worstDiff){worstDiff=laborR-ind.labor;worst='인건비';} }
-      if(rent!==null){ pieces.push('임차료 '+rentR.toFixed(1)+'%('+costVerdict(rentR,ind.rent).label+')'); if(rentR-ind.rent>worstDiff){worstDiff=rentR-ind.rent;worst='임차료';} }
-      tips.push('원가구조는 '+pieces.join(', ')+'입니다. '
-        +(worstDiff>2?worst+' 비중을 먼저 점검하면 수익이 가장 빠르게 개선됩니다.':'항목들이 대체로 균형 잡혀 있습니다.'));
-      if(food!==null && labor!==null && (foodR+laborR)>65){
-        tips.push('식재료비와 인건비 합이 매출의 '+(foodR+laborR).toFixed(0)+'%입니다. 65%를 넘으면 수익을 내기 어렵다는 게 업계 통념이니 두 항목을 우선 점검하세요.');
-      }
-    }else{
-      tips.push('식재료비·인건비·임차료를 입력하면 원가구조까지 진단해 더 구체적인 개선점을 알려드릴 수 있어요.');
+    /* 개선 시뮬레이션 */
+    if(hasCost && totalGap>=1){
+      var bd='';
+      if(foodGap>=1)bd+='<li><span>식재료비를 업종 평균('+ind.food+'%)으로</span><b>월 +'+fmt(foodGap)+'만원</b></li>';
+      if(laborGap>=1)bd+='<li><span>인건비를 업종 평균('+ind.labor+'%)으로</span><b>월 +'+fmt(laborGap)+'만원</b></li>';
+      if(rentGap>=1)bd+='<li><span>임차료를 업종 평균('+ind.rent+'%)으로</span><b>월 +'+fmt(rentGap)+'만원</b></li>';
+      html+='<div class="sim-card"><div class="sim-title">💰 이렇게 바꾸면</div>'
+        +'<p class="sim-sub">업종 평균보다 높은 비용을 평균 수준으로 맞췄을 때의 추정입니다.</p>'
+        +'<div class="sim-flow">'
+        +'<div class="sim-box"><div class="sb-lbl">지금 월 영업이익</div><div class="sb-val">'+fmt(opProfit)+'만원</div></div>'
+        +'<div class="sim-arrow">→</div>'
+        +'<div class="sim-box after"><div class="sb-lbl">개선 시 월 영업이익</div><div class="sb-val">'+fmt(improvedProfit)+'만원</div></div>'
+        +'</div>'
+        +'<div class="sim-gain">연 환산 약 '+fmt(totalGap*12)+'만원을 더 남길 수 있어요</div>'
+        +'<ul class="sim-breakdown">'+bd+'</ul></div>';
     }
 
-    if(perCap!==null){
-      tips.push('직원 1인당 매출은 월 '+fmt(perCap)+'만원으로 업종 평균('+fmt(ind.perCapita)+'만원)'
-        +(perCap>=ind.perCapita*1.1?'을 웃돕니다 — 인력 운영 효율이 좋습니다.'
-          :perCap<=ind.perCapita*0.9?'에 못 미칩니다 — 근무 시간대 배치를 점검해 보세요.'
-          :'과 비슷한 수준입니다.'));
+    /* 실행 체크리스트 (우선순위순, 최대 3장) */
+    var issues=[];
+    if(rent!==null && rentR>ind.rent*1.05) issues.push({key:'rent',gap:rentGap});
+    if(food!==null && foodR>ind.food*1.05) issues.push({key:'food',gap:foodGap});
+    if((labor!==null && laborR>ind.labor*1.05) || (perCap!==null && perCap<ind.perCapita*0.9)) issues.push({key:'labor',gap:laborGap});
+    if(band==='하위권') issues.push({key:'sales',gap:revenue*0.04});
+    if(opMargin<5) issues.push({key:'profit',gap:revenue*0.03});
+    issues.sort(function(a,b){return b.gap-a.gap;});
+    var seen={},picked=[];
+    issues.forEach(function(it){ if(!seen[it.key]){seen[it.key]=1;picked.push(it);} });
+    picked=picked.slice(0,3);
+    if(!picked.length) picked=[{key:'keep',gap:0}];
+
+    if(picked[0].key!=='keep') html+='<div class="section-label" style="font-size:13px;font-weight:800;color:var(--biz-dark);margin:20px 4px 8px;">📋 지금 할 일 (우선순위순)</div>';
+    picked.forEach(function(it){
+      var c=CHECK[it.key];
+      var urgent=(it.key!=='keep') && (it.gap>revenue*0.02 || it.key==='sales' || it.key==='profit');
+      var li='';
+      c.items.forEach(function(x){ li+='<li>'+x+'</li>'; });
+      html+='<div class="todo-card'+(urgent?' urgent':'')+'">'
+        +'<div class="todo-head"><span class="th-tag">'+(urgent?'먼저 할 일':'점검')+'</span><h4>'+c.title+'</h4></div>'
+        +'<ul class="todo-list">'+li+'</ul></div>';
+    });
+
+    /* 지원금 연결 */
+    if(opMargin<8 || totalGap>=1 || band==='하위권'){
+      html+='<div class="cta-card"><h4>비용 부담, 정부 지원으로 덜 수 있어요</h4>'
+        +'<p>경영안정 바우처·정책자금·노란우산공제 등 우리 가게가 받을 수 있는 지원금이 있습니다. 1분 만에 확인해 보세요.</p>'
+        +'<a href="/business/">소상공인 지원금 확인하기 →</a></div>';
     }
 
-    tips.push('추정 영업이익률은 '+opMargin.toFixed(1)+'%, 월 약 '+fmt(opProfit)+'만원입니다'
-      +(hasCost?'':' (업종 평균 원가구조 가정)')+'. '
-      +(opMargin<5?'평균보다 높은 비용 항목부터 줄이는 것이 가장 빠른 개선책입니다.'
-        :opMargin<indMargin?'원가 한 곳만 다듬어도 수익이 눈에 띄게 좋아집니다.'
-        :'현재 구조를 유지하며 매출 확대에 집중해 보세요.'));
+    document.getElementById('resultCount').textContent=rg.label+' · '+ind.label;
+    document.getElementById('resultList').innerHTML=html;
 
-    var summary='<div class="summary-card"><h3>📋 종합 진단</h3><p class="sum-lead">'+lead+'</p><ul>';
-    tips.forEach(function(t){ summary+='<li>'+t+'</li>'; });
-    summary+='</ul></div>';
-
-    document.getElementById('resultCount').textContent='진단 항목 '+n+'개';
-    document.getElementById('resultList').innerHTML=metricCard+summary;
-
-    countUp(document.getElementById('megaPct'),topPct,'',900);
+    var pf=Math.round(opProfit);
+    if(pf>=0){ countUp(document.getElementById('megaProfit'),pf,'',900); }
+    else { document.getElementById('megaProfit').textContent=pf.toLocaleString('ko-KR'); }
   }
 
   document.getElementById('submitBtn').addEventListener('click',function(){
