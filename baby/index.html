@@ -2,6 +2,14 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZKQ6TBT1Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1ZKQ6TBT1Z');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>숨은 출산·육아 지원금 찾기 | 정부+지자체 통합 계산기</title>
 <meta name="description" content="정부 8종 + 광역 + 기초 지자체(시·군·구) 출산장려금까지 한 번에 합산해 보여주는 무료 계산기. 시기별 수령 타임라인과 총 누적 수령액을 제공합니다.">
@@ -11,13 +19,10 @@
 <meta property="og:title" content="숨은 출산·육아 지원금 찾기">
 <meta property="og:description" content="정부+광역+기초 지자체 출산장려금까지 한 번에 합산.">
 <meta property="og:locale" content="ko_KR">
-
 <!-- 구글 애드센스 스크립트 위치 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348"
  crossorigin="anonymous"></script>
-
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,11 +39,9 @@
   ]
 }
 </script>
-
 <script>
 (function(){var t=localStorage.getItem('baby-theme');if(t)document.documentElement.setAttribute('data-baby-theme',t);})();
 </script>
-
 <style>
 :root {
   --primary: #EC4899; --primary-dark: #DB2777; --primary-light: #FCE7F3; --primary-soft: #FDF2F8;
@@ -51,18 +54,17 @@
   --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { font-family: var(--font); background: var(--bg-soft); color: var(--text); line-height: 1.5; font-weight: 400; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-break: keep-all; }
 button, input, select { font-family: inherit; }
 .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-
 .site-nav { background: var(--bg); border-bottom: 1px solid var(--border-soft); padding: 12px 0; position: sticky; top: 0; z-index: 50; }
-.site-nav .container { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 6px 12px; border-radius: 8px; transition: all 0.15s; }
+.site-nav .container { display: flex; gap: 12px; align-items: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.site-nav .container::-webkit-scrollbar { display: none; }
+.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 7px 12px; border-radius: 8px; transition: all 0.15s; flex-shrink: 0; white-space: nowrap; }
 .site-nav a:hover { background: var(--primary-soft); color: var(--primary); }
 .site-nav a.active { background: var(--primary-light); color: var(--primary-dark); }
-.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 15px; text-decoration: none; }
-
+.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 15px; text-decoration: none; flex-shrink: 0; white-space: nowrap; }
 header.hero { background: var(--bg); padding: 32px 0 24px; border-bottom: 1px solid var(--border-soft); }
 .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary); padding: 6px 12px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
 .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
@@ -72,11 +74,9 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .hero-stats { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-soft); }
 .hero-stat .num { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
 .hero-stat .label { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
-
 .step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
 .step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
 .step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
-
 .form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
 .form-card h2.section-title { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; letter-spacing: -0.3px; }
 .form-card .section-sub { font-size: 13px; color: var(--text-mute); margin-bottom: 20px; }
@@ -107,50 +107,42 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 @keyframes slideDown { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-row .form-group { margin-bottom: 18px; }
-
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-flex; align-items: center; padding: 10px 16px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--text-soft); cursor: pointer; user-select: none; background: var(--bg); transition: all 0.15s; }
 .chip input { display: none; }
 .chip:hover { border-color: var(--text-mute); }
 .chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 .chip.active::before { content: '✓'; margin-right: 4px; font-weight: 700; }
-
 .range-wrap { padding: 4px 0; }
 .range-wrap input[type="range"] { width: 100%; height: 6px; -webkit-appearance: none; appearance: none; background: var(--border-soft); border-radius: 3px; outline: none; }
 .range-wrap input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 8px rgba(236,72,153,0.3); border: 3px solid white; }
 .range-wrap input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 2px 8px rgba(236,72,153,0.3); border: 3px solid white; }
 .range-marks { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-mute); margin-top: 6px; }
 .range-label { text-align: center; margin-top: 10px; padding: 8px 12px; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; }
-
 .quick-amount { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
 .quick-btn { padding: 7px 12px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
 .quick-btn:hover { background: var(--primary-light); color: var(--primary); }
 .quick-btn:active { transform: scale(0.96); }
-
 .region-preview { display: none; margin-top: 12px; padding: 12px 14px; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius-md); font-size: 13px; font-weight: 500; line-height: 1.55; }
 .region-preview.visible { display: block; animation: slideDown 0.2s ease-out; }
 .region-preview b { font-weight: 700; }
 .region-preview .sub { display: block; margin-top: 4px; color: var(--text-mute); font-weight: 500; font-size: 12px; }
-
 .action-bar { display: flex; gap: 10px; margin-top: 8px; }
 .submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; }
 .submit-btn:hover:not(:disabled) { background: var(--primary-dark); }
 .submit-btn:active:not(:disabled) { transform: scale(0.99); }
 .reset-btn { padding: 18px 22px; background: var(--primary-soft); color: var(--text-soft); border: none; border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
 .reset-btn:hover { background: var(--border); }
-
 .loading-state { display: none; text-align: center; padding: 60px 20px; }
 .loading-state.show { display: block; }
 .spinner { width: 40px; height: 40px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .loading-state p { color: var(--text-soft); font-size: 14px; font-weight: 500; }
-
 .results-wrap { display: none; margin-top: 24px; }
 .results-wrap.show { display: block; }
 .results-header { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 14px; }
 .results-header h2 { font-size: 20px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; }
 .results-header .count { font-size: 13px; color: var(--text-mute); font-weight: 500; }
-
 .mega-card { background: linear-gradient(135deg, #F472B6 0%, #EC4899 50%, #BE185D 100%); color: white; border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; margin-bottom: 14px; box-shadow: 0 8px 28px rgba(236,72,153,0.28); position: relative; overflow: hidden; }
 .mega-card::before { content: ''; position: absolute; top: -50%; right: -30%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%); border-radius: 50%; }
 .mega-card .mega-lbl { font-size: 13px; font-weight: 600; opacity: 0.92; letter-spacing: 0.02em; position: relative; z-index: 1; }
@@ -165,7 +157,6 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
   .mega-card .mega-total { font-size: 40px; }
   .mega-card .mega-total .unit { font-size: 18px; }
 }
-
 .timeline-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 14px; box-shadow: var(--shadow-sm); }
 .timeline-card h3 { font-size: 16px; font-weight: 700; color: var(--text-strong); margin-bottom: 14px; letter-spacing: -0.3px; display: flex; align-items: center; gap: 6px; }
 .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -177,7 +168,6 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .timeline-table tbody td:first-child { text-align: left; padding-left: 12px; font-weight: 600; color: var(--text); }
 .timeline-table tbody tr.sum td { background: var(--primary-light); color: var(--primary-dark); font-weight: 800; border-bottom: none; padding: 12px 6px; }
 .timeline-table .dash { color: var(--text-disabled); }
-
 .benefit-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 10px; box-shadow: var(--shadow-sm); border: 1px solid transparent; transition: all 0.2s; display: flex; gap: 14px; align-items: flex-start; }
 .benefit-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
 .benefit-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
@@ -195,10 +185,8 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55
 .src-tag.local { background: #FEF3C7; color: #A16207; }
 .due-tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 5px; background: #FFF4E0; color: #B86E00; }
 .benefit-desc { font-size: 12.5px; color: var(--text-soft); line-height: 1.6; }
-
 .disclaimer { background: var(--primary-soft); border-radius: var(--radius-md); padding: 16px 18px; margin-top: 18px; font-size: 12px; color: var(--text-soft); line-height: 1.6; }
 .disclaimer strong { color: var(--text-strong); font-weight: 700; background: linear-gradient(180deg, transparent 60%, rgba(255,209,102,0.55) 60%); padding: 0 2px; }
-
 .faq-section { margin: 32px 0; }
 .faq-section h2 { font-size: 18px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; padding: 0 4px; letter-spacing: -0.3px; }
 details.faq-item { background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
@@ -208,11 +196,9 @@ details.faq-item summary::after { content: '+'; font-size: 22px; color: var(--te
 details.faq-item[open] summary::after { content: '−'; color: var(--primary); }
 details.faq-item .faq-answer { padding: 0 18px 18px; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
 details.faq-item .faq-answer a { color: var(--primary); font-weight: 600; }
-
 footer.site-footer { background: var(--bg); padding: 28px 0 40px; text-align: center; margin-top: 24px; border-top: 1px solid var(--border-soft); }
 footer.site-footer p { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
 footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
-
 @media (min-width: 768px) {
   header.hero { padding: 56px 0 40px; }
   header.hero h1 { font-size: 36px; line-height: 1.25; }
@@ -229,7 +215,6 @@ footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
   .mega-card .mega-total { font-size: 64px; }
   .mega-card .mega-total .unit { font-size: 26px; }
 }
-
 html[data-baby-theme="dark"] {
   --bg: #1F2229; --bg-soft: #16181D; --bg-card: #1F2229;
   --text-strong: #F2F4F6; --text: #D1D6DB; --text-soft: #B0B8C1; --text-mute: #8B95A1; --text-disabled: #4E5968;
@@ -247,7 +232,6 @@ html[data-baby-theme="dark"] .src-tag.local { background: rgba(245,158,11,0.18);
 html[data-baby-theme="dark"] .due-tag { background: rgba(245,158,11,0.18); color: #FCD34D; }
 html[data-baby-theme="dark"] .timeline-table thead th { background: #25282E; }
 html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(180deg, transparent 60%, rgba(255,209,102,0.25) 60%); }
-
 #readingProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--primary), #F472B6); z-index: 9999; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(236,72,153,0.4); }
 #topBtn { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: white; border: none; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(236,72,153,0.35); opacity: 0; transform: translateY(20px); transition: all 0.25s cubic-bezier(.4,0,.2,1); pointer-events: none; z-index: 100; font-family: var(--font); }
 #topBtn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
@@ -257,13 +241,10 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 @media (max-width: 480px) {
   .dark-toggle { top: 62px; right: 12px; width: 38px; height: 38px; font-size: 16px; }
 }
-
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) { .reveal, .reveal.in { opacity: 1; transform: none; transition: none; } }
-
 .gradient-title { background: linear-gradient(135deg, #F472B6 0%, #EC4899 55%, #BE185D 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
-
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   header.hero { padding: 24px 0 20px; }
@@ -280,20 +261,18 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </style>
 </head>
 <body>
-
 <nav class="site-nav">
 <div class="container">
 <a href="/" class="brand">💗 우리집 혜택 찾기</a>
 <a href="/">🏠 홈</a>
 <a href="/loan/">🏠 부동산 대출</a>
 <a href="/baby/" class="active">👶 출산·육아 지원금</a>
- <a href="/business/">🏪 소상공인 지원금</a>
+<a href="/business/">🏪 소상공인 지원금</a>
+<a href="/check/">📊 내 가게 진단</a>
 <a href="/about/">소개</a>
 </div>
 </nav>
-
 <div id="readingProgress" aria-hidden="true"></div>
-
 <header class="hero">
 <div class="container">
 <span class="hero-badge">2026년 5월 최신 업데이트</span>
@@ -306,13 +285,11 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </div>
 </div>
 </header>
-
 <main class="container">
 <div class="step-bar">
 <div class="step-bar-icon">1</div>
 <div class="step-bar-text">내 조건을 입력하면 받을 수 있는 혜택을 합산해드려요</div>
 </div>
-
 <form id="filterForm" novalidate>
 <section class="form-card" aria-labelledby="sec1">
 <h2 id="sec1" class="section-title">기본 정보</h2>
@@ -350,7 +327,6 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </div>
 </div>
 </section>
-
 <section class="form-card" aria-labelledby="sec2">
 <h2 id="sec2" class="section-title">거주 지역</h2>
 <p class="section-sub">광역시·도와 시·군·구를 모두 선택하면 지자체 출산장려금까지 합산돼요</p>
@@ -366,7 +342,6 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </div>
 <div id="regionPreview" class="region-preview"></div>
 </section>
-
 <section class="form-card" aria-labelledby="sec3">
 <h2 id="sec3" class="section-title">근로 · 소득 정보</h2>
 <p class="section-sub">육아휴직급여와 신생아 특례 대출 자격을 더 정확히 계산해요</p>
@@ -401,7 +376,6 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </div>
 </div>
 </section>
-
 <section class="form-card" aria-labelledby="sec4">
 <h2 id="sec4" class="section-title">우대조건 선택</h2>
 <p class="section-sub">해당되는 조건을 모두 선택하면 더 많은 혜택을 찾아드려요</p>
@@ -413,24 +387,20 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 <label class="chip"><input name="remote" type="checkbox"> 분만취약지 거주</label>
 </div>
 </section>
-
 <div class="action-bar">
 <button id="resetBtn" class="reset-btn" type="button">초기화</button>
 <button id="submitBtn" class="submit-btn" type="submit">받을 수 있는 혜택 계산하기</button>
 </div>
 </form>
-
 <div id="loading" class="loading-state">
 <div class="spinner"></div>
 <p>내 가족이 받을 수 있는 혜택을 계산 중…</p>
 </div>
-
 <section id="results" class="results-wrap" aria-live="polite">
 <div class="results-header">
 <h2>받을 수 있는 혜택</h2>
 <div id="resultCount" class="count"></div>
 </div>
-
 <div class="mega-card">
 <div class="mega-lbl">💗 우리 가족이 받을 수 있는 총 지원 규모</div>
 <div class="mega-total"><span id="megaTotal">0</span><span class="unit">만원</span></div>
@@ -441,7 +411,6 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 <div><div class="lbl">기초 (시·군·구)</div><b id="byLocal">0만</b></div>
 </div>
 </div>
-
 <div class="timeline-card">
 <h3>📅 시기별 수령 타임라인</h3>
 <div class="timeline-scroll">
@@ -451,12 +420,9 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </table>
 </div>
 </div>
-
 <div id="benefitList"></div>
-
 <div class="disclaimer"><b>⚠ 안내</b> · 본 계산 결과는 입력 조건 기반의 <b>추정치</b>이며 실제 지급액과 차이가 있을 수 있습니다. <b>지자체 출산장려금은 표본 데이터(2026년 5월 기준)</b>이며 매년 변경되므로 실제 신청 전 거주지 시·군·구청에 반드시 확인해주세요. <i>(기준: 2026년 5월 / 보건복지부 · 고용노동부 · 건강보험공단 · 각 지자체 공시)</i></div>
 </section>
-
 <section class="faq-section">
 <h2>자주 묻는 질문</h2>
 <details class="faq-item"><summary>지자체 출산장려금은 정부 지원금과 중복 수령 가능한가요?</summary>
@@ -479,7 +445,6 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </details>
 </section>
 </main>
-
 <footer class="site-footer">
 <div class="container">
 <p>정보 출처: <b>보건복지부 · 고용노동부 · 국민건강보험공단 · 주택도시기금 · 복지로 · 정부24 · 각 지자체 공시</b></p>
@@ -496,10 +461,8 @@ html[data-baby-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </p>
 </div>
 </footer>
-
 <button id="topBtn" type="button" aria-label="맨 위로 가기">↑</button>
 <button id="darkToggle" class="dark-toggle" type="button" aria-label="다크모드 전환">🌙</button>
-
 <script>
 const REGIONS = {
   "서울특별시": { metro: { name:"서울시", car:[170,170,170,170], birth:[0,0,0,0], note:"임산부 교통비 70만원 + 산후조리경비 100만원 (단태아 기준)" }, sub: { "강남구":[200,200,300,500],"강동구":[100,200,300,500],"강북구":[100,200,300,500],"강서구":[100,200,300,500],"관악구":[100,200,300,500],"광진구":[100,200,300,500],"구로구":[100,200,300,500],"금천구":[100,300,500,1000],"노원구":[100,200,300,500],"도봉구":[100,200,300,500],"동대문구":[100,200,300,500],"동작구":[100,200,300,500],"마포구":[100,200,300,500],"서대문구":[100,200,300,500],"서초구":[50,100,300,500],"성동구":[100,200,300,500],"성북구":[100,200,300,500],"송파구":[100,200,300,500],"양천구":[100,200,300,500],"영등포구":[100,200,500,1000],"용산구":[100,200,300,500],"은평구":[100,200,300,500],"종로구":[100,200,300,500],"중구":[100,200,300,500],"중랑구":[100,200,300,500] } },
@@ -520,9 +483,7 @@ const REGIONS = {
   "경상남도": { metro: { name:"경남도", car:[0,0,0,0], birth:[100,200,500,1000], note:"경남형 출산축하금" }, sub: { "창원시":[100,200,500,1000],"진주시":[200,500,1000,1500],"통영시":[300,500,1000,2000],"사천시":[300,500,1000,2000],"김해시":[200,500,1000,1500],"밀양시":[500,1000,2000,3000],"거제시":[300,500,1000,2000],"양산시":[200,500,1000,1500],"의령군":[500,1500,2500,4000],"함안군":[500,1500,2500,4000],"창녕군":[500,1000,2000,3000],"고성군":[500,1500,2500,4000],"남해군":[500,1500,2500,4000],"하동군":[500,1500,2500,4000],"산청군":[500,1500,2500,4000],"함양군":[500,1500,2500,4000],"거창군":[500,1500,2500,4000],"합천군":[1000,1500,3000,5000] } },
   "제주특별자치도": { metro: { name:"제주도", car:[0,0,0,0], birth:[100,200,500,1000], note:"제주형 출산축하금" }, sub: { "제주시":[200,500,1000,1500],"서귀포시":[300,500,1000,2000] } }
 };
-
 const state = { state: 'pregnant', order: 1, multi: 1, ageMonths: 4, region1: '', region2: '', work: 'both', wage: 0, income: 0, noHouse: false, single: false, multiCulture: false, disabled: false, remote: false };
-
 const sel1 = document.getElementById('region1'); const sel2 = document.getElementById('region2');
 Object.keys(REGIONS).forEach(k => { const o = document.createElement('option'); o.value = k; o.textContent = k; sel1.appendChild(o); });
 sel1.addEventListener('change', function() {
@@ -543,7 +504,6 @@ function updateRegionPreview() {
   box.classList.add('visible');
   box.innerHTML = '📍 <b>' + state.region1 + ' ' + state.region2 + '</b>' + ' · ' + (state.order === 3 ? '셋째 이상' : '순위 ' + state.order) + ' 기준 출산장려금 <b>약 ' + amt.toLocaleString() + '만원</b>' + (r.metro.note ? '<span class="sub">광역: ' + r.metro.note + '</span>' : '');
 }
-
 document.querySelectorAll('.chip-grid').forEach(grid => {
   grid.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', function() {
@@ -561,7 +521,6 @@ document.querySelectorAll('.chip-grid').forEach(grid => {
 document.querySelectorAll('.chip input[type="checkbox"]').forEach(cb => {
   cb.addEventListener('change', e => { e.target.closest('.chip').classList.toggle('active', e.target.checked); state[e.target.name] = e.target.checked; });
 });
-
 const ageRange = document.getElementById('ageRange');
 ageRange.addEventListener('input', function() {
   state.ageMonths = parseInt(this.value); const m = state.ageMonths;
@@ -569,7 +528,6 @@ ageRange.addEventListener('input', function() {
   const display = m < 12 ? '생후 ' + m + '개월' : '만 ' + Math.floor(m / 12) + '세 ' + (m % 12) + '개월';
   document.getElementById('ageLabel').textContent = display + ' · ' + bracket;
 });
-
 function formatKoreanMoney(manwon) {
   if (!manwon || manwon <= 0) return '';
   const eok = Math.floor(manwon / 10000); const remain = manwon % 10000; const parts = [];
@@ -588,7 +546,6 @@ function setupAmountInput(inputId, previewId, stateKey) {
   });
 }
 setupAmountInput('wage', 'wagePreview', 'wage'); setupAmountInput('income', 'incomePreview', 'income');
-
 document.querySelectorAll('.quick-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const t = btn.dataset.target; const a = parseInt(btn.dataset.amount);
@@ -596,7 +553,6 @@ document.querySelectorAll('.quick-btn').forEach(btn => {
     input.dispatchEvent(new Event('input', { bubbles: true }));
   });
 });
-
 document.getElementById('resetBtn').addEventListener('click', () => {
   document.getElementById('filterForm').reset();
   document.querySelectorAll('.chip-grid').forEach(g => {
@@ -612,7 +568,6 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   document.getElementById('results').classList.remove('show');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
 function calc() {
   const s = state; const benefits = [];
   const firstMeet = s.order === 1 ? 200 : 300;
@@ -645,7 +600,6 @@ function calc() {
   }
   return benefits;
 }
-
 function animateNumber(el, target) {
   const dur = 900, t0 = performance.now();
   function step(t) { const p = Math.min(1, (t - t0) / dur); const e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(target * e).toLocaleString(); if (p < 1) requestAnimationFrame(step); }
@@ -672,7 +626,6 @@ function render() {
   document.getElementById('benefitList').innerHTML = benefits.map(b => '<div class="benefit-card"><div class="benefit-icon ' + b.src + '">' + b.icon + '</div><div class="benefit-body"><div class="benefit-head"><div class="benefit-title">' + b.title + '</div><div class="benefit-amount">' + b.amount.toLocaleString() + '만원</div></div><div class="benefit-tags"><span class="src-tag ' + b.src + '">' + srcLabel[b.src] + '</span><span class="due-tag">🗓 ' + b.due + '</span></div><div class="benefit-desc">' + b.desc + '</div></div></div>').join('');
   document.getElementById('resultCount').textContent = '총 ' + benefits.length + '개 혜택 합산';
 }
-
 document.getElementById('filterForm').addEventListener('submit', e => {
   e.preventDefault();
   if (!state.region1) { alert('광역시·도를 선택해주세요.'); sel1.focus(); return; }
@@ -681,7 +634,6 @@ document.getElementById('filterForm').addEventListener('submit', e => {
   loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
   setTimeout(() => { loading.classList.remove('show'); results.classList.add('show'); render(); setTimeout(() => results.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100); }, 700);
 });
-
 const progressBar = document.getElementById('readingProgress');
 window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (h > 0 ? window.scrollY / h * 100 : 0) + '%'; }, { passive: true });
 const topBtn = document.getElementById('topBtn');
