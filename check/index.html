@@ -133,37 +133,35 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .mega-card .mega-breakdown .lbl{font-size:11px;opacity:.9;margin-bottom:3px;}
 .mega-card .mega-breakdown b{font-size:15px;font-weight:800;}
 
-.group-label{font-size:13px;font-weight:800;color:var(--biz-dark);margin:18px 4px 8px;}
-.result-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:22px 20px;box-shadow:var(--shadow-sm);border:1.5px solid transparent;margin-bottom:12px;display:flex;flex-direction:column;gap:12px;transition:.2s;}
-.result-card:hover{box-shadow:var(--shadow-md);}
-.card-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
-.status-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;background:var(--biz-light);color:var(--biz-dark);}
-.verdict{font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;margin-left:auto;}
-.verdict.high{background:#FBEAEA;color:#C0392B;}
-.verdict.ok{background:var(--biz-light);color:var(--biz-dark);}
-.verdict.low{background:var(--primary-light);color:var(--primary-dark);}
-.result-card h3{font-size:18px;font-weight:800;color:var(--text-strong);letter-spacing:-.3px;}
-.result-card p.desc{font-size:14px;color:var(--text-soft);line-height:1.65;}
+/* COMPACT METRIC CARD */
+.metric-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:12px;}
+.mc-head{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap;}
+.mc-head h3{font-size:15px;font-weight:800;color:var(--text-strong);letter-spacing:-.3px;}
+.mc-legend{display:flex;gap:12px;margin-left:auto;font-size:11px;color:var(--text-mute);font-weight:600;}
+.mc-legend span{display:inline-flex;align-items:center;gap:4px;}
+.mc-legend i{width:10px;height:10px;border-radius:3px;display:inline-block;}
+.mc-legend i.lg-fill{background:var(--biz);}
+.mc-legend i.lg-mark{width:3px;height:12px;border-radius:2px;background:var(--text-strong);}
+.metric{padding:14px 0;border-bottom:1px solid var(--border-soft);}
+.metric:last-child{border-bottom:0;padding-bottom:2px;}
+.m-top{display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+.m-name{font-size:13px;font-weight:700;color:var(--text-soft);}
+.m-val{font-size:15px;font-weight:800;color:var(--text-strong);margin-left:auto;font-variant-numeric:tabular-nums;}
+.m-badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;flex-shrink:0;}
+.m-badge.high{background:#FBEAEA;color:#C0392B;}
+.m-badge.ok{background:var(--biz-light);color:var(--biz-dark);}
+.m-badge.low{background:var(--primary-light);color:var(--primary-dark);}
+.m-bar{position:relative;height:9px;background:var(--border-soft);border-radius:100px;}
+.m-fill{position:absolute;left:0;top:0;height:100%;border-radius:100px;background:var(--biz);transition:width .7s ease;}
+.m-fill.warn{background:#E0796B;}
+.m-marker{position:absolute;top:-3px;width:3px;height:15px;background:var(--text-strong);border-radius:2px;}
 
-/* DIAG BAR */
-.diag-compare{display:flex;flex-direction:column;gap:9px;}
-.diag-row{display:flex;align-items:center;gap:10px;font-size:12px;}
-.diag-row .dr-label{width:78px;flex-shrink:0;color:var(--text-soft);font-weight:600;}
-.diag-row .dr-track{flex:1;background:var(--border-soft);border-radius:100px;height:14px;overflow:hidden;}
-.diag-row .dr-fill{height:100%;border-radius:100px;transition:width .6s ease;}
-.diag-row .dr-fill.mine{background:var(--biz);}
-.diag-row .dr-fill.avg{background:var(--text-mute);}
-.diag-row .dr-val{width:50px;flex-shrink:0;text-align:right;font-weight:700;color:var(--text-strong);}
-
-.why-box{background:var(--biz-soft);border-radius:var(--radius-md);padding:13px 15px;}
-.why-box .why-label{font-size:12px;font-weight:700;color:var(--biz-dark);margin-bottom:7px;}
-.why-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
-.why-box li{font-size:13px;color:var(--text-soft);line-height:1.55;padding-left:18px;position:relative;}
-.why-box li::before{content:"\2713";position:absolute;left:0;color:var(--biz);font-weight:800;}
+/* SUMMARY */
 .summary-card{background:linear-gradient(135deg,var(--biz-soft) 0%,var(--biz-light) 100%);border:1.5px solid var(--biz-light);border-radius:var(--radius-lg);padding:22px 20px;margin-bottom:12px;}
-.summary-card h3{font-size:16px;font-weight:800;color:var(--biz-dark);margin-bottom:12px;letter-spacing:-.3px;}
+.summary-card h3{font-size:16px;font-weight:800;color:var(--biz-dark);margin-bottom:10px;letter-spacing:-.3px;}
+.summary-card .sum-lead{font-size:14px;font-weight:700;color:var(--text-strong);line-height:1.6;margin-bottom:12px;}
 .summary-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-.summary-card li{font-size:14px;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
+.summary-card li{font-size:13.5px;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
 .summary-card li::before{content:"\1F4A1";position:absolute;left:0;font-size:13px;}
 
 /* FAQ */
@@ -530,37 +528,16 @@ function countUp(el,target,suffix,dur){
     if(myRatio<avgRatio*0.88) return {cls:'low',label:'평균보다 낮음'};
     return {cls:'ok',label:'적정 수준'};
   }
-  function barRow(label,cls,ratio,maxRatio){
-    var w=Math.max(3,Math.min(100,ratio/maxRatio*100));
-    return '<div class="diag-row"><span class="dr-label">'+label+'</span>'
-      +'<span class="dr-track"><span class="dr-fill '+cls+'" style="width:'+w+'%"></span></span>'
-      +'<span class="dr-val">'+ratio.toFixed(1)+'%</span></div>';
+  /* 컴팩트 막대 (fill=우리 가게, marker=업종 평균) */
+  function bar(fill,marker,warn){
+    fill=Math.max(2,Math.min(100,fill));
+    var mk=(marker!=null)?'<div class="m-marker" style="left:'+Math.max(0,Math.min(100,marker))+'%"></div>':'';
+    return '<div class="m-bar"><div class="m-fill'+(warn?' warn':'')+'" style="width:'+fill+'%"></div>'+mk+'</div>';
   }
-  function costCard(title,myRatio,avgRatio,advHigh,advOk,advLow){
-    var v=costVerdict(myRatio,avgRatio);
-    var diff=(myRatio-avgRatio);
-    var diffTxt=diff>=0?('업종 평균보다 '+diff.toFixed(1)+'%p 높습니다.'):('업종 평균보다 '+Math.abs(diff).toFixed(1)+'%p 낮습니다.');
-    var adv=v.cls==='high'?advHigh:(v.cls==='low'?advLow:advOk);
-    var mx=Math.max(myRatio,avgRatio)*1.15;
-    return '<div class="result-card">'
-      +'<div class="card-top"><span class="status-badge">'+title+'</span>'
-      +'<span class="verdict '+v.cls+'">'+v.label+'</span></div>'
-      +'<h3>'+title+' 비중 '+myRatio.toFixed(1)+'%</h3>'
-      +'<p class="desc">'+diffTxt+'</p>'
-      +'<div class="diag-compare">'
-      +barRow('우리 가게','mine',myRatio,mx)
-      +barRow('업종 평균','avg',avgRatio,mx)
-      +'</div>'
-      +'<div class="why-box"><div class="why-label">이렇게 보세요</div><ul><li>'+adv+'</li></ul></div>'
-      +'</div>';
-  }
-  function metricCard(title,headline,desc,adv){
-    return '<div class="result-card">'
-      +'<div class="card-top"><span class="status-badge">'+title+'</span></div>'
-      +'<h3>'+headline+'</h3>'
-      +'<p class="desc">'+desc+'</p>'
-      +'<div class="why-box"><div class="why-label">이렇게 보세요</div><ul><li>'+adv+'</li></ul></div>'
-      +'</div>';
+  function mrow(name,val,bCls,bTxt,fill,marker,warn){
+    return '<div class="metric"><div class="m-top"><span class="m-name">'+name+'</span>'
+      +'<span class="m-val">'+val+'</span>'
+      +'<span class="m-badge '+bCls+'">'+bTxt+'</span></div>'+bar(fill,marker,warn)+'</div>';
   }
 
   function render(){
@@ -576,16 +553,16 @@ function countUp(el,target,suffix,dur){
     var topPct=Math.round((1-normCdf(z))*100);
     if(topPct<1)topPct=1; if(topPct>99)topPct=99;
     var band = topPct<=30?'상위권' : (topPct<=70?'중위권':'하위권');
+    var bandCls = topPct<=30?'ok' : (topPct<=70?'low':'high');
 
-    /* 원가 비율 (입력값 있을 때만) */
+    /* 원가 비율 */
     var hasCost = (food!==null||labor!==null||rent!==null);
     var foodR = food!==null ? food/revenue*100 : ind.food;
     var laborR = labor!==null ? labor/revenue*100 : ind.labor;
     var rentR = rent!==null ? rent/revenue*100 : ind.rent;
-
-    /* 추정 영업이익률 */
     var opMargin = 100 - foodR - laborR - rentR - DATA.otherRatio;
     var opProfit = revenue*opMargin/100;
+    var indMargin = 100 - ind.food - ind.labor - ind.rent - DATA.otherRatio;
 
     /* 메가 카드 */
     document.getElementById('megaLbl').textContent = rg.label+' '+ind.label+' 매출 위치 (추정)';
@@ -594,87 +571,78 @@ function countUp(el,target,suffix,dur){
     document.getElementById('mRevenue').textContent = fmt(revenue)+'만원';
     document.getElementById('mMargin').textContent = opMargin.toFixed(1)+'%';
 
-    var cards='';
-    var tips=[];
+    /* 지표 행 (컴팩트) */
+    var rows='', n=2;
+    rows+=mrow('매출 위치','상위 '+topPct+'%',bandCls,band,100-topPct,50,false);
 
-    /* 매출 위치 카드 */
-    var revAdv = band==='상위권'
-      ? '같은 업종 평균보다 매출이 높은 편입니다. 지금의 강점(메뉴·입지·단골 등)을 유지하면서 원가관리에 신경 쓰면 수익이 더 안정됩니다.'
-      : (band==='중위권'
-        ? '업종 평균 근처에 있습니다. 매출 자체보다 원가구조를 다듬는 것이 수익 개선에 더 빠른 효과를 낼 수 있습니다.'
-        : '업종 평균보다 매출이 낮은 편입니다. 객단가·회전율·재방문율 중 어디가 약한지 점검해 보세요. 다만 상권 규모가 작은 곳일 수 있으니 절대 매출만으로 판단하지 마세요.');
-    cards+=metricCard('매출 위치',
-      rg.label+' '+ind.label+' 중 추정 상위 '+topPct+'% ('+band+')',
-      '입력하신 월 매출 '+fmt(revenue)+'만원을 같은 업종·지역 평균과 비교한 추정 위치입니다.',
-      revAdv);
-
-    /* 직원 1인당 매출 */
+    var perCap=null;
     if(staff!==null && staff>0){
-      var perCap=revenue/staff;
-      var diff=perCap-ind.perCapita;
-      var pcVerdict = perCap>=ind.perCapita*1.1?'효율이 높은 편':(perCap<=ind.perCapita*0.9?'효율 점검이 필요':'적정 수준');
-      var pcAdv = perCap>=ind.perCapita*1.1
-        ? '직원 1인당 매출이 업종 평균보다 높아 인력 운영 효율이 좋습니다.'
-        : (perCap<=ind.perCapita*0.9
-          ? '직원 1인당 매출이 업종 평균보다 낮습니다. 근무 시간대 배치, 피크타임 집중 등 인력 운영을 점검해 보세요.'
-          : '직원 1인당 매출이 업종 평균과 비슷한 수준입니다.');
-      cards+=metricCard('직원 1인당 매출',
-        fmt(perCap)+'만원 / 월 ('+pcVerdict+')',
-        '업종 평균은 1인당 약 '+fmt(ind.perCapita)+'만원입니다. 사장님 가게는 '+(diff>=0?'+':'')+fmt(diff)+'만원 차이입니다.',
-        pcAdv);
-      if(perCap<=ind.perCapita*0.9) tips.push('직원 수 대비 매출이 낮습니다. 인력 운영 효율을 점검해 보세요.');
+      n++;
+      perCap=revenue/staff;
+      var pcCls=perCap>=ind.perCapita*1.1?'ok':(perCap<=ind.perCapita*0.9?'high':'low');
+      var pcTxt=perCap>=ind.perCapita*1.1?'효율 높음':(perCap<=ind.perCapita*0.9?'효율 낮음':'적정');
+      rows+=mrow('직원 1인당 매출',fmt(perCap)+'만원',pcCls,pcTxt,perCap/(ind.perCapita*2)*100,50,pcCls==='high');
+    }
+    if(food!==null){ n++; var fv=costVerdict(foodR,ind.food);
+      rows+=mrow('식재료비',foodR.toFixed(1)+'%',fv.cls,fv.label,foodR/(ind.food*2)*100,50,fv.cls==='high'); }
+    if(labor!==null){ n++; var lv=costVerdict(laborR,ind.labor);
+      rows+=mrow('인건비',laborR.toFixed(1)+'%',lv.cls,lv.label,laborR/(ind.labor*2)*100,50,lv.cls==='high'); }
+    if(rent!==null){ n++; var rv=costVerdict(rentR,ind.rent);
+      rows+=mrow('임차료',rentR.toFixed(1)+'%',rv.cls,rv.label,rentR/(ind.rent*2)*100,50,rv.cls==='high'); }
+
+    var omCls=opMargin<5?'high':(opMargin<indMargin?'low':'ok');
+    var omTxt=opMargin<5?'낮음':(opMargin<indMargin?'평균 이하':'양호');
+    rows+=mrow('추정 영업이익률',opMargin.toFixed(1)+'%',omCls,omTxt,indMargin>0?opMargin/(indMargin*2)*100:50,50,opMargin<5);
+
+    var metricCard='<div class="metric-card"><div class="mc-head"><h3>핵심 지표 한눈에 보기</h3>'
+      +'<div class="mc-legend"><span><i class="lg-fill"></i>우리 가게</span><span><i class="lg-mark"></i>업종 평균</span></div>'
+      +'</div>'+rows+'</div>';
+
+    /* 종합 진단 (설명 묶음) */
+    var lead=ind.label+' 평균과 비교한 종합 결과 — '
+      +(opMargin<5?'수익성 개선이 가장 시급합니다.'
+        :(band==='상위권'?'전반적으로 양호한 편입니다.'
+        :'몇 군데만 손보면 수익을 키울 수 있습니다.'));
+
+    var tips=[];
+    tips.push('매출은 '+rg.label+' '+ind.label+' 중 추정 상위 '+topPct+'%('+band+')입니다. '
+      +(band==='상위권'?'지금의 강점(메뉴·입지·단골 등)을 유지하세요.'
+        :band==='중위권'?'원가구조를 다듬는 것이 매출 늘리기보다 빠른 수익 개선책입니다.'
+        :'객단가·회전율·재방문율 중 약한 곳을 점검해 보세요. 다만 상권 규모가 작은 곳일 수 있어 절대 매출만으로 판단하지 마세요.'));
+
+    if(hasCost){
+      var pieces=[], worst=null, worstDiff=-99;
+      if(food!==null){ pieces.push('식재료비 '+foodR.toFixed(1)+'%('+costVerdict(foodR,ind.food).label+')'); if(foodR-ind.food>worstDiff){worstDiff=foodR-ind.food;worst='식재료비';} }
+      if(labor!==null){ pieces.push('인건비 '+laborR.toFixed(1)+'%('+costVerdict(laborR,ind.labor).label+')'); if(laborR-ind.labor>worstDiff){worstDiff=laborR-ind.labor;worst='인건비';} }
+      if(rent!==null){ pieces.push('임차료 '+rentR.toFixed(1)+'%('+costVerdict(rentR,ind.rent).label+')'); if(rentR-ind.rent>worstDiff){worstDiff=rentR-ind.rent;worst='임차료';} }
+      tips.push('원가구조는 '+pieces.join(', ')+'입니다. '
+        +(worstDiff>2?worst+' 비중을 먼저 점검하면 수익이 가장 빠르게 개선됩니다.':'항목들이 대체로 균형 잡혀 있습니다.'));
+      if(food!==null && labor!==null && (foodR+laborR)>65){
+        tips.push('식재료비와 인건비 합이 매출의 '+(foodR+laborR).toFixed(0)+'%입니다. 65%를 넘으면 수익을 내기 어렵다는 게 업계 통념이니 두 항목을 우선 점검하세요.');
+      }
+    }else{
+      tips.push('식재료비·인건비·임차료를 입력하면 원가구조까지 진단해 더 구체적인 개선점을 알려드릴 수 있어요.');
     }
 
-    /* 원가 항목 카드 */
-    if(food!==null){
-      cards+=costCard('식재료비',foodR,ind.food,
-        '식재료비 비중이 높습니다. 거래처 단가 재협상, 메뉴별 원가 점검, 폐기 손실 관리를 권합니다.',
-        '식재료비 비중이 업종 평균 수준입니다. 지금 관리 상태를 유지하세요.',
-        '식재료비 비중이 낮습니다. 원가관리가 잘 되고 있으나, 양·품질이 고객 기대에 못 미치지 않는지도 함께 살펴보세요.');
-      if(foodR>ind.food*1.12) tips.push('식재료비 비중이 평균보다 높습니다 — 거래처 단가와 메뉴 원가를 점검해 보세요.');
-    }
-    if(labor!==null){
-      cards+=costCard('인건비',laborR,ind.labor,
-        '인건비 비중이 높습니다. 매출 대비 인력이 많거나 매출이 낮을 수 있습니다. 시간대별 인력 배치를 점검해 보세요.',
-        '인건비 비중이 업종 평균 수준입니다.',
-        '인건비 비중이 낮습니다. 사장님 노동 강도가 과하지 않은지, 서비스 품질이 떨어지지 않는지 함께 보세요.');
-      if(laborR>ind.labor*1.12) tips.push('인건비 비중이 평균보다 높습니다 — 매출 대비 인력 규모나 근무 배치를 점검해 보세요.');
-    }
-    if(rent!==null){
-      cards+=costCard('임차료',rentR,ind.rent,
-        '임차료 비중이 높습니다. 매출 대비 임차료 부담이 큰 입지일 수 있습니다. 재계약 시 협상 또는 매출 확대가 필요합니다.',
-        '임차료 비중이 업종 평균 수준입니다.',
-        '임차료 비중이 낮아 고정비 부담이 가벼운 편입니다.');
-      if(rentR>ind.rent*1.12) tips.push('임차료 비중이 평균보다 높습니다 — 매출 대비 고정비 부담을 점검해 보세요.');
+    if(perCap!==null){
+      tips.push('직원 1인당 매출은 월 '+fmt(perCap)+'만원으로 업종 평균('+fmt(ind.perCapita)+'만원)'
+        +(perCap>=ind.perCapita*1.1?'을 웃돕니다 — 인력 운영 효율이 좋습니다.'
+          :perCap<=ind.perCapita*0.9?'에 못 미칩니다 — 근무 시간대 배치를 점검해 보세요.'
+          :'과 비슷한 수준입니다.'));
     }
 
-    /* 수익성 카드 */
-    var marginAdv;
-    if(opMargin<5) marginAdv='추정 영업이익률이 낮습니다. 식재료비·인건비 중 평균보다 높은 항목부터 줄이는 것이 가장 빠른 개선책입니다.';
-    else if(opMargin<10) marginAdv='추정 영업이익률이 업종 평균 안팎입니다. 원가 항목 중 한 곳만 다듬어도 수익이 눈에 띄게 좋아집니다.';
-    else marginAdv='추정 영업이익률이 양호한 편입니다. 현재 원가구조를 유지하면서 매출 확대에 집중해 보세요.';
-    cards+=metricCard('추정 수익성',
-      '추정 영업이익률 '+opMargin.toFixed(1)+'%',
-      (hasCost?'입력하신 비용':'업종 평균 원가구조')+'을 기준으로 계산한 추정치입니다. 월 약 '+fmt(opProfit)+'만원 수준의 영업이익으로 추정됩니다. (기타비·세금 '+DATA.otherRatio+'% 가정)',
-      marginAdv);
+    tips.push('추정 영업이익률은 '+opMargin.toFixed(1)+'%, 월 약 '+fmt(opProfit)+'만원입니다'
+      +(hasCost?'':' (업종 평균 원가구조 가정)')+'. '
+      +(opMargin<5?'평균보다 높은 비용 항목부터 줄이는 것이 가장 빠른 개선책입니다.'
+        :opMargin<indMargin?'원가 한 곳만 다듬어도 수익이 눈에 띄게 좋아집니다.'
+        :'현재 구조를 유지하며 매출 확대에 집중해 보세요.'));
 
-    /* 식재료비+인건비 위험 경고 */
-    if(food!==null && labor!==null && (foodR+laborR)>65){
-      tips.unshift('식재료비와 인건비 합이 매출의 '+(foodR+laborR).toFixed(0)+'%입니다. 65%를 넘으면 수익을 내기 어렵다는 것이 업계 통념이니, 두 항목을 우선 점검하세요.');
-    }
-    if(!tips.length){
-      tips.push(hasCost?'입력하신 원가 항목이 업종 평균 범위 안에 있습니다. 균형이 잘 잡혀 있으니 매출 확대에 집중해 보세요.'
-                       :'비용 항목을 입력하면 식재료비·인건비·임차료까지 진단해 더 구체적인 개선점을 알려드릴 수 있어요.');
-    }
-
-    /* 종합 제안 */
-    var summary='<div class="summary-card"><h3>종합 운영 제안</h3><ul>';
+    var summary='<div class="summary-card"><h3>📋 종합 진단</h3><p class="sum-lead">'+lead+'</p><ul>';
     tips.forEach(function(t){ summary+='<li>'+t+'</li>'; });
     summary+='</ul></div>';
 
-    var n = 2 + (staff!==null&&staff>0?1:0) + (food!==null?1:0) + (labor!==null?1:0) + (rent!==null?1:0);
     document.getElementById('resultCount').textContent='진단 항목 '+n+'개';
-    document.getElementById('resultList').innerHTML=summary+cards;
+    document.getElementById('resultList').innerHTML=metricCard+summary;
 
     countUp(document.getElementById('megaPct'),topPct,'',900);
   }
