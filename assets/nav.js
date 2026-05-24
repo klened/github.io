@@ -1,5 +1,5 @@
 /* =====================================================================
-   우리집 혜택 찾기 — 공통 상단 메뉴
+   숨은 돈 찾기 — 공통 상단 메뉴
    ---------------------------------------------------------------------
    이 파일 하나만 고치면 전체 페이지의 상단 메뉴가 한 번에 바뀝니다.
    메뉴 항목을 추가·수정·삭제하려면 아래 LINKS 배열만 편집하세요.
@@ -22,7 +22,7 @@
   }
 
   var cur = norm(location.pathname);
-  var html = '<div class="container"><a href="/" class="brand">우리집 혜택 찾기</a>';
+  var html = '<div class="container"><a href="/" class="brand">숨은 돈 찾기</a>';
   for (var i = 0; i < LINKS.length; i++) {
     var l = LINKS[i];
     var active = (norm(l.href) === cur) ? ' class="active"' : '';
