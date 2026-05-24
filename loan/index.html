@@ -50,9 +50,6 @@
   ]
 }
 </script>
-<script>
-(function(){var t=localStorage.getItem('loan-theme');if(t)document.documentElement.setAttribute('data-loan-theme',t);})();
-</script>
 <style>
 /* =====================================================================
    우리집 혜택 찾기 — 부동산 대출 (액센트: 블루 #3182F6)
@@ -290,47 +287,14 @@ footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
   .hero-stats { gap: 16px; }
   .hero-stat .num { font-size: 18px; }
 }
-html[data-loan-theme="dark"] {
-  --bg: #1F2229; --bg-soft: #16181D; --bg-card: #1F2229;
-  --text-strong: #F2F4F6; --text: #D1D6DB; --text-soft: #B0B8C1; --text-mute: #8B95A1; --text-disabled: #4E5968;
-  --border: #2A2E37; --border-soft: #25282E;
-  --primary-light: #1A2940; --primary-soft: #22252B;
-}
-html[data-loan-theme="dark"] body { background: var(--bg-soft); }
-html[data-loan-theme="dark"] header.hero { border-bottom: 1px solid var(--border); }
-html[data-loan-theme="dark"] footer.site-footer { background: var(--bg); }
-html[data-loan-theme="dark"] .reason-tag { background: rgba(0,200,60,0.18); color: #4CD964; }
-html[data-loan-theme="dark"] .warn-tag { background: rgba(255,157,0,0.18); color: #FFB340; }
-html[data-loan-theme="dark"] .result-card.rank-1 { background: linear-gradient(180deg, #1F2940 0%, #1F2229 40%); }
-html[data-loan-theme="dark"] select option { background: #1F2229; color: #F2F4F6; }
-html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(180deg, transparent 60%, rgba(255,209,102,0.25) 60%); }
-#readingProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--primary); z-index: 9999; transition: width 0.1s linear; }
-#topBtn { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: white; border: none; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(49,130,246,0.35); opacity: 0; transform: translateY(20px); transition: all 0.25s cubic-bezier(.4,0,.2,1); pointer-events: none; z-index: 100; font-family: var(--font); }
-#topBtn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
-#topBtn:hover { background: var(--primary-dark); transform: translateY(-4px); }
-.dark-toggle { position: fixed; top: 70px; right: 20px; width: 44px; height: 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; font-size: 20px; cursor: pointer; transition: all 0.18s cubic-bezier(.4,0,.2,1); display: flex; align-items: center; justify-content: center; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-.dark-toggle:hover { background: var(--primary-light); transform: rotate(20deg) scale(1.1); }
-@media (max-width: 480px) {
-  .dark-toggle { top: 62px; right: 12px; width: 38px; height: 38px; font-size: 16px; }
-}
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) { .reveal, .reveal.in { opacity: 1; transform: none; transition: none; } }
 </style>
 </head>
 <body>
-<nav class="site-nav">
-<div class="container">
-<a href="/" class="brand">우리집 혜택 찾기</a>
-<a href="/">홈</a>
-<a href="/loan/" class="active">부동산 대출</a>
-<a href="/baby/">출산·육아 지원금</a>
-<a href="/business/">소상공인 지원금</a>
-<a href="/check/">내 가게 진단</a>
-<a href="/about/">소개</a>
-</div>
-</nav>
-<div id="readingProgress" aria-hidden="true"></div>
+<nav class="site-nav" id="siteNav"><div class="container"><a href="/" class="brand">우리집 혜택 찾기</a></div></nav>
+<script src="/assets/nav.js"></script>
 <header class="hero">
 <div class="container">
 <span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
@@ -512,8 +476,6 @@ html[data-loan-theme="dark"] .disclaimer strong { background: linear-gradient(18
 </p>
 </div>
 </footer>
-<button id="topBtn" type="button" aria-label="맨 위로 가기">↑</button>
-<button id="darkToggle" class="dark-toggle" type="button" aria-label="다크모드 전환">🌙</button>
 <script>
 const PRODUCTS = [
   { id: 'beotimok', category: 'jeonse', name: '버팀목 전세자금대출', agency: '주택도시기금', rateMin: 2.0, rateMax: 3.1, rateLabel: '연 2.0%~3.1% (우대시 최저 1.2%)', limitLabel: '수도권 2.0억 / 비수도권 1.6억', depositLabel: '수도권 4.5억 / 비수도권 2.5억', targetLabel: '부부합산 연소득 5천만 ↓, 무주택', note: '임차전용 85㎡ 이하 · 최초 2년(최장 10년)', url: 'https://www.myhome.go.kr/hws/portal/cont/selectSupLeaseLoanView.do', rules: { purpose: ['jeonse'], maxIncome: 5000, maxHousing: 0, maxDeposit: {seoul: 45000, metro: 45000, nonMetro: 25000}, perks: {sme: 0.3, multicultural: 0.2} } },
@@ -730,19 +692,6 @@ function renderResults(items, user) {
   bindEmpty();
   setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
 }
-const progressBar = document.getElementById('readingProgress');
-window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (h > 0 ? window.scrollY / h * 100 : 0) + '%'; }, { passive: true });
-const topBtn = document.getElementById('topBtn');
-window.addEventListener('scroll', () => topBtn.classList.toggle('show', window.scrollY > 400), { passive: true });
-topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-const themeRoot = document.documentElement; const darkToggle = document.getElementById('darkToggle');
-const initialTheme = themeRoot.getAttribute('data-loan-theme') || 'light';
-darkToggle.textContent = initialTheme === 'dark' ? '☀️' : '🌙';
-darkToggle.addEventListener('click', () => {
-  const cur = themeRoot.getAttribute('data-loan-theme') || 'light'; const next = cur === 'dark' ? 'light' : 'dark';
-  themeRoot.setAttribute('data-loan-theme', next); localStorage.setItem('loan-theme', next);
-  darkToggle.textContent = next === 'dark' ? '☀️' : '🌙';
-});
 function animateNumber(el, target, suffix, dur) {
   const t0 = performance.now();
   function step(t) { const p = Math.min((t - t0) / dur, 1); const e = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(target * e) + suffix; if (p < 1) requestAnimationFrame(step); else el.textContent = target + suffix; }
