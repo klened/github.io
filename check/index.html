@@ -20,13 +20,13 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="내 가게 경영진단">
 <meta property="og:description" content="우리 가게 매출과 원가구조를 같은 업종 평균과 비교해 진단해드려요.">
-
 <!-- 구글 애드센스 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348" crossorigin="anonymous"></script>
-
 <!-- Pretendard Font -->
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-
+<!-- Tossface — 토스 이모지 폰트 -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" type="text/css" />
 <!-- JSON-LD 구조화 데이터 (SEO) -->
 <script type="application/ld+json">
 {
@@ -42,52 +42,62 @@
 }
 </script>
 <style>
+/* =====================================================================
+   우리집 혜택 찾기 — 내 가게 경영진단 (액센트: 퍼플 #5B5BD6)
+   레이아웃·타이포·컴포넌트는 전 페이지 공통 시스템
+   ===================================================================== */
 :root{
   --primary:#3182F6;--primary-dark:#1B64DA;--primary-light:#E8F2FE;--primary-soft:#F4F6F8;
   --pink:#EC4899;--pink-soft:#FDF2F8;
   --biz:#5B5BD6;--biz-dark:#4646B8;--biz-light:#E8E8FB;--biz-soft:#F4F4FC;
   --danger:#F04452;--warn:#E8833A;
-  --bg:#FFFFFF;--bg-soft:#F9FAFB;--bg-card:#FFFFFF;
-  --text-strong:#191F28;--text:#333D4B;--text-soft:#4E5968;--text-mute:#8B95A1;
-  --border:#E5E8EB;--border-soft:#F2F4F6;
+  --bg:#FFFFFF;--bg-soft:#EDF0F4;--bg-card:#FFFFFF;
+  --text-strong:#191F28;--text:#333D4B;--text-soft:#4E5968;--text-mute:#8B95A1;--text-disabled:#B0B8C1;
+  --border:#E5E8EB;--border-soft:#EAEDF1;
   --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;
-  --shadow-sm:0 1px 3px rgba(0,0,0,0.04);--shadow-md:0 4px 16px rgba(0,0,0,0.06);--shadow-lg:0 8px 32px rgba(0,0,0,0.08);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.05);--shadow-md:0 4px 16px rgba(0,0,0,0.08);--shadow-lg:0 10px 32px rgba(0,0,0,0.10);
   --font:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{font-family:var(--font);background:var(--bg-soft);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;word-break:keep-all;}
 a{color:inherit;text-decoration:none;}
-.container{max-width:1040px;margin:0 auto;padding:0 24px;}
-
+.container{max-width:1040px;margin:0 auto;padding:0 20px;}
 /* NAV */
 .site-nav{background:var(--bg);border-bottom:1px solid var(--border-soft);padding:12px 0;position:sticky;top:0;z-index:50;}
-.site-nav .container{display:flex;gap:12px;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.site-nav .container{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .site-nav .container::-webkit-scrollbar{display:none;}
-.site-nav a{color:var(--text-soft);font-size:14px;font-weight:600;padding:7px 12px;border-radius:8px;transition:.15s;flex-shrink:0;white-space:nowrap;}
+.site-nav a{color:var(--text-soft);font-size:14px;font-weight:600;padding:7px 11px;border-radius:8px;transition:.15s;flex-shrink:0;white-space:nowrap;text-decoration:none;}
 .site-nav a:hover{background:var(--biz-soft);color:var(--biz-dark);}
 .site-nav a.active{background:var(--biz-light);color:var(--biz-dark);}
-.site-nav .brand{font-weight:800;color:var(--text-strong);margin-right:auto;font-size:15px;flex-shrink:0;white-space:nowrap;}
-
+.site-nav .brand{font-weight:800;color:var(--text-strong);margin-right:auto;font-size:16px;flex-shrink:0;white-space:nowrap;letter-spacing:-0.3px;}
 /* HERO */
-header.hero{background:linear-gradient(180deg,#fff 0%,var(--biz-soft) 100%);padding:60px 0 50px;text-align:left;}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--biz-light);color:var(--biz-dark);padding:6px 14px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:18px;}
+header.hero{background:var(--bg);padding:32px 0 24px;border-bottom:1px solid var(--border-soft);}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--biz-light);color:var(--biz);padding:6px 12px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:14px;}
 .hero-badge::before{content:"";width:6px;height:6px;background:var(--biz);border-radius:50%;animation:pulse 2s ease infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-header.hero h1{font-size:32px;font-weight:800;color:var(--text-strong);line-height:1.25;letter-spacing:-.8px;margin-bottom:14px;}
-header.hero h1 .gradient{background:linear-gradient(135deg,#7B7BE6 0%,var(--biz) 55%,var(--biz-dark) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-width:600px;margin:0;}
-.hero-stats{display:flex;gap:32px;justify-content:flex-start;margin:30px 0 0;padding-top:26px;border-top:1px solid var(--border-soft);}
-.hero-stat .num{font-size:24px;font-weight:800;color:var(--biz);letter-spacing:-.5px;font-variant-numeric:tabular-nums;}
-.hero-stat .label{font-size:12px;color:var(--text-mute);margin-top:2px;}
-
+header.hero h1{font-size:26px;font-weight:800;color:var(--text-strong);line-height:1.3;letter-spacing:-.6px;margin-bottom:10px;}
+header.hero p.lead{font-size:15px;color:var(--text-soft);line-height:1.55;}
+/* 예시 카드 */
+.examples{margin:20px 0 4px;}
+.examples-head h2{font-size:17px;font-weight:800;color:var(--text-strong);letter-spacing:-0.3px;}
+.examples-head p{font-size:13px;color:var(--text-mute);margin-top:3px;}
+.example-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+.example-card{text-align:left;background:var(--bg-card);border:1.5px solid var(--border-soft);border-radius:var(--radius-md);padding:16px;cursor:pointer;transition:all .18s;font-family:var(--font);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:7px;}
+.example-card:hover{border-color:var(--biz);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.example-card:active{transform:scale(.99);}
+.example-card .ex-icon{width:42px;height:42px;border-radius:12px;background:var(--biz-light);display:flex;align-items:center;justify-content:center;font-size:24px;line-height:1;margin-bottom:2px;}
+.example-card .ex-cond{font-size:13px;color:var(--text-soft);font-weight:600;line-height:1.5;}
+.example-card .ex-result-num{font-size:19px;font-weight:800;color:var(--biz-dark);letter-spacing:-0.4px;}
+.example-card .ex-result-sub{font-size:12px;color:var(--text-mute);font-weight:500;}
+.example-card .ex-go{font-size:13px;font-weight:700;color:var(--biz-dark);margin-top:1px;}
+.tossface{font-family:'Tossface','Apple Color Emoji','Segoe UI Emoji',sans-serif;}
 /* STEP BAR */
 .step-bar{display:flex;align-items:center;gap:8px;margin:24px 0 8px;padding:14px 18px;background:var(--biz-light);border-radius:var(--radius-md);}
 .step-bar-icon{width:28px;height:28px;background:var(--biz);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;}
 .step-bar-text{font-size:14px;color:var(--biz-dark);font-weight:700;letter-spacing:-.2px;}
-
 /* FORM */
-.form-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:24px 20px;box-shadow:var(--shadow-sm);margin-bottom:16px;}
+.form-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:24px 20px;box-shadow:var(--shadow-md);margin-bottom:16px;}
 .form-card h2.section-title{font-size:18px;font-weight:700;color:var(--text-strong);margin-bottom:4px;letter-spacing:-.3px;}
 .form-card .section-sub{font-size:13px;color:var(--text-mute);margin-bottom:20px;}
 .optional-tag{font-size:11px;font-weight:700;color:var(--biz-dark);background:var(--biz-light);padding:2px 8px;border-radius:100px;margin-left:6px;vertical-align:middle;}
@@ -99,27 +109,42 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .chip{display:inline-flex;align-items:center;padding:10px 16px;border:1.5px solid var(--border);border-radius:100px;font-size:14px;font-weight:500;color:var(--text-soft);cursor:pointer;user-select:none;background:var(--bg);transition:.15s;}
 .chip:hover{border-color:var(--biz);}
 .chip.active{background:var(--biz);color:#fff;border-color:var(--biz);}
-.region-select{font-family:var(--font);font-size:16px;font-weight:500;color:var(--text);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:11px 14px;max-width:260px;cursor:pointer;}
+.region-select{font-family:var(--font);font-size:16px;font-weight:500;color:var(--text);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:14px;max-width:280px;cursor:pointer;-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B95A1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:42px;}
 .region-select:focus{outline:none;border-color:var(--biz);}
-.num-wrap{display:flex;align-items:center;gap:8px;max-width:280px;}
-.num-input{font-family:var(--font);font-size:16px;font-weight:600;color:var(--text-strong);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:12px 14px;width:100%;text-align:right;}
-.num-input:focus{outline:none;border-color:var(--biz);}
-.num-wrap .unit{font-size:14px;color:var(--text-soft);font-weight:600;flex-shrink:0;}
-
+/* 금액 슬라이더 입력 */
+.amount-field{background:var(--biz-soft);border-radius:var(--radius-md);padding:18px 16px 14px;}
+.amount-now{font-size:22px;font-weight:800;color:var(--biz-dark);letter-spacing:-0.5px;font-variant-numeric:tabular-nums;margin-bottom:14px;}
+.amount-now.empty{font-size:15px;font-weight:600;color:var(--text-disabled);}
+.amount-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:100px;background:var(--border);outline:none;margin:0;}
+.amount-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--border);box-shadow:0 3px 10px rgba(0,0,0,0.22);cursor:pointer;}
+.amount-range::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--border);box-shadow:0 3px 10px rgba(0,0,0,0.22);cursor:pointer;}
+.range-ends{display:flex;justify-content:space-between;font-size:11px;color:var(--text-mute);margin-top:8px;font-weight:500;}
+.quick-amount{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
+.quick-btn{padding:9px 14px;background:var(--bg);color:var(--text-soft);border:1.5px solid var(--border);border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;font-family:var(--font);}
+.quick-btn:hover{border-color:var(--biz);color:var(--biz-dark);}
+.quick-btn:active{transform:scale(.96);}
+/* 스테퍼 (직원 수) */
+.stepper{display:flex;align-items:center;gap:6px;}
+.step-btn{width:48px;height:48px;border:1.5px solid var(--border);background:var(--bg);border-radius:var(--radius-md);font-size:22px;font-weight:700;color:var(--biz-dark);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;font-family:var(--font);}
+.step-btn:hover{border-color:var(--biz);background:var(--biz-soft);}
+.step-btn:active{transform:scale(.94);}
+.step-val{width:76px;height:48px;text-align:center;border:1.5px solid var(--border);border-radius:var(--radius-md);font-size:17px;font-weight:700;color:var(--text-strong);background:var(--bg);font-family:var(--font);-webkit-appearance:none;appearance:none;-moz-appearance:textfield;}
+.step-val::-webkit-outer-spin-button,.step-val::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+.step-val:focus{outline:none;border-color:var(--biz);}
+.step-unit{font-size:14px;color:var(--text-soft);font-weight:600;margin-left:4px;}
 /* ACTION BAR */
 .action-bar{display:flex;gap:10px;margin-top:8px;}
-.btn-reset{background:var(--biz-soft);color:var(--text-soft);padding:18px 22px;border-radius:var(--radius-md);font-weight:600;font-size:15px;border:0;cursor:pointer;font-family:var(--font);transition:.15s;}
-.btn-reset:hover{background:var(--biz-light);}
-.btn-submit{flex:1;background:var(--biz);color:#fff;padding:18px;border-radius:var(--radius-md);font-weight:700;font-size:16px;border:0;cursor:pointer;font-family:var(--font);transition:.15s;}
+.btn-reset{background:var(--bg);color:var(--text-soft);padding:18px 22px;border-radius:var(--radius-md);font-weight:600;font-size:15px;border:1.5px solid var(--border);cursor:pointer;font-family:var(--font);transition:.15s;}
+.btn-reset:hover{background:var(--bg-soft);}
+.btn-submit{flex:1;background:var(--biz);color:#fff;padding:18px;border-radius:var(--radius-md);font-weight:700;font-size:16px;border:0;cursor:pointer;font-family:var(--font);transition:.15s;box-shadow:0 4px 14px rgba(91,91,214,.32);}
 .btn-submit:hover{background:var(--biz-dark);}
 .input-error{display:none;font-size:13px;color:var(--danger);font-weight:600;margin-top:10px;padding:0 4px;}
-
 /* LOADING */
 .loading-state{display:none;text-align:center;padding:60px 20px;}
 .spinner{width:40px;height:40px;border:3px solid var(--biz-light);border-top-color:var(--biz);border-radius:50%;margin:0 auto 16px;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .loading-state p{font-size:14px;color:var(--text-soft);font-weight:600;}
-
 /* RESULTS */
 .results-wrap{display:none;margin-top:24px;}
 .results-header{display:flex;justify-content:space-between;align-items:center;padding:0 4px;margin-bottom:14px;}
@@ -133,9 +158,8 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .mega-card .mega-breakdown>div{flex:1;background:rgba(255,255,255,.15);border-radius:var(--radius-md);padding:12px 8px;}
 .mega-card .mega-breakdown .lbl{font-size:11px;opacity:.9;margin-bottom:3px;}
 .mega-card .mega-breakdown b{font-size:15px;font-weight:800;}
-
 /* COMPACT METRIC CARD */
-.metric-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:12px;}
+.metric-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-md);margin-bottom:12px;}
 .mc-head{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap;}
 .mc-head h3{font-size:15px;font-weight:800;color:var(--text-strong);letter-spacing:-.3px;}
 .mc-legend{display:flex;gap:12px;margin-left:auto;font-size:11px;color:var(--text-mute);font-weight:600;}
@@ -156,7 +180,6 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .m-fill{position:absolute;left:0;top:0;height:100%;border-radius:100px;background:var(--biz);transition:width .7s ease;}
 .m-fill.warn{background:#E0796B;}
 .m-marker{position:absolute;top:-3px;width:3px;height:15px;background:var(--text-strong);border-radius:2px;}
-
 /* SUMMARY */
 .summary-card{background:linear-gradient(135deg,var(--biz-soft) 0%,var(--biz-light) 100%);border:1.5px solid var(--biz-light);border-radius:var(--radius-lg);padding:22px 20px;margin-bottom:12px;}
 .summary-card h3{font-size:16px;font-weight:800;color:var(--biz-dark);margin-bottom:10px;letter-spacing:-.3px;}
@@ -164,12 +187,11 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .summary-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
 .summary-card li{font-size:13.5px;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
 .summary-card li::before{content:"\1F4A1";position:absolute;left:0;font-size:13px;}
-
 /* NOTICE */
 .notice{background:#FFF6E5;border:1px solid #F0CE8E;border-radius:var(--radius-md);padding:13px 16px;margin-bottom:12px;font-size:12.5px;color:#8A5A00;line-height:1.6;}
 .notice b{color:#7A4F00;font-weight:700;}
 /* SIMULATION */
-.sim-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:22px 20px;box-shadow:var(--shadow-sm);margin-bottom:12px;}
+.sim-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:22px 20px;box-shadow:var(--shadow-md);margin-bottom:12px;}
 .sim-card .sim-title{font-size:15px;font-weight:800;color:var(--text-strong);letter-spacing:-.3px;}
 .sim-card .sim-sub{font-size:12.5px;color:var(--text-mute);margin:4px 0 16px;}
 .sim-flow{display:flex;align-items:center;gap:10px;}
@@ -185,7 +207,7 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .sim-breakdown li{font-size:13px;color:var(--text-soft);display:flex;justify-content:space-between;gap:10px;}
 .sim-breakdown li b{color:var(--biz-dark);font-weight:700;font-variant-numeric:tabular-nums;flex-shrink:0;}
 /* TODO */
-.todo-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:12px;border-left:4px solid var(--biz);}
+.todo-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-md);margin-bottom:12px;border-left:4px solid var(--biz);}
 .todo-card.urgent{border-left-color:#E0796B;}
 .todo-head{display:flex;align-items:center;gap:8px;margin-bottom:13px;flex-wrap:wrap;}
 .todo-head .th-tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;background:var(--biz-light);color:var(--biz-dark);}
@@ -200,18 +222,16 @@ header.hero p.lead{font-size:16px;color:var(--text-soft);line-height:1.6;max-wid
 .cta-card h4{font-size:15px;font-weight:800;margin-bottom:6px;letter-spacing:-.3px;}
 .cta-card p{font-size:13px;opacity:.93;line-height:1.65;margin-bottom:14px;}
 .cta-card a{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--biz-dark);font-size:14px;font-weight:700;padding:12px 20px;border-radius:var(--radius-md);}
-
 /* FAQ */
 .faq-section{margin:40px 0 16px;}
 .faq-section h2{font-size:18px;font-weight:800;color:var(--text-strong);margin-bottom:14px;padding:0 4px;letter-spacing:-.3px;}
-.faq-item{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:var(--radius-md);margin-bottom:10px;overflow:hidden;}
+.faq-item{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:var(--radius-md);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow-sm);}
 .faq-item summary{font-size:14px;font-weight:700;color:var(--text-strong);padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
 .faq-item summary::-webkit-details-marker{display:none;}
 .faq-item summary::after{content:"+";font-size:18px;color:var(--biz);font-weight:700;flex-shrink:0;}
 .faq-item[open] summary::after{content:"\2212";}
 .faq-item[open] summary{color:var(--biz-dark);}
 .faq-item .faq-body{padding:0 18px 16px;font-size:13px;color:var(--text-soft);line-height:1.7;}
-
 /* DISCLAIMER + FOOTER */
 .disclaimer{background:var(--biz-soft);border-radius:var(--radius-md);padding:16px 18px;margin:20px 0;font-size:12px;color:var(--text-soft);line-height:1.7;}
 .disclaimer strong{color:var(--biz-dark);font-weight:700;}
@@ -221,72 +241,76 @@ footer.site-footer strong{color:var(--text-soft);font-weight:600;}
 footer.site-footer .footer-links{margin-top:14px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 footer.site-footer .footer-links a{font-size:12px;color:var(--text-mute);font-weight:500;}
 footer.site-footer .footer-links a:hover{color:var(--biz);}
-
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.in{opacity:1;transform:none;transition:none;}
 }
-
 @media (min-width:768px){
-  header.hero{padding:88px 0 64px;}
-  header.hero h1{font-size:44px;line-height:1.2;}
-  header.hero p.lead{font-size:18px;}
-  .hero-stat .num{font-size:30px;}
-  .form-card{padding:28px 26px;}
+  .container{padding:0 24px;}
+  header.hero{padding:56px 0 40px;}
+  header.hero h1{font-size:36px;line-height:1.25;}
+  header.hero p.lead{font-size:17px;}
+  .form-card{padding:32px 28px;}
+  .example-grid{grid-template-columns:repeat(3,1fr);}
 }
 @media (max-width:480px){
   .container{padding:0 16px;}
-  header.hero{padding:40px 0 36px;}
-  header.hero h1{font-size:25px;}
-  header.hero p.lead{font-size:14px;}
-  .hero-stats{gap:20px;}
-  .hero-stat .num{font-size:20px;}
+  header.hero{padding:24px 0 20px;}
+  header.hero h1{font-size:22px;}
   .action-bar{flex-direction:column;}
-  .num-wrap{max-width:none;}
 }
 </style>
 </head>
 <body>
-
-<nav class="site-nav">
-  <div class="container">
-    <a href="/" class="brand">💗 우리집 혜택 찾기</a>
-    <a href="/">🏠 홈</a>
-    <a href="/loan/">🏠 부동산 대출</a>
-    <a href="/baby/">👶 출산·육아 지원금</a>
-    <a href="/business/">🏪 소상공인 지원금</a>
-    <a href="/check/" class="active">📊 내 가게 진단</a>
-  </div>
-</nav>
-
+<nav class="site-nav" id="siteNav"><div class="container"><a href="/" class="brand">우리집 혜택 찾기</a></div></nav>
+<script src="/assets/nav.js"></script>
 <header class="hero">
   <div class="container">
     <span class="hero-badge">2026년 5월 기준 외식업 통계</span>
-    <h1>우리 가게 운영 상태를<br><span class="gradient">같은 업종 평균과 비교</span>해 진단해드려요</h1>
+    <h1>우리 가게가 같은 업종에서<br>어디쯤인지 진단해드려요</h1>
     <p class="lead">업종·지역·월 매출과 식재료비·인건비·임차료만 입력하면, 같은 업종 평균과 비교해 매출 위치와 원가구조가 건강한지 진단해드려요. 외식업 사장님을 위한 무료 셀프 점검입니다.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">9업종</div><div class="label">외식업 진단</div></div>
-      <div class="hero-stat"><div class="num">30초</div><div class="label">소요 시간</div></div>
-      <div class="hero-stat"><div class="num">무료</div><div class="label">100% 익명</div></div>
-    </div>
   </div>
 </header>
-
 <main class="container">
-
+  <section class="examples">
+    <div class="examples-head">
+      <h2>예시로 먼저 확인해보세요</h2>
+      <p>비슷한 가게 조건을 누르면 바로 진단 결과가 나와요</p>
+    </div>
+    <div class="example-grid">
+      <button type="button" class="example-card" data-ex="0">
+        <div class="ex-icon tossface">🍚</div>
+        <div class="ex-cond">서울 · 한식·백반<br>월매출 3,000만 · 직원 4명</div>
+        <div class="ex-result-num" id="exNum0">계산 중…</div>
+        <div class="ex-result-sub" id="exSub0"></div>
+        <div class="ex-go">이 조건으로 진단 보기 →</div>
+      </button>
+      <button type="button" class="example-card" data-ex="1">
+        <div class="ex-icon tossface">☕</div>
+        <div class="ex-cond">부산 · 카페·디저트<br>월매출 1,500만 · 직원 2명</div>
+        <div class="ex-result-num" id="exNum1">계산 중…</div>
+        <div class="ex-result-sub" id="exSub1"></div>
+        <div class="ex-go">이 조건으로 진단 보기 →</div>
+      </button>
+      <button type="button" class="example-card" data-ex="2">
+        <div class="ex-icon tossface">🍗</div>
+        <div class="ex-cond">경기 · 치킨<br>월매출 2,000만 · 직원 2명</div>
+        <div class="ex-result-num" id="exNum2">계산 중…</div>
+        <div class="ex-result-sub" id="exSub2"></div>
+        <div class="ex-go">이 조건으로 진단 보기 →</div>
+      </button>
+    </div>
+  </section>
   <div class="step-bar reveal">
     <div class="step-bar-icon">1</div>
     <div class="step-bar-text">우리 가게 정보를 입력하면 업종 평균과 비교해 진단해드려요</div>
   </div>
-
   <form id="diagForm" onsubmit="return false;">
-
     <section class="form-card reveal">
       <h2 class="section-title">기본 정보</h2>
       <p class="section-sub">업종·지역·월 매출은 매출 위치 진단에 꼭 필요해요</p>
-
       <div class="form-group">
         <label class="field-label">업종</label>
         <div class="chip-grid" data-group="industry">
@@ -301,28 +325,34 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
           <label class="chip" data-value="yangsik">🍝 양식·패스트푸드</label>
         </div>
       </div>
-
       <div class="form-group">
         <label class="field-label" for="regionSel">사업장 지역 <span class="field-hint">시·도 선택</span></label>
         <select class="region-select" id="regionSel"></select>
       </div>
-
       <div class="form-group">
-        <label class="field-label" for="revenueInp">월 매출 <span class="field-hint">최근 한 달 기준</span></label>
-        <div class="num-wrap">
-          <input class="num-input" id="revenueInp" type="number" inputmode="numeric" placeholder="예: 5000" min="0">
-          <span class="unit">만원</span>
+        <label class="field-label" for="revenueRange">월 매출 <span class="field-hint">최근 한 달 기준</span></label>
+        <div class="amount-field">
+          <div class="amount-now empty" id="revenueNow">아직 선택 안 함</div>
+          <input type="range" class="amount-range" id="revenueRange" min="0" max="30000" step="100" value="0" aria-label="월 매출">
+          <div class="range-ends"><span>0원</span><span>3억원 이상</span></div>
+          <div class="quick-amount">
+            <button class="quick-btn" type="button" data-target="revenue" data-amount="1000">1,000만</button>
+            <button class="quick-btn" type="button" data-target="revenue" data-amount="3000">3,000만</button>
+            <button class="quick-btn" type="button" data-target="revenue" data-amount="5000">5,000만</button>
+            <button class="quick-btn" type="button" data-target="revenue" data-amount="10000">1억</button>
+          </div>
+          <input type="hidden" id="revenueInp">
         </div>
       </div>
-
       <div class="form-group">
         <label class="field-label" for="staffInp">직원 수 <span class="field-hint">사장님 포함</span></label>
-        <div class="num-wrap">
-          <input class="num-input" id="staffInp" type="number" inputmode="numeric" placeholder="예: 5" min="1">
-          <span class="unit">명</span>
+        <div class="stepper">
+          <button type="button" class="step-btn" data-step="-1" aria-label="직원 수 감소">−</button>
+          <input class="step-val" id="staffInp" type="number" inputmode="numeric" min="1" value="1" aria-label="직원 수">
+          <span class="step-unit">명</span>
+          <button type="button" class="step-btn" data-step="1" aria-label="직원 수 증가">+</button>
         </div>
       </div>
-
       <div class="form-group">
         <label class="field-label">운영 기간</label>
         <div class="chip-grid" data-group="period">
@@ -333,27 +363,37 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
         </div>
       </div>
     </section>
-
     <section class="form-card reveal">
       <h2 class="section-title">비용 정보 <span class="optional-tag">선택 입력</span></h2>
-      <p class="section-sub">한 달 비용을 입력하면 원가구조 진단까지 받을 수 있어요. 비워두면 매출 위치만 진단해드립니다.</p>
-
+      <p class="section-sub">한 달 비용을 슬라이더로 입력하면 원가구조 진단까지 받을 수 있어요. 비워두면 매출 위치만 진단해드립니다.</p>
       <div class="form-group">
-        <label class="field-label" for="foodInp">월 식재료비 (원가)</label>
-        <div class="num-wrap">
-          <input class="num-input" id="foodInp" type="number" inputmode="numeric" placeholder="예: 2100" min="0">
-          <span class="unit">만원</span>
+        <label class="field-label" for="foodRange">월 식재료비 (원가)</label>
+        <div class="amount-field">
+          <div class="amount-now empty" id="foodNow">아직 선택 안 함</div>
+          <input type="range" class="amount-range" id="foodRange" min="0" max="15000" step="50" value="0" aria-label="월 식재료비">
+          <div class="range-ends"><span>0원</span><span>1.5억원 이상</span></div>
+          <div class="quick-amount">
+            <button class="quick-btn" type="button" data-target="food" data-amount="1000">1,000만</button>
+            <button class="quick-btn" type="button" data-target="food" data-amount="2000">2,000만</button>
+            <button class="quick-btn" type="button" data-target="food" data-amount="3000">3,000만</button>
+          </div>
+          <input type="hidden" id="foodInp">
         </div>
       </div>
-
       <div class="form-group">
-        <label class="field-label" for="laborInp">월 인건비 <span class="field-hint">사장님 급여 제외 권장</span></label>
-        <div class="num-wrap">
-          <input class="num-input" id="laborInp" type="number" inputmode="numeric" placeholder="예: 1400" min="0">
-          <span class="unit">만원</span>
+        <label class="field-label" for="laborRange">월 인건비 <span class="field-hint">사장님 급여 제외 권장</span></label>
+        <div class="amount-field">
+          <div class="amount-now empty" id="laborNow">아직 선택 안 함</div>
+          <input type="range" class="amount-range" id="laborRange" min="0" max="15000" step="50" value="0" aria-label="월 인건비">
+          <div class="range-ends"><span>0원</span><span>1.5억원 이상</span></div>
+          <div class="quick-amount">
+            <button class="quick-btn" type="button" data-target="labor" data-amount="500">500만</button>
+            <button class="quick-btn" type="button" data-target="labor" data-amount="1000">1,000만</button>
+            <button class="quick-btn" type="button" data-target="labor" data-amount="2000">2,000만</button>
+          </div>
+          <input type="hidden" id="laborInp">
         </div>
       </div>
-
       <div class="form-group">
         <label class="field-label">점포 임차 형태</label>
         <div class="chip-grid" data-group="rentType">
@@ -362,28 +402,31 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
           <label class="chip" data-value="own">자가</label>
         </div>
       </div>
-
       <div class="form-group">
-        <label class="field-label" for="rentInp">월 임차료 <span class="field-hint">전세·자가는 0</span></label>
-        <div class="num-wrap">
-          <input class="num-input" id="rentInp" type="number" inputmode="numeric" placeholder="예: 450" min="0">
-          <span class="unit">만원</span>
+        <label class="field-label" for="rentRange">월 임차료 <span class="field-hint">전세·자가는 0</span></label>
+        <div class="amount-field">
+          <div class="amount-now empty" id="rentNow">아직 선택 안 함</div>
+          <input type="range" class="amount-range" id="rentRange" min="0" max="3000" step="10" value="0" aria-label="월 임차료">
+          <div class="range-ends"><span>0원</span><span>3,000만원 이상</span></div>
+          <div class="quick-amount">
+            <button class="quick-btn" type="button" data-target="rent" data-amount="100">100만</button>
+            <button class="quick-btn" type="button" data-target="rent" data-amount="300">300만</button>
+            <button class="quick-btn" type="button" data-target="rent" data-amount="500">500만</button>
+          </div>
+          <input type="hidden" id="rentInp">
         </div>
       </div>
     </section>
-
     <div class="action-bar">
       <button type="button" class="btn-reset" id="resetBtn">초기화</button>
       <button type="button" class="btn-submit" id="submitBtn">내 가게 진단받기</button>
     </div>
-    <div class="input-error" id="inputError">월 매출을 숫자로 입력해 주세요.</div>
+    <div class="input-error" id="inputError">월 매출을 슬라이더나 버튼으로 입력해 주세요.</div>
   </form>
-
   <div class="loading-state" id="loading">
     <div class="spinner"></div>
     <p>우리 가게를 업종 평균과 비교하고 있어요...</p>
   </div>
-
   <section class="results-wrap" id="results">
     <div class="results-header">
       <h2>진단 결과</h2>
@@ -404,7 +447,6 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
       <strong>안내</strong> · 본 진단은 통계청·중소벤처기업부 「소상공인 실태조사」와 한국농수산식품유통공사(aT) 식품외식산업 통계 등 <strong>공개 자료를 바탕으로 한 추정</strong>이며, 실제 경영 성과나 동일 상권 내 순위와 다를 수 있습니다. 비교 기준은 <strong>업종 분류(한식·치킨 등) × 시·도 단위 평균</strong>이며 개별 상권·점포 규모는 반영하지 않습니다. 매출 위치·원가구조는 참고용 점검 지표로만 활용해 주세요. 입력 정보는 저장되지 않고 브라우저에서만 계산됩니다.
     </div>
   </section>
-
   <div class="faq-section reveal">
     <h2>자주 묻는 질문</h2>
     <details class="faq-item">
@@ -424,9 +466,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
       <div class="faq-body">아니요. 입력하신 모든 정보는 서버로 전송되거나 저장되지 않고, 사용 중인 브라우저 안에서만 계산에 쓰입니다. 페이지를 닫으면 사라집니다.</div>
     </details>
   </div>
-
 </main>
-
 <footer class="site-footer">
   <div class="container">
     <p>정보 출처 · <strong>통계청 · 중소벤처기업부 소상공인 실태조사 · 한국농수산식품유통공사(aT) 식품외식산업 통계</strong></p>
@@ -434,7 +474,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     <div class="footer-links">
       <a href="/loan/">부동산 대출</a>
       <a href="/baby/">출산·육아 지원금</a>
-      <a href="/business/">소상공인 지원금</a>
+      <a href="/business/">사업자 지원금</a>
       <a href="/check/">내 가게 진단</a>
       <a href="/about/">사이트 소개</a>
       <a href="/privacy/">개인정보처리방침</a>
@@ -442,7 +482,6 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     <p style="margin-top:14px;">© 2026 우리집 혜택 찾기</p>
   </div>
 </footer>
-
 <script>
 /* 공통 숫자 카운트업 애니메이션 */
 function countUp(el,target,suffix,dur){
@@ -462,7 +501,6 @@ function countUp(el,target,suffix,dur){
   requestAnimationFrame(step);
 }
 </script>
-
 <script>
 /* =====================================================================
    외식업 경영진단 데이터
@@ -476,7 +514,6 @@ function countUp(el,target,suffix,dur){
   window.DIAG_DATA = {
     /* 기타비(카드·배달 수수료 등)+세금 평균 가정 비율 */
     otherRatio: 12,
-
     regions: [
       {v:'seoul',    label:'서울',  f:1.15},
       {v:'gyeonggi', label:'경기',  f:1.05},
@@ -496,7 +533,6 @@ function countUp(el,target,suffix,dur){
       {v:'gyeongnam',label:'경남',  f:0.95},
       {v:'jeju',     label:'제주',  f:1.00}
     ],
-
     industries: {
       hansik: {label:'한식·백반',      medianRev:1800, food:42, labor:28, rent:9,  perCapita:550},
       gogi:   {label:'고기·구이',      medianRev:3000, food:45, labor:25, rent:9,  perCapita:680},
@@ -511,13 +547,11 @@ function countUp(el,target,suffix,dur){
   };
 })();
 </script>
-
 <script>
 (function(){
   var DATA=window.DIAG_DATA;
   var SIGMA=0.65; /* 매출 로그정규분포 표준편차 가정 */
   var state={industry:'hansik',region:'seoul',period:'under1',rentType:'monthly'};
-
   /* 지역 선택 채우기 */
   var regionSel=document.getElementById('regionSel');
   DATA.regions.forEach(function(rg){
@@ -527,7 +561,6 @@ function countUp(el,target,suffix,dur){
   });
   regionSel.value=state.region;
   regionSel.addEventListener('change',function(){ state.region=regionSel.value; });
-
   /* 칩 선택 (단일 선택) */
   document.querySelectorAll('.chip-grid').forEach(function(grid){
     var group=grid.dataset.group;
@@ -539,13 +572,57 @@ function countUp(el,target,suffix,dur){
       });
     });
   });
-
   function num(id){
     var v=parseFloat(document.getElementById(id).value);
     return (isNaN(v)||v<0)?null:v;
   }
   function fmt(n){ return Math.round(n).toLocaleString('ko-KR'); }
-
+  function fmtMoney(manwon){
+    if(!manwon||manwon<=0) return '';
+    if(manwon>=10000){ var eok=manwon/10000; return (manwon%10000===0?Math.floor(eok):eok.toFixed(1).replace(/\.0$/,''))+'억원'; }
+    return manwon.toLocaleString()+'만원';
+  }
+  /* 금액 슬라이더 입력 — 키보드 없이 드래그 + 빠른 버튼으로 입력 (값은 hidden input에 저장) */
+  function setupAmountSlider(rangeId,hiddenId,nowId){
+    var range=document.getElementById(rangeId);
+    var hidden=document.getElementById(hiddenId);
+    var now=document.getElementById(nowId);
+    function paint(){
+      var mn=parseInt(range.min),mx=parseInt(range.max),v=parseInt(range.value)||0;
+      var pct=mx>mn?(v-mn)/(mx-mn)*100:0;
+      range.style.background='linear-gradient(90deg, var(--biz) '+pct+'%, var(--border) '+pct+'%)';
+    }
+    function update(){
+      var v=parseInt(range.value)||0;
+      if(v<=0){ hidden.value=''; now.textContent='아직 선택 안 함'; now.classList.add('empty'); }
+      else { hidden.value=v; now.textContent=fmtMoney(v); now.classList.remove('empty'); }
+      paint();
+    }
+    range.addEventListener('input',update);
+    update();
+    return { set:function(v){ range.value=v; update(); }, reset:function(){ range.value=0; update(); } };
+  }
+  var revenueSlider=setupAmountSlider('revenueRange','revenueInp','revenueNow');
+  var foodSlider=setupAmountSlider('foodRange','foodInp','foodNow');
+  var laborSlider=setupAmountSlider('laborRange','laborInp','laborNow');
+  var rentSlider=setupAmountSlider('rentRange','rentInp','rentNow');
+  var SLIDERS={revenue:revenueSlider,food:foodSlider,labor:laborSlider,rent:rentSlider};
+  document.querySelectorAll('.quick-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var s=SLIDERS[btn.dataset.target];
+      if(s) s.set(parseInt(btn.dataset.amount));
+    });
+  });
+  /* 직원 수 스테퍼 */
+  var staffInp=document.getElementById('staffInp');
+  document.querySelectorAll('.step-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var cur=parseInt(staffInp.value,10); if(isNaN(cur)||cur<1){cur=1;}
+      cur+=parseInt(btn.dataset.step,10);
+      if(cur<1){cur=1;}
+      staffInp.value=cur;
+    });
+  });
   /* 표준정규 누적분포 근사 (Zelen & Severo) */
   function normCdf(z){
     var t=1/(1+0.2316419*Math.abs(z));
@@ -553,12 +630,10 @@ function countUp(el,target,suffix,dur){
     var p=d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));
     return z>0?1-p:p;
   }
-
   function regionInfo(){
     for(var i=0;i<DATA.regions.length;i++){ if(DATA.regions[i].v===state.region) return DATA.regions[i]; }
     return DATA.regions[0];
   }
-
   /* 원가 항목 진단 */
   function costVerdict(myRatio,avgRatio){
     if(myRatio>avgRatio*1.12) return {cls:'high',label:'평균보다 높음'};
@@ -576,7 +651,6 @@ function countUp(el,target,suffix,dur){
       +'<span class="m-val">'+val+'</span>'
       +'<span class="m-badge '+bCls+'">'+bTxt+'</span></div>'+bar(fill,marker,warn)+'</div>';
   }
-
   /* 실행 체크리스트 콘텐츠 */
   var CHECK={
     rent:{title:'임차료 줄이기',items:[
@@ -608,21 +682,18 @@ function countUp(el,target,suffix,dur){
       '남는 여력을 신메뉴·마케팅·재방문 유도 등 매출 확대에 투자해 보세요.',
       '비용 비율을 분기마다 한 번씩 점검해 지금 수준을 유지하세요.']}
   };
-
   function render(){
     var ind=DATA.industries[state.industry];
     var rg=regionInfo();
     var revenue=num('revenueInp');
     var staff=num('staffInp');
     var food=num('foodInp'), labor=num('laborInp'), rent=num('rentInp');
-
     var adjMedian=ind.medianRev*rg.f;
     var z=(Math.log(revenue)-Math.log(adjMedian))/SIGMA;
     var topPct=Math.round((1-normCdf(z))*100);
     if(topPct<1)topPct=1; if(topPct>99)topPct=99;
     var band=topPct<=30?'상위권':(topPct<=70?'중위권':'하위권');
     var bandCls=topPct<=30?'ok':(topPct<=70?'low':'high');
-
     var hasCost=(food!==null||labor!==null||rent!==null);
     var foodR=food!==null?food/revenue*100:ind.food;
     var laborR=labor!==null?labor/revenue*100:ind.labor;
@@ -630,7 +701,6 @@ function countUp(el,target,suffix,dur){
     var opMargin=100-foodR-laborR-rentR-DATA.otherRatio;
     var opProfit=revenue*opMargin/100;
     var indMargin=100-ind.food-ind.labor-ind.rent-DATA.otherRatio;
-
     /* 항목별 절감 가능액(월, 만원) — 평균보다 높은 만큼 */
     var foodGap=food!==null?Math.max(0,(foodR-ind.food))/100*revenue:0;
     var laborGap=labor!==null?Math.max(0,(laborR-ind.labor))/100*revenue:0;
@@ -638,7 +708,6 @@ function countUp(el,target,suffix,dur){
     var totalGap=foodGap+laborGap+rentGap;
     var improvedProfit=opProfit+totalGap;
     var perCap=(staff!==null&&staff>0)?revenue/staff:null;
-
     /* 메가 카드 */
     document.getElementById('mPos').textContent='상위 '+topPct+'%';
     document.getElementById('mIndustry').textContent=ind.label;
@@ -647,16 +716,13 @@ function countUp(el,target,suffix,dur){
     if(!hasCost){ gainEl.textContent='비용을 입력하면 개선 여지를 계산해 드려요'; }
     else if(totalGap>=1){ gainEl.textContent='원가를 업종 평균까지 맞추면 월 +'+fmt(totalGap)+'만원'; }
     else { gainEl.textContent='원가구조가 균형적입니다 👍'; }
-
     var html='';
-
     /* 입력값 점검 경고 */
     if(hasCost && opMargin>30){
       html+='<div class="notice"><b>입력값 확인 권장</b> · 계산된 영업이익률('+opMargin.toFixed(0)+'%)이 외식업 평균(약 9%)보다 매우 높습니다. 인건비에 사장님 본인 인건비나 빠뜨린 비용이 없는지 확인해 주세요.</div>';
     }else if(opMargin<-5){
       html+='<div class="notice"><b>입력값 확인 권장</b> · 비용 합계가 매출을 초과합니다. 매출·비용 입력값을 다시 확인해 주세요.</div>';
     }
-
     /* 핵심 지표 */
     var rows='';
     rows+=mrow('매출 위치','상위 '+topPct+'%',bandCls,band,100-topPct,50,false);
@@ -677,7 +743,6 @@ function countUp(el,target,suffix,dur){
     html+='<div class="metric-card"><div class="mc-head"><h3>핵심 지표 한눈에 보기</h3>'
       +'<div class="mc-legend"><span><i class="lg-fill"></i>우리 가게</span><span><i class="lg-mark"></i>업종 평균</span></div>'
       +'</div>'+rows+'</div>';
-
     /* 개선 시뮬레이션 */
     if(hasCost && totalGap>=1){
       var bd='';
@@ -694,7 +759,6 @@ function countUp(el,target,suffix,dur){
         +'<div class="sim-gain">연 환산 약 '+fmt(totalGap*12)+'만원을 더 남길 수 있어요</div>'
         +'<ul class="sim-breakdown">'+bd+'</ul></div>';
     }
-
     /* 실행 체크리스트 (우선순위순, 최대 3장) */
     var issues=[];
     if(rent!==null && rentR>ind.rent*1.05) issues.push({key:'rent',gap:rentGap});
@@ -707,7 +771,6 @@ function countUp(el,target,suffix,dur){
     issues.forEach(function(it){ if(!seen[it.key]){seen[it.key]=1;picked.push(it);} });
     picked=picked.slice(0,3);
     if(!picked.length) picked=[{key:'keep',gap:0}];
-
     if(picked[0].key!=='keep') html+='<div class="section-label" style="font-size:13px;font-weight:800;color:var(--biz-dark);margin:20px 4px 8px;">📋 지금 할 일 (우선순위순)</div>';
     picked.forEach(function(it){
       var c=CHECK[it.key];
@@ -718,28 +781,25 @@ function countUp(el,target,suffix,dur){
         +'<div class="todo-head"><span class="th-tag">'+(urgent?'먼저 할 일':'점검')+'</span><h4>'+c.title+'</h4></div>'
         +'<ul class="todo-list">'+li+'</ul></div>';
     });
-
     /* 지원금 연결 */
     if(opMargin<8 || totalGap>=1 || band==='하위권'){
       html+='<div class="cta-card"><h4>비용 부담, 정부 지원으로 덜 수 있어요</h4>'
         +'<p>경영안정 바우처·정책자금·노란우산공제 등 우리 가게가 받을 수 있는 지원금이 있습니다. 1분 만에 확인해 보세요.</p>'
-        +'<a href="/business/">소상공인 지원금 확인하기 →</a></div>';
+        +'<a href="/business/">사업자 지원금 확인하기 →</a></div>';
     }
-
     document.getElementById('resultCount').textContent=rg.label+' · '+ind.label;
     document.getElementById('resultList').innerHTML=html;
-
     var pf=Math.round(opProfit);
     if(pf>=0){ countUp(document.getElementById('megaProfit'),pf,'',900); }
     else { document.getElementById('megaProfit').textContent=pf.toLocaleString('ko-KR'); }
   }
-
   document.getElementById('submitBtn').addEventListener('click',function(){
     var err=document.getElementById('inputError');
     var revenue=num('revenueInp');
     if(revenue===null||revenue<=0){
       err.style.display='block';
-      document.getElementById('revenueInp').focus();
+      document.getElementById('revenueRange').focus();
+      document.getElementById('revenueRange').scrollIntoView({behavior:'smooth',block:'center'});
       return;
     }
     err.style.display='none';
@@ -755,27 +815,72 @@ function countUp(el,target,suffix,dur){
       document.querySelector('.results-header').scrollIntoView({behavior:'smooth',block:'start'});
     },850);
   });
-
   document.getElementById('resetBtn').addEventListener('click',function(){
     document.querySelectorAll('.chip-grid').forEach(function(grid){
-      var group=grid.dataset.group;
       grid.querySelectorAll('.chip').forEach(function(c,i){
         c.classList.toggle('active',i===0);
       });
     });
-    ['revenueInp','staffInp','foodInp','laborInp','rentInp'].forEach(function(id){
-      document.getElementById(id).value='';
-    });
+    revenueSlider.reset(); foodSlider.reset(); laborSlider.reset(); rentSlider.reset();
+    staffInp.value='1';
     regionSel.value='seoul';
     state={industry:'hansik',region:'seoul',period:'under1',rentType:'monthly'};
     document.getElementById('inputError').style.display='none';
     document.getElementById('results').style.display='none';
   });
+  /* 예시 카드 — 페이지의 진단 모델로 매출 위치를 미리 계산해 보여주고, 클릭 시 폼에 자동 입력 */
+  var EXAMPLES=[
+    {id:0,form:{industry:'hansik',region:'seoul',period:'y3to10',rentType:'monthly',revenue:3000,staff:4,food:1200,labor:900,rent:350}},
+    {id:1,form:{industry:'cafe',region:'busan',period:'y1to3',rentType:'monthly',revenue:1500,staff:2,food:500,labor:380,rent:200}},
+    {id:2,form:{industry:'chicken',region:'gyeonggi',period:'y3to10',rentType:'monthly',revenue:2000,staff:2,food:850,labor:400,rent:180}}
+  ];
+  function computeExample(ex){
+    var f=ex.form;
+    var ind=DATA.industries[f.industry];
+    var rg=DATA.regions[0];
+    for(var i=0;i<DATA.regions.length;i++){ if(DATA.regions[i].v===f.region){rg=DATA.regions[i];break;} }
+    var adjMedian=ind.medianRev*rg.f;
+    var z=(Math.log(f.revenue)-Math.log(adjMedian))/SIGMA;
+    var topPct=Math.round((1-normCdf(z))*100);
+    if(topPct<1)topPct=1; if(topPct>99)topPct=99;
+    var band=topPct<=30?'상위권':(topPct<=70?'중위권':'하위권');
+    return {big:'매출 '+band+' · 상위 '+topPct+'%',sub:ind.label+' 업종 평균과 비교'};
+  }
+  function setChipGroup(group,value){
+    var grid=document.querySelector('.chip-grid[data-group="'+group+'"]');
+    if(!grid) return;
+    grid.querySelectorAll('.chip').forEach(function(c){ c.classList.toggle('active',c.dataset.value===value); });
+    state[group]=value;
+  }
+  function applyExample(ex){
+    var f=ex.form;
+    setChipGroup('industry',f.industry);
+    setChipGroup('period',f.period);
+    setChipGroup('rentType',f.rentType);
+    regionSel.value=f.region; state.region=f.region;
+    revenueSlider.set(f.revenue||0);
+    foodSlider.set(f.food||0);
+    laborSlider.set(f.labor||0);
+    rentSlider.set(f.rent||0);
+    staffInp.value=f.staff;
+  }
+  EXAMPLES.forEach(function(ex){
+    var r=computeExample(ex);
+    var numEl=document.getElementById('exNum'+ex.id);
+    var subEl=document.getElementById('exSub'+ex.id);
+    if(numEl) numEl.textContent=r.big;
+    if(subEl) subEl.textContent=r.sub;
+  });
+  document.querySelectorAll('.example-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      var ex=EXAMPLES[parseInt(card.dataset.ex)];
+      if(ex){ applyExample(ex); document.getElementById('submitBtn').click(); }
+    });
+  });
 })();
 </script>
-
 <script>
-/* 스크롤 등장 애니메이션 + 히어로 숫자 카운트업 */
+/* 스크롤 등장 애니메이션 */
 (function(){
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -783,17 +888,7 @@ function countUp(el,target,suffix,dur){
     });
   },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-
-  document.querySelectorAll('.hero-stat .num').forEach(function(el,i){
-    var m=el.textContent.match(/^(\d+)(.*)$/);
-    if(m){
-      var target=parseInt(m[1],10),suffix=m[2];
-      el.textContent='0'+suffix;
-      setTimeout(function(){countUp(el,target,suffix,1200);},200+i*100);
-    }
-  });
 })();
 </script>
-
 </body>
 </html>
