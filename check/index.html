@@ -203,9 +203,16 @@ header.hero p.lead{font-size:15px;color:var(--text-soft);line-height:1.55;}
 .sim-box.after .sb-val{color:#fff;}
 .sim-arrow{font-size:18px;color:var(--biz);font-weight:800;flex-shrink:0;}
 .sim-gain{text-align:center;font-size:13px;font-weight:700;color:var(--biz-dark);margin-top:12px;}
-.sim-breakdown{list-style:none;margin-top:14px;border-top:1px solid var(--border-soft);padding-top:12px;display:flex;flex-direction:column;gap:8px;}
-.sim-breakdown li{font-size:13px;color:var(--text-soft);display:flex;justify-content:space-between;gap:10px;}
-.sim-breakdown li b{color:var(--biz-dark);font-weight:700;font-variant-numeric:tabular-nums;flex-shrink:0;}
+.sim-breakdown{margin-top:14px;border-top:1px solid var(--border-soft);padding-top:14px;display:flex;flex-direction:column;gap:14px;}
+.sb-group{display:flex;flex-direction:column;gap:8px;}
+.sb-group-label{font-size:12px;font-weight:800;color:var(--text-soft);letter-spacing:-.2px;}
+.sb-tip{border-radius:10px;padding:12px 14px;background:var(--biz-soft);}
+.sb-tip.good{background:var(--bg-soft);}
+.sb-tip-head{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;}
+.sb-tip-name{font-size:14px;font-weight:800;color:var(--text-strong);}
+.sb-tip-avg{font-size:12px;font-weight:600;color:var(--text-mute);}
+.sb-tip-action{font-size:13px;color:var(--text-soft);font-weight:500;line-height:1.5;}
+.sb-tip-gain{font-size:15px;font-weight:800;color:var(--biz-dark);}
 /* TODO */
 .todo-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-md);margin-bottom:12px;border-left:4px solid var(--biz);}
 .todo-card.urgent{border-left-color:#E0796B;}
@@ -743,21 +750,38 @@ function countUp(el,target,suffix,dur){
     html+='<div class="metric-card"><div class="mc-head"><h3>핵심 지표 한눈에 보기</h3>'
       +'<div class="mc-legend"><span><i class="lg-fill"></i>우리 가게</span><span><i class="lg-mark"></i>업종 평균</span></div>'
       +'</div>'+rows+'</div>';
-    /* 개선 시뮬레이션 */
+    /* 개선 시뮬레이션 — 컨설팅 스타일: '바꾸면 좋은 것' + '이미 잘하는 것' */
     if(hasCost && totalGap>=1){
-      var bd='';
-      if(foodGap>=1)bd+='<li><span>식재료비를 업종 평균('+ind.food+'%)으로</span><b>월 +'+fmt(foodGap)+'만원</b></li>';
-      if(laborGap>=1)bd+='<li><span>인건비를 업종 평균('+ind.labor+'%)으로</span><b>월 +'+fmt(laborGap)+'만원</b></li>';
-      if(rentGap>=1)bd+='<li><span>임차료를 업종 평균('+ind.rent+'%)으로</span><b>월 +'+fmt(rentGap)+'만원</b></li>';
+      var costs=[
+        {name:'식재료비',avg:ind.food,gap:foodGap,on:food!==null},
+        {name:'인건비',avg:ind.labor,gap:laborGap,on:labor!==null},
+        {name:'임차료',avg:ind.rent,gap:rentGap,on:rent!==null}
+      ];
+      var improve='',good='';
+      costs.forEach(function(c){
+        if(!c.on) return;
+        if(c.gap>=1){
+          improve+='<div class="sb-tip improve"><div class="sb-tip-head"><span class="sb-tip-name">'+c.name+'</span>'
+            +'<span class="sb-tip-avg">업종 평균 '+c.avg+'%</span></div>'
+            +'<div class="sb-tip-action">여기에 맞추면 <b class="sb-tip-gain">월 +'+fmt(c.gap)+'만원</b></div></div>';
+        }else{
+          good+='<div class="sb-tip good"><div class="sb-tip-head"><span class="sb-tip-name">'+c.name+'</span>'
+            +'<span class="sb-tip-avg">업종 평균 '+c.avg+'%</span></div>'
+            +'<div class="sb-tip-action">이미 업종 평균 수준이라 그대로 두셔도 돼요 👍</div></div>';
+        }
+      });
+      var bdHtml='';
+      if(improve) bdHtml+='<div class="sb-group"><div class="sb-group-label">📌 이 부분을 바꾸면 더 남아요</div>'+improve+'</div>';
+      if(good) bdHtml+='<div class="sb-group"><div class="sb-group-label">✅ 이건 이미 잘하고 있어요</div>'+good+'</div>';
       html+='<div class="sim-card"><div class="sim-title">💰 이렇게 바꾸면</div>'
-        +'<p class="sim-sub">업종 평균보다 높은 비용을 평균 수준으로 맞췄을 때의 추정입니다.</p>'
+        +'<p class="sim-sub">업종 평균보다 높은 비용을 평균 수준으로 맞췄을 때의 추정이에요.</p>'
         +'<div class="sim-flow">'
         +'<div class="sim-box"><div class="sb-lbl">지금 월 영업이익</div><div class="sb-val">'+fmt(opProfit)+'만원</div></div>'
         +'<div class="sim-arrow">→</div>'
         +'<div class="sim-box after"><div class="sb-lbl">개선 시 월 영업이익</div><div class="sb-val">'+fmt(improvedProfit)+'만원</div></div>'
         +'</div>'
         +'<div class="sim-gain">연 환산 약 '+fmt(totalGap*12)+'만원을 더 남길 수 있어요</div>'
-        +'<ul class="sim-breakdown">'+bd+'</ul></div>';
+        +'<div class="sim-breakdown">'+bdHtml+'</div></div>';
     }
     /* 실행 체크리스트 (우선순위순, 최대 3장) */
     var issues=[];
