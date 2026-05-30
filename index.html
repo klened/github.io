@@ -11,9 +11,9 @@
   gtag('config', 'G-1ZKQ6TBT1Z');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>부동산 대출·출산육아 지원금 통합 조회 | 숨은 돈 찾기</title>
-<meta name="description" content="조건만 입력하면 부동산 대출, 출산·육아 지원금, 소상공인 지원금을 정부·지자체부터 한곳에서 무료 비교·추천해드립니다.">
-<meta name="keywords" content="부동산 대출, 출산지원금, 육아 지원금, 소상공인 지원금, 자영업 지원금, 정부 지원금, 디딤돌, 버팀목, 보금자리론, 부모급여, 첫만남이용권, 경영안정 바우처">
+<title>정부지원금·숨은 환급금·실업급여 통합 조회 | 숨은 돈 찾기</title>
+<meta name="description" content="부동산 대출·출산육아 지원금·사업자 지원금부터 숨은 환급금·실업급여·연말정산까지, 조건만 입력하면 한곳에서 무료로 비교·계산해드립니다.">
+<meta name="keywords" content="부동산 대출, 출산지원금, 육아 지원금, 소상공인 지원금, 자영업 지원금, 정부 지원금, 디딤돌, 버팀목, 보금자리론, 부모급여, 첫만남이용권, 경영안정 바우처, 숨은 환급금, 미수령 환급금, 국세청 환급금, 실업급여 계산기, 구직급여, 연말정산, 연말정산 환급">
 <meta name="author" content="숨은 돈 찾기">
 <meta name="robots" content="index, follow">
 <!-- Google Search Console 사이트 소유권 인증 -->
@@ -21,7 +21,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="숨은 돈 찾기">
-<meta property="og:description" content="조건에 맞는 부동산 대출, 출산·육아 지원금, 소상공인 지원금을 한곳에서 찾아보세요.">
+<meta property="og:description" content="정부지원금부터 숨은 환급금·실업급여·연말정산까지, 받을 수 있는 돈을 한곳에서 찾아보세요.">
 <meta property="og:locale" content="ko_KR">
 <link rel="canonical" href="https://klened.github.io/">
 <meta property="og:url" content="https://klened.github.io/">
@@ -42,7 +42,7 @@
   "@type": "WebSite",
   "name": "숨은 돈 찾기",
   "url": "https://klened.github.io/",
-  "description": "조건에 맞는 부동산 대출, 출산·육아 지원금, 소상공인 지원금을 한곳에서 비교 추천해드리는 무료 도구 모음.",
+  "description": "부동산 대출·출산육아 지원금·사업자 지원금부터 숨은 환급금·실업급여·연말정산까지 한곳에서 비교·계산해드리는 무료 도구 모음.",
   "inLanguage": "ko-KR",
   "potentialAction": {
     "@type": "SearchAction",
@@ -55,7 +55,9 @@
 /* =====================================================================
    숨은 돈 찾기 — 공통 디자인 시스템 (토스풍)
    · 레이아웃·타이포·컴포넌트·여백은 전 페이지 공통
-   · 액센트 색만 서비스별로: 대출=블루 / 출산육아=핑크 / 소상공인=그린 / 가게진단=퍼플
+   · 액센트 색만 서비스별로:
+     대출=블루 / 출산육아=핑크 / 소상공인=그린 / 가게진단=퍼플 /
+     환급금=앰버 / 실업급여=틸 / 연말정산=오렌지
    ===================================================================== */
 :root {
   /* 서비스 액센트 */
@@ -63,6 +65,9 @@
   --pink: #EC4899;     --pink-dark: #DB2777;     --pink-light: #FCE7F3;     --pink-soft: #FDF2F8;
   --biz: #0FA968;      --biz-dark: #0B8A54;      --biz-light: #E3F6EE;      --biz-soft: #F1FAF6;
   --purple: #5B5BD6;   --purple-dark: #4646B8;   --purple-light: #E8E8FB;   --purple-soft: #F4F4FC;
+  --refund: #F59E0B;   --refund-dark: #D97706;   --refund-light: #FEF3C7;   --refund-soft: #FFFBEB;
+  --jobless: #14B8A6;  --jobless-dark: #0D9488;  --jobless-light: #CCFBF1;  --jobless-soft: #F0FDFA;
+  --tax: #F97316;      --tax-dark: #EA580C;      --tax-light: #FFEDD5;      --tax-soft: #FFF7ED;
   /* 표면 — 배경을 또렷한 그레이로 올려 카드·버튼이 떠 보이게 */
   --bg: #FFFFFF;
   --bg-soft: #EDF0F4;
@@ -116,17 +121,26 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.6;
 .service-card.baby::after { background: var(--pink); }
 .service-card.business::after { background: var(--biz); }
 .service-card.checkup::after { background: var(--purple); }
+.service-card.refund::after { background: var(--refund); }
+.service-card.jobless::after { background: var(--jobless); }
+.service-card.tax::after { background: var(--tax); }
 .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 .service-card.loan:hover { border-color: var(--primary); }
 .service-card.baby:hover { border-color: var(--pink); }
 .service-card.business:hover { border-color: var(--biz); }
 .service-card.checkup:hover { border-color: var(--purple); }
+.service-card.refund:hover { border-color: var(--refund); }
+.service-card.jobless:hover { border-color: var(--jobless); }
+.service-card.tax:hover { border-color: var(--tax); }
 .service-card:hover::after { transform: translate(30%, -30%) scale(1.2); opacity: 0.12; }
 .service-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; position: relative; z-index: 1; }
 .service-card.loan .service-icon { background: var(--primary-light); }
 .service-card.baby .service-icon { background: var(--pink-light); }
 .service-card.business .service-icon { background: var(--biz-light); }
 .service-card.checkup .service-icon { background: var(--purple-light); }
+.service-card.refund .service-icon { background: var(--refund-light); }
+.service-card.jobless .service-icon { background: var(--jobless-light); }
+.service-card.tax .service-icon { background: var(--tax-light); }
 .service-card h3 { font-size: 20px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; position: relative; z-index: 1; }
 .service-card p.desc { font-size: 14px; color: var(--text-soft); line-height: 1.65; position: relative; z-index: 1; }
 .service-features { display: flex; flex-wrap: wrap; gap: 6px; position: relative; z-index: 1; }
@@ -135,6 +149,9 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.6;
 .service-card.baby .feature-pill { background: var(--pink-soft); color: var(--pink-dark); }
 .service-card.business .feature-pill { background: var(--biz-soft); color: var(--biz-dark); }
 .service-card.checkup .feature-pill { background: var(--purple-soft); color: var(--purple-dark); }
+.service-card.refund .feature-pill { background: var(--refund-soft); color: var(--refund-dark); }
+.service-card.jobless .feature-pill { background: var(--jobless-soft); color: var(--jobless-dark); }
+.service-card.tax .feature-pill { background: var(--tax-soft); color: var(--tax-dark); }
 .service-cta { margin-top: 4px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 15px; font-weight: 700; padding: 15px 22px; border-radius: var(--radius-md); transition: all 0.18s; align-self: stretch; position: relative; z-index: 1; color: #fff; }
 .service-card.loan .service-cta { background: var(--primary); }
 .service-card.loan .service-cta:hover { background: var(--primary-dark); }
@@ -144,6 +161,12 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.6;
 .service-card.business .service-cta:hover { background: var(--biz-dark); }
 .service-card.checkup .service-cta { background: var(--purple); }
 .service-card.checkup .service-cta:hover { background: var(--purple-dark); }
+.service-card.refund .service-cta { background: var(--refund); }
+.service-card.refund .service-cta:hover { background: var(--refund-dark); }
+.service-card.jobless .service-cta { background: var(--jobless); }
+.service-card.jobless .service-cta:hover { background: var(--jobless-dark); }
+.service-card.tax .service-cta { background: var(--tax); }
+.service-card.tax .service-cta:hover { background: var(--tax-dark); }
 .service-cta .arrow { transition: transform 0.18s; }
 .service-card:hover .service-cta .arrow { transform: translateX(4px); }
 /* Guides section */
@@ -158,6 +181,9 @@ header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.6;
 .guide-card .guide-tag.loan { background: var(--primary-light); color: var(--primary-dark); }
 .guide-card .guide-tag.baby { background: var(--pink-light); color: var(--pink-dark); }
 .guide-card .guide-tag.business { background: var(--biz-light); color: var(--biz-dark); }
+.guide-card .guide-tag.refund { background: var(--refund-light); color: var(--refund-dark); }
+.guide-card .guide-tag.jobless { background: var(--jobless-light); color: var(--jobless-dark); }
+.guide-card .guide-tag.tax { background: var(--tax-light); color: var(--tax-dark); }
 .guide-card h3 { font-size: 16px; font-weight: 700; color: var(--text-strong); margin-bottom: 6px; line-height: 1.4; }
 .guide-card p { font-size: 13px; color: var(--text-soft); line-height: 1.5; margin: 0; }
 /* Footer */
@@ -198,7 +224,7 @@ footer.site-footer .footer-links a:hover { color: var(--primary); }
   <div class="container">
     <span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
     <h1>내가 받을 수 있는 정부 혜택,<br>30초 만에 확인하세요</h1>
-    <p class="lead">부동산 대출 · 출산·육아 지원금 · 소상공인 지원금까지. 조건만 입력하면 받을 수 있는 금액과 신청처를 바로 알려드려요.</p>
+    <p class="lead">부동산·육아·사업자 지원금부터 숨은 환급금·실업급여·연말정산까지. 조건만 입력하면 받을 수 있는 금액과 신청처를 바로 알려드려요.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">60+</div><div class="label">비교 상품</div></div>
       <div class="hero-stat"><div class="num">30초</div><div class="label">소요 시간</div></div>
@@ -263,6 +289,45 @@ footer.site-footer .footer-links a:hover { color: var(--primary); }
       </div>
       <span class="service-cta">업종 평균과 비교하기 <span class="arrow">→</span></span>
     </a>
+    <a href="/refund/" class="service-card refund reveal">
+      <div class="service-icon">💰</div>
+      <h3>숨은 환급금 조회</h3>
+      <p class="desc">국세청·정부24·통신사·휴면계좌까지 한 번에 점검해, 그동안 못 받은 내 돈을 찾아드려요.</p>
+      <div class="service-features">
+        <span class="feature-pill">국세청 환급금</span>
+        <span class="feature-pill">정부24</span>
+        <span class="feature-pill">휴면계좌</span>
+        <span class="feature-pill">미수령 포인트</span>
+        <span class="feature-pill">보험금</span>
+      </div>
+      <span class="service-cta">내 환급금 찾기 <span class="arrow">→</span></span>
+    </a>
+    <a href="/jobless/" class="service-card jobless reveal">
+      <div class="service-icon">💼</div>
+      <h3>실업급여 계산기</h3>
+      <p class="desc">피보험기간과 월급만 입력하면 일일 수급액·총 수령액·수급기간을 자동으로 계산해드려요.</p>
+      <div class="service-features">
+        <span class="feature-pill">구직급여</span>
+        <span class="feature-pill">조기재취업수당</span>
+        <span class="feature-pill">수급일수</span>
+        <span class="feature-pill">상하한액</span>
+        <span class="feature-pill">이직확인서</span>
+      </div>
+      <span class="service-cta">내 실업급여 계산하기 <span class="arrow">→</span></span>
+    </a>
+    <a href="/tax/" class="service-card tax reveal">
+      <div class="service-icon">🧾</div>
+      <h3>연말정산 환급 진단</h3>
+      <p class="desc">소득과 공제 항목만 체크하면 예상 환급액과 놓치고 있던 공제 항목까지 한 번에 알려드려요.</p>
+      <div class="service-features">
+        <span class="feature-pill">인적공제</span>
+        <span class="feature-pill">신용카드</span>
+        <span class="feature-pill">의료비</span>
+        <span class="feature-pill">월세</span>
+        <span class="feature-pill">연금저축</span>
+      </div>
+      <span class="service-cta">내 환급액 예상하기 <span class="arrow">→</span></span>
+    </a>
   </div>
 </section>
 <section class="guides-section">
@@ -307,12 +372,16 @@ footer.site-footer .footer-links a:hover { color: var(--primary); }
 </section>
 <footer class="site-footer">
   <div class="container">
-    <p>정보 출처: <strong>보건복지부 · 고용노동부 · 주택도시기금 · 한국주택금융공사 · 중소벤처기업부 · 소상공인시장진흥공단 · 각 지자체 공시</strong></p>
+    <p>정보 출처: <strong>보건복지부 · 고용노동부 · 주택도시기금 · 한국주택금융공사 · 중소벤처기업부 · 소상공인시장진흥공단 · 국세청 · 정부24 · 각 지자체 공시</strong></p>
     <p>본 페이지는 정보 제공 목적이며 실제 지급·승인을 보장하지 않습니다. 자세한 조건은 각 기관 공식 페이지에서 확인 후 신청해주세요.</p>
     <div class="footer-links">
       <a href="/loan/">부동산 대출</a>
       <a href="/baby/">출산·육아 지원금</a>
       <a href="/business/">사업자 지원금</a>
+      <a href="/check/">내 가게 경영진단</a>
+      <a href="/refund/">숨은 환급금</a>
+      <a href="/jobless/">실업급여</a>
+      <a href="/tax/">연말정산</a>
       <a href="/about/">사이트 소개</a>
       <a href="/privacy/">개인정보처리방침</a>
       <a href="/contact/">문의</a>
