@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZKQ6TBT1Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1ZKQ6TBT1Z');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연말정산 환급 진단 — 예상 환급액과 놓친 공제 한 번에 | 숨은 돈 찾기</title>
+<meta name="description" content="연봉·부양가족·신용카드·의료비·월세·연금저축만 입력하면 예상 환급액과 놓치고 있던 공제 항목을 한 번에 알려드려요. 13월의 월급 미리 계산.">
+<meta name="keywords" content="연말정산, 연말정산 계산기, 13월의 월급, 예상 환급액, 신용카드 공제, 의료비 공제, 월세 공제, 연금저축 공제, 부양가족 공제, 인적공제, 세액공제, 소득공제">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="연말정산 환급 진단 — 13월의 월급 미리 계산">
+<meta property="og:description" content="연봉과 공제 항목만 체크하면 예상 환급액과 놓친 공제를 한 번에 알려드려요.">
+<meta property="og:locale" content="ko_KR">
+<link rel="canonical" href="https://klened.github.io/tax/">
+<meta property="og:url" content="https://klened.github.io/tax/">
+<meta property="og:site_name" content="숨은 돈 찾기">
+<meta property="og:image" content="https://klened.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348" crossorigin="anonymous"></script>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" type="text/css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebApplication", "name": "연말정산 환급 진단", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "description": "연봉·부양가족·신용카드·의료비·월세·연금저축으로 예상 환급액을 자동 계산하는 무료 도구.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }, "inLanguage": "ko-KR" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "연말정산은 누가 해야 하나요?", "acceptedAnswer": { "@type": "Answer", "text": "근로소득이 있는 모든 직장인은 매년 2월 연말정산을 해야 합니다. 회사가 대신 처리해주지만, 본인이 공제 항목을 미리 챙겨야 환급을 더 많이 받을 수 있어요." } },
+      { "@type": "Question", "name": "환급액이 마이너스(추가 납부)면 어떻게 되나요?", "acceptedAnswer": { "@type": "Answer", "text": "원천징수액보다 결정세액이 많으면 차액을 추가 납부해야 합니다. 보통 2월 또는 3월 급여에서 일시 차감되며, 분납을 신청하면 2~4월에 나눠 낼 수 있어요." } }
+    ] }
+  ]
+}
+</script>
+<style>
+:root {
+  --primary: #F97316; --primary-dark: #EA580C; --primary-light: #FFEDD5; --primary-soft: #FFF7ED;
+  --bg: #FFFFFF; --bg-soft: #EDF0F4; --bg-card: #FFFFFF;
+  --text-strong: #191F28; --text: #333D4B; --text-soft: #4E5968; --text-mute: #8B95A1; --text-disabled: #B0B8C1;
+  --border: #E5E8EB; --border-soft: #EAEDF1;
+  --success: #00C73C; --warning: #FF9D00; --danger: #F04452;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 10px 32px rgba(0,0,0,0.10);
+  --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font); background: var(--bg-soft); color: var(--text); line-height: 1.5; font-weight: 400; word-break: keep-all; }
+button, input, select { font-family: inherit; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+.site-nav { background: var(--bg); border-bottom: 1px solid var(--border-soft); padding: 12px 0; position: sticky; top: 0; z-index: 50; }
+.site-nav .container { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.site-nav .container::-webkit-scrollbar { display: none; }
+.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 7px 11px; border-radius: 8px; transition: all 0.15s; flex-shrink: 0; white-space: nowrap; }
+.site-nav a:hover { background: var(--primary-soft); color: var(--primary-dark); }
+.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 16px; text-decoration: none; flex-shrink: 0; white-space: nowrap; letter-spacing: -0.3px; }
+header.hero { background: var(--bg); padding: 32px 0 24px; border-bottom: 1px solid var(--border-soft); }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary-dark); padding: 6px 12px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+header.hero h1 { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.3; letter-spacing: -0.6px; margin-bottom: 10px; }
+header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55; }
+.hero-stats { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-soft); }
+.hero-stat .num { font-size: 22px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+.hero-stat .label { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+.examples { margin: 20px 0 4px; }
+.examples-head h2 { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.3px; }
+.examples-head p { font-size: 13px; color: var(--text-mute); margin-top: 3px; }
+.example-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+.example-card { text-align: left; background: var(--bg-card); border: 1.5px solid var(--border-soft); border-radius: var(--radius-md); padding: 16px; cursor: pointer; transition: all 0.18s; font-family: var(--font); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 7px; }
+.example-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.example-card:active { transform: scale(0.99); }
+.ex-cond { font-size: 13px; color: var(--text-soft); font-weight: 600; line-height: 1.5; }
+.ex-result-num { font-size: 19px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.4px; }
+.ex-result-sub { font-size: 12px; color: var(--text-mute); font-weight: 500; }
+.ex-go { font-size: 13px; font-weight: 700; color: var(--primary-dark); margin-top: 1px; }
+.tossface { font-family: 'Tossface', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif; }
+.ex-icon { width: 42px; height: 42px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 24px; line-height: 1; margin-bottom: 2px; }
+@media (min-width: 768px) { .example-grid { grid-template-columns: repeat(3, 1fr); } }
+.step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
+.step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
+.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-md); margin-bottom: 16px; }
+.form-card h2.section-title { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; letter-spacing: -0.3px; }
+.form-card .section-sub { font-size: 13px; color: var(--text-mute); margin-bottom: 20px; }
+.form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
+.form-group:last-child { margin-bottom: 0; }
+.form-group label.field-label { font-size: 14px; font-weight: 600; color: var(--text-strong); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.required-dot { width: 5px; height: 5px; background: var(--danger); border-radius: 50%; display: inline-block; }
+.field-hint { font-size: 12px; color: var(--text-mute); font-weight: 400; margin-left: auto; }
+.input-wrap { position: relative; }
+.form-group select, .form-group input[type="number"] {
+  width: 100%; padding: 16px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  font-size: 16px; font-weight: 500; color: var(--text-strong); background: var(--bg);
+  transition: all 0.18s; -webkit-appearance: none; appearance: none;
+}
+.form-group select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B95A1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; padding-right: 44px; }
+.form-group select:hover, .form-group input:hover { border-color: var(--text-mute); }
+.form-group select:focus, .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(249,115,22,0.18); }
+.input-unit { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--text-mute); font-size: 14px; font-weight: 500; pointer-events: none; }
+.input-with-unit input { padding-right: 52px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.amount-field { background: var(--primary-soft); border-radius: var(--radius-md); padding: 18px 16px 14px; }
+.amount-now { font-size: 22px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; margin-bottom: 14px; }
+.amount-now.empty { font-size: 15px; font-weight: 600; color: var(--text-disabled); }
+.amount-range { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 100px; background: var(--border); outline: none; margin: 0; }
+.amount-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.amount-range::-moz-range-thumb { width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.range-ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-mute); margin-top: 8px; font-weight: 500; }
+.quick-amount { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.quick-btn { padding: 9px 14px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.quick-btn:hover { border-color: var(--primary); color: var(--primary-dark); }
+.action-bar { display: flex; gap: 10px; margin-top: 8px; }
+.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; box-shadow: 0 4px 14px rgba(249,115,22,0.35); }
+.submit-btn:hover:not(:disabled) { background: var(--primary-dark); }
+.submit-btn:active:not(:disabled) { transform: scale(0.99); }
+.reset-btn { padding: 18px 22px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.reset-btn:hover { background: var(--bg-soft); }
+.loading-state { display: none; text-align: center; padding: 60px 20px; }
+.loading-state.show { display: block; }
+.spinner { width: 40px; height: 40px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-state p { color: var(--text-soft); font-size: 14px; font-weight: 500; }
+.results-wrap { display: none; margin-top: 24px; }
+.results-wrap.show { display: block; }
+.results-header { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 14px; }
+.results-header h2 { font-size: 20px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; }
+.results-header .count { font-size: 13px; color: var(--text-mute); font-weight: 500; }
+.refund-card { background: linear-gradient(135deg, #FFF7ED 0%, #FFFFFF 60%); border: 1.5px solid var(--primary); border-radius: var(--radius-lg); padding: 26px 22px; margin-bottom: 16px; box-shadow: var(--shadow-md); }
+.refund-card.negative { background: linear-gradient(135deg, #FFEEEE 0%, #FFFFFF 60%); border-color: var(--danger); }
+.refund-card .rc-label { font-size: 12px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+.refund-card.negative .rc-label { color: var(--danger); }
+.refund-card .rc-title { font-size: 26px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; letter-spacing: -0.6px; }
+.refund-card.positive .rc-title { color: var(--primary-dark); }
+.refund-card.negative .rc-title { color: var(--danger); }
+.refund-card .rc-summary { background: rgba(255,255,255,0.75); border-radius: 12px; padding: 14px 16px; font-size: 13px; line-height: 1.7; color: var(--text); margin-bottom: 14px; }
+.refund-card .rc-summary strong { color: var(--primary-dark); }
+.refund-card.negative .rc-summary strong { color: var(--danger); }
+.breakdown { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 16px; box-shadow: var(--shadow-md); }
+.breakdown h3 { font-size: 16px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; letter-spacing: -0.3px; }
+.bd-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-soft); font-size: 14px; gap: 12px; }
+.bd-row:last-child { border-bottom: none; padding-bottom: 0; }
+.bd-row .bd-label { color: var(--text-soft); font-weight: 500; }
+.bd-row .bd-value { color: var(--text-strong); font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.bd-row.subtotal { background: var(--primary-soft); margin: 4px -20px; padding: 12px 20px; border-radius: 8px; border: none; }
+.bd-row.subtotal .bd-label { color: var(--primary-dark); font-weight: 700; }
+.bd-row.subtotal .bd-value { color: var(--primary-dark); }
+.bd-row.final { background: var(--primary-light); margin: 4px -20px; padding: 14px 20px; border-radius: 8px; border: none; }
+.bd-row.final .bd-label { color: var(--primary-dark); font-weight: 800; font-size: 15px; }
+.bd-row.final .bd-value { color: var(--primary-dark); font-weight: 800; font-size: 16px; }
+.miss-section { margin-top: 16px; }
+.miss-section h3 { font-size: 17px; font-weight: 800; color: var(--text-strong); margin-bottom: 12px; padding: 0 4px; letter-spacing: -0.3px; }
+.miss-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 20px 18px; margin-bottom: 10px; box-shadow: var(--shadow-md); border-left: 4px solid var(--primary); }
+.miss-card .mc-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; background: var(--primary-light); color: var(--primary-dark); margin-bottom: 8px; }
+.miss-card h4 { font-size: 15px; font-weight: 700; color: var(--text-strong); margin-bottom: 6px; letter-spacing: -0.2px; }
+.miss-card p { font-size: 13px; color: var(--text-soft); line-height: 1.6; margin-bottom: 8px; }
+.miss-card .mc-estimate { font-size: 13px; color: var(--primary-dark); font-weight: 700; }
+.disclaimer { background: var(--primary-soft); border-radius: var(--radius-md); padding: 16px 18px; margin-top: 18px; font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.disclaimer strong { color: var(--text-strong); font-weight: 700; background: linear-gradient(180deg, transparent 60%, rgba(249,115,22,0.45) 60%); padding: 0 2px; }
+.faq-section { margin: 32px 0; }
+.faq-section h2 { font-size: 18px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; padding: 0 4px; letter-spacing: -0.3px; }
+details.faq-item { background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+details.faq-item summary { list-style: none; padding: 16px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--text-strong); display: flex; justify-content: space-between; align-items: center; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after { content: '+'; font-size: 22px; color: var(--text-mute); font-weight: 300; transition: transform 0.2s; }
+details.faq-item[open] summary::after { content: '−'; color: var(--primary); }
+details.faq-item .faq-answer { padding: 0 18px 18px; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+footer.site-footer { background: var(--bg); padding: 28px 0 40px; text-align: center; margin-top: 24px; border-top: 1px solid var(--border-soft); }
+footer.site-footer p { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
+footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
+@media (min-width: 768px) {
+  .container { padding: 0 24px; }
+  header.hero { padding: 56px 0 40px; }
+  header.hero h1 { font-size: 36px; line-height: 1.25; }
+  header.hero p.lead { font-size: 17px; }
+  .hero-stat .num { font-size: 28px; }
+  .hero-stat .label { font-size: 13px; }
+  .hero-stats { gap: 40px; padding-top: 28px; margin-top: 28px; }
+  .form-card { padding: 32px 28px; }
+  .form-card h2.section-title { font-size: 20px; }
+  .form-card .section-sub { font-size: 14px; margin-bottom: 24px; }
+  .refund-card .rc-title { font-size: 34px; }
+  #missList { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .miss-card { margin-bottom: 0; }
+  details.faq-item summary { padding: 18px 22px; font-size: 15px; }
+  details.faq-item .faq-answer { padding: 0 22px 20px; font-size: 14px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  header.hero { padding: 24px 0 20px; }
+  header.hero h1 { font-size: 22px; }
+  .form-card { padding: 20px 16px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .hero-stats { gap: 16px; }
+  .hero-stat .num { font-size: 18px; }
+  .refund-card .rc-title { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" id="siteNav"><div class="container"><a href="/" class="brand">숨은 돈 찾기</a></div></nav>
+<script src="/assets/nav.js"></script>
+<header class="hero">
+<div class="container">
+<span class="hero-badge">2026년 5월 기준 (2025 세법 적용)</span>
+<h1>내 13월의 월급,<br>예상 환급액을 1초에</h1>
+<p class="lead">연봉·부양가족·신용카드·의료비·월세·연금저축만 입력하면<br>예상 환급액과 놓치고 있던 공제 항목을 알려드려요.</p>
+</div>
+</header>
+<main class="container">
+<section class="examples">
+<div class="examples-head">
+<h2>예시로 먼저 확인해보세요</h2>
+<p>비슷한 조건을 누르면 바로 내 결과가 나와요</p>
+</div>
+<div class="example-grid">
+<button type="button" class="example-card" data-ex="0">
+<div class="ex-icon tossface">👨‍💼</div>
+<div class="ex-cond">미혼 직장인 · 연봉 4,500만<br>카드 1,500만 · 의료비 200만</div>
+<div class="ex-result-num" id="exNum0">계산 중…</div>
+<div class="ex-result-sub" id="exSub0"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="1">
+<div class="ex-icon tossface">👨‍👩‍👧</div>
+<div class="ex-cond">맞벌이 부부 · 연봉 6,000만<br>자녀 2명 · 카드 2,500만</div>
+<div class="ex-result-num" id="exNum1">계산 중…</div>
+<div class="ex-result-sub" id="exSub1"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="2">
+<div class="ex-icon tossface">🏠</div>
+<div class="ex-cond">청년 1인가구 · 연봉 3,500만<br>월세 60만 · 카드 1,200만</div>
+<div class="ex-result-num" id="exNum2">계산 중…</div>
+<div class="ex-result-sub" id="exSub2"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+</div>
+</section>
+<div class="step-bar">
+<div class="step-bar-icon">1</div>
+<div class="step-bar-text">내 조건을 입력하면 예상 환급액과 놓친 공제를 계산해드려요</div>
+</div>
+<form id="filterForm" novalidate>
+<section class="form-card" aria-labelledby="sec1">
+<h2 id="sec1" class="section-title">기본 정보</h2>
+<p class="section-sub">연봉과 부양가족 수는 환급 계산의 가장 중요한 기준이에요</p>
+<div class="form-group">
+<label class="field-label" for="salaryRange">총 급여 (연봉, 세전) <span class="required-dot" aria-label="필수"></span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="salaryNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="salaryRange" min="0" max="20000" step="100" value="0" aria-label="총 급여">
+<div class="range-ends"><span>0원</span><span>2억원+</span></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="salary" data-amount="3000">3,000만</button>
+<button class="quick-btn" type="button" data-target="salary" data-amount="4500">4,500만</button>
+<button class="quick-btn" type="button" data-target="salary" data-amount="6000">6,000만</button>
+<button class="quick-btn" type="button" data-target="salary" data-amount="8000">8,000만</button>
+<button class="quick-btn" type="button" data-target="salary" data-amount="12000">1.2억</button>
+</div>
+<input type="hidden" id="salary" name="salary">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group"><label class="field-label" for="dependents">부양가족 수 <span class="field-hint">본인 제외</span></label>
+<div class="input-wrap"><select id="dependents" name="dependents">
+<option value="0">없음 (1인 가구)</option>
+<option value="1">1명</option><option value="2">2명</option><option value="3">3명</option><option value="4">4명 이상</option>
+</select></div>
+</div>
+<div class="form-group"><label class="field-label" for="children">자녀 수 (8세 이상~20세 이하)</label>
+<div class="input-wrap"><select id="children" name="children">
+<option value="0">없음</option><option value="1">1명</option><option value="2">2명</option><option value="3">3명 이상</option>
+</select></div>
+</div>
+</div>
+</section>
+<section class="form-card" aria-labelledby="sec2">
+<h2 id="sec2" class="section-title">공제 항목</h2>
+<p class="section-sub">해당하는 항목만 입력하세요 · 비워두면 0으로 처리됩니다</p>
+<div class="form-group">
+<label class="field-label" for="cardRange">신용·체크카드 사용액 (연간) <span class="field-hint">연봉의 25% 초과분부터 공제</span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="cardNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="cardRange" min="0" max="10000" step="100" value="0" aria-label="카드 사용액">
+<div class="range-ends"><span>0원</span><span>1억원+</span></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="card" data-amount="1000">1,000만</button>
+<button class="quick-btn" type="button" data-target="card" data-amount="1500">1,500만</button>
+<button class="quick-btn" type="button" data-target="card" data-amount="2500">2,500만</button>
+<button class="quick-btn" type="button" data-target="card" data-amount="4000">4,000만</button>
+</div>
+<input type="hidden" id="card" name="card">
+</div>
+</div>
+<div class="form-group">
+<label class="field-label" for="medicalRange">의료비 (연간) <span class="field-hint">연봉의 3% 초과분의 15%</span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="medicalNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="medicalRange" min="0" max="3000" step="50" value="0" aria-label="의료비">
+<div class="range-ends"><span>0원</span><span>3,000만원+</span></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="medical" data-amount="100">100만</button>
+<button class="quick-btn" type="button" data-target="medical" data-amount="300">300만</button>
+<button class="quick-btn" type="button" data-target="medical" data-amount="500">500만</button>
+<button class="quick-btn" type="button" data-target="medical" data-amount="1000">1,000만</button>
+</div>
+<input type="hidden" id="medical" name="medical">
+</div>
+</div>
+<div class="form-group">
+<label class="field-label" for="rentRange">월세 (연간 총액) <span class="field-hint">연봉 8,000만 이하만 공제</span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="rentNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="rentRange" min="0" max="1500" step="50" value="0" aria-label="월세">
+<div class="range-ends"><span>0원</span><span>1,500만원+</span></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="rent" data-amount="360">월 30만 (연 360)</button>
+<button class="quick-btn" type="button" data-target="rent" data-amount="600">월 50만 (연 600)</button>
+<button class="quick-btn" type="button" data-target="rent" data-amount="840">월 70만 (연 840)</button>
+</div>
+<input type="hidden" id="rent" name="rent">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group"><label class="field-label" for="pension">연금저축·IRP 납입액 <span class="field-hint">연 900만 한도</span></label>
+<div class="input-wrap input-with-unit"><input id="pension" name="pension" type="number" inputmode="numeric" placeholder="0" min="0" max="900"><span class="input-unit">만원</span></div>
+</div>
+<div class="form-group"><label class="field-label" for="insurance">보장성 보험료 <span class="field-hint">연 100만 한도</span></label>
+<div class="input-wrap input-with-unit"><input id="insurance" name="insurance" type="number" inputmode="numeric" placeholder="0" min="0" max="100"><span class="input-unit">만원</span></div>
+</div>
+</div>
+</section>
+<div class="action-bar">
+<button id="resetBtn" class="reset-btn" type="button">초기화</button>
+<button id="submitBtn" class="submit-btn" type="submit">예상 환급액 계산하기</button>
+</div>
+</form>
+<div id="loading" class="loading-state">
+<div class="spinner"></div>
+<p>내 연말정산 결과를 계산 중…</p>
+</div>
+<section id="results" class="results-wrap" aria-live="polite">
+<div class="results-header">
+<h2>예상 환급 결과</h2>
+<div id="resultCount" class="count"></div>
+</div>
+<div id="refundArea"></div>
+<div id="breakdownArea"></div>
+<div class="miss-section">
+<h3>💡 더 받을 수 있는 공제 항목</h3>
+<div id="missList"></div>
+</div>
+<div class="disclaimer"><b>⚠ 안내</b> · 본 결과는 입력 조건 기반의 <b>간이 추정 계산</b>이며 실제 연말정산 환급액은 회사가 처리한 결과에 따릅니다. 비과세소득·의료비 공제 한도·맞벌이 부부의 부양가족 안분 등 세부 항목은 반영되지 않았습니다. 정확한 계산은 <b>국세청 홈택스 — 연말정산 미리보기</b>에서 확인해주세요.</div>
+</section>
+<section class="faq-section">
+<h2>자주 묻는 질문</h2>
+<details class="faq-item"><summary>연말정산은 누가 해야 하나요?</summary>
+<div class="faq-answer">근로소득이 있는 모든 직장인은 매년 2월 연말정산 대상입니다. 회사가 대신 처리해주지만, 본인이 공제 항목(의료비·교육비·신용카드·기부금 등) 자료를 미리 챙겨 회사에 제출해야 환급을 더 많이 받을 수 있어요. 1월 15일부터 홈택스 '연말정산 간소화 서비스'에서 대부분 자료가 자동 집계됩니다.</div>
+</details>
+<details class="faq-item"><summary>환급액이 마이너스(추가 납부)면 어떻게 되나요?</summary>
+<div class="faq-answer">원천징수액보다 결정세액이 많으면 차액을 추가 납부해야 합니다. 보통 2월 또는 3월 급여에서 일시 차감되며, 분납을 신청하면 2~4월 3개월에 나눠 낼 수 있어요. 매월 간이세액표 비율을 '120%'로 미리 설정해두면 추가 납부 가능성을 줄일 수 있습니다.</div>
+</details>
+<details class="faq-item"><summary>신용카드 공제는 어떻게 계산되나요?</summary>
+<div class="faq-answer">연봉의 25%를 초과하는 사용액부터 공제 대상입니다. 신용카드는 초과분의 15%, 체크카드·현금영수증은 30%, 전통시장·대중교통은 40%가 공제됩니다. 단 공제 한도는 총급여 7,000만 이하는 연 300만원, 7,000만 초과는 250만원입니다. 연봉의 25%까지는 신용카드로(혜택 우선), 그 이후는 체크카드·현금영수증으로 쓰는 게 가장 유리해요.</div>
+</details>
+<details class="faq-item"><summary>월세 공제는 누가 받을 수 있나요?</summary>
+<div class="faq-answer">총급여 8,000만원 이하 무주택 세대주(또는 세대원)이며, 국민주택규모(85㎡) 이하 또는 기준시가 4억원 이하 주택에 거주해야 합니다. 연 월세 750만원 한도 내에서 17% 세액공제(총급여 5,500만 이하는 17%, 초과~8,000만은 15%) — 즉 월세 60만원씩 1년 내면 약 122만원까지 환급 가능합니다.</div>
+</details>
+<details class="faq-item"><summary>연금저축·IRP는 얼마까지 공제되나요?</summary>
+<div class="faq-answer">연금저축은 연 600만원, IRP까지 합산해 연 900만원까지 납입액의 13.2~16.5%를 세액공제 받을 수 있습니다. 총급여 5,500만 이하는 16.5%(900만 납입 시 148.5만 환급), 초과는 13.2%(900만 납입 시 118.8만 환급). 가장 효율 좋은 절세 수단 중 하나입니다.</div>
+</details>
+<details class="faq-item"><summary>맞벌이 부부는 어떻게 분담하는 게 유리한가요?</summary>
+<div class="faq-answer">부양가족 공제는 소득이 높은 배우자가 받는 게 일반적으로 유리합니다(높은 세율 구간에서 공제받기 때문). 단 의료비는 한쪽으로 몰아주면 '연봉의 3% 초과분'을 더 쉽게 넘길 수 있어 더 많이 공제받을 수 있습니다. 신용카드도 사용액이 많은 쪽으로 몰아주면 25% 기준을 넘기기 쉬워요. 케이스별로 시뮬레이션해보는 게 가장 정확합니다.</div>
+</details>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>정보 출처: <b>국세청 · 기획재정부 · 소득세법 · 조세특례제한법</b></p>
+<p>&copy; 2026 숨은 돈 찾기 · 본 페이지는 정보 제공 목적이며 실제 환급액을 보장하지 않습니다</p>
+<p style="margin-top:12px;">
+<a href="/" style="color:#8B95A1;font-size:12px;margin:0 8px;">홈</a>
+<a href="/loan/" style="color:#8B95A1;font-size:12px;margin:0 8px;">부동산 대출</a>
+<a href="/baby/" style="color:#8B95A1;font-size:12px;margin:0 8px;">출산·육아</a>
+<a href="/business/" style="color:#8B95A1;font-size:12px;margin:0 8px;">사업자 지원금</a>
+<a href="/refund/" style="color:#8B95A1;font-size:12px;margin:0 8px;">숨은 환급금</a>
+<a href="/jobless/" style="color:#8B95A1;font-size:12px;margin:0 8px;">실업급여</a>
+<a href="/tax/" style="color:#8B95A1;font-size:12px;margin:0 8px;">연말정산</a>
+<a href="/about/" style="color:#8B95A1;font-size:12px;margin:0 8px;">소개</a>
+</p>
+</div>
+</footer>
+<script>
+/* =====================================================================
+   연말정산 계산 로직 — 2025 세법 적용 (단순화 추정)
+   ===================================================================== */
+// 근로소득공제 (만원 단위)
+function workIncomeDeduction(salary) {
+  if (salary <= 500) return Math.floor(salary * 0.7);
+  if (salary <= 1500) return Math.floor(350 + (salary - 500) * 0.4);
+  if (salary <= 4500) return Math.floor(750 + (salary - 1500) * 0.15);
+  if (salary <= 10000) return Math.floor(1200 + (salary - 4500) * 0.05);
+  return Math.floor(1475 + (salary - 10000) * 0.02);
+}
+// 종합소득세율 적용 (만원 단위)
+function calcIncomeTax(taxable) {
+  if (taxable <= 0) return 0;
+  if (taxable <= 1400) return Math.floor(taxable * 0.06);
+  if (taxable <= 5000) return Math.floor(84 + (taxable - 1400) * 0.15);
+  if (taxable <= 8800) return Math.floor(624 + (taxable - 5000) * 0.24);
+  if (taxable <= 15000) return Math.floor(1536 + (taxable - 8800) * 0.35);
+  if (taxable <= 30000) return Math.floor(3706 + (taxable - 15000) * 0.38);
+  if (taxable <= 50000) return Math.floor(9406 + (taxable - 30000) * 0.4);
+  if (taxable <= 100000) return Math.floor(17406 + (taxable - 50000) * 0.42);
+  return Math.floor(38406 + (taxable - 100000) * 0.45);
+}
+// 근로소득세액공제 (산출세액 기반, 상한 적용)
+function workTaxCredit(payableTax, salary) {
+  let credit;
+  if (payableTax <= 130) credit = Math.floor(payableTax * 0.55);
+  else credit = Math.floor(130 * 0.55 + (payableTax - 130) * 0.3);
+  // 한도: 총급여별 차등 (단순화)
+  let cap;
+  if (salary <= 3300) cap = 74;
+  else if (salary <= 7000) cap = Math.max(66, 74 - Math.floor((salary - 3300) * 0.008));
+  else if (salary <= 12000) cap = Math.max(50, 66 - Math.floor((salary - 7000) * 0.012));
+  else cap = 50;
+  return Math.min(credit, cap);
+}
+// 신용카드 공제 (총급여 25% 초과분의 15%, 한도 300/250만)
+function cardDeduction(cardSpend, salary) {
+  const threshold = salary * 0.25;
+  if (cardSpend <= threshold) return 0;
+  const excess = cardSpend - threshold;
+  const deduction = Math.floor(excess * 0.15);
+  const cap = salary <= 7000 ? 300 : 250;
+  return Math.min(deduction, cap);
+}
+// 의료비 세액공제 (총급여 3% 초과분의 15%, 본인 한도 없음 단순화)
+function medicalCredit(medical, salary) {
+  const threshold = salary * 0.03;
+  if (medical <= threshold) return 0;
+  return Math.floor((medical - threshold) * 0.15);
+}
+// 월세 세액공제 (총급여 8,000만 이하, 한도 750만, 5,500만 이하 17%)
+function rentCredit(rent, salary) {
+  if (salary > 8000) return 0;
+  const eligible = Math.min(rent, 750);
+  const rate = salary <= 5500 ? 0.17 : 0.15;
+  return Math.floor(eligible * rate);
+}
+// 연금저축·IRP 세액공제 (연 900만 한도, 5,500만 이하 16.5%)
+function pensionCredit(pension, salary) {
+  const eligible = Math.min(pension, 900);
+  const rate = salary <= 5500 ? 0.165 : 0.132;
+  return Math.floor(eligible * rate);
+}
+// 보장성 보험료 세액공제 (연 100만 한도 × 12%)
+function insuranceCredit(insurance) {
+  return Math.floor(Math.min(insurance, 100) * 0.12);
+}
+// 자녀세액공제 (8~20세, 1인 25만, 2인 55만, 3인+ 95만)
+function childCredit(n) {
+  if (n <= 0) return 0;
+  if (n === 1) return 25;
+  if (n === 2) return 55;
+  return 55 + (n - 2) * 40;
+}
+// 핵심 계산
+function compute(user) {
+  const salary = user.salary;
+  if (!salary) return null;
+  // 근로소득금액
+  const workDed = workIncomeDeduction(salary);
+  const workIncome = salary - workDed;
+  // 종합소득공제
+  const personalDed = 150 + (user.dependents || 0) * 150; // 인적공제 (본인 150 + 부양가족 150씩)
+  const insuranceDed = Math.floor(salary * 0.07); // 국민연금·건보 등 단순화
+  const cardDed = cardDeduction(user.card || 0, salary);
+  const totalDed = personalDed + insuranceDed + cardDed;
+  // 과세표준
+  const taxable = Math.max(0, workIncome - totalDed);
+  // 산출세액
+  const payableTax = calcIncomeTax(taxable);
+  // 세액공제 합계
+  const credits = {
+    work: workTaxCredit(payableTax, salary),
+    child: childCredit(user.children || 0),
+    medical: medicalCredit(user.medical || 0, salary),
+    rent: rentCredit(user.rent || 0, salary),
+    pension: pensionCredit(user.pension || 0, salary),
+    insurance: insuranceCredit(user.insurance || 0),
+    standard: 13 // 표준세액공제 (단순화: 항상 적용)
+  };
+  const totalCredits = Object.values(credits).reduce((a, b) => a + b, 0);
+  // 결정세액
+  const decisionTax = Math.max(0, payableTax - totalCredits);
+  // 추정 원천징수 = 표준 적용 시 결정세액 (월세·연금저축·의료비·신용카드 추가 공제 없는 경우)
+  const baseCredits = workTaxCredit(payableTax, salary) + childCredit(user.children || 0) + 13;
+  const estimatedWithholding = Math.max(0, payableTax - baseCredits);
+  // 환급액
+  const refund = estimatedWithholding - decisionTax;
+  // 지방소득세 10% 추가
+  const refundWithLocal = Math.floor(refund * 1.1);
+  return {
+    salary, workDed, workIncome,
+    personalDed, insuranceDed, cardDed, totalDed,
+    taxable, payableTax, credits, totalCredits,
+    decisionTax, estimatedWithholding, refund, refundWithLocal
+  };
+}
+/* =====================================================================
+   놓친 공제 추천
+   ===================================================================== */
+function findMissing(user, result) {
+  const miss = [];
+  if (!user.pension && user.salary >= 3000) {
+    const est = user.salary <= 5500 ? Math.floor(600 * 0.165) : Math.floor(600 * 0.132);
+    miss.push({ name: '연금저축·IRP 가입', desc: '연 600만원 납입 시 ' + (user.salary <= 5500 ? '16.5%' : '13.2%') + ' 세액공제 — 가장 효율 좋은 절세 수단', estimate: '예상 추가 환급 약 ' + Math.floor(est * 1.1) + '만원' });
+  }
+  if (!user.rent && user.salary <= 8000) {
+    miss.push({ name: '월세 세액공제 (해당 시)', desc: '무주택 세대주이고 국민주택 규모 이하 주택에 월세 거주 중이라면, 임대차계약서·월세 이체내역으로 신청 가능', estimate: '월세 50만원 기준 약 ' + Math.floor((user.salary <= 5500 ? 600 * 0.17 : 600 * 0.15) * 1.1) + '만원 추가 환급' });
+  }
+  if ((user.card || 0) < user.salary * 0.25) {
+    miss.push({ name: '체크카드·현금영수증 활용', desc: '연봉의 25%를 넘어선 사용액부터 공제 — 25% 전까지는 신용카드 혜택, 이후는 체크/현금영수증(공제율 30%)이 유리', estimate: '연 200만원 추가 시 약 9만원 환급 증가' });
+  }
+  if (!user.medical && (user.dependents || 0) > 0) {
+    miss.push({ name: '부양가족 의료비 합산', desc: '본인+부양가족 의료비를 본인 카드로 모아 결제하면 연봉 3% 초과분의 15%가 세액공제 — 안경·콘택트렌즈 50만원 한도도 포함', estimate: '연 300만원 기준 약 ' + Math.floor((300 - user.salary * 0.03) * 0.15 * 1.1) + '만원' });
+  }
+  if (!user.insurance) {
+    miss.push({ name: '보장성 보험료 신고', desc: '실손·종신·자동차 등 보장성 보험료는 연 100만원 한도로 12% 세액공제 — 부양가족 보험까지 합산 가능', estimate: '연 100만원 납입 시 약 13만원 환급' });
+  }
+  miss.push({ name: '기부금 영수증 챙기기', desc: '지정기부금 15%, 법정기부금 30% 세액공제 — 종교단체·NGO·정치자금까지. 1,000만원 초과분은 30%(법정은 40%)', estimate: '연 30만원 기부 시 약 5만원 환급' });
+  miss.push({ name: '주택청약종합저축', desc: '무주택 세대주이고 연봉 7,000만 이하면 납입액(연 300만 한도)의 40% 소득공제 — 연 300만 납입 시 과세표준 120만 감소', estimate: '15% 세율 구간 기준 약 20만원 절세' });
+  return miss.slice(0, 6);
+}
+/* =====================================================================
+   슬라이더 / 폼
+   ===================================================================== */
+function formatMoneyShort(man) {
+  if (!man || man <= 0) return '';
+  if (man >= 10000) { const e = man / 10000; return (man % 10000 === 0) ? Math.floor(e) + '억' : e.toFixed(1).replace(/\.0$/, '') + '억원'; }
+  if (man >= 1000) return man.toLocaleString() + '만';
+  return man.toLocaleString() + '만';
+}
+function formatMan(man) { if (!man) return '0원'; return man.toLocaleString() + '만원'; }
+function setupSlider(rangeId, hiddenId, nowId) {
+  const range = document.getElementById(rangeId);
+  const hidden = document.getElementById(hiddenId);
+  const now = document.getElementById(nowId);
+  function paint() { const min = parseInt(range.min), max = parseInt(range.max), v = parseInt(range.value) || 0; const pct = max > min ? (v - min) / (max - min) * 100 : 0; range.style.background = 'linear-gradient(90deg, var(--primary) ' + pct + '%, var(--border) ' + pct + '%)'; }
+  function update() {
+    const v = parseInt(range.value) || 0;
+    if (v <= 0) { hidden.value = ''; now.textContent = '아직 선택 안 함'; now.classList.add('empty'); }
+    else { hidden.value = v; now.textContent = v.toLocaleString() + '만원'; now.classList.remove('empty'); }
+    paint();
+  }
+  range.addEventListener('input', update);
+  update();
+  return { set: function(v) { range.value = v; update(); }, reset: function() { range.value = 0; update(); } };
+}
+const salarySlider = setupSlider('salaryRange', 'salary', 'salaryNow');
+const cardSlider = setupSlider('cardRange', 'card', 'cardNow');
+const medicalSlider = setupSlider('medicalRange', 'medical', 'medicalNow');
+const rentSlider = setupSlider('rentRange', 'rent', 'rentNow');
+const sliders = { salary: salarySlider, card: cardSlider, medical: medicalSlider, rent: rentSlider };
+document.querySelectorAll('.quick-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.target; const amt = parseInt(btn.dataset.amount);
+    if (sliders[t]) sliders[t].set(Math.min(amt, parseInt(document.getElementById(t + 'Range').max)));
+  });
+});
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('filterForm').reset();
+  Object.values(sliders).forEach(s => s.reset());
+  document.getElementById('results').classList.remove('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('filterForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  if (!form.salary.value) { alert('연봉을 입력해주세요.'); return; }
+  const user = {
+    salary: parseInt(form.salary.value) || 0,
+    dependents: parseInt(form.dependents.value) || 0,
+    children: parseInt(form.children.value) || 0,
+    card: parseInt(form.card.value) || 0,
+    medical: parseInt(form.medical.value) || 0,
+    rent: parseInt(form.rent.value) || 0,
+    pension: parseInt(form.pension.value) || 0,
+    insurance: parseInt(form.insurance.value) || 0
+  };
+  const loading = document.getElementById('loading'); const results = document.getElementById('results');
+  results.classList.remove('show'); loading.classList.add('show');
+  loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => {
+    const result = compute(user);
+    const missing = findMissing(user, result);
+    loading.classList.remove('show'); renderResults(result, user, missing);
+  }, 600);
+});
+function renderRefund(result, user) {
+  const refund = result.refundWithLocal;
+  const isPositive = refund >= 0;
+  const sign = isPositive ? '+' : '-';
+  const absRefund = Math.abs(refund);
+  return `<div class="refund-card ${isPositive ? 'positive' : 'negative'}">
+    <div class="rc-label">${isPositive ? '🎉 예상 환급액 (지방소득세 10% 포함)' : '⚠ 예상 추가 납부액'}</div>
+    <div class="rc-title">${sign}${absRefund.toLocaleString()}만원</div>
+    <div class="rc-summary">
+      입력하신 연봉 <strong>${user.salary.toLocaleString()}만원</strong> 기준 결정세액 <strong>${result.decisionTax.toLocaleString()}만원</strong>이에요.<br>
+      추정 원천징수 <strong>${result.estimatedWithholding.toLocaleString()}만원</strong>과 비교해 ${isPositive ? '환급' : '추가 납부'}이 발생합니다.<br>
+      ${isPositive ? '입력한 공제 항목이 결정세액을 낮춰주는 효과예요.' : '공제 항목을 더 챙기면 환급으로 바꿀 수 있어요.'}
+    </div>
+  </div>`;
+}
+function renderBreakdown(result, user) {
+  const c = result.credits;
+  return `<div class="breakdown">
+    <h3>📊 세부 계산 내역</h3>
+    <div class="bd-row"><span class="bd-label">총 급여 (연봉)</span><span class="bd-value">${user.salary.toLocaleString()}만원</span></div>
+    <div class="bd-row"><span class="bd-label">근로소득공제</span><span class="bd-value">- ${result.workDed.toLocaleString()}만원</span></div>
+    <div class="bd-row subtotal"><span class="bd-label">근로소득금액</span><span class="bd-value">${result.workIncome.toLocaleString()}만원</span></div>
+    <div class="bd-row"><span class="bd-label">인적공제 (본인 + 부양가족)</span><span class="bd-value">- ${result.personalDed.toLocaleString()}만원</span></div>
+    <div class="bd-row"><span class="bd-label">4대보험 등 (추정)</span><span class="bd-value">- ${result.insuranceDed.toLocaleString()}만원</span></div>
+    ${result.cardDed > 0 ? `<div class="bd-row"><span class="bd-label">신용카드 등 소득공제</span><span class="bd-value">- ${result.cardDed.toLocaleString()}만원</span></div>` : ''}
+    <div class="bd-row subtotal"><span class="bd-label">과세표준</span><span class="bd-value">${result.taxable.toLocaleString()}만원</span></div>
+    <div class="bd-row"><span class="bd-label">산출세액 (세율 적용)</span><span class="bd-value">${result.payableTax.toLocaleString()}만원</span></div>
+    <div class="bd-row"><span class="bd-label">└ 근로소득세액공제</span><span class="bd-value">- ${c.work.toLocaleString()}만원</span></div>
+    ${c.child > 0 ? `<div class="bd-row"><span class="bd-label">└ 자녀세액공제</span><span class="bd-value">- ${c.child.toLocaleString()}만원</span></div>` : ''}
+    ${c.medical > 0 ? `<div class="bd-row"><span class="bd-label">└ 의료비 세액공제</span><span class="bd-value">- ${c.medical.toLocaleString()}만원</span></div>` : ''}
+    ${c.rent > 0 ? `<div class="bd-row"><span class="bd-label">└ 월세 세액공제</span><span class="bd-value">- ${c.rent.toLocaleString()}만원</span></div>` : ''}
+    ${c.pension > 0 ? `<div class="bd-row"><span class="bd-label">└ 연금저축·IRP 세액공제</span><span class="bd-value">- ${c.pension.toLocaleString()}만원</span></div>` : ''}
+    ${c.insurance > 0 ? `<div class="bd-row"><span class="bd-label">└ 보장성 보험 세액공제</span><span class="bd-value">- ${c.insurance.toLocaleString()}만원</span></div>` : ''}
+    <div class="bd-row"><span class="bd-label">└ 표준세액공제 등</span><span class="bd-value">- ${c.standard.toLocaleString()}만원</span></div>
+    <div class="bd-row final"><span class="bd-label">결정세액</span><span class="bd-value">${result.decisionTax.toLocaleString()}만원</span></div>
+  </div>`;
+}
+function renderMissing(missing) {
+  return missing.map(m => `<div class="miss-card"><div class="mc-badge">💡 추천</div><h4>${m.name}</h4><p>${m.desc}</p><div class="mc-estimate">${m.estimate}</div></div>`).join('');
+}
+function renderResults(result, user, missing) {
+  const section = document.getElementById('results');
+  const refundArea = document.getElementById('refundArea');
+  const breakdownArea = document.getElementById('breakdownArea');
+  const missList = document.getElementById('missList');
+  const count = document.getElementById('resultCount');
+  section.classList.add('show');
+  refundArea.innerHTML = renderRefund(result, user);
+  breakdownArea.innerHTML = renderBreakdown(result, user);
+  missList.innerHTML = renderMissing(missing);
+  count.textContent = '간이 계산 결과';
+  setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+/* =====================================================================
+   예시 카드
+   ===================================================================== */
+const EXAMPLES = [
+  { id: 0, form: { salary: 4500, dependents: 0, children: 0, card: 1500, medical: 200, rent: 0, pension: 0, insurance: 0 } },
+  { id: 1, form: { salary: 6000, dependents: 3, children: 2, card: 2500, medical: 300, rent: 0, pension: 300, insurance: 50 } },
+  { id: 2, form: { salary: 3500, dependents: 0, children: 0, card: 1200, medical: 100, rent: 720, pension: 0, insurance: 0 } }
+];
+function computeExample(ex) {
+  const r = compute(ex.form);
+  if (!r) return { big: '계산 실패', sub: '' };
+  const refund = r.refundWithLocal;
+  const sign = refund >= 0 ? '+' : '-';
+  return { big: '예상 환급 ' + sign + Math.abs(refund).toLocaleString() + '만원', sub: '결정세액 ' + r.decisionTax.toLocaleString() + '만 · 추정 원천징수 ' + r.estimatedWithholding.toLocaleString() + '만' };
+}
+function applyExample(ex) {
+  const f = document.getElementById('filterForm');
+  salarySlider.set(ex.form.salary);
+  f.dependents.value = ex.form.dependents;
+  f.children.value = ex.form.children;
+  cardSlider.set(ex.form.card);
+  medicalSlider.set(ex.form.medical);
+  rentSlider.set(ex.form.rent);
+  f.pension.value = ex.form.pension || '';
+  f.insurance.value = ex.form.insurance || '';
+}
+EXAMPLES.forEach(ex => {
+  const r = computeExample(ex);
+  const numEl = document.getElementById('exNum' + ex.id);
+  const subEl = document.getElementById('exSub' + ex.id);
+  if (numEl) numEl.textContent = r.big;
+  if (subEl) subEl.textContent = r.sub;
+});
+document.querySelectorAll('.example-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const ex = EXAMPLES[parseInt(card.dataset.ex)];
+    if (ex) { applyExample(ex); document.getElementById('submitBtn').click(); }
+  });
+});
+function animateNumber(el, target, suffix, dur) {
+  const t0 = performance.now();
+  function step(t) { const p = Math.min((t - t0) / dur, 1); const e = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(target * e) + suffix; if (p < 1) requestAnimationFrame(step); else el.textContent = target + suffix; }
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('.hero-stat .num').forEach((el, i) => {
+  const m = el.textContent.match(/^(\d+)(.*)$/);
+  if (m) { const target = parseInt(m[1]); const suffix = m[2]; el.textContent = '0' + suffix; setTimeout(() => animateNumber(el, target, suffix, 1200), 200 + i * 100); }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZKQ6TBT1Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1ZKQ6TBT1Z');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>숨은 환급금 조회 — 국세청·휴면계좌·통신비 미환급금 한 번에 | 숨은 돈 찾기</title>
+<meta name="description" content="국세청·정부24·지방세·휴면계좌·휴면보험금·카드포인트·통신비까지 — 그동안 못 받은 내 돈을 한 번에 점검하세요. 평균 30만원 이상 숨은 환급금을 찾을 수 있어요.">
+<meta name="keywords" content="숨은 환급금, 미환급금 조회, 국세청 환급금, 정부24 환급금, 휴면계좌 조회, 휴면보험금, 카드포인트 통합조회, 통신비 미환급, 미수령 환급금, 휴면예금, 지방세 환급">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="숨은 환급금 조회 — 그동안 못 받은 내 돈 찾기">
+<meta property="og:description" content="국세청·휴면계좌·통신비 미환급금을 10개 카테고리에서 한 번에 점검하세요.">
+<meta property="og:locale" content="ko_KR">
+<link rel="canonical" href="https://klened.github.io/refund/">
+<meta property="og:url" content="https://klened.github.io/refund/">
+<meta property="og:site_name" content="숨은 돈 찾기">
+<meta property="og:image" content="https://klened.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348" crossorigin="anonymous"></script>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" type="text/css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebApplication", "name": "숨은 환급금 통합 조회", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "description": "국세청·정부24·휴면계좌·휴면보험금·카드포인트·통신비 등 숨은 환급금 10개 카테고리를 한 번에 점검하는 무료 도구.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }, "inLanguage": "ko-KR" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "숨은 환급금은 평균 얼마나 찾을 수 있나요?", "acceptedAnswer": { "@type": "Answer", "text": "사람마다 다르지만 국세청 미환급금 1인 평균 약 20만원, 휴면예금 평균 약 30만원, 카드포인트는 누적 평균 5~10만원이 흔합니다. 여러 카테고리를 함께 점검하면 일반적으로 30~100만원 정도의 숨은 돈을 찾는 경우가 많아요." } },
+      { "@type": "Question", "name": "조회만 해도 비용이 드나요?", "acceptedAnswer": { "@type": "Answer", "text": "모든 공식 조회 서비스는 무료입니다. 본인 인증(공동인증서·간편인증·휴대폰 본인확인)만으로 즉시 확인 가능하며, 별도의 수수료가 없습니다." } }
+    ] }
+  ]
+}
+</script>
+<style>
+:root {
+  --primary: #F59E0B; --primary-dark: #D97706; --primary-light: #FEF3C7; --primary-soft: #FFFBEB;
+  --bg: #FFFFFF; --bg-soft: #EDF0F4; --bg-card: #FFFFFF;
+  --text-strong: #191F28; --text: #333D4B; --text-soft: #4E5968; --text-mute: #8B95A1; --text-disabled: #B0B8C1;
+  --border: #E5E8EB; --border-soft: #EAEDF1;
+  --success: #00C73C; --warning: #FF9D00; --danger: #F04452;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 10px 32px rgba(0,0,0,0.10);
+  --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font); background: var(--bg-soft); color: var(--text); line-height: 1.5; font-weight: 400; word-break: keep-all; }
+button, input, select { font-family: inherit; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+.site-nav { background: var(--bg); border-bottom: 1px solid var(--border-soft); padding: 12px 0; position: sticky; top: 0; z-index: 50; }
+.site-nav .container { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.site-nav .container::-webkit-scrollbar { display: none; }
+.site-nav a { color: var(--text-soft); font-size: 14px; font-weight: 600; text-decoration: none; padding: 7px 11px; border-radius: 8px; transition: all 0.15s; flex-shrink: 0; white-space: nowrap; }
+.site-nav a:hover { background: var(--primary-soft); color: var(--primary-dark); }
+.site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 16px; text-decoration: none; flex-shrink: 0; white-space: nowrap; letter-spacing: -0.3px; }
+header.hero { background: var(--bg); padding: 32px 0 24px; border-bottom: 1px solid var(--border-soft); }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary-dark); padding: 6px 12px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+header.hero h1 { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.3; letter-spacing: -0.6px; margin-bottom: 10px; }
+header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55; }
+.hero-stats { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-soft); }
+.hero-stat .num { font-size: 22px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+.hero-stat .label { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+.examples { margin: 20px 0 4px; }
+.examples-head h2 { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.3px; }
+.examples-head p { font-size: 13px; color: var(--text-mute); margin-top: 3px; }
+.example-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+.example-card { text-align: left; background: var(--bg-card); border: 1.5px solid var(--border-soft); border-radius: var(--radius-md); padding: 16px; cursor: pointer; transition: all 0.18s; font-family: var(--font); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 7px; }
+.example-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.example-card:active { transform: scale(0.99); }
+.ex-cond { font-size: 13px; color: var(--text-soft); font-weight: 600; line-height: 1.5; }
+.ex-result-num { font-size: 19px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.4px; }
+.ex-result-sub { font-size: 12px; color: var(--text-mute); font-weight: 500; }
+.ex-go { font-size: 13px; font-weight: 700; color: var(--primary-dark); margin-top: 1px; }
+.tossface { font-family: 'Tossface', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif; }
+.ex-icon { width: 42px; height: 42px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 24px; line-height: 1; margin-bottom: 2px; }
+@media (min-width: 768px) { .example-grid { grid-template-columns: repeat(3, 1fr); } }
+.step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
+.step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
+.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-md); margin-bottom: 16px; }
+.form-card h2.section-title { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; letter-spacing: -0.3px; }
+.form-card .section-sub { font-size: 13px; color: var(--text-mute); margin-bottom: 20px; }
+.form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
+.form-group:last-child { margin-bottom: 0; }
+.form-group label.field-label { font-size: 14px; font-weight: 600; color: var(--text-strong); margin-bottom: 8px; }
+.input-wrap { position: relative; }
+.form-group select, .form-group input[type="number"] {
+  width: 100%; padding: 16px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  font-size: 16px; font-weight: 500; color: var(--text-strong); background: var(--bg);
+  transition: all 0.18s; -webkit-appearance: none; appearance: none;
+}
+.form-group select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B95A1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; padding-right: 44px; }
+.form-group select:hover, .form-group input:hover { border-color: var(--text-mute); }
+.form-group select:focus, .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(245,158,11,0.18); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; padding: 10px 16px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--text-soft); cursor: pointer; user-select: none; background: var(--bg); transition: all 0.15s; }
+.chip input { display: none; }
+.chip:hover { border-color: var(--text-mute); }
+.chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+.chip.active::before { content: '✓'; margin-right: 4px; font-weight: 700; }
+.action-bar { display: flex; gap: 10px; margin-top: 8px; }
+.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; letter-spacing: -0.2px; box-shadow: 0 4px 14px rgba(245,158,11,0.35); }
+.submit-btn:hover:not(:disabled) { background: var(--primary-dark); }
+.submit-btn:active:not(:disabled) { transform: scale(0.99); }
+.reset-btn { padding: 18px 22px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.reset-btn:hover { background: var(--bg-soft); }
+.loading-state { display: none; text-align: center; padding: 60px 20px; }
+.loading-state.show { display: block; }
+.spinner { width: 40px; height: 40px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-state p { color: var(--text-soft); font-size: 14px; font-weight: 500; }
+.results-wrap { display: none; margin-top: 24px; }
+.results-wrap.show { display: block; }
+.results-header { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 14px; }
+.results-header h2 { font-size: 20px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; }
+.results-header .count { font-size: 13px; color: var(--text-mute); font-weight: 500; }
+.summary-card { background: linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 60%); border: 1.5px solid var(--primary); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 16px; box-shadow: var(--shadow-md); }
+.summary-card .sc-label { font-size: 12px; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+.summary-card .sc-title { font-size: 19px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; letter-spacing: -0.3px; line-height: 1.4; }
+.summary-card .sc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.summary-card .sc-cell { background: rgba(255,255,255,0.75); border: 1px solid rgba(245,158,11,0.18); border-radius: 12px; padding: 12px 8px; text-align: center; }
+.summary-card .sc-cell-label { font-size: 11px; color: var(--text-mute); font-weight: 600; margin-bottom: 4px; }
+.summary-card .sc-cell-value { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; }
+.summary-card .sc-cell-value.primary { color: var(--primary-dark); }
+.cat-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 12px; box-shadow: var(--shadow-md); border: 1px solid transparent; transition: all 0.2s; }
+.cat-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.cat-card.priority-high { border-color: var(--primary); background: linear-gradient(180deg, #FFFCEC 0%, #FFFFFF 30%); }
+.cat-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; margin-bottom: 10px; }
+.cat-badge.high { background: var(--primary); color: white; }
+.cat-badge.mid { background: var(--primary-light); color: var(--primary-dark); }
+.cat-badge.low { background: var(--bg-soft); color: var(--text-soft); }
+.cat-name { font-size: 17px; font-weight: 700; color: var(--text-strong); margin-bottom: 6px; letter-spacing: -0.3px; }
+.cat-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.cat-meta-tag { font-size: 11px; color: var(--text-soft); background: var(--bg-soft); padding: 3px 9px; border-radius: 6px; font-weight: 500; }
+.cat-meta-tag.agency { background: var(--primary-light); color: var(--primary-dark); }
+.cat-desc { font-size: 13px; color: var(--text-soft); line-height: 1.6; margin-bottom: 12px; }
+.cat-info { display: grid; grid-template-columns: 1fr; gap: 0; margin-bottom: 12px; border: 1px solid var(--border-soft); border-radius: var(--radius-md); overflow: hidden; }
+.cat-info-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 11px 14px; border-bottom: 1px solid var(--border-soft); gap: 12px; }
+.cat-info-item:last-child { border-bottom: none; }
+.cat-info-label { font-size: 12px; color: var(--text-mute); font-weight: 500; flex-shrink: 0; }
+.cat-info-value { font-size: 13px; color: var(--text-strong); font-weight: 600; text-align: right; white-space: pre-line; }
+.cat-info-value.highlight { color: var(--primary-dark); }
+.cat-reason { background: var(--primary-soft); border-radius: 10px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: var(--primary-dark); font-weight: 600; line-height: 1.5; }
+.cat-more { display: flex; align-items: center; justify-content: center; gap: 4px; width: 100%; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius-md); font-size: 13px; font-weight: 700; transition: all 0.15s; }
+.cat-more:hover { background: var(--primary-dark); }
+.cat-more .arrow { transition: transform 0.18s; }
+.cat-more:hover .arrow { transform: translateX(3px); }
+.disclaimer { background: var(--primary-soft); border-radius: var(--radius-md); padding: 16px 18px; margin-top: 18px; font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.disclaimer strong { color: var(--text-strong); font-weight: 700; background: linear-gradient(180deg, transparent 60%, rgba(245,158,11,0.45) 60%); padding: 0 2px; }
+.faq-section { margin: 32px 0; }
+.faq-section h2 { font-size: 18px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; padding: 0 4px; letter-spacing: -0.3px; }
+details.faq-item { background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+details.faq-item summary { list-style: none; padding: 16px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--text-strong); display: flex; justify-content: space-between; align-items: center; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after { content: '+'; font-size: 22px; color: var(--text-mute); font-weight: 300; transition: transform 0.2s; }
+details.faq-item[open] summary::after { content: '−'; color: var(--primary); }
+details.faq-item .faq-answer { padding: 0 18px 18px; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+footer.site-footer { background: var(--bg); padding: 28px 0 40px; text-align: center; margin-top: 24px; border-top: 1px solid var(--border-soft); }
+footer.site-footer p { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
+footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
+@media (min-width: 768px) {
+  .container { padding: 0 24px; }
+  header.hero { padding: 56px 0 40px; }
+  header.hero h1 { font-size: 36px; line-height: 1.25; }
+  header.hero p.lead { font-size: 17px; }
+  .hero-stat .num { font-size: 28px; }
+  .hero-stat .label { font-size: 13px; }
+  .hero-stats { gap: 40px; padding-top: 28px; margin-top: 28px; }
+  .form-card { padding: 32px 28px; }
+  .form-card h2.section-title { font-size: 20px; }
+  .form-card .section-sub { font-size: 14px; margin-bottom: 24px; }
+  #catList { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-items: start; }
+  .cat-card { margin-bottom: 0; }
+  .summary-card .sc-cell-value { font-size: 20px; }
+  details.faq-item summary { padding: 18px 22px; font-size: 15px; }
+  details.faq-item .faq-answer { padding: 0 22px 20px; font-size: 14px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  header.hero { padding: 24px 0 20px; }
+  header.hero h1 { font-size: 22px; }
+  .form-card { padding: 20px 16px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .cat-info-item { flex-direction: column; gap: 4px; }
+  .cat-info-value { text-align: left; }
+  .hero-stats { gap: 16px; }
+  .hero-stat .num { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" id="siteNav"><div class="container"><a href="/" class="brand">숨은 돈 찾기</a></div></nav>
+<script src="/assets/nav.js"></script>
+<header class="hero">
+<div class="container">
+<span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
+<h1>그동안 못 받은 내 돈,<br>10개 카테고리에서 한 번에</h1>
+<p class="lead">국세청 미환급금부터 휴면계좌·휴면보험금·카드포인트·통신비까지<br>각 공식 조회처를 한 페이지에서 안내해드려요.</p>
+</div>
+</header>
+<main class="container">
+<section class="examples">
+<div class="examples-head">
+<h2>예시로 먼저 확인해보세요</h2>
+<p>비슷한 상황을 누르면 우선 점검할 카테고리를 추천해드려요</p>
+</div>
+<div class="example-grid">
+<button type="button" class="example-card" data-ex="0">
+<div class="ex-icon tossface">📦</div>
+<div class="ex-cond">30대 · 이사 3회 이상<br>여러 은행 계좌 보유</div>
+<div class="ex-result-num" id="exNum0">계산 중…</div>
+<div class="ex-result-sub" id="exSub0"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="1">
+<div class="ex-icon tossface">📱</div>
+<div class="ex-cond">통신사 2회 변경<br>휴대폰 번호 바꾼 적 있음</div>
+<div class="ex-result-num" id="exNum1">계산 중…</div>
+<div class="ex-result-sub" id="exSub1"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="2">
+<div class="ex-icon tossface">🏥</div>
+<div class="ex-cond">40대 · 직장 가입자<br>의료비 많이 쓴 해 있음</div>
+<div class="ex-result-num" id="exNum2">계산 중…</div>
+<div class="ex-result-sub" id="exSub2"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+</div>
+</section>
+<div class="step-bar">
+<div class="step-bar-icon">1</div>
+<div class="step-bar-text">간단한 정보를 입력하면 우선 점검할 카테고리를 추천해드려요</div>
+</div>
+<form id="filterForm" novalidate>
+<section class="form-card" aria-labelledby="sec1">
+<h2 id="sec1" class="section-title">내 상황 1분 체크</h2>
+<p class="section-sub">정답이 아니라 추정용이에요 · 입력하지 않아도 10개 카테고리는 모두 안내해드려요</p>
+<div class="form-row">
+<div class="form-group"><label class="field-label" for="age">나이</label>
+<div class="input-wrap"><select id="age" name="age">
+<option value="">선택 안 함</option>
+<option value="20s">20대</option><option value="30s">30대</option><option value="40s">40대</option><option value="50s">50대</option><option value="60+">60대 이상</option>
+</select></div>
+</div>
+<div class="form-group"><label class="field-label" for="moves">최근 5년 이사 횟수</label>
+<div class="input-wrap"><select id="moves" name="moves">
+<option value="0">없음</option><option value="1">1회</option><option value="2">2회</option><option value="3">3회 이상</option>
+</select></div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group"><label class="field-label" for="jobs">최근 5년 직장 변경</label>
+<div class="input-wrap"><select id="jobs" name="jobs">
+<option value="0">없음</option><option value="1">1회</option><option value="2">2회</option><option value="3">3회 이상</option>
+</select></div>
+</div>
+<div class="form-group"><label class="field-label" for="banks">보유 은행 수</label>
+<div class="input-wrap"><select id="banks" name="banks">
+<option value="1">1개</option><option value="2">2~3개</option><option value="4">4개 이상</option>
+</select></div>
+</div>
+</div>
+</section>
+<section class="form-card" aria-labelledby="sec2">
+<h2 id="sec2" class="section-title">해당되는 항목 모두 선택</h2>
+<p class="section-sub">선택한 항목과 관련된 카테고리가 1순위로 정렬돼요</p>
+<div class="chip-grid">
+<label class="chip"><input name="hadJob" type="checkbox"> 직장 다닌 적 있음</label>
+<label class="chip"><input name="hadInsurance" type="checkbox"> 보험 가입 이력 있음</label>
+<label class="chip"><input name="usedCard" type="checkbox"> 신용·체크카드 사용</label>
+<label class="chip"><input name="changedTelecom" type="checkbox"> 통신사 변경한 적 있음</label>
+<label class="chip"><input name="hadCar" type="checkbox"> 자동차 보유한 적 있음</label>
+<label class="chip"><input name="hadStock" type="checkbox"> 주식·펀드 거래한 적 있음</label>
+<label class="chip"><input name="bigMedical" type="checkbox"> 큰 의료비 지출한 해 있음</label>
+</div>
+</section>
+<div class="action-bar">
+<button id="resetBtn" class="reset-btn" type="button">초기화</button>
+<button id="submitBtn" class="submit-btn" type="submit">우선순위 추천 받기</button>
+</div>
+</form>
+<div id="loading" class="loading-state">
+<div class="spinner"></div>
+<p>내 상황에 맞는 환급금 점검 카테고리를 정리 중…</p>
+</div>
+<section id="results" class="results-wrap" aria-live="polite">
+<div class="results-header">
+<h2>점검 결과 — 우선순위 순</h2>
+<div id="resultCount" class="count"></div>
+</div>
+<div id="summaryArea"></div>
+<div id="catList"></div>
+<div class="disclaimer"><b>⚠ 안내</b> · 본 페이지는 각 기관의 <b>공식 조회처를 안내</b>해드릴 뿐이며, 실제 환급금 보유 여부와 금액은 각 사이트에서 본인 인증 후 확인 가능합니다. 모든 조회는 무료이며 자세한 신청 방법은 각 공식 페이지에서 확인해주세요.</div>
+</section>
+<section class="faq-section">
+<h2>자주 묻는 질문</h2>
+<details class="faq-item"><summary>숨은 환급금은 평균 얼마나 찾을 수 있나요?</summary>
+<div class="faq-answer">사람마다 다르지만 국세청 미환급금은 1인 평균 약 20만원, 휴면예금은 평균 30만원, 카드포인트는 누적 5~10만원이 흔합니다. 여러 카테고리를 함께 점검하면 일반적으로 30~100만원의 숨은 돈을 찾는 경우가 많아요. 특히 이사·직장 변경·통신사 변경 이력이 있다면 미수령 환급금이 있을 가능성이 높습니다.</div>
+</details>
+<details class="faq-item"><summary>조회만 해도 비용이 드나요?</summary>
+<div class="faq-answer">모든 공식 조회 서비스는 100% 무료입니다. 본인 인증(공동인증서·간편인증·휴대폰 본인확인)만으로 즉시 확인 가능하며, 별도 수수료가 없습니다. 만약 "환급 대행"을 명목으로 수수료를 요구하는 사설 업체가 있다면 주의하세요 — 본인이 직접 공식 사이트에서 신청하면 무료입니다.</div>
+</details>
+<details class="faq-item"><summary>환급 신청은 얼마나 걸리나요?</summary>
+<div class="faq-answer">국세청 미환급금은 신청 후 평균 7~30일, 휴면예금·휴면보험금은 신청 후 영업일 기준 3~14일, 카드포인트는 즉시 현금화 가능합니다. 통신비 환급금은 통신사별로 다르며 보통 7~14일 정도 걸려요.</div>
+</details>
+<details class="faq-item"><summary>환급금 청구 시효(소멸시기)는 어떻게 되나요?</summary>
+<div class="faq-answer">국세 환급금 5년, 지방세 환급금 5년, 휴면예금 5년 이상 미거래 시 휴면 처리(찾는 건 가능), 카드포인트는 통상 5년, 휴면보험금은 가입한 보험 종류에 따라 2~10년의 청구 시효가 있습니다. 시효가 지나면 받기 어려워지므로 적어도 1년에 한 번은 점검하는 게 좋아요.</div>
+</details>
+<details class="faq-item"><summary>온라인 조회가 어려우면 어떻게 하나요?</summary>
+<div class="faq-answer">관할 세무서(국세 환급), 시·군·구청(지방세 환급), 가까운 은행 영업점(휴면예금), 거래 보험사 영업점(휴면보험금)에 직접 방문해 본인확인 후 조회·신청 가능합니다. 신분증과 통장 사본을 가져가시면 됩니다.</div>
+</details>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>정보 출처: <b>국세청 · 행정안전부 · 정부24 · 전국은행연합회 · 생명보험협회 · 손해보험협회 · 여신금융협회 · 한국통신사업자연합회 · 한국예탁결제원 · 국민건강보험공단 · 국민연금공단</b></p>
+<p>&copy; 2026 숨은 돈 찾기 · 본 페이지는 정보 제공 목적이며 실제 환급금 보유를 보장하지 않습니다</p>
+<p style="margin-top:12px;">
+<a href="/" style="color:#8B95A1;font-size:12px;margin:0 8px;">홈</a>
+<a href="/loan/" style="color:#8B95A1;font-size:12px;margin:0 8px;">부동산 대출</a>
+<a href="/baby/" style="color:#8B95A1;font-size:12px;margin:0 8px;">출산·육아</a>
+<a href="/business/" style="color:#8B95A1;font-size:12px;margin:0 8px;">사업자 지원금</a>
+<a href="/refund/" style="color:#8B95A1;font-size:12px;margin:0 8px;">숨은 환급금</a>
+<a href="/jobless/" style="color:#8B95A1;font-size:12px;margin:0 8px;">실업급여</a>
+<a href="/about/" style="color:#8B95A1;font-size:12px;margin:0 8px;">소개</a>
+<a href="/privacy/" style="color:#8B95A1;font-size:12px;margin:0 8px;">개인정보처리방침</a>
+<a href="/contact/" style="color:#8B95A1;font-size:12px;margin:0 8px;">문의</a>
+</p>
+</div>
+</footer>
+<script>
+/* =====================================================================
+   숨은 환급금 — 10개 카테고리 데이터
+   ===================================================================== */
+const CATEGORIES = [
+  { id: 'national-tax', name: '국세청 미환급금', agency: '국세청', icon: '🏛',
+    desc: '종합소득세·근로소득세 등을 잘못 납부했거나 환급 신청을 안 한 경우. 가장 많은 사람이 가장 큰 금액을 찾는 항목.',
+    info: [['평균 환급액', '약 20만원 (1인 평균)'], ['청구 시효', '5년'], ['조회처', '홈택스 / 손택스 앱'], ['본인 인증', '공동인증서 또는 간편인증']],
+    url: 'https://www.hometax.go.kr',
+    triggers: ['hadJob', 'bigMedical'], baseScore: 80 },
+  { id: 'local-tax', name: '지방세 미환급금', agency: '행정안전부 · 지자체', icon: '🏙',
+    desc: '자동차세·재산세·취득세 등을 이중 납부했거나 감면 대상이었던 경우. 이사한 사람에게서 자주 발견됩니다.',
+    info: [['평균 환급액', '약 5~30만원'], ['청구 시효', '5년'], ['조회처', '위택스 / 서울시 ETAX'], ['본인 인증', '공동인증서 또는 간편인증']],
+    url: 'https://www.wetax.go.kr',
+    triggers: ['hadCar', 'moves'], baseScore: 70 },
+  { id: 'gov24', name: '정부24 미수령 환급금', agency: '행정안전부', icon: '📋',
+    desc: '주민등록·인감·각종 수수료 환급, 전입신고 후 미수령 환급금 등. 정부24에서 통합 조회 가능.',
+    info: [['평균 환급액', '약 1~10만원'], ['청구 시효', '5년'], ['조회처', '정부24 (gov.kr)'], ['본인 인증', '공동인증서 또는 간편인증']],
+    url: 'https://www.gov.kr/portal/rcvfvrSvc/mainList',
+    triggers: ['moves'], baseScore: 55 },
+  { id: 'dormant-bank', name: '휴면예금·휴면계좌', agency: '전국은행연합회', icon: '🏦',
+    desc: '5년 이상 거래가 없는 예금. 사용 안 하던 통장, 잊고 있던 적금 등이 자동으로 휴면 처리됨.',
+    info: [['평균 환급액', '약 30만원'], ['청구 시효', '없음 (계속 보관)'], ['조회처', '휴면예금찾아줌'], ['본인 인증', '공동인증서 / 휴대폰 인증']],
+    url: 'https://www.sleepmoney.or.kr',
+    triggers: ['hadJob', 'moves', 'banks'], baseScore: 75 },
+  { id: 'dormant-insurance', name: '휴면 보험금', agency: '생명·손해보험협회', icon: '🛡',
+    desc: '청구 안 한 보험금, 중도해지 환급금, 계약자 변경 후 미수령 보험금 등. 부모님 명의 보험까지 통합 조회 가능.',
+    info: [['평균 환급액', '약 50~200만원'], ['청구 시효', '2~10년 (상품별)'], ['조회처', '내보험찾아줌'], ['본인 인증', '공동인증서 / 휴대폰 인증']],
+    url: 'https://cont.insure.or.kr',
+    triggers: ['hadInsurance'], baseScore: 70 },
+  { id: 'card-point', name: '카드 포인트 통합', agency: '여신금융협회', icon: '💳',
+    desc: '여러 카드사에 분산된 포인트를 한 번에 조회하고 현금화. 사용 안 하던 포인트도 즉시 계좌로 입금 가능.',
+    info: [['누적 평균', '약 5~10만원'], ['청구 시효', '통상 5년 (카드별 상이)'], ['조회처', '카드포인트통합조회'], ['본인 인증', '공동인증서 / 간편인증']],
+    url: 'https://www.cardpoint.or.kr',
+    triggers: ['usedCard'], baseScore: 65 },
+  { id: 'telecom', name: '통신비 미환급금', agency: '한국통신사업자연합회', icon: '📱',
+    desc: '해지된 휴대폰·인터넷의 미환급금, 자동 청구 오류로 인한 과다 납부분. 통신사 변경 이력 있는 사람에게 흔함.',
+    info: [['평균 환급액', '약 1~10만원'], ['청구 시효', '통신사별 다름 (보통 5년)'], ['조회처', '스마트초이스'], ['본인 인증', '휴대폰 본인확인']],
+    url: 'https://www.smartchoice.or.kr/smc/mobile/refund.do',
+    triggers: ['changedTelecom'], baseScore: 60 },
+  { id: 'pension', name: '국민연금 미수령·반환', agency: '국민연금공단', icon: '👵',
+    desc: '단기 가입 후 외국 이주·사망 등으로 발생한 반환일시금, 미수령 노령연금 등. 60세 이상이거나 가족이 사망한 경우 점검 필요.',
+    info: [['평균 환급액', '수십~수백만원'], ['청구 시효', '5년'], ['조회처', '국민연금공단 (NPS)'], ['본인 인증', '공동인증서 / 간편인증']],
+    url: 'https://www.nps.or.kr',
+    triggers: ['hadJob'], baseScore: 50 },
+  { id: 'stock', name: '휴면 주식·미수령 배당금', agency: '한국예탁결제원', icon: '📈',
+    desc: '오래된 증권계좌에 남은 주식, 받지 못한 배당금, 주식 명의개서 누락분 등. 1990~2000년대에 주식 거래한 적 있는 사람 필수 점검.',
+    info: [['평균 환급액', '수만~수십만원'], ['청구 시효', '없음 (보관)'], ['조회처', '한국예탁결제원'], ['본인 인증', '공동인증서']],
+    url: 'https://www.seibro.or.kr',
+    triggers: ['hadStock'], baseScore: 50 },
+  { id: 'health-insurance', name: '본인부담상한제 환급', agency: '국민건강보험공단', icon: '🏥',
+    desc: '한 해 동안 의료비를 일정 금액 이상 낸 경우 초과분을 환급받는 제도. 큰 병원 다녔던 해가 있다면 꼭 확인.',
+    info: [['평균 환급액', '약 100~200만원'], ['청구 시효', '3년'], ['조회처', '국민건강보험공단 (NHIS)'], ['본인 인증', '공동인증서 / 간편인증']],
+    url: 'https://www.nhis.or.kr',
+    triggers: ['bigMedical'], baseScore: 60 }
+];
+/* =====================================================================
+   우선순위 계산
+   ===================================================================== */
+function scoreCategory(cat, user) {
+  let score = cat.baseScore;
+  const triggers = cat.triggers || [];
+  for (const t of triggers) {
+    if (t === 'moves') { if (user.moves >= 2) score += 15; else if (user.moves >= 1) score += 8; }
+    else if (t === 'banks') { if (user.banks >= 4) score += 12; else if (user.banks >= 2) score += 6; }
+    else if (t === 'hadJob' && user.hadJob) score += 12;
+    else if (t === 'hadInsurance' && user.hadInsurance) score += 15;
+    else if (t === 'usedCard' && user.usedCard) score += 10;
+    else if (t === 'changedTelecom' && user.changedTelecom) score += 15;
+    else if (t === 'hadCar' && user.hadCar) score += 12;
+    else if (t === 'hadStock' && user.hadStock) score += 18;
+    else if (t === 'bigMedical' && user.bigMedical) score += 15;
+  }
+  if (user.age === '40s' || user.age === '50s' || user.age === '60+') score += 5;
+  return Math.min(99, score);
+}
+function rankCategories(user) {
+  return CATEGORIES.map(c => ({ cat: c, score: scoreCategory(c, user) })).sort((a, b) => b.score - a.score);
+}
+function getPriority(score) {
+  if (score >= 80) return { label: '⭐ 1순위 점검', cls: 'high' };
+  if (score >= 65) return { label: '✨ 권장 점검', cls: 'mid' };
+  return { label: '💡 참고용', cls: 'low' };
+}
+function getReason(cat, user) {
+  const reasons = [];
+  if (cat.id === 'national-tax' && user.hadJob) reasons.push('직장 근로소득세 환급 가능성 있음');
+  if (cat.id === 'local-tax' && user.hadCar) reasons.push('자동차세 이중 납부·감면 환급 흔함');
+  if (cat.id === 'local-tax' && user.moves >= 2) reasons.push('이사 시 지방세 환급 누락 가능성');
+  if (cat.id === 'gov24' && user.moves >= 1) reasons.push('이사 후 미수령 환급금 흔함');
+  if (cat.id === 'dormant-bank' && user.moves >= 2) reasons.push('잦은 이사로 잊은 계좌 가능성');
+  if (cat.id === 'dormant-bank' && user.banks >= 2) reasons.push('여러 은행에 분산된 휴면예금 가능');
+  if (cat.id === 'dormant-insurance' && user.hadInsurance) reasons.push('보험 가입 이력 — 미청구 환급 가능');
+  if (cat.id === 'card-point' && user.usedCard) reasons.push('여러 카드사 누적 포인트 통합 가능');
+  if (cat.id === 'telecom' && user.changedTelecom) reasons.push('통신사 변경 시 미환급금 흔함');
+  if (cat.id === 'health-insurance' && user.bigMedical) reasons.push('본인부담상한제로 초과액 환급 가능');
+  if (cat.id === 'stock' && user.hadStock) reasons.push('과거 거래 계좌의 휴면 주식·배당 가능');
+  return reasons.join(' · ');
+}
+/* =====================================================================
+   폼 핸들링
+   ===================================================================== */
+document.querySelectorAll('.chip input').forEach(cb => {
+  cb.addEventListener('change', e => e.target.parentElement.classList.toggle('active', e.target.checked));
+});
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('filterForm').reset();
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  document.getElementById('results').classList.remove('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('filterForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  const user = {
+    age: form.age.value,
+    moves: parseInt(form.moves.value) || 0,
+    jobs: parseInt(form.jobs.value) || 0,
+    banks: parseInt(form.banks.value) || 1,
+    hadJob: form.hadJob.checked,
+    hadInsurance: form.hadInsurance.checked,
+    usedCard: form.usedCard.checked,
+    changedTelecom: form.changedTelecom.checked,
+    hadCar: form.hadCar.checked,
+    hadStock: form.hadStock.checked,
+    bigMedical: form.bigMedical.checked
+  };
+  const loading = document.getElementById('loading'); const results = document.getElementById('results');
+  results.classList.remove('show'); loading.classList.add('show');
+  loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => {
+    const ranked = rankCategories(user);
+    loading.classList.remove('show'); renderResults(ranked, user);
+  }, 600);
+});
+function renderSummary(ranked, user) {
+  const highCount = ranked.filter(r => r.score >= 80).length;
+  const midCount = ranked.filter(r => r.score >= 65 && r.score < 80).length;
+  return `<div class="summary-card">
+    <div class="sc-label">📋 우선순위 점검 요약</div>
+    <div class="sc-title">${highCount}개 카테고리부터 점검해보세요</div>
+    <div class="sc-grid">
+      <div class="sc-cell"><div class="sc-cell-label">1순위</div><div class="sc-cell-value primary">${highCount}개</div></div>
+      <div class="sc-cell"><div class="sc-cell-label">권장</div><div class="sc-cell-value">${midCount}개</div></div>
+      <div class="sc-cell"><div class="sc-cell-label">전체</div><div class="sc-cell-value">${ranked.length}개</div></div>
+    </div>
+  </div>`;
+}
+function renderResults(ranked, user) {
+  const section = document.getElementById('results');
+  const summary = document.getElementById('summaryArea');
+  const list = document.getElementById('catList');
+  const count = document.getElementById('resultCount');
+  section.classList.add('show');
+  summary.innerHTML = renderSummary(ranked, user);
+  count.textContent = '총 ' + ranked.length + '개 카테고리';
+  list.innerHTML = ranked.map(({ cat, score }) => {
+    const p = getPriority(score);
+    const reason = getReason(cat, user);
+    return `<article class="cat-card ${p.cls === 'high' ? 'priority-high' : ''}">
+      <div class="cat-badge ${p.cls}">${p.label}</div>
+      <div class="cat-name">${cat.icon} ${cat.name}</div>
+      <div class="cat-meta"><span class="cat-meta-tag agency">${cat.agency}</span></div>
+      <p class="cat-desc">${cat.desc}</p>
+      ${reason ? `<div class="cat-reason">💡 ${reason}</div>` : ''}
+      <div class="cat-info">${cat.info.map(([l, v]) => `<div class="cat-info-item"><span class="cat-info-label">${l}</span><span class="cat-info-value ${l === '평균 환급액' || l === '누적 평균' || l === '평균 환급액' ? 'highlight' : ''}">${v}</span></div>`).join('')}</div>
+      <a href="${cat.url}" target="_blank" rel="noopener" class="cat-more">공식 조회처 바로가기 <span class="arrow">→</span></a>
+    </article>`;
+  }).join('');
+  setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+/* =====================================================================
+   예시 카드
+   ===================================================================== */
+const EXAMPLES = [
+  { id: 0, form: { age: '30s', moves: 3, jobs: 1, banks: 2, hadJob: true, hadInsurance: true, usedCard: true, changedTelecom: false, hadCar: false, hadStock: false, bigMedical: false } },
+  { id: 1, form: { age: '30s', moves: 1, jobs: 1, banks: 2, hadJob: true, hadInsurance: false, usedCard: true, changedTelecom: true, hadCar: false, hadStock: false, bigMedical: false } },
+  { id: 2, form: { age: '40s', moves: 1, jobs: 0, banks: 2, hadJob: true, hadInsurance: true, usedCard: true, changedTelecom: false, hadCar: true, hadStock: false, bigMedical: true } }
+];
+function computeExample(ex) {
+  const ranked = rankCategories(ex.form);
+  const top = ranked[0];
+  const highCount = ranked.filter(r => r.score >= 80).length;
+  return { big: highCount + '개 카테고리 1순위 추천', sub: '최우선: ' + top.cat.name + ' · 총 ' + ranked.length + '개 안내' };
+}
+function applyExample(ex) {
+  const f = document.getElementById('filterForm');
+  f.age.value = ex.form.age; f.moves.value = ex.form.moves; f.jobs.value = ex.form.jobs; f.banks.value = ex.form.banks;
+  ['hadJob','hadInsurance','usedCard','changedTelecom','hadCar','hadStock','bigMedical'].forEach(k => {
+    f[k].checked = !!ex.form[k];
+    f[k].parentElement.classList.toggle('active', !!ex.form[k]);
+  });
+}
+EXAMPLES.forEach(ex => {
+  const r = computeExample(ex);
+  const numEl = document.getElementById('exNum' + ex.id);
+  const subEl = document.getElementById('exSub' + ex.id);
+  if (numEl) numEl.textContent = r.big;
+  if (subEl) subEl.textContent = r.sub;
+});
+document.querySelectorAll('.example-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const ex = EXAMPLES[parseInt(card.dataset.ex)];
+    if (ex) { applyExample(ex); document.getElementById('submitBtn').click(); }
+  });
+});
+function animateNumber(el, target, suffix, dur) {
+  const t0 = performance.now();
+  function step(t) { const p = Math.min((t - t0) / dur, 1); const e = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(target * e) + suffix; if (p < 1) requestAnimationFrame(step); else el.textContent = target + suffix; }
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('.hero-stat .num').forEach((el, i) => {
+  const m = el.textContent.match(/^(\d+)(.*)$/);
+  if (m) { const target = parseInt(m[1]); const suffix = m[2]; el.textContent = '0' + suffix; setTimeout(() => animateNumber(el, target, suffix, 1200), 200 + i * 100); }
+});
+</script>
+</body>
+</html>
