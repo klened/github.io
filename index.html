@@ -84,16 +84,59 @@ a { color: inherit; text-decoration: none; }
 .site-nav a:hover { background: var(--primary-soft); color: var(--primary); }
 .site-nav a.active { background: var(--primary-light); color: var(--primary-dark); }
 .site-nav .brand { font-weight: 800; color: var(--text-strong); margin-right: auto; font-size: 16px; flex-shrink: 0; white-space: nowrap; letter-spacing: -0.3px; }
-/* Hero */
-header.hero { background: linear-gradient(180deg, #FFFFFF 0%, #EDF0F4 100%); padding: 48px 0 36px; text-align: center; }
-.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 16px; }
-.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
+/* === 통합 진단 위젯 (토스풍) === */
+.diag-wrap { padding: 24px 0 8px; }
+.diag-card {
+  background: linear-gradient(135deg, #3182F6 0%, #1B64DA 100%);
+  border-radius: 20px;
+  padding: 28px 22px 24px;
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(49,130,246,0.22);
+  position: relative;
+  overflow: hidden;
+}
+.diag-card::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.diag-eyebrow { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.18); padding: 5px 11px; border-radius: 100px; font-size: 12px; font-weight: 700; margin-bottom: 12px; backdrop-filter: blur(4px); }
+.diag-eyebrow::before { content: ''; width: 6px; height: 6px; background: #fff; border-radius: 50%; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-header.hero h1 { font-size: 24px; font-weight: 800; color: var(--text-strong); line-height: 1.3; letter-spacing: -0.7px; margin-bottom: 12px; }
-header.hero p.lead { font-size: 14px; color: var(--text-soft); line-height: 1.6; max-width: 540px; margin: 0 auto; }
-.hero-stats { display: flex; gap: 24px; justify-content: center; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--border); max-width: 460px; margin-left: auto; margin-right: auto; }
-.hero-stat .num { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
-.hero-stat .label { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+.diag-card h1 { font-size: 22px; font-weight: 800; line-height: 1.3; letter-spacing: -0.6px; margin-bottom: 10px; }
+.diag-card h1 .em { color: #FFE066; }
+.diag-card p.diag-sub { font-size: 13px; line-height: 1.55; opacity: 0.92; margin-bottom: 18px; }
+.diag-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.diag-field { background: rgba(255,255,255,0.14); border-radius: 10px; padding: 9px 12px; }
+.diag-field label { display: block; font-size: 11px; opacity: 0.85; margin-bottom: 3px; font-weight: 600; }
+.diag-field select, .diag-field input {
+  width: 100%; background: transparent; border: 0; color: #fff;
+  font-size: 14px; font-weight: 700; font-family: inherit;
+  outline: none; padding: 0; -webkit-appearance: none; appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3e%3cpath fill='white' d='M5 6L0 0h10z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat; background-position: right center; padding-right: 14px;
+}
+.diag-field select option { color: #191F28; }
+.diag-field input { background-image: none; padding-right: 0; }
+.diag-btn {
+  width: 100%; background: #fff; color: var(--primary-dark);
+  border: 0; border-radius: 12px; padding: 13px;
+  font-size: 15px; font-weight: 800; font-family: inherit;
+  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: -0.2px;
+}
+.diag-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
+.diag-result { display: none; margin-top: 14px; background: rgba(255,255,255,0.13); border-radius: 12px; padding: 14px 16px; backdrop-filter: blur(6px); }
+.diag-result.show { display: block; animation: fadein .4s ease; }
+@keyframes fadein { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.diag-amount { font-size: 12px; opacity: 0.92; margin-bottom: 2px; }
+.diag-amount .big { display: block; font-size: 26px; font-weight: 800; letter-spacing: -0.6px; font-variant-numeric: tabular-nums; line-height: 1.2; margin-top: 2px; }
+.diag-matched { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.diag-tag { background: #fff; color: var(--primary-dark); font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 100px; text-decoration: none; transition: transform 0.12s; }
+.diag-tag:hover { transform: translateY(-1px); }
+.diag-foot { margin-top: 12px; font-size: 11px; opacity: 0.78; line-height: 1.45; }
 /* Services */
 .services { padding: 36px 0 20px; }
 .services-title { text-align: center; margin-bottom: 26px; }
@@ -214,10 +257,12 @@ footer.site-footer .footer-cat-row a:hover { color: var(--primary); }
 /* 데스크탑 */
 @media (min-width: 900px) {
   .container { padding: 0 24px; }
-  header.hero { padding: 80px 0 56px; }
-  header.hero h1 { font-size: 38px; line-height: 1.22; }
-  header.hero p.lead { font-size: 17px; }
-  .hero-stat .num { font-size: 28px; }
+  .diag-wrap { padding: 40px 0 12px; }
+  .diag-card { padding: 40px 36px 32px; border-radius: 24px; }
+  .diag-card h1 { font-size: 32px; line-height: 1.25; margin-bottom: 14px; }
+  .diag-card p.diag-sub { font-size: 15px; margin-bottom: 24px; }
+  .diag-form { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .diag-amount .big { font-size: 36px; }
   .service-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .service-card { padding: 16px 18px; }
   .service-card h3 { font-size: 15px; }
@@ -233,18 +278,62 @@ footer.site-footer .footer-cat-row a:hover { color: var(--primary); }
 <body>
 <nav class="site-nav" id="siteNav"><div class="container"><a href="/" class="brand">숨은 돈 찾기</a></div></nav>
 <script src="/assets/nav.js"></script>
-<header class="hero">
+<section class="diag-wrap">
   <div class="container">
-    <span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
-    <h1>내가 받을 수 있는 정부 혜택,<br>30초 만에 확인하세요</h1>
-    <p class="lead">정부지원금·복지부터 환급금·실업급여·연말정산까지. 조건만 입력하면 받을 수 있는 금액과 신청처를 바로 알려드려요.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">120+</div><div class="label">비교 상품</div></div>
-      <div class="hero-stat"><div class="num">30초</div><div class="label">소요 시간</div></div>
-      <div class="hero-stat"><div class="num">무료</div><div class="label">100% 익명</div></div>
+    <div class="diag-card reveal">
+      <span class="diag-eyebrow">30초 무료 진단</span>
+      <h1>내가 놓친 정부 혜택,<br><span class="em">최대 얼마</span>까지 받을 수 있을까?</h1>
+      <p class="diag-sub">조건만 골라보세요. 받을 수 있는 지원금·환급금·감면 항목을 한 번에 매칭해 드려요.</p>
+      <div class="diag-form">
+        <div class="diag-field">
+          <label for="diag-age">나이</label>
+          <select id="diag-age">
+            <option value="">선택</option>
+            <option value="youth">19~34세 (청년)</option>
+            <option value="adult">35~64세</option>
+            <option value="senior">65세 이상</option>
+          </select>
+        </div>
+        <div class="diag-field">
+          <label for="diag-hh">가구</label>
+          <select id="diag-hh">
+            <option value="">선택</option>
+            <option value="single">1인 가구</option>
+            <option value="couple">신혼·부부</option>
+            <option value="baby">출산·육아</option>
+            <option value="parent">한부모·다자녀</option>
+            <option value="general">일반 가구</option>
+          </select>
+        </div>
+        <div class="diag-field">
+          <label for="diag-job">직업</label>
+          <select id="diag-job">
+            <option value="">선택</option>
+            <option value="worker">직장인</option>
+            <option value="biz">사업자·자영업</option>
+            <option value="closure">폐업·구직 중</option>
+            <option value="none">무직·비경제</option>
+          </select>
+        </div>
+        <div class="diag-field">
+          <label for="diag-home">주거</label>
+          <select id="diag-home">
+            <option value="">선택</option>
+            <option value="rent">전월세</option>
+            <option value="buying">매매 준비</option>
+            <option value="own">자가</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" class="diag-btn" id="diagBtn">내 혜택 진단하기 →</button>
+      <div class="diag-result" id="diagResult">
+        <div class="diag-amount">예상 최대 합산 혜택<span class="big" id="diagAmount">0원</span></div>
+        <div class="diag-matched" id="diagMatched"></div>
+        <p class="diag-foot">* 조건 기반 추정치이며, 실제 수급 자격·금액은 신청 단계에서 정확히 확인됩니다.</p>
+      </div>
     </div>
   </div>
-</header>
+</section>
 <section class="services container">
   <div class="services-title reveal">
     <h2>무엇을 확인해 볼까요?</h2>
@@ -499,14 +588,58 @@ function animateCounter(el, target, suffix, dur) {
   }
   requestAnimationFrame(step);
 }
-document.querySelectorAll('.hero-stat .num').forEach((el, i) => {
-  const m = el.textContent.match(/^(\d+)(.*)$/);
-  if (m) {
-    const target = parseInt(m[1]);
-    const suffix = m[2];
-    el.textContent = '0' + suffix;
-    setTimeout(() => animateCounter(el, target, suffix, 1200), 200 + i * 100);
+/* === 통합 진단 위젯 로직 === */
+const DIAG_RULES = [
+  // [조건 함수, 금액(만원), 매칭 서비스, 라벨]
+  [c => c.hh === 'baby', 360, '/baby/', '출산·육아 지원금'],
+  [c => c.age === 'youth', 240, '/youth/', '청년 지원금'],
+  [c => c.age === 'senior', 384, '/senior/', '기초연금·노후'],
+  [c => c.hh === 'parent', 180, '/welfare/', '한부모·복지'],
+  [c => c.job === 'worker', 120, '/tax/', '연말정산 환급'],
+  [c => c.job === 'closure', 240, '/jobless/', '실업급여'],
+  [c => c.job === 'closure', 200, '/closure/', '폐업·재도전 지원'],
+  [c => c.job === 'biz', 300, '/business/', '사업자 지원금'],
+  [c => c.job === 'biz', 50, '/marketing/', '마케팅 예산 가이드'],
+  [c => c.home === 'buying', 600, '/loan/', '디딤돌·보금자리론'],
+  [c => c.home === 'rent', 240, '/rent/', '장기전세·공공임대'],
+  [c => c.home === 'rent', 80, '/guarantee/', '전세보증보험'],
+  [c => true, 50, '/refund/', '숨은 환급금'],
+  [c => c.hh === 'single' || c.age === 'senior' || c.hh === 'parent', 36, '/utility/', '요금감면'],
+];
+const diagBtn = document.getElementById('diagBtn');
+const diagResult = document.getElementById('diagResult');
+const diagAmount = document.getElementById('diagAmount');
+const diagMatched = document.getElementById('diagMatched');
+function runDiag() {
+  const c = {
+    age: document.getElementById('diag-age').value,
+    hh: document.getElementById('diag-hh').value,
+    job: document.getElementById('diag-job').value,
+    home: document.getElementById('diag-home').value,
+  };
+  const matched = DIAG_RULES.filter(([fn]) => fn(c));
+  const total = matched.reduce((s, [,amt]) => s + amt, 0);
+  diagAmount.textContent = '0원';
+  diagMatched.innerHTML = matched.map(([,,href,label]) => `<a class="diag-tag" href="${href}">${label} →</a>`).join('');
+  diagResult.classList.add('show');
+  const t0 = performance.now();
+  function step(t) {
+    const p = Math.min((t - t0) / 900, 1);
+    const e = 1 - Math.pow(1 - p, 3);
+    const v = Math.floor(total * e);
+    diagAmount.textContent = v.toLocaleString() + '만원';
+    if (p < 1) requestAnimationFrame(step);
+    else diagAmount.textContent = total.toLocaleString() + '만원';
   }
+  requestAnimationFrame(step);
+  diagResult.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+diagBtn.addEventListener('click', runDiag);
+document.querySelectorAll('.diag-field select').forEach(s => {
+  s.addEventListener('change', () => {
+    const all = ['diag-age','diag-hh','diag-job','diag-home'].map(id => document.getElementById(id).value);
+    if (all.every(v => v)) runDiag();
+  });
 });
 </script>
 </body>

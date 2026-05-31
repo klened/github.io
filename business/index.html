@@ -252,7 +252,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
 <script src="/assets/nav.js"></script>
 <header class="hero">
   <div class="container">
-    <span class="hero-badge">2026년 5월 기준 최신 업데이트</span>
+    <span class="hero-badge">최신 업데이트</span>
     <h1>우리 사업장이 받을 수 있는<br>지원금을 한 번에 찾아드려요</h1>
     <p class="lead">자영업·소상공인부터 창업·중소기업까지. 지역·업종·매출·운영 상황만 선택하면 내 조건에 맞는 정부 지원금을 금액·신청 링크까지 한 번에 받아볼 수 있어요.</p>
   </div>
@@ -374,7 +374,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     </div>
     <div id="resultList"></div>
     <div class="disclaimer">
-      <strong>안내</strong> · 추천 결과는 입력하신 조건을 바탕으로 한 참고용 안내이며 실제 지급·승인을 보장하지 않습니다. 금액·요건·신청기간은 2026년 5월 기준이며 예산 소진 등으로 수시 변동될 수 있으니, 신청 전 각 카드의 공식 페이지에서 최신 공고를 반드시 확인해 주세요. 입력하신 정보는 저장되지 않고 브라우저에서만 계산됩니다.
+      <strong>안내</strong> · 추천 결과는 입력하신 조건을 바탕으로 한 참고용 안내이며 실제 지급·승인을 보장하지 않습니다. 금액·요건·신청기간은 예산 소진 등으로 수시 변동될 수 있으니, 신청 전 각 카드의 공식 페이지에서 최신 공고를 반드시 확인해 주세요. 입력하신 정보는 저장되지 않고 브라우저에서만 계산됩니다.
     </div>
   </section>
   <div class="faq-section">
@@ -389,7 +389,7 @@ footer.site-footer .footer-links a:hover{color:var(--biz);}
     </details>
     <details class="faq-item">
       <summary>금액 정보는 어디까지 믿어도 되나요?</summary>
-      <div class="faq-body">각 카드의 금액·요건은 2026년 5월 기준 정부 공고와 공식 누리집 자료를 바탕으로 정리했습니다. 정책자금 금리처럼 매월 바뀌거나 예산이 소진되면 종료되는 항목이 있으니, '공식 페이지' 버튼으로 최신 공고를 확인한 뒤 신청해 주세요.</div>
+      <div class="faq-body">각 카드의 금액·요건은 정부 공고와 공식 누리집 자료를 바탕으로 정리했습니다. 정책자금 금리처럼 매월 바뀌거나 예산이 소진되면 종료되는 항목이 있으니, '공식 페이지' 버튼으로 최신 공고를 확인한 뒤 신청해 주세요.</div>
     </details>
     <details class="faq-item">
       <summary>'참고하세요'로 분류된 사업은 못 받는 건가요?</summary>
@@ -438,12 +438,12 @@ function countUp(el,target,suffix,dur){
    - 금액·요건·신청기간이 바뀌면 아래 meta / desc / status 값을 고치세요.
    - 신청 링크가 바뀌면 url 값을 고치세요.
    - 사업이 종료되면 statusCls 를 'closed', closed:true 로 바꾸세요.
-   기준 시점: 2026년 5월
+   기준 시점: 최신 공고
    ===================================================================== */
 (function(){
   function has(s,v){ return s.needs.indexOf(v) > -1; }
   window.BIZ_DATA = {
-    updated: '2026년 5월',
+    updated: '최신 공고',
     /* 사업장 지역 (시·도). metro:true = 수도권 */
     regions: [
       {v:'seoul',    label:'서울',     metro:true},

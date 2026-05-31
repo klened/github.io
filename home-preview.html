@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[시안] 숨은 돈 찾기 — 홈 리디자인 테스트</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* =====================================================================
+   숨은 돈 찾기 — 홈 리디자인 시안 (pickle.plus 풍 + 토스 디자인)
+   ===================================================================== */
+:root {
+  --primary:#3182F6; --primary-dark:#1B64DA; --primary-light:#E8F2FE; --primary-soft:#EEF2F8;
+  --pink:#EC4899;    --pink-dark:#DB2777;    --pink-light:#FCE7F3;    --pink-soft:#FDF2F8;
+  --biz:#0FA968;     --biz-dark:#0B8A54;     --biz-light:#E3F6EE;     --biz-soft:#F1FAF6;
+  --purple:#5B5BD6;  --purple-dark:#4646B8;  --purple-light:#E8E8FB;  --purple-soft:#F4F4FC;
+  --bg:#FFFFFF; --bg-soft:#EDF0F4; --bg-card:#FFFFFF;
+  --text-strong:#191F28; --text:#333D4B; --text-soft:#4E5968; --text-mute:#8B95A1;
+  --border:#E5E8EB; --border-soft:#EAEDF1;
+  --radius-md:12px; --radius-lg:16px; --radius-xl:20px; --radius-2xl:28px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.05);
+  --shadow-md:0 4px 16px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 32px rgba(0,0,0,.10);
+  --shadow-xl:0 18px 50px rgba(0,0,0,.14);
+  --font:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+}
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body { font-family:var(--font); background:var(--bg-soft); color:var(--text); line-height:1.5; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; word-break:keep-all; overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+.container { max-width:1040px; margin:0 auto; padding:0 20px; }
+.section { padding:48px 0; }
+
+/* ---- 시안 안내 배너 ---- */
+.preview-flag { background:#191F28; color:#fff; font-size:12px; font-weight:600; text-align:center; padding:8px 16px; letter-spacing:-.2px; }
+
+/* ---- Nav ---- */
+.site-nav { background:var(--bg); border-bottom:1px solid var(--border-soft); padding:12px 0; position:sticky; top:0; z-index:50; }
+.site-nav .container { display:flex; gap:8px; align-items:center; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; }
+.site-nav .container::-webkit-scrollbar { display:none; }
+.site-nav a { color:var(--text-soft); font-size:14px; font-weight:600; padding:7px 11px; border-radius:8px; transition:all .15s; flex-shrink:0; white-space:nowrap; }
+.site-nav a:hover { background:var(--primary-soft); color:var(--primary); }
+.site-nav a.active { background:var(--primary-light); color:var(--primary-dark); }
+.site-nav .brand { font-weight:800; color:var(--text-strong); margin-right:auto; font-size:16px; flex-shrink:0; white-space:nowrap; letter-spacing:-.3px; }
+
+/* ---- Hero ---- */
+.hero { position:relative; text-align:center; padding:60px 0 56px; overflow:hidden; background:linear-gradient(180deg,#FFFFFF 0%,#F3F6FB 60%,#EDF0F4 100%); }
+.hero .blob { position:absolute; border-radius:50%; filter:blur(70px); opacity:.5; z-index:0; }
+.hero .blob.b1 { width:280px; height:280px; background:#CFE3FF; top:-60px; left:-70px; }
+.hero .blob.b2 { width:240px; height:240px; background:#FBD9EC; top:40px; right:-80px; }
+.hero .container { position:relative; z-index:1; }
+.hero-badge { display:inline-flex; align-items:center; gap:7px; background:#fff; color:var(--text-soft); padding:7px 15px; border-radius:100px; font-size:13px; font-weight:600; box-shadow:var(--shadow-sm); border:1px solid var(--border-soft); }
+.hero-badge .dot { width:6px; height:6px; background:var(--biz); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.8)} }
+.hero h1 { font-size:32px; font-weight:800; color:var(--text-strong); line-height:1.32; letter-spacing:-1px; margin:20px 0 16px; }
+.hero h1 .rot { display:inline-block; transition:opacity .32s, transform .32s; color:var(--primary); }
+.hero h1 .rot.swap { opacity:0; transform:translateY(8px); }
+.hero p.lead { font-size:15px; color:var(--text-soft); line-height:1.65; max-width:480px; margin:0 auto 26px; }
+.hero-cta { display:inline-flex; align-items:center; gap:8px; background:var(--primary); color:#fff; font-size:17px; font-weight:700; padding:17px 32px; border-radius:100px; box-shadow:0 8px 22px rgba(49,130,246,.32); transition:transform .14s, box-shadow .14s, background .14s; }
+.hero-cta:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 12px 28px rgba(49,130,246,.4); }
+.hero-cta:active { transform:scale(.97); }
+.hero-cta .arrow { transition:transform .16s; }
+.hero-cta:hover .arrow { transform:translateX(4px); }
+.hero-trust { margin-top:16px; font-size:12.5px; color:var(--text-mute); font-weight:500; }
+
+/* ---- 통계 스트립 ---- */
+.statbar { display:flex; gap:8px; justify-content:center; margin-top:30px; flex-wrap:wrap; }
+.stat { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:13px 18px; min-width:96px; box-shadow:var(--shadow-sm); }
+.stat .num { font-size:21px; font-weight:800; color:var(--text-strong); letter-spacing:-.5px; font-variant-numeric:tabular-nums; }
+.stat .label { font-size:11.5px; color:var(--text-mute); margin-top:2px; }
+
+/* ---- 섹션 헤더 ---- */
+.sec-head { text-align:center; margin-bottom:26px; }
+.sec-head .kicker { font-size:13px; font-weight:700; color:var(--primary); margin-bottom:7px; }
+.sec-head h2 { font-size:23px; font-weight:800; color:var(--text-strong); letter-spacing:-.6px; line-height:1.35; }
+.sec-head p { font-size:14px; color:var(--text-soft); margin-top:8px; }
+
+/* ---- 결과 미리보기 ---- */
+.results { background:var(--bg); }
+.result-grid { display:grid; grid-template-columns:1fr; gap:13px; }
+.result-card { display:block; background:var(--bg-card); border-radius:var(--radius-xl); padding:22px; border:1.5px solid var(--border-soft); box-shadow:var(--shadow-md); transition:transform .2s cubic-bezier(.4,0,.2,1), box-shadow .2s, border-color .2s; }
+.result-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.result-card.loan:hover { border-color:var(--primary); }
+.result-card.baby:hover { border-color:var(--pink); }
+.result-card.biz:hover { border-color:var(--biz); }
+.result-top { display:flex; align-items:center; gap:9px; margin-bottom:14px; }
+.result-emoji { width:42px; height:42px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:22px; }
+.result-card.loan .result-emoji { background:var(--primary-light); }
+.result-card.baby .result-emoji { background:var(--pink-light); }
+.result-card.biz .result-emoji { background:var(--biz-light); }
+.result-tag { font-size:12px; font-weight:700; }
+.result-card.loan .result-tag { color:var(--primary-dark); }
+.result-card.baby .result-tag { color:var(--pink-dark); }
+.result-card.biz .result-tag { color:var(--biz-dark); }
+.result-cond { font-size:13px; color:var(--text-mute); font-weight:500; }
+.result-amount { font-size:30px; font-weight:800; letter-spacing:-1px; line-height:1.2; font-variant-numeric:tabular-nums; }
+.result-card.loan .result-amount { color:var(--primary); }
+.result-card.baby .result-amount { color:var(--pink); }
+.result-card.biz .result-amount { color:var(--biz); }
+.result-amount .unit { font-size:16px; font-weight:700; }
+.result-sub { font-size:13px; color:var(--text-soft); margin-top:6px; }
+.result-go { margin-top:14px; display:flex; align-items:center; justify-content:space-between; font-size:14px; font-weight:700; padding-top:13px; border-top:1px solid var(--border-soft); }
+.result-card.loan .result-go { color:var(--primary); }
+.result-card.baby .result-go { color:var(--pink); }
+.result-card.biz .result-go { color:var(--biz); }
+.result-go .arrow { transition:transform .16s; }
+.result-card:hover .result-go .arrow { transform:translateX(4px); }
+.results-note { text-align:center; font-size:12px; color:var(--text-mute); margin-top:16px; }
+
+/* ---- 서비스 카드 ---- */
+.service-grid { display:grid; grid-template-columns:1fr; gap:14px; }
+.service-card { background:var(--bg-card); border-radius:var(--radius-xl); padding:26px 22px; box-shadow:var(--shadow-md); border:1.5px solid transparent; transition:all .2s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; gap:13px; position:relative; overflow:hidden; }
+.service-card::after { content:''; position:absolute; top:0; right:0; width:170px; height:170px; border-radius:50%; opacity:.08; transform:translate(40%,-40%); transition:all .3s; }
+.service-card.loan::after { background:var(--primary); }
+.service-card.baby::after { background:var(--pink); }
+.service-card.business::after { background:var(--biz); }
+.service-card.checkup::after { background:var(--purple); }
+.service-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+.service-card.loan:hover { border-color:var(--primary); }
+.service-card.baby:hover { border-color:var(--pink); }
+.service-card.business:hover { border-color:var(--biz); }
+.service-card.checkup:hover { border-color:var(--purple); }
+.service-card:hover::after { transform:translate(30%,-30%) scale(1.2); opacity:.12; }
+.service-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; position:relative; z-index:1; }
+.service-card.loan .service-icon { background:var(--primary-light); }
+.service-card.baby .service-icon { background:var(--pink-light); }
+.service-card.business .service-icon { background:var(--biz-light); }
+.service-card.checkup .service-icon { background:var(--purple-light); }
+.service-card h3 { font-size:20px; font-weight:800; color:var(--text-strong); letter-spacing:-.4px; position:relative; z-index:1; }
+.service-card p.desc { font-size:14px; color:var(--text-soft); line-height:1.65; position:relative; z-index:1; }
+.service-features { display:flex; flex-wrap:wrap; gap:6px; position:relative; z-index:1; }
+.feature-pill { font-size:12px; font-weight:600; padding:5px 11px; border-radius:100px; }
+.service-card.loan .feature-pill { background:var(--primary-soft); color:var(--primary-dark); }
+.service-card.baby .feature-pill { background:var(--pink-soft); color:var(--pink-dark); }
+.service-card.business .feature-pill { background:var(--biz-soft); color:var(--biz-dark); }
+.service-card.checkup .feature-pill { background:var(--purple-soft); color:var(--purple-dark); }
+.service-cta { margin-top:4px; display:inline-flex; align-items:center; justify-content:center; gap:6px; font-size:15px; font-weight:700; padding:15px 22px; border-radius:var(--radius-md); transition:all .18s; align-self:stretch; position:relative; z-index:1; color:#fff; }
+.service-card.loan .service-cta { background:var(--primary); }
+.service-card.loan .service-cta:hover { background:var(--primary-dark); }
+.service-card.baby .service-cta { background:var(--pink); }
+.service-card.baby .service-cta:hover { background:var(--pink-dark); }
+.service-card.business .service-cta { background:var(--biz); }
+.service-card.business .service-cta:hover { background:var(--biz-dark); }
+.service-card.checkup .service-cta { background:var(--purple); }
+.service-card.checkup .service-cta:hover { background:var(--purple-dark); }
+.service-cta .arrow { transition:transform .18s; }
+.service-card:hover .service-cta .arrow { transform:translateX(4px); }
+
+/* ---- 3단계 ---- */
+.steps { background:var(--bg); }
+.step-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+.step { background:var(--primary-soft); border-radius:var(--radius-lg); padding:22px; display:flex; gap:15px; align-items:flex-start; }
+.step-num { flex-shrink:0; width:38px; height:38px; border-radius:11px; background:var(--primary); color:#fff; font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; }
+.step-body h4 { font-size:16px; font-weight:800; color:var(--text-strong); margin-bottom:4px; }
+.step-body p { font-size:13.5px; color:var(--text-soft); line-height:1.6; }
+.step-emoji { font-size:24px; margin-left:auto; }
+
+/* ---- 비교 ---- */
+.compare-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+.compare-col { border-radius:var(--radius-xl); padding:24px 22px; }
+.compare-col.bad { background:var(--bg); border:1.5px solid var(--border-soft); }
+.compare-col.good { background:linear-gradient(160deg,#EBF3FF 0%,#FFFFFF 100%); border:2px solid var(--primary); box-shadow:var(--shadow-lg); }
+.compare-col .ctitle { font-size:16px; font-weight:800; margin-bottom:16px; display:flex; align-items:center; gap:7px; }
+.compare-col.bad .ctitle { color:var(--text-mute); }
+.compare-col.good .ctitle { color:var(--primary-dark); }
+.compare-col .ctitle .badge { font-size:11px; font-weight:700; padding:3px 9px; border-radius:100px; background:var(--primary); color:#fff; }
+.compare-list { display:flex; flex-direction:column; gap:11px; }
+.compare-item { display:flex; gap:9px; font-size:14px; line-height:1.5; }
+.compare-item .mk { flex-shrink:0; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin-top:1px; }
+.compare-col.bad .compare-item { color:var(--text-soft); }
+.compare-col.bad .mk { background:#F1F3F5; color:#ADB5BD; }
+.compare-col.good .compare-item { color:var(--text-strong); font-weight:600; }
+.compare-col.good .mk { background:var(--primary); color:#fff; }
+
+/* ---- FAQ ---- */
+.faq-list { display:flex; flex-direction:column; gap:10px; }
+.faq-item { background:var(--bg); border:1px solid var(--border-soft); border-radius:var(--radius-lg); overflow:hidden; transition:box-shadow .2s; }
+.faq-item.open { box-shadow:var(--shadow-md); }
+.faq-q { width:100%; text-align:left; background:none; border:none; cursor:pointer; font-family:inherit; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:15px; font-weight:700; color:var(--text-strong); }
+.faq-q .ic { flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; font-size:16px; transition:transform .25s; }
+.faq-item.open .faq-q .ic { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+.faq-a-inner { padding:0 20px 18px; font-size:14px; color:var(--text-soft); line-height:1.7; }
+
+/* ---- 가이드 ---- */
+.guides { background:var(--bg); }
+.guides-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+.guide-card { display:block; background:var(--bg-card); border-radius:14px; padding:20px 22px; transition:all .18s; border:1px solid var(--border-soft); box-shadow:var(--shadow-sm); }
+.guide-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); }
+.guide-tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 9px; border-radius:100px; margin-bottom:10px; }
+.guide-tag.loan { background:var(--primary-light); color:var(--primary-dark); }
+.guide-tag.baby { background:var(--pink-light); color:var(--pink-dark); }
+.guide-tag.business { background:var(--biz-light); color:var(--biz-dark); }
+.guide-card h3 { font-size:16px; font-weight:700; color:var(--text-strong); margin-bottom:6px; line-height:1.4; }
+.guide-card p { font-size:13px; color:var(--text-soft); line-height:1.5; }
+
+/* ---- 마무리 CTA ---- */
+.final-cta { text-align:center; background:linear-gradient(160deg,#1B64DA 0%,#3182F6 100%); border-radius:var(--radius-2xl); padding:44px 26px; color:#fff; }
+.final-cta h2 { font-size:23px; font-weight:800; letter-spacing:-.6px; margin-bottom:10px; }
+.final-cta p { font-size:14px; opacity:.9; margin-bottom:24px; }
+.final-cta .hero-cta { background:#fff; color:var(--primary-dark); box-shadow:0 10px 26px rgba(0,0,0,.22); }
+.final-cta .hero-cta:hover { background:#F1F5FF; }
+
+/* ---- Footer ---- */
+.site-footer { background:var(--bg); padding:34px 0 46px; text-align:center; margin-top:8px; border-top:1px solid var(--border-soft); }
+.site-footer p { font-size:12px; color:var(--text-mute); margin-bottom:6px; line-height:1.6; }
+.site-footer strong { color:var(--text-soft); font-weight:600; }
+.footer-links { margin-top:14px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.footer-links a { font-size:12px; color:var(--text-mute); font-weight:500; }
+.footer-links a:hover { color:var(--primary); }
+
+/* ---- Reveal ---- */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1); }
+.reveal.in { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion:reduce) { .reveal,.reveal.in{opacity:1;transform:none;transition:none;} }
+
+/* ---- Desktop ---- */
+@media (min-width:768px) {
+  .container { padding:0 24px; }
+  .section { padding:72px 0; }
+  .hero { padding:96px 0 84px; }
+  .hero h1 { font-size:50px; line-height:1.25; }
+  .hero p.lead { font-size:18px; }
+  .hero .blob.b1 { width:420px; height:420px; }
+  .hero .blob.b2 { width:380px; height:380px; }
+  .sec-head h2 { font-size:30px; }
+  .sec-head p { font-size:15px; }
+  .result-grid { grid-template-columns:repeat(3,1fr); gap:18px; }
+  .result-amount { font-size:34px; }
+  .service-grid { grid-template-columns:repeat(2,1fr); gap:20px; }
+  .service-card { padding:34px 28px; }
+  .service-card h3 { font-size:22px; }
+  .step-grid { grid-template-columns:repeat(3,1fr); gap:16px; }
+  .step { flex-direction:column; }
+  .step-emoji { margin-left:0; margin-top:auto; }
+  .compare-grid { grid-template-columns:1fr 1fr; gap:18px; }
+  .guides-grid { grid-template-columns:1fr 1fr; gap:16px; }
+  .final-cta { padding:60px 40px; }
+  .final-cta h2 { font-size:30px; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-flag">디자인 시안 미리보기 — 실제 사이트에는 아직 반영되지 않았습니다</div>
+
+<!-- Nav -->
+<nav class="site-nav">
+  <div class="container">
+    <a href="/" class="brand">숨은 돈 찾기</a>
+    <a href="/" class="active">홈</a>
+    <a href="/loan/">부동산 대출</a>
+    <a href="/baby/">출산·육아 지원금</a>
+    <a href="/business/">사업자 지원금</a>
+    <a href="/check/">내 가게 진단</a>
+    <a href="/about/">소개</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="container">
+    <span class="hero-badge"><span class="dot"></span>2026년 5월 기준 최신 업데이트</span>
+    <h1>
+      내가 받을 수 있는<br>
+      <span class="rot" id="rotWord">전세·주택 대출</span><br>
+      30초 만에 다 보여드려요
+    </h1>
+    <p class="lead">정부·지자체에 흩어진 대출·지원금, 직접 찾기엔 너무 많죠. 조건만 고르면 받을 수 있는 금액과 신청처를 한 번에 알려드려요.</p>
+    <a href="#services" class="hero-cta">내 혜택 찾아보기 <span class="arrow">→</span></a>
+    <div class="hero-trust">회원가입 없음 · 100% 무료 · 입력값은 저장되지 않아요</div>
+    <div class="statbar">
+      <div class="stat"><div class="num" data-count="46">0</div><div class="label">비교 항목</div></div>
+      <div class="stat"><div class="num" data-count="30" data-suffix="초">0초</div><div class="label">소요 시간</div></div>
+      <div class="stat"><div class="num">0원</div><div class="label">이용 비용</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- 결과 미리보기 -->
+<section class="section results">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">RESULT</div>
+      <h2>이런 돈이 숨어 있었어요</h2>
+      <p>비슷한 조건의 사람들이 찾아낸 금액이에요</p>
+    </div>
+    <div class="result-grid">
+      <a href="/loan/" class="result-card loan reveal">
+        <div class="result-top">
+          <div class="result-emoji">🏠</div>
+          <div><div class="result-tag">부동산 대출</div><div class="result-cond">서울·40대·미혼·연소득 5천</div></div>
+        </div>
+        <div class="result-amount" data-amount="320000000">0원</div>
+        <div class="result-sub">디딤돌·보금자리론 등 한도 합산</div>
+        <div class="result-go"><span>내 한도 확인하기</span><span class="arrow">→</span></div>
+      </a>
+      <a href="/baby/" class="result-card baby reveal">
+        <div class="result-top">
+          <div class="result-emoji">👶</div>
+          <div><div class="result-tag">출산·육아 지원금</div><div class="result-cond">서울 거주·2026년 첫 출산</div></div>
+        </div>
+        <div class="result-amount" data-amount="28400000">0원</div>
+        <div class="result-sub">첫 2년 정부+지자체 누적 수령액</div>
+        <div class="result-go"><span>우리 가족 수령액 보기</span><span class="arrow">→</span></div>
+      </a>
+      <a href="/business/" class="result-card biz reveal">
+        <div class="result-top">
+          <div class="result-emoji">🏪</div>
+          <div><div class="result-tag">사업자 지원금</div><div class="result-cond">서울·음식점·연매출 2억</div></div>
+        </div>
+        <div class="result-amount" data-amount="12000000">0원</div>
+        <div class="result-sub">경영안정 바우처·정책자금 등</div>
+        <div class="result-go"><span>우리 가게 지원금 보기</span><span class="arrow">→</span></div>
+      </a>
+    </div>
+    <p class="results-note">* 예시 사례이며 실제 금액은 조건에 따라 달라집니다. 카드를 누르면 내 조건으로 직접 계산할 수 있어요.</p>
+  </div>
+</section>
+
+<!-- 서비스 -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">SERVICE</div>
+      <h2>무엇을 확인해 볼까요?</h2>
+      <p>필요한 항목을 누르면 바로 계산해드려요</p>
+    </div>
+    <div class="service-grid">
+      <a href="/loan/" class="service-card loan reveal">
+        <div class="service-icon">🏠</div>
+        <h3>부동산 대출</h3>
+        <p class="desc">전세·매매·월세 대출 21종을 한 번에 비교해, 내가 받을 수 있는 한도와 최저금리를 알려드려요.</p>
+        <div class="service-features">
+          <span class="feature-pill">버팀목</span>
+          <span class="feature-pill">디딤돌</span>
+          <span class="feature-pill">보금자리론</span>
+          <span class="feature-pill">신생아 특례</span>
+          <span class="feature-pill">+17종</span>
+        </div>
+        <span class="service-cta">내 대출 한도 보기 <span class="arrow">→</span></span>
+      </a>
+      <a href="/baby/" class="service-card baby reveal">
+        <div class="service-icon">👶</div>
+        <h3>출산·육아 지원금</h3>
+        <p class="desc">정부 8종에 광역·기초 지자체 출산장려금까지 합산해, 우리 가족이 받을 총 수령액을 계산해드려요.</p>
+        <div class="service-features">
+          <span class="feature-pill">부모급여</span>
+          <span class="feature-pill">첫만남이용권</span>
+          <span class="feature-pill">아동수당</span>
+          <span class="feature-pill">육아휴직</span>
+          <span class="feature-pill">지자체</span>
+        </div>
+        <span class="service-cta">우리 가족 수령액 보기 <span class="arrow">→</span></span>
+      </a>
+      <a href="/business/" class="service-card business reveal">
+        <div class="service-icon">🏪</div>
+        <h3>사업자 지원금</h3>
+        <p class="desc">지역·업종·매출만 선택하면 우리 사업장이 받을 수 있는 지원금을 금액과 신청처까지 추천해드려요.</p>
+        <div class="service-features">
+          <span class="feature-pill">경영안정 바우처</span>
+          <span class="feature-pill">정책자금</span>
+          <span class="feature-pill">창업패키지</span>
+          <span class="feature-pill">고용장려금</span>
+          <span class="feature-pill">지자체</span>
+        </div>
+        <span class="service-cta">우리 가게 지원금 보기 <span class="arrow">→</span></span>
+      </a>
+      <a href="/check/" class="service-card checkup reveal">
+        <div class="service-icon">📊</div>
+        <h3>내 가게 경영진단</h3>
+        <p class="desc">매출·식재료비·인건비를 입력하면 같은 업종 평균과 비교해 우리 가게 운영 상태를 진단해드려요.</p>
+        <div class="service-features">
+          <span class="feature-pill">매출 위치</span>
+          <span class="feature-pill">원가구조</span>
+          <span class="feature-pill">영업이익률</span>
+          <span class="feature-pill">외식업</span>
+        </div>
+        <span class="service-cta">업종 평균과 비교하기 <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3단계 -->
+<section class="section steps">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">HOW IT WORKS</div>
+      <h2>딱 3단계면 끝나요</h2>
+      <p>복잡한 서류도, 회원가입도 없어요</p>
+    </div>
+    <div class="step-grid">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div class="step-body"><h4>조건 선택</h4><p>나이·소득·지역 같은 항목을 클릭으로만 골라요. 직접 타이핑할 필요 없어요.</p></div>
+        <div class="step-emoji">👆</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div class="step-body"><h4>30초 자동 계산</h4><p>정부·지자체 제도 데이터와 내 조건을 자동으로 대조해드려요.</p></div>
+        <div class="step-emoji">⚡</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div class="step-body"><h4>금액·신청처 확인</h4><p>받을 수 있는 금액과 어디서 신청하는지까지 한눈에 보여드려요.</p></div>
+        <div class="step-emoji">🎯</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 비교 -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">WHY</div>
+      <h2>직접 찾으면 놓치기 쉬워요</h2>
+      <p>지원금은 흩어져 있어서, 아는 사람만 챙겨요</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col bad reveal">
+        <div class="ctitle">😮‍💨 직접 알아보면</div>
+        <div class="compare-list">
+          <div class="compare-item"><span class="mk">✕</span><span>정부·지자체 사이트 수십 곳을 일일이 검색</span></div>
+          <div class="compare-item"><span class="mk">✕</span><span>내 조건에 맞는 상품인지 직접 대조</span></div>
+          <div class="compare-item"><span class="mk">✕</span><span>지자체 지원금은 있는 줄도 모르고 지나침</span></div>
+          <div class="compare-item"><span class="mk">✕</span><span>며칠씩 발품 팔아야 하는 번거로움</span></div>
+        </div>
+      </div>
+      <div class="compare-col good reveal">
+        <div class="ctitle"><span class="badge">추천</span>숨은 돈 찾기로</div>
+        <div class="compare-list">
+          <div class="compare-item"><span class="mk">✓</span><span>한 곳에서 조건만 클릭하면 끝</span></div>
+          <div class="compare-item"><span class="mk">✓</span><span>받을 수 있는 항목만 자동으로 선별</span></div>
+          <div class="compare-item"><span class="mk">✓</span><span>정부 + 지자체 지원금까지 한 번에 합산</span></div>
+          <div class="compare-item"><span class="mk">✓</span><span>딱 30초, 회원가입도 비용도 없음</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Q&A</div>
+      <h2>자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">정말 무료인가요?<span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">네, 모든 계산과 추천은 100% 무료예요. 회원가입이나 결제 정보 입력도 전혀 필요 없습니다.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">개인정보를 입력해야 하나요?<span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">아니요. 나이·소득 같은 입력값은 브라우저 안에서만 계산에 쓰이고, 서버로 전송되거나 저장되지 않아요. 이름·연락처는 묻지도 않습니다.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">계산된 금액이 실제로 보장되나요?<span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">표시되는 금액은 공시된 제도 기준으로 계산한 추정치예요. 최종 한도·지급 여부는 각 기관 심사에 따라 달라질 수 있으니, 신청 전 공식 페이지에서 꼭 확인해 주세요.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">정보는 최신인가요?<span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">2026년 제도 기준으로 업데이트하고 있어요. 정책이 자주 바뀌는 항목은 정책 가이드 글에서 변경 내용을 함께 안내합니다.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 가이드 -->
+<section class="section guides">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">GUIDE</div>
+      <h2>받기 전에 읽어두면 좋아요</h2>
+    </div>
+    <div class="guides-grid">
+      <a href="/posts/beotimok-guide/" class="guide-card reveal">
+        <span class="guide-tag loan">부동산 대출</span>
+        <h3>버팀목 전세자금대출 완벽 가이드 2026</h3>
+        <p>자격조건·한도·금리부터 청년·신혼·신생아 우대 상품까지 한 번에 정리</p>
+      </a>
+      <a href="/posts/didimdol-vs-bogeumjari/" class="guide-card reveal">
+        <span class="guide-tag loan">부동산 대출</span>
+        <h3>디딤돌 vs 보금자리론 — 어느 것이 유리할까?</h3>
+        <p>내 집 마련 대출 두 정부지원 상품을 자격·한도·금리로 비교 분석</p>
+      </a>
+      <a href="/posts/parent-allowance-2026/" class="guide-card reveal">
+        <span class="guide-tag baby">출산·육아</span>
+        <h3>2026년 부모급여 완벽 정리</h3>
+        <p>0세 100만원·1세 50만원, 신청부터 아동수당 중복까지 한 번에 정리</p>
+      </a>
+      <a href="/posts/local-birth-subsidy/" class="guide-card reveal">
+        <span class="guide-tag baby">출산·육아</span>
+        <h3>전국 지자체 출산장려금 완전 정복</h3>
+        <p>광역·기초 지자체 출산장려금 지역별 금액과 신청 시 함정까지</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 마무리 CTA -->
+<section class="section">
+  <div class="container">
+    <div class="final-cta reveal">
+      <h2>내가 놓친 돈, 30초면 확인돼요</h2>
+      <p>지금 바로 받을 수 있는 혜택을 찾아보세요</p>
+      <a href="#services" class="hero-cta">내 혜택 찾아보기 <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <p>정보 출처: <strong>보건복지부 · 고용노동부 · 주택도시기금 · 한국주택금융공사 · 중소벤처기업부 · 소상공인시장진흥공단 · 각 지자체 공시</strong></p>
+    <p>본 페이지는 정보 제공 목적이며 실제 지급·승인을 보장하지 않습니다. 자세한 조건은 각 기관 공식 페이지에서 확인 후 신청해주세요.</p>
+    <div class="footer-links">
+      <a href="/loan/">부동산 대출</a>
+      <a href="/baby/">출산·육아 지원금</a>
+      <a href="/business/">사업자 지원금</a>
+      <a href="/about/">사이트 소개</a>
+      <a href="/privacy/">개인정보처리방침</a>
+      <a href="/contact/">문의</a>
+    </div>
+    <p style="margin-top:16px;">&copy; 2026 숨은 돈 찾기</p>
+  </div>
+</footer>
+
+<script>
+/* ---- 스크롤 등장 (스태거) ---- */
+document.querySelectorAll('.reveal').forEach(function (el) {
+  var sibs = Array.prototype.filter.call(el.parentElement.children, function (c) {
+    return c.classList.contains('reveal');
+  });
+  el.style.transitionDelay = (sibs.indexOf(el) * 0.08) + 's';
+});
+var io = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+/* ---- 숫자 카운트업 ---- */
+function ease(p) { return 1 - Math.pow(1 - p, 3); }
+function runCount(el, target, fmt, dur) {
+  var t0 = performance.now();
+  (function step(t) {
+    var p = Math.min((t - t0) / dur, 1);
+    el.textContent = fmt(Math.floor(target * ease(p)));
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = fmt(target);
+  })(performance.now());
+}
+/* 통계 스트립 */
+document.querySelectorAll('.stat .num[data-count]').forEach(function (el, i) {
+  var target = parseInt(el.getAttribute('data-count'), 10);
+  var suffix = el.getAttribute('data-suffix') || '';
+  setTimeout(function () {
+    runCount(el, target, function (n) { return n + suffix; }, 1100);
+  }, 250 + i * 120);
+});
+/* 결과 카드 금액 — 억/만원 포맷 */
+function won(n) {
+  var eok = Math.floor(n / 100000000);
+  var man = Math.floor((n % 100000000) / 10000);
+  var s = '';
+  if (eok > 0) s += eok + '억';
+  if (man > 0) s += (s ? ' ' : '') + man.toLocaleString() + '만';
+  if (!s) s = '0';
+  return s + '<span class="unit">원</span>';
+}
+var amtSeen = new WeakSet();
+var amtIO = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (!e.isIntersecting || amtSeen.has(e.target)) return;
+    amtSeen.add(e.target);
+    var target = parseInt(e.target.getAttribute('data-amount'), 10);
+    var t0 = performance.now();
+    (function step(t) {
+      var p = Math.min((t - t0) / 1400, 1);
+      e.target.innerHTML = won(Math.floor(target * ease(p)));
+      if (p < 1) requestAnimationFrame(step);
+      else e.target.innerHTML = won(target);
+    })(performance.now());
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.result-amount').forEach(function (el) { amtIO.observe(el); });
+
+/* ---- 히어로 회전 단어 ---- */
+(function () {
+  var words = [
+    { t: '전세·주택 대출', c: '#3182F6' },
+    { t: '출산·육아 지원금', c: '#EC4899' },
+    { t: '사업자 지원금', c: '#0FA968' },
+    { t: '우리 가게 진단', c: '#5B5BD6' }
+  ];
+  var el = document.getElementById('rotWord');
+  var i = 0;
+  setInterval(function () {
+    el.classList.add('swap');
+    setTimeout(function () {
+      i = (i + 1) % words.length;
+      el.textContent = words[i].t;
+      el.style.color = words[i].c;
+      el.classList.remove('swap');
+    }, 320);
+  }, 2300);
+})();
+
+/* ---- FAQ 아코디언 ---- */
+document.querySelectorAll('.faq-q').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var item = btn.parentElement;
+    var ans = item.querySelector('.faq-a');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function (op) {
+      op.classList.remove('open');
+      op.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+</body>
+</html>

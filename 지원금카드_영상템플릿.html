@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --blue:#3182F6; --blue-dark:#1B64DA;
+    --ink:#191F28; --gray:#6B7684; --line:#EBEEF1; --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1080px;height:1920px;}
+  body{
+    font-family:'Pretendard','Pretendard Variable',-apple-system,'Noto Sans KR',sans-serif;
+    background:linear-gradient(180deg,#E7F1FF 0%,#F3F5F7 34%,#F3F5F7 100%);
+    color:var(--ink); -webkit-font-smoothing:antialiased;
+  }
+  .card{
+    width:1080px;height:1920px;padding:72px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+
+  .eyebrow{font-size:33px;font-weight:800;color:var(--blue);}
+  .headline{margin-top:16px;font-size:73px;font-weight:800;line-height:1.26;letter-spacing:-2px;}
+  .headline .hl{color:var(--blue);}
+
+  .hero{
+    position:relative;overflow:hidden;
+    margin-top:40px;
+    background:linear-gradient(135deg,#3182F6 0%,#1B64DA 100%);
+    border-radius:36px;padding:48px 56px;
+    box-shadow:0 26px 48px -18px rgba(49,130,246,.55);
+  }
+  .hero-label{font-size:31px;font-weight:700;color:#CFE2FF;}
+  .hero-num{margin-top:10px;font-size:108px;font-weight:800;color:#fff;letter-spacing:-3px;line-height:1.04;}
+  .hero-num .unit{font-size:58px;font-weight:700;}
+  .hero-sub{margin-top:14px;font-size:27px;font-weight:500;color:#CFE2FF;}
+
+  .panel{
+    margin-top:28px;background:var(--card);border-radius:32px;
+    padding:38px 46px;box-shadow:0 10px 26px -16px rgba(0,0,0,.16);
+  }
+  .panel-title{font-size:30px;font-weight:800;color:var(--ink);}
+  .row{display:flex;align-items:center;padding:17px 0;border-bottom:1px solid var(--line);}
+  .row:last-child{border-bottom:none;padding-bottom:2px;}
+  .row.first{padding-top:18px;}
+  .row .emoji{font-size:40px;width:62px;}
+  .row .txt{font-size:32px;font-weight:600;color:#333D4B;}
+  .brk{display:flex;justify-content:space-between;align-items:baseline;padding:13px 14px;}
+  .brk .name{font-size:28px;font-weight:500;color:var(--gray);}
+  .brk .amt{font-size:30px;font-weight:700;color:#333D4B;}
+  .brk.first{padding-top:16px;}
+  .brk.total{border-top:2px solid var(--line);margin-top:6px;padding-top:20px;border-radius:14px;}
+  .brk.total .name{font-size:32px;font-weight:800;color:var(--ink);}
+  .brk.total .amt{font-size:38px;font-weight:800;color:var(--blue);display:inline-block;}
+
+  /* ===== 애니메이션 (body.go 일 때만 실행) ===== */
+  .fx{opacity:0;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(46px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes popIn{0%{opacity:0;transform:scale(.84);}65%{opacity:1;transform:scale(1.03);}100%{opacity:1;transform:scale(1);}}
+  @keyframes shine{0%{left:-65%;}100%{left:135%;}}
+  @keyframes numGlow{0%,100%{text-shadow:0 0 0 rgba(255,255,255,0);}50%{text-shadow:0 0 34px rgba(255,255,255,.6);}}
+  @keyframes spk{0%{opacity:0;transform:scale(0) rotate(0);}40%{opacity:1;transform:scale(1.15) rotate(55deg);}100%{opacity:0;transform:scale(0) rotate(135deg);}}
+  @keyframes totalGlow{0%,100%{background:transparent;}50%{background:#E4F0FF;}}
+  @keyframes amtPop{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+  body.go .eyebrow {animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) .15s both;}
+  body.go .headline{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) .30s both;}
+  body.go .hero    {animation:popIn .75s cubic-bezier(.2,.7,.2,1) .55s both;}
+  body.go .p1      {animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) 1.20s both;}
+  body.go .p2      {animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) 2.05s both;}
+  body.go .hero-num{animation:numGlow 1.3s ease-in-out 1.55s 2;}
+  body.go .hero::before{
+    content:'';position:absolute;top:0;left:-65%;width:55%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);
+    transform:skewX(-20deg);
+    animation:shine 1s ease-in 2.75s 2;
+  }
+  body.go .brk.total    {animation:totalGlow .85s ease-in-out 4.25s 2;}
+  body.go .brk.total .amt{animation:amtPop .85s ease-in-out 4.25s 2;}
+
+  .sparkle{
+    position:absolute;background:#fff;
+    clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);
+    filter:drop-shadow(0 0 7px rgba(255,255,255,.95));
+    opacity:0;animation:spk 1s ease-in-out both;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- ▼▼▼ 매번 교체하는 영역 START ▼▼▼ -->
+  <div class="eyebrow fx">🏥 사장님 지원금 실제 사례</div>
+  <div class="headline fx">직원 50명 병원이<br>1년에 받은 <span class="hl">정부지원금</span></div>
+
+  <div class="hero fx">
+    <div class="hero-label">💰 받은 지원금</div>
+    <div class="hero-num"><span id="num">0</span><span class="unit">만원</span></div>
+    <div class="hero-sub">조건만 맞으면, 신청해서 받는 돈</div>
+  </div>
+
+  <div class="panel p1 fx">
+    <div class="panel-title">이렇게 받았어요</div>
+    <div class="row first"><span class="emoji">🏥</span><span class="txt">비수도권 · 직원 50명 병원</span></div>
+    <div class="row"><span class="emoji">🧑‍💼</span><span class="txt">청년 20명 신규 채용</span></div>
+    <div class="row"><span class="emoji">🍼</span><span class="txt">출산·육아휴직 10명</span></div>
+    <div class="row"><span class="emoji">🔄</span><span class="txt">대체인력 10명 채용</span></div>
+  </div>
+
+  <div class="panel p2 fx">
+    <div class="panel-title">지원금 구성</div>
+    <div class="brk first"><span class="name">청년일자리도약장려금</span><span class="amt">1억 4,400만원</span></div>
+    <div class="brk"><span class="name">육아휴직 지원금</span><span class="amt">3,600만원</span></div>
+    <div class="brk"><span class="name">대체인력 지원금</span><span class="amt">1억 5,600만원</span></div>
+    <div class="brk"><span class="name">남성 육아휴직 인센티브</span><span class="amt">360만원</span></div>
+    <div class="brk total"><span class="name">합계</span><span class="amt">3억 3,960만원</span></div>
+  </div>
+  <!-- ▲▲▲ 매번 교체하는 영역 END ▲▲▲ -->
+
+</div>
+
+<script>
+  var TARGET = 33960;          // 만원 단위 최종 금액
+  var COUNT_DELAY = 1000;      // 카운트업 시작(ms)
+  var COUNT_DUR = 1750;        // 카운트업 길이(ms)
+  var SPARKLE_DELAY = 2300;    // 스파클 시작(ms)
+
+  function fmt(v){
+    v = Math.round(v);
+    var eok = Math.floor(v/10000), rest = v%10000;
+    return (eok>0 ? eok+'억 ' : '') + rest.toLocaleString();
+  }
+  function easeOut(t){ return 1 - Math.pow(1-t,3); }
+
+  function start(){
+    document.body.classList.add('go');
+    var numEl = document.getElementById('num');
+
+    setTimeout(function(){
+      var t0 = performance.now();
+      (function step(now){
+        var p = (now - t0) / COUNT_DUR; if(p>1) p=1;
+        numEl.textContent = fmt(TARGET * easeOut(p));
+        if(p<1) requestAnimationFrame(step);
+        else numEl.textContent = fmt(TARGET);
+      })(t0);
+    }, COUNT_DELAY);
+
+    setTimeout(function(){
+      var hero = document.querySelector('.hero');
+      for(var i=0;i<18;i++){
+        var s = document.createElement('div');
+        s.className = 'sparkle';
+        var sz = 13 + Math.random()*24;
+        s.style.width = sz+'px'; s.style.height = sz+'px';
+        s.style.left = (4 + Math.random()*92)+'%';
+        s.style.top  = (8 + Math.random()*84)+'%';
+        s.style.animationDelay = (Math.random()*1.0)+'s';
+        hero.appendChild(s);
+      }
+    }, SPARKLE_DELAY);
+  }
+
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ setTimeout(start, 120); });
+  } else {
+    window.addEventListener('load', start);
+  }
+</script>
+</body>
+</html>
