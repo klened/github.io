@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZKQ6TBT1Z"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-1ZKQ6TBT1Z');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사업자 마케팅 예산 계산기 — 업종·매출·단계별 적정 광고비 자동 계산 | 숨은 돈 찾기</title>
+<meta name="description" content="업종·매출·사업 단계만 입력하면 권장 마케팅 예산과 채널별 배분(SNS·검색광고·블로그·오프라인)을 자동 계산해드려요. 동종 업종 벤치마크 비교 포함.">
+<meta name="keywords" content="마케팅 예산 계산, 광고비 책정, 업종별 마케팅 비중, 매출 대비 마케팅, 디지털마케팅 예산, SNS 광고 예산, 검색광고 예산, 자영업 마케팅, 소상공인 마케팅">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="사업자 마케팅 예산 계산기">
+<meta property="og:description" content="업종·매출·단계별 적정 광고비를 1초에 계산하세요.">
+<meta property="og:locale" content="ko_KR">
+<link rel="canonical" href="https://klened.github.io/marketing/">
+<meta property="og:url" content="https://klened.github.io/marketing/">
+<meta property="og:site_name" content="숨은 돈 찾기">
+<meta property="og:image" content="https://klened.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166113588920348" crossorigin="anonymous"></script>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" type="text/css" />
+<style>
+:root {
+  --primary: #0FA968; --primary-dark: #0B8A54; --primary-light: #E3F6EE; --primary-soft: #F1FAF6;
+  --bg: #FFFFFF; --bg-soft: #EDF0F4; --bg-card: #FFFFFF;
+  --text-strong: #191F28; --text: #333D4B; --text-soft: #4E5968; --text-mute: #8B95A1; --text-disabled: #B0B8C1;
+  --border: #E5E8EB; --border-soft: #EAEDF1;
+  --success: #00C73C; --warning: #FF9D00; --danger: #F04452;
+  --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 10px 32px rgba(0,0,0,0.10);
+  --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg-soft); color: var(--text); line-height: 1.5; word-break: keep-all; }
+button, input, select { font-family: inherit; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+.site-nav { background: var(--bg); border-bottom: 1px solid var(--border-soft); padding: 12px 0; position: sticky; top: 0; z-index: 50; }
+.site-nav .container { display: flex; gap: 8px; align-items: center; }
+.site-nav .brand { font-weight: 800; color: var(--text-strong); font-size: 16px; text-decoration: none; letter-spacing: -0.3px; }
+header.hero { background: var(--bg); padding: 32px 0 24px; border-bottom: 1px solid var(--border-soft); }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary-dark); padding: 6px 12px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+header.hero h1 { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1.3; letter-spacing: -0.6px; margin-bottom: 10px; }
+header.hero p.lead { font-size: 15px; color: var(--text-soft); line-height: 1.55; }
+.examples { margin: 20px 0 4px; }
+.examples-head h2 { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.3px; }
+.examples-head p { font-size: 13px; color: var(--text-mute); margin-top: 3px; }
+.example-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+.example-card { text-align: left; background: var(--bg-card); border: 1.5px solid var(--border-soft); border-radius: var(--radius-md); padding: 16px; cursor: pointer; transition: all 0.18s; font-family: var(--font); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 7px; }
+.example-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.ex-cond { font-size: 13px; color: var(--text-soft); font-weight: 600; line-height: 1.5; }
+.ex-result-num { font-size: 19px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.4px; }
+.ex-result-sub { font-size: 12px; color: var(--text-mute); font-weight: 500; }
+.ex-go { font-size: 13px; font-weight: 700; color: var(--primary-dark); margin-top: 1px; }
+.tossface { font-family: 'Tossface', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif; }
+.ex-icon { width: 42px; height: 42px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 2px; }
+@media (min-width: 768px) { .example-grid { grid-template-columns: repeat(3, 1fr); } }
+.step-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0 8px; padding: 14px 18px; background: var(--primary-light); border-radius: var(--radius-md); }
+.step-bar-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+.step-bar-text { font-size: 14px; color: var(--primary-dark); font-weight: 600; }
+.form-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-md); margin-bottom: 16px; }
+.form-card h2.section-title { font-size: 18px; font-weight: 700; color: var(--text-strong); margin-bottom: 4px; letter-spacing: -0.3px; }
+.form-card .section-sub { font-size: 13px; color: var(--text-mute); margin-bottom: 20px; }
+.form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
+.form-group:last-child { margin-bottom: 0; }
+.form-group label.field-label { font-size: 14px; font-weight: 600; color: var(--text-strong); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.required-dot { width: 5px; height: 5px; background: var(--danger); border-radius: 50%; }
+.field-hint { font-size: 12px; color: var(--text-mute); font-weight: 400; margin-left: auto; }
+.input-wrap { position: relative; }
+.form-group select, .form-group input[type="number"] { width: 100%; padding: 16px; border: 1.5px solid var(--border); border-radius: var(--radius-md); font-size: 16px; font-weight: 500; color: var(--text-strong); background: var(--bg); transition: all 0.18s; -webkit-appearance: none; appearance: none; }
+.form-group select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B95A1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 16px center; background-size: 18px; padding-right: 44px; }
+.form-group select:focus, .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(15,169,104,0.15); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.amount-field { background: var(--primary-soft); border-radius: var(--radius-md); padding: 18px 16px 14px; }
+.amount-now { font-size: 22px; font-weight: 800; color: var(--primary-dark); font-variant-numeric: tabular-nums; margin-bottom: 14px; }
+.amount-now.empty { font-size: 15px; font-weight: 600; color: var(--text-disabled); }
+.amount-range { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 100px; background: var(--border); outline: none; }
+.amount-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.amount-range::-moz-range-thumb { width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); box-shadow: 0 3px 10px rgba(0,0,0,0.22); cursor: pointer; }
+.range-ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-mute); margin-top: 8px; font-weight: 500; }
+.quick-amount { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.quick-btn { padding: 9px 14px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.quick-btn:hover { border-color: var(--primary); color: var(--primary-dark); }
+.action-bar { display: flex; gap: 10px; margin-top: 8px; }
+.submit-btn { flex: 1; padding: 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.18s; box-shadow: 0 4px 14px rgba(15,169,104,0.32); }
+.submit-btn:hover { background: var(--primary-dark); }
+.reset-btn { padding: 18px 22px; background: var(--bg); color: var(--text-soft); border: 1.5px solid var(--border); border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; }
+.loading-state { display: none; text-align: center; padding: 60px 20px; }
+.loading-state.show { display: block; }
+.spinner { width: 40px; height: 40px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.results-wrap { display: none; margin-top: 24px; }
+.results-wrap.show { display: block; }
+.results-header { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 14px; }
+.results-header h2 { font-size: 20px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.4px; }
+.results-header .count { font-size: 13px; color: var(--text-mute); font-weight: 500; }
+.main-card { background: linear-gradient(135deg, #ECFAF3 0%, #FFFFFF 60%); border: 1.5px solid var(--primary); border-radius: var(--radius-lg); padding: 26px 22px; margin-bottom: 16px; box-shadow: var(--shadow-md); }
+.main-card .mc-label { font-size: 12px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+.main-card .mc-title { font-size: 26px; font-weight: 800; color: var(--primary-dark); margin-bottom: 14px; letter-spacing: -0.6px; }
+.main-card .mc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+.main-card .mc-cell { background: rgba(255,255,255,0.75); border: 1px solid rgba(15,169,104,0.18); border-radius: 12px; padding: 14px 10px; text-align: center; }
+.main-card .mc-cell-label { font-size: 11px; color: var(--text-mute); font-weight: 600; margin-bottom: 5px; }
+.main-card .mc-cell-value { font-size: 17px; font-weight: 800; color: var(--text-strong); letter-spacing: -0.3px; }
+.main-card .mc-cell-value.primary { color: var(--primary-dark); font-size: 19px; }
+.main-card .mc-summary { background: rgba(255,255,255,0.75); border-radius: 12px; padding: 14px 16px; font-size: 13px; line-height: 1.7; color: var(--text); }
+.main-card .mc-summary strong { color: var(--primary-dark); }
+.benchmark-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg-soft); border-radius: 12px; margin-bottom: 14px; }
+.benchmark-row .bm-label { font-size: 12px; font-weight: 600; color: var(--text-soft); }
+.benchmark-row .bm-value { font-size: 14px; font-weight: 700; color: var(--text-strong); }
+.benchmark-row .bm-tag { padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; }
+.benchmark-row .bm-tag.under { background: #FFF4E0; color: #B86E00; }
+.benchmark-row .bm-tag.fit { background: #E3F6EE; color: var(--primary-dark); }
+.benchmark-row .bm-tag.over { background: #FFEEEE; color: var(--danger); }
+.channel-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 12px; box-shadow: var(--shadow-md); }
+.channel-card h3 { font-size: 16px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; letter-spacing: -0.3px; }
+.ch-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-soft); }
+.ch-row:last-child { border-bottom: none; }
+.ch-name { flex: 1; font-size: 13px; font-weight: 600; color: var(--text-strong); display: flex; align-items: center; gap: 6px; }
+.ch-bar { flex: 1.5; height: 10px; background: var(--bg-soft); border-radius: 5px; overflow: hidden; position: relative; }
+.ch-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 5px; transition: width 0.6s; }
+.ch-pct { font-size: 12px; font-weight: 700; color: var(--primary-dark); width: 42px; text-align: right; font-variant-numeric: tabular-nums; }
+.ch-amt { font-size: 13px; font-weight: 700; color: var(--text-strong); width: 80px; text-align: right; font-variant-numeric: tabular-nums; }
+.action-tip { background: linear-gradient(135deg, #ECFAF3 0%, #F5FCF8 100%); border-left: 4px solid var(--primary); border-radius: 10px; padding: 14px 16px; margin-top: 14px; font-size: 13px; color: var(--text); line-height: 1.6; }
+.action-tip strong { color: var(--primary-dark); display: block; margin-bottom: 4px; }
+.disclaimer { background: var(--primary-soft); border-radius: var(--radius-md); padding: 16px 18px; margin-top: 18px; font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.disclaimer strong { color: var(--text-strong); font-weight: 700; background: linear-gradient(180deg, transparent 60%, rgba(15,169,104,0.45) 60%); padding: 0 2px; }
+.faq-section { margin: 32px 0; }
+.faq-section h2 { font-size: 18px; font-weight: 800; color: var(--text-strong); margin-bottom: 14px; padding: 0 4px; letter-spacing: -0.3px; }
+details.faq-item { background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 8px; box-shadow: var(--shadow-sm); }
+details.faq-item summary { list-style: none; padding: 16px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--text-strong); display: flex; justify-content: space-between; align-items: center; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after { content: '+'; font-size: 22px; color: var(--text-mute); font-weight: 300; }
+details.faq-item[open] summary::after { content: '−'; color: var(--primary); }
+details.faq-item .faq-answer { padding: 0 18px 18px; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+footer.site-footer { background: var(--bg); padding: 28px 0 40px; text-align: center; margin-top: 24px; border-top: 1px solid var(--border-soft); }
+footer.site-footer p { font-size: 12px; color: var(--text-mute); margin-bottom: 6px; }
+footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
+@media (min-width: 768px) {
+  .container { padding: 0 24px; }
+  header.hero { padding: 56px 0 40px; }
+  header.hero h1 { font-size: 36px; }
+  header.hero p.lead { font-size: 17px; }
+  .form-card { padding: 32px 28px; }
+  .main-card .mc-title { font-size: 34px; }
+  details.faq-item summary { padding: 18px 22px; font-size: 15px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  header.hero h1 { font-size: 22px; }
+  .form-card { padding: 20px 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  .main-card .mc-title { font-size: 22px; }
+  .main-card .mc-grid { gap: 6px; }
+  .main-card .mc-cell { padding: 10px 6px; }
+  .main-card .mc-cell-value { font-size: 15px; }
+  .main-card .mc-cell-value.primary { font-size: 17px; }
+  .ch-row { flex-wrap: wrap; }
+  .ch-name { flex: 1 1 100%; margin-bottom: 4px; }
+  .ch-bar { flex: 1; }
+  .ch-amt { width: auto; }
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" id="siteNav"><div class="container"><a href="/" class="brand">숨은 돈 찾기</a></div></nav>
+<script src="/assets/nav.js"></script>
+<header class="hero">
+<div class="container">
+<span class="hero-badge">2026년 5월 기준 업종 벤치마크</span>
+<h1>우리 가게 적정 마케팅 예산,<br>1초에 계산해드려요</h1>
+<p class="lead">업종·매출·사업 단계만 입력하면 권장 마케팅 예산과<br>채널별 배분(SNS·검색광고·블로그·오프라인)을 자동으로 알려드려요.</p>
+</div>
+</header>
+<main class="container">
+<section class="examples">
+<div class="examples-head">
+<h2>예시로 먼저 확인해보세요</h2>
+<p>비슷한 업종을 누르면 결과가 바로 나와요</p>
+</div>
+<div class="example-grid">
+<button type="button" class="example-card" data-ex="0">
+<div class="ex-icon tossface">🍴</div>
+<div class="ex-cond">외식업 · 월매출 3,000만<br>오픈 6개월차 (신규)</div>
+<div class="ex-result-num" id="exNum0">계산 중…</div>
+<div class="ex-result-sub" id="exSub0"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="1">
+<div class="ex-icon tossface">💄</div>
+<div class="ex-cond">뷰티샵 · 월매출 1,500만<br>2년차 (성장기)</div>
+<div class="ex-result-num" id="exNum1">계산 중…</div>
+<div class="ex-result-sub" id="exSub1"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+<button type="button" class="example-card" data-ex="2">
+<div class="ex-icon tossface">📦</div>
+<div class="ex-cond">이커머스 · 월매출 5,000만<br>3년차 · 온라인 전용</div>
+<div class="ex-result-num" id="exNum2">계산 중…</div>
+<div class="ex-result-sub" id="exSub2"></div>
+<div class="ex-go">이 조건으로 결과 보기 →</div>
+</button>
+</div>
+</section>
+<div class="step-bar"><div class="step-bar-icon">1</div><div class="step-bar-text">사업 정보를 입력하면 적정 예산과 채널별 배분을 계산해드려요</div></div>
+<form id="filterForm" novalidate>
+<section class="form-card">
+<h2 class="section-title">사업 정보</h2>
+<p class="section-sub">업종이 권장 예산 비중을 결정해요</p>
+<div class="form-row">
+<div class="form-group"><label class="field-label" for="industry">업종 <span class="required-dot"></span></label>
+<div class="input-wrap"><select id="industry" name="industry" required>
+<option value="">선택해주세요</option>
+<option value="food">🍴 외식·식음료</option>
+<option value="retail">🛍 소매·판매</option>
+<option value="beauty">💄 뷰티·미용</option>
+<option value="health">🏋 헬스·운동</option>
+<option value="service">🛠 생활서비스 (청소·세탁 등)</option>
+<option value="edu">📚 교육·학원</option>
+<option value="medical">🏥 의료·병원</option>
+<option value="ecom">📦 이커머스·온라인 판매</option>
+<option value="b2b">🏢 B2B 서비스</option>
+<option value="realestate">🏠 부동산·중개</option>
+</select></div></div>
+<div class="form-group"><label class="field-label" for="stage">사업 단계</label>
+<div class="input-wrap"><select id="stage" name="stage">
+<option value="new">🌱 신규·오픈 (1년 미만)</option>
+<option value="growth">📈 성장기 (1~3년)</option>
+<option value="stable">⚖️ 안정기 (3~5년)</option>
+<option value="mature">🏛 성숙기 (5년 이상)</option>
+</select></div></div>
+</div>
+<div class="form-group"><label class="field-label" for="bizModel">사업 형태</label>
+<div class="input-wrap"><select id="bizModel" name="bizModel">
+<option value="offline">🏪 오프라인 매장 중심</option>
+<option value="online">💻 온라인 중심</option>
+<option value="hybrid">🔄 오프라인 + 온라인 혼합</option>
+<option value="b2bModel">📋 B2B 서비스</option>
+</select></div></div>
+</section>
+<section class="form-card">
+<h2 class="section-title">매출 정보</h2>
+<p class="section-sub">월 평균 매출을 입력해주세요</p>
+<div class="form-group">
+<label class="field-label" for="revenueRange">월 평균 매출 (세전) <span class="required-dot"></span></label>
+<div class="amount-field">
+<div class="amount-now empty" id="revenueNow">아직 선택 안 함</div>
+<input type="range" class="amount-range" id="revenueRange" min="0" max="50000" step="100" value="0">
+<div class="range-ends"><span>0원</span><span>5억+</span></div>
+<div class="quick-amount">
+<button class="quick-btn" type="button" data-target="revenue" data-amount="1000">1,000만</button>
+<button class="quick-btn" type="button" data-target="revenue" data-amount="3000">3,000만</button>
+<button class="quick-btn" type="button" data-target="revenue" data-amount="5000">5,000만</button>
+<button class="quick-btn" type="button" data-target="revenue" data-amount="10000">1억</button>
+<button class="quick-btn" type="button" data-target="revenue" data-amount="20000">2억</button>
+</div>
+<input type="hidden" id="revenue" name="revenue">
+</div>
+</div>
+</section>
+<div class="action-bar">
+<button id="resetBtn" class="reset-btn" type="button">초기화</button>
+<button id="submitBtn" class="submit-btn" type="submit">적정 마케팅 예산 계산하기</button>
+</div>
+</form>
+<div id="loading" class="loading-state"><div class="spinner"></div><p>업종 데이터 기반으로 적정 예산을 계산 중…</p></div>
+<section id="results" class="results-wrap" aria-live="polite">
+<div class="results-header"><h2>계산 결과</h2><div id="resultCount" class="count"></div></div>
+<div id="mainArea"></div>
+<div id="channelArea"></div>
+<div class="disclaimer"><b>⚠ 안내</b> · 본 결과는 <b>업종별 매출 대비 마케팅 비중 평균치</b> 기반의 추정 권고이며 실제 적정 예산은 경쟁 강도·고객 LTV·마진율에 따라 달라집니다. 매출이 빠르게 늘고 있다면 권장치 위쪽, 정체기에는 권장치 아래쪽을 시작점으로 잡고 ROI를 보며 조정하세요.</div>
+</section>
+<section class="faq-section">
+<h2>자주 묻는 질문</h2>
+<details class="faq-item"><summary>매출 대비 마케팅 예산 비중은 어떻게 정해지나요?</summary>
+<div class="faq-answer">업종별로 평균 마진율·고객 획득 비용(CAC)·구매 주기가 다르기 때문에 권장 비중도 달라집니다. 예) 외식업은 마진율이 낮고 입소문 비중이 크므로 3~6%, 이커머스는 광고 의존도가 높아 8~15%, B2B는 영업주기가 길어 5~10% 정도가 일반적이에요. 본 계산기는 한국 자영업·중소기업 평균치를 기준으로 합니다.</div>
+</details>
+<details class="faq-item"><summary>신규 오픈은 왜 권장 예산이 더 높나요?</summary>
+<div class="faq-answer">신규 사업은 *인지도 0%*에서 시작하기 때문에 단골이 쌓이는 안정기보다 1.5배 정도 더 투자해야 본 궤도에 오를 수 있습니다. 반대로 5년 이상 자리잡은 사업은 *기존 고객의 재방문·소개*가 큰 비중을 차지하므로 권장치의 0.8배 수준으로 줄여도 매출이 유지돼요.</div>
+</details>
+<details class="faq-item"><summary>SNS와 검색광고 중 어디에 더 써야 하나요?</summary>
+<div class="faq-answer">고객의 *구매 결정 시점*에 따라 다릅니다. 외식·뷰티·매장형은 *비주얼·후기 탐색*이 중요해 SNS(인스타그램)에 더 비중을 두는 게 효율적입니다. 이커머스·서비스업·교육은 *검색 의도가 명확*하므로 네이버·구글 검색광고가 ROAS가 더 높아요. B2B는 *콘텐츠/블로그·LinkedIn*이 핵심 채널입니다.</div>
+</details>
+<details class="faq-item"><summary>오프라인 매장도 디지털 마케팅이 필요한가요?</summary>
+<div class="faq-answer">네, 오히려 더 필요합니다. 매장 방문 전 *80% 이상의 고객이 네이버 지도·인스타·블로그 후기를 검색*한 후 옵션을 좁힙니다. 매장이 있더라도 네이버 플레이스 최적화·인스타 매장 콘텐츠·구글맵 리뷰 관리는 필수 인프라로 보고 별도 예산을 잡으세요.</div>
+</details>
+<details class="faq-item"><summary>예산이 작으면 어떤 채널부터 시작해야 하나요?</summary>
+<div class="faq-answer">월 30만원 미만이라면 *유료 광고보다 콘텐츠·SEO·후기 관리*에 시간을 더 쓰는 게 ROI가 높습니다. 네이버 플레이스 최적화, 블로그 1주 1포스팅, 인스타 일관된 컨셉 등 *무료지만 시간이 드는 채널*부터 다지고, 매출이 늘면 유료 광고(네이버 검색광고·메타 광고)로 확장하는 게 안전합니다.</div>
+</details>
+</section>
+</main>
+<footer class="site-footer"><div class="container">
+<p>업종 벤치마크 출처: <b>한국소상공인진흥공단 · 한국마케팅협회 · 통계청 도소매업 통계 · 자체 시장 분석</b></p>
+<p>&copy; 2026 숨은 돈 찾기 · 본 페이지는 정보 제공 목적이며 실제 마케팅 성과를 보장하지 않습니다</p>
+</div></footer>
+<script>
+/* 업종별 권장 마케팅 비중 (매출 대비 %, [최저, 평균, 최고]) */
+const INDUSTRY = {
+  food:       { name: '외식·식음료', pct: [3, 4.5, 6] },
+  retail:     { name: '소매·판매', pct: [4, 6, 8] },
+  beauty:     { name: '뷰티·미용', pct: [7, 9.5, 12] },
+  health:     { name: '헬스·운동', pct: [5, 7.5, 10] },
+  service:    { name: '생활서비스', pct: [4, 6, 8] },
+  edu:        { name: '교육·학원', pct: [6, 8, 10] },
+  medical:    { name: '의료·병원', pct: [2, 3.5, 5] },
+  ecom:       { name: '이커머스·온라인', pct: [8, 11.5, 15] },
+  b2b:        { name: 'B2B 서비스', pct: [5, 7.5, 10] },
+  realestate: { name: '부동산·중개', pct: [3, 5, 7] }
+};
+/* 사업 단계별 조정 계수 */
+const STAGE_MULT = { new: 1.5, growth: 1.2, stable: 1.0, mature: 0.8 };
+const STAGE_NAME = { new: '신규·오픈', growth: '성장기', stable: '안정기', mature: '성숙기' };
+/* 사업 형태별 채널 배분 */
+const CHANNEL_MIX = {
+  offline: [
+    { name: '📱 인스타그램·SNS', pct: 35, tip: '매장 비주얼·후기·일상 콘텐츠 일관 게시' },
+    { name: '🔍 네이버 플레이스·검색', pct: 25, tip: '플레이스 최적화·검색광고·블로그 리뷰' },
+    { name: '🗺 오프라인·전단·간판', pct: 20, tip: '동네 타겟 전단·간판·매장 입구 강화' },
+    { name: '⭐ 후기·리뷰 관리', pct: 15, tip: '네이버·구글 리뷰 적극 응대 + 사진 유도' },
+    { name: '🎁 이벤트·시즌', pct: 5, tip: '오픈·시즌별 프로모션·로열티 카드' }
+  ],
+  online: [
+    { name: '🔍 검색광고 (네이버·구글)', pct: 30, tip: '쇼핑검색·키워드·DA 광고로 의도 명확 트래픽 확보' },
+    { name: '📱 인스타·페이스북 광고', pct: 25, tip: '신규고객 노출·릴스 콘텐츠·룩북' },
+    { name: '🎯 리타겟팅·전환광고', pct: 15, tip: '이탈고객 추격광고·장바구니 회수' },
+    { name: '✍️ 콘텐츠·블로그·SEO', pct: 15, tip: '제품 후기·사용법·SEO 키워드 장기 자산화' },
+    { name: '👥 인플루언서·앰배서더', pct: 10, tip: '나노~마이크로 인플루언서 협업으로 신뢰 구축' },
+    { name: '📧 이메일·CRM', pct: 5, tip: '단골 리텐션 + 적립금·구매주기 캠페인' }
+  ],
+  hybrid: [
+    { name: '📱 인스타·SNS', pct: 30, tip: '오프라인·온라인 동시 후킹' },
+    { name: '🔍 검색광고·플레이스', pct: 25, tip: '검색의도 + 매장 노출 동시 잡기' },
+    { name: '✍️ 블로그·콘텐츠 SEO', pct: 15, tip: '브랜드 자산화 + 검색 유입 장기 확보' },
+    { name: '🎯 리타겟팅·DA 광고', pct: 12, tip: '매장 방문·온라인 이탈 동시 회수' },
+    { name: '⭐ 후기·리뷰 관리', pct: 10, tip: '네이버 플레이스 + 자사몰 후기 둘 다' },
+    { name: '🎁 프로모션·이벤트', pct: 8, tip: '오프라인 이벤트 → 온라인 확산 연계' }
+  ],
+  b2bModel: [
+    { name: '✍️ 콘텐츠·블로그·SEO', pct: 25, tip: '사례 연구·솔루션 문서·전문성 콘텐츠' },
+    { name: '🔍 검색광고·SEM', pct: 20, tip: '구매의도 키워드·B2B 키워드 집중' },
+    { name: '💼 LinkedIn·전문 매체', pct: 15, tip: '의사결정권자 타겟·LinkedIn 광고' },
+    { name: '🎤 세미나·웨비나·전시', pct: 15, tip: '리드 확보 + 신뢰 형성 동시' },
+    { name: '📧 이메일·CRM·ABM', pct: 15, tip: '리드 nurturing·계정 기반 마케팅' },
+    { name: '🤝 파트너십·레퍼럴', pct: 10, tip: '기존 고객 추천·파트너 협업' }
+  ]
+};
+function formatMan(man) {
+  if (!man || man <= 0) return '0원';
+  if (man >= 10000) { const e = man / 10000; return (man % 10000 === 0) ? Math.floor(e) + '억원' : e.toFixed(1).replace(/\.0$/, '') + '억원'; }
+  return man.toLocaleString() + '만원';
+}
+function calc(user) {
+  const ind = INDUSTRY[user.industry];
+  if (!ind || !user.revenue) return null;
+  const mult = STAGE_MULT[user.stage] || 1.0;
+  const minPct = ind.pct[0] * mult;
+  const avgPct = ind.pct[1] * mult;
+  const maxPct = ind.pct[2] * mult;
+  const monthlyMin = Math.round(user.revenue * minPct / 100);
+  const monthlyAvg = Math.round(user.revenue * avgPct / 100);
+  const monthlyMax = Math.round(user.revenue * maxPct / 100);
+  const yearly = monthlyAvg * 12;
+  const channels = CHANNEL_MIX[user.bizModel] || CHANNEL_MIX.hybrid;
+  const channelBudget = channels.map(c => ({ ...c, amount: Math.round(monthlyAvg * c.pct / 100) }));
+  return {
+    industry: ind, mult, stageName: STAGE_NAME[user.stage],
+    minPct, avgPct, maxPct, monthlyMin, monthlyAvg, monthlyMax, yearly, channels: channelBudget
+  };
+}
+function setupSlider(rangeId, hiddenId, nowId) {
+  const range = document.getElementById(rangeId); const hidden = document.getElementById(hiddenId); const now = document.getElementById(nowId);
+  function paint() { const min=parseInt(range.min), max=parseInt(range.max), v=parseInt(range.value)||0; const pct = max>min? (v-min)/(max-min)*100 : 0; range.style.background = 'linear-gradient(90deg, var(--primary) '+pct+'%, var(--border) '+pct+'%)'; }
+  function update() { const v=parseInt(range.value)||0; if (v<=0) { hidden.value=''; now.textContent='아직 선택 안 함'; now.classList.add('empty'); } else { hidden.value=v; now.textContent=formatMan(v); now.classList.remove('empty'); } paint(); }
+  range.addEventListener('input', update); update();
+  return { set: v => { range.value = v; update(); }, reset: () => { range.value = 0; update(); } };
+}
+const revenueSlider = setupSlider('revenueRange', 'revenue', 'revenueNow');
+document.querySelectorAll('.quick-btn').forEach(btn => btn.addEventListener('click', () => { if (btn.dataset.target === 'revenue') revenueSlider.set(parseInt(btn.dataset.amount)); }));
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('filterForm').reset();
+  revenueSlider.reset(); document.getElementById('results').classList.remove('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('filterForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  if (!form.industry.value) { alert('업종을 선택해주세요.'); return; }
+  if (!form.revenue.value) { alert('월 매출을 입력해주세요.'); return; }
+  const user = {
+    industry: form.industry.value, stage: form.stage.value, bizModel: form.bizModel.value,
+    revenue: parseInt(form.revenue.value)
+  };
+  const loading = document.getElementById('loading'); const results = document.getElementById('results');
+  results.classList.remove('show'); loading.classList.add('show');
+  loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => {
+    const result = calc(user);
+    loading.classList.remove('show'); renderResults(result, user);
+  }, 600);
+});
+function renderResults(r, user) {
+  const section = document.getElementById('results'); const mainArea = document.getElementById('mainArea'); const channelArea = document.getElementById('channelArea'); const count = document.getElementById('resultCount');
+  section.classList.add('show');
+  count.textContent = r.industry.name + ' · ' + r.stageName;
+  mainArea.innerHTML = `
+    <div class="main-card">
+      <div class="mc-label">💡 권장 월 마케팅 예산</div>
+      <div class="mc-title">월 ${formatMan(r.monthlyAvg)}</div>
+      <div class="mc-grid">
+        <div class="mc-cell"><div class="mc-cell-label">최소 권장</div><div class="mc-cell-value">${formatMan(r.monthlyMin)}</div></div>
+        <div class="mc-cell"><div class="mc-cell-label">평균 권장</div><div class="mc-cell-value primary">${formatMan(r.monthlyAvg)}</div></div>
+        <div class="mc-cell"><div class="mc-cell-label">최대 권장</div><div class="mc-cell-value">${formatMan(r.monthlyMax)}</div></div>
+      </div>
+      <div class="mc-summary">
+        <strong>${r.industry.name}</strong> 업종 평균 매출 대비 <strong>${r.industry.pct[1]}%</strong>에 <strong>${r.stageName}</strong> 보정(×${r.mult})을 적용한 결과입니다.<br>
+        <strong>월 매출 ${formatMan(user.revenue)}</strong>의 약 <strong>${r.avgPct.toFixed(1)}%</strong> — 연간 약 <strong>${formatMan(r.yearly)}</strong> 수준이에요.
+      </div>
+    </div>
+    <div class="benchmark-row">
+      <span class="bm-label">업종 평균 비중</span>
+      <span class="bm-value">${r.industry.pct[0]}% ~ ${r.industry.pct[2]}%</span>
+      <span class="bm-tag fit">권장: ${r.avgPct.toFixed(1)}%</span>
+    </div>
+  `;
+  channelArea.innerHTML = `
+    <div class="channel-card">
+      <h3>📊 채널별 예산 배분 (권장)</h3>
+      ${r.channels.map(c => `
+        <div class="ch-row">
+          <span class="ch-name">${c.name}</span>
+          <div class="ch-bar"><div class="ch-bar-fill" style="width:${c.pct * 4}%"></div></div>
+          <span class="ch-pct">${c.pct}%</span>
+          <span class="ch-amt">${formatMan(c.amount)}</span>
+        </div>
+      `).join('')}
+      <div class="action-tip">
+        <strong>💡 채널 운영 팁</strong>
+        ${r.channels.slice(0, 2).map(c => `<div>· <b>${c.name.replace(/^[^\s]+\s/, '')}</b>: ${c.tip}</div>`).join('')}
+      </div>
+    </div>
+  `;
+  setTimeout(() => section.scrollIntoView({ behavior: 'smooth' }), 100);
+}
+const EXAMPLES = [
+  { id: 0, form: { industry: 'food', stage: 'new', bizModel: 'offline', revenue: 3000 } },
+  { id: 1, form: { industry: 'beauty', stage: 'growth', bizModel: 'hybrid', revenue: 1500 } },
+  { id: 2, form: { industry: 'ecom', stage: 'stable', bizModel: 'online', revenue: 5000 } }
+];
+function computeExample(ex) {
+  const r = calc(ex.form);
+  if (!r) return { big: '계산 실패', sub: '' };
+  return { big: '월 ' + formatMan(r.monthlyAvg) + ' 권장', sub: '연 ' + formatMan(r.yearly) + ' · ' + r.avgPct.toFixed(1) + '%' };
+}
+EXAMPLES.forEach(ex => { const r = computeExample(ex); document.getElementById('exNum' + ex.id).textContent = r.big; document.getElementById('exSub' + ex.id).textContent = r.sub; });
+document.querySelectorAll('.example-card').forEach(card => card.addEventListener('click', () => {
+  const ex = EXAMPLES[parseInt(card.dataset.ex)]; if (!ex) return;
+  const f = document.getElementById('filterForm');
+  f.industry.value = ex.form.industry; f.stage.value = ex.form.stage; f.bizModel.value = ex.form.bizModel;
+  revenueSlider.set(ex.form.revenue);
+  document.getElementById('submitBtn').click();
+}));
+</script>
+</body>
+</html>
