@@ -239,20 +239,7 @@ footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
 </style>
 <script>
 (function(){
-  function fmtDate(s){
-    if(!s) return '';
-    s = String(s).replace(/-/g,'').slice(0,8);
-    if(s.length===8) return s.slice(0,4)+'.'+s.slice(4,6)+'.'+s.slice(6,8);
-    return s;
-  }
-  function isOngoing(start, end){
-    if(!end) return true;
-    var today = new Date(); today.setHours(0,0,0,0);
-    var d = String(end).replace(/-/g,'').slice(0,8);
-    if(d.length!==8) return true;
-    var endDate = new Date(parseInt(d.slice(0,4)), parseInt(d.slice(4,6))-1, parseInt(d.slice(6,8)));
-    return endDate >= today;
-  }
+  function esc(s){ return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function render(data){
     var list = document.getElementById('lnList');
     var upd = document.getElementById('lnUpdated');
@@ -262,26 +249,31 @@ footer.site-footer strong { color: var(--text-soft); font-weight: 600; }
     } else {
       upd.textContent = '데이터 준비 중';
     }
-    var notices = ((data && data.notices)||[]).filter(function(n){ return isOngoing(n.receiptStart, n.receiptEnd); });
+    var notices = ((data && data.notices)||[]).filter(function(n){
+      // 접수중·공고중·정정공고중만 노출 (접수마감은 fetch 단계에서 이미 제외됨)
+      return !n.status || n.status === '접수중' || n.status === '공고중' || n.status === '정정공고중';
+    });
     if(notices.length===0){
       list.innerHTML = '<div class="ln-empty">📭 자동 수집된 모집공고가 아직 없어요.<br>아래 <strong>공식 페이지</strong>에서 직접 확인하시거나, 며칠 후 다시 방문해주세요.</div>';
       return;
     }
     list.innerHTML = notices.slice(0,8).map(function(n){
-      var period = '';
-      if(n.receiptStart || n.receiptEnd){
-        period = '신청 기간: <strong>' + fmtDate(n.receiptStart) + ' ~ ' + fmtDate(n.receiptEnd) + '</strong>';
-      } else if(n.noticeDate){
-        period = '공고일: <strong>' + fmtDate(n.noticeDate) + '</strong>';
+      var statusColor = n.status === '접수중' ? '#0FA968' : (n.status === '공고중' ? 'var(--primary)' : 'var(--text-soft)');
+      var line = '';
+      if(n.posted || n.deadline){
+        line = '게시: <strong>' + esc(n.posted) + '</strong>' +
+               (n.deadline ? ' · 마감: <strong>' + esc(n.deadline) + '</strong>' : '');
       }
-      return '<a href="' + (n.url||'#') + '" target="_blank" rel="noopener" class="ln-card">' +
+      return '<a href="' + esc(n.url||'#') + '" target="_blank" rel="noopener" class="ln-card">' +
         '<div class="lnc-row1">' +
-          '<span class="lnc-tag">' + (n.agency||'') + '</span>' +
-          (n.kind ? '<span class="lnc-tag" style="background:var(--bg);color:var(--text-soft);">' + n.kind + '</span>' : '') +
-          (n.region ? '<span class="lnc-region">' + n.region + '</span>' : '') +
+          '<span class="lnc-tag">LH</span>' +
+          (n.category ? '<span class="lnc-tag" style="background:var(--bg);color:var(--text-soft);">' + esc(n.category) + '</span>' : '') +
+          (n.subtype && n.subtype !== n.category ? '<span class="lnc-tag" style="background:var(--bg);color:var(--text-soft);">' + esc(n.subtype) + '</span>' : '') +
+          (n.status ? '<span class="lnc-tag" style="background:transparent;color:' + statusColor + ';border:1px solid currentColor;">' + esc(n.status) + '</span>' : '') +
+          (n.region ? '<span class="lnc-region">' + esc(n.region) + '</span>' : '') +
         '</div>' +
-        '<div class="lnc-title">' + (n.title||'') + '</div>' +
-        (period ? '<div class="lnc-period">' + period + '</div>' : '') +
+        '<div class="lnc-title">' + esc(n.title) + '</div>' +
+        (line ? '<div class="lnc-period">' + line + '</div>' : '') +
       '</a>';
     }).join('');
   }

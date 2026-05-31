@@ -1,141 +1,106 @@
 #!/usr/bin/env python3
 """
-공공데이터포털에서 LH 분양·임대공고문 정보를 가져와 assets/notices.json 으로 저장.
-
-데이터 소스:
-  · 한국토지주택공사 분양임대공고별 공급정보 조회 서비스
-    https://apis.data.go.kr/B552555/lhLeaseNoticeSplInfo1/getLeaseNoticeSplInfo1
-  · 필요 시 추가 API 확장 가능
-
-인증키는 GitHub Secret(DATA_GO_KR_KEY)에서 읽음.
-키 미설정·API 미활성화 등 실패 시에도 빈 결과(empty list)로 종료해
-워크플로우가 깨지지 않도록 함.
+공공데이터포털 LH 분양임대공고문 조회 API -> assets/notices.json
+Endpoint: https://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1
 """
 import os
-import json
 import sys
+import json
 import datetime
 import urllib.parse
 import urllib.request
 
 SERVICE_KEY = os.environ.get('DATA_GO_KR_KEY', '').strip()
 OUT_PATH = 'assets/notices.json'
-
-LH_LEASE_URL = (
-    'https://apis.data.go.kr/B552555/lhLeaseNoticeSplInfo1/'
-    'getLeaseNoticeSplInfo1'
-)
+API_URL = 'https://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1'
+LOOKBACK_DAYS = 60
+MAX_ROWS = 100
 
 
-def fetch_json(url, params, timeout=20):
-    """data.go.kr JSON 요청. 실패 시 None 반환."""
+def fetch_json(url, params, timeout=25):
     qs = urllib.parse.urlencode(params, safe='%')
     full = url + '?' + qs
     try:
-        req = urllib.request.Request(
-            full,
-            headers={'Accept': 'application/json'}
-        )
+        req = urllib.request.Request(full, headers={'Accept': 'application/json'})
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             raw = resp.read().decode('utf-8', errors='replace')
-            # data.go.kr은 응답이 JSON일 수도 XML일 수도 있음
-            if raw.strip().startswith('{'):
+            if raw.strip().startswith('[') or raw.strip().startswith('{'):
                 return json.loads(raw)
-            if raw.strip().startswith('<?xml') or raw.strip().startswith('<'):
-                # XML이면 일단 raw로 반환
-                return {'_raw_xml': raw}
-            # 단순 텍스트 (Forbidden, Unauthorized 등)
-            print(f"[WARN] 비정상 응답: {raw[:100]}", file=sys.stderr)
+            print("[WARN] non-JSON response:", raw[:200], file=sys.stderr)
             return None
     except Exception as e:
-        print(f"[WARN] fetch 실패: {e}", file=sys.stderr)
+        print("[WARN] fetch failed:", e, file=sys.stderr)
         return None
 
 
-def parse_items(payload):
-    """data.go.kr 표준 응답 구조에서 item 배열 추출."""
-    if not payload or '_raw_xml' in payload:
+def parse_lh_response(payload):
+    if not payload or not isinstance(payload, list):
         return []
-    # 표준 구조: response > body > items > item
-    try:
-        body = payload.get('response', {}).get('body', {})
-        items = body.get('items', {})
-        if isinstance(items, dict):
-            raw_items = items.get('item', [])
-        else:
-            raw_items = items
-        if isinstance(raw_items, dict):
-            raw_items = [raw_items]
-        return raw_items or []
-    except Exception as e:
-        print(f"[WARN] 파싱 실패: {e}", file=sys.stderr)
+    for block in payload:
+        if isinstance(block, dict) and 'dsList' in block:
+            ds = block.get('dsList')
+            if isinstance(ds, list):
+                return ds
+    return []
+
+
+def fetch_recent_notices():
+    if not SERVICE_KEY:
+        print("[INFO] DATA_GO_KR_KEY missing -> skip fetch", file=sys.stderr)
         return []
+    today = datetime.date.today()
+    start = today - datetime.timedelta(days=LOOKBACK_DAYS)
+    params = {
+        'serviceKey': SERVICE_KEY,
+        'PG_SZ': str(MAX_ROWS),
+        'PAGE': '1',
+        'PAN_ST_DT': start.strftime('%Y%m%d'),
+        'PAN_ED_DT': today.strftime('%Y%m%d'),
+    }
+    payload = fetch_json(API_URL, params)
+    items = parse_lh_response(payload)
+    print("[INFO] received {} items".format(len(items)), file=sys.stderr)
+    return items
 
 
 def normalize(raw_items):
-    """LH 응답을 사이트 표시용 형식으로 정규화."""
+    STATUS_RANK = {'접수중': 0, '공고중': 1, '정정공고중': 2, '상담요청': 3, '접수마감': 9}
     result = []
     for it in raw_items:
-        title = it.get('PAN_NM') or it.get('panNm') or ''
-        region = it.get('CNP_CD_NM') or it.get('cnpCdNm') or ''
-        kind = it.get('AIS_TP_CD_NM') or it.get('aisTpCdNm') or ''
-        notice_date = it.get('PAN_DT') or it.get('panDt') or ''
-        receipt_start = it.get('RCEPT_BGNDE') or it.get('rceptBgnde') or ''
-        receipt_end = it.get('RCEPT_ENDDE') or it.get('rceptEndde') or ''
-        url = it.get('DTL_URL') or it.get('dtlUrl') or 'https://apply.lh.or.kr'
+        title = (it.get('PAN_NM') or '').strip()
         if not title:
             continue
+        status = (it.get('PAN_SS') or '').strip()
+        if status == '접수마감':
+            continue
         result.append({
-            'agency': 'LH',
             'title': title,
-            'region': region,
-            'kind': kind,
-            'noticeDate': notice_date,
-            'receiptStart': receipt_start,
-            'receiptEnd': receipt_end,
-            'url': url
+            'category': (it.get('UPP_AIS_TP_NM') or '').strip(),
+            'subtype': (it.get('AIS_TP_CD_NM') or '').strip(),
+            'region': (it.get('CNP_CD_NM') or '').strip(),
+            'posted': (it.get('PAN_NT_ST_DT') or '').strip(),
+            'deadline': (it.get('CLSG_DT') or '').strip(),
+            'status': status,
+            'url': (it.get('DTL_URL') or '').strip() or 'https://apply.lh.or.kr',
         })
+    result.sort(key=lambda x: (STATUS_RANK.get(x['status'], 5), '-' + x['posted'] if x['posted'] else 'z'))
     return result
 
 
-def fetch_lh_recent():
-    """LH 분양·임대공고 최근 항목 조회."""
-    if not SERVICE_KEY:
-        print("[INFO] DATA_GO_KR_KEY 미설정 — fetch 건너뜀", file=sys.stderr)
-        return []
-    # data.go.kr 표준 페이지네이션 + JSON 응답 요청
-    params = {
-        'serviceKey': SERVICE_KEY,
-        'pageNo': '1',
-        'numOfRows': '50',
-        '_type': 'json',
-    }
-    payload = fetch_json(LH_LEASE_URL, params)
-    items = parse_items(payload)
-    if not items:
-        # 다른 파라미터 형식으로 재시도
-        params2 = {
-            'serviceKey': SERVICE_KEY,
-            'PAGE': '1',
-            'PG_SZ': '50',
-        }
-        payload = fetch_json(LH_LEASE_URL, params2)
-        items = parse_items(payload)
-    return normalize(items)
-
-
 def main():
-    notices = fetch_lh_recent()
-
+    raw = fetch_recent_notices()
+    notices = normalize(raw)
     payload = {
         'updated': datetime.datetime.utcnow().isoformat() + 'Z',
-        'source': '공공데이터포털 (LH 분양임대공고) 자동 갱신',
+        'source': '공공데이터포털 (LH 분양임대공고문 조회) 자동 갱신',
+        'lookbackDays': LOOKBACK_DAYS,
+        'count': len(notices),
         'notices': notices,
     }
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     with open(OUT_PATH, 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
-    print(f"[OK] notices.json 저장 — {len(notices)}건")
+    print("[OK] notices.json saved - {} items".format(len(notices)))
 
 
 if __name__ == '__main__':
