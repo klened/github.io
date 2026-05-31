@@ -1,12 +1,7 @@
 {
-<<<<<<< Updated upstream
-  "updated": "2026-05-31T05:31:25.588097Z",
-  "source": "공공데이터포털 (LH 분양임대공고) 자동 갱신",
-=======
   "updated": "2026-05-31T05:46:40.073108Z",
   "source": "공공데이터포털 (LH 분양임대공고문 조회) 자동 갱신",
   "lookbackDays": 60,
   "count": 0,
->>>>>>> Stashed changes
   "notices": []
 }
